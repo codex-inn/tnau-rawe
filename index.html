@@ -11,7 +11,7 @@
 <title>TNAU RAWE Programme 2026 | Paiyur Team</title>
 
 <link rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
 
 <style>
@@ -38,16 +38,13 @@ body {
 
     line-height: 1.6;
 
-    /*
-       VVNR CAMPUS
-       FULL WEBSITE BACKGROUND
-    */
+    /* FULL WEBSITE VVNR BACKGROUND */
 
     background-image:
 
         linear-gradient(
-            rgba(255, 255, 255, 0.72),
-            rgba(255, 255, 255, 0.72)
+            rgba(255,255,255,0.72),
+            rgba(255,255,255,0.72)
         ),
 
         url("vvnr-campus.jpg");
@@ -76,10 +73,10 @@ body {
 
         linear-gradient(
             90deg,
-            rgba(255,255,255,.94) 0%,
-            rgba(255,255,255,.88) 45%,
-            rgba(255,255,255,.55) 75%,
-            rgba(255,255,255,.15) 100%
+            rgba(255,255,255,.93) 0%,
+            rgba(255,255,255,.84) 45%,
+            rgba(255,255,255,.52) 75%,
+            rgba(255,255,255,.18) 100%
         ),
 
         url("tnau-coimbatore.jpg");
@@ -116,15 +113,11 @@ body {
 
     position: relative;
 
-    z-index: 2;
-
-    /*
-       Keep logo clear and dark
-    */
+    z-index: 5;
 
     filter:
-        contrast(1.15)
-        brightness(.92);
+        contrast(1.25)
+        brightness(.88);
 }
 
 
@@ -138,7 +131,7 @@ body {
 
     position: relative;
 
-    z-index: 2;
+    z-index: 5;
 }
 
 .header-text h1 {
@@ -198,7 +191,7 @@ body {
 
     position: relative;
 
-    z-index: 2;
+    z-index: 5;
 }
 
 .theme-box small {
@@ -286,7 +279,7 @@ nav a:hover {
 
 
 /* =====================================================
-   MOBILE MENU BUTTON
+   MOBILE MENU
 ===================================================== */
 
 .menu-btn {
@@ -323,21 +316,22 @@ nav a:hover {
 
 .hero {
 
-    min-height: 500px;
+    min-height: 510px;
 
     /*
-       NO NEW IMAGE HERE.
-       VVNR CAMPUS FROM BODY SHOWS THROUGH.
+       IMPORTANT:
+       NO IMAGE HERE.
+       BODY VVNR IMAGE SHOWS THROUGH.
     */
 
     background:
 
         linear-gradient(
             90deg,
-            rgba(0,45,22,.78) 0%,
-            rgba(0,45,22,.50) 35%,
-            rgba(0,45,22,.16) 72%,
-            rgba(0,45,22,.04) 100%
+            rgba(0,45,22,.80) 0%,
+            rgba(0,45,22,.50) 38%,
+            rgba(0,45,22,.15) 75%,
+            rgba(0,45,22,.03) 100%
         );
 
     display: flex;
@@ -349,7 +343,7 @@ nav a:hover {
 
 .hero-content {
 
-    max-width: 560px;
+    max-width: 570px;
 
     color: white;
 }
@@ -493,7 +487,7 @@ nav a:hover {
 .team-card {
 
     background:
-        rgba(255,255,255,.94);
+        rgba(255,255,255,.95);
 
     border-radius: 12px;
 
@@ -511,6 +505,10 @@ nav a:hover {
 .team-card:hover {
 
     transform: translateY(-5px);
+
+    box-shadow:
+        0 9px 25px
+        rgba(0,0,0,.20);
 }
 
 .team-icon {
@@ -534,21 +532,6 @@ nav a:hover {
     color: #21733a;
 
     font-size: 36px;
-}
-
-.team-photo {
-
-    width: 105px;
-
-    height: 105px;
-
-    border-radius: 50%;
-
-    object-fit: cover;
-
-    border: 3px solid #398249;
-
-    margin-bottom: 10px;
 }
 
 .team-card h3 {
@@ -578,17 +561,12 @@ nav a:hover {
 
 
 /* =====================================================
-   RAWE PROGRAMME
+   PROGRAMME
 ===================================================== */
 
 .programme {
 
     padding: 35px 5% 60px;
-
-    /*
-       TRANSPARENT
-       VVNR BACKGROUND REMAINS VISIBLE
-    */
 
     background:
         rgba(255,255,255,.42);
@@ -611,7 +589,7 @@ nav a:hover {
 .programme-card {
 
     background:
-        rgba(255,255,255,.93);
+        rgba(255,255,255,.94);
 
     border: 1px solid #e0e0e0;
 
@@ -668,7 +646,7 @@ nav a:hover {
 
 
 /* =====================================================
-   CONTENT
+   CONTENT SECTIONS
 ===================================================== */
 
 .content-section {
@@ -699,7 +677,7 @@ nav a:hover {
     padding: 28px;
 
     background:
-        rgba(255,255,255,.91);
+        rgba(255,255,255,.93);
 
     border-radius: 12px;
 
@@ -714,14 +692,51 @@ nav a:hover {
 
 
 /* =====================================================
-   BOTTOM VVNR ENTRANCE
+   STUDENT LIST
+===================================================== */
+
+.student-list {
+
+    max-width: 1100px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 10px;
+}
+
+.student {
+
+    background:
+        rgba(255,255,255,.94);
+
+    border-left:
+        4px solid #24783b;
+
+    border-radius: 7px;
+
+    padding: 12px 14px;
+
+    font-weight: 600;
+
+    box-shadow:
+        0 2px 8px rgba(0,0,0,.08);
+}
+
+
+/* =====================================================
+   BOTTOM ENTRANCE IMAGE
 ===================================================== */
 
 .bottom-campus {
 
     width: 100%;
 
-    min-height: 400px;
+    min-height: 410px;
 
     background-image:
 
@@ -748,13 +763,13 @@ nav a:hover {
     width: 100%;
 
     background:
-        rgba(0,55,28,.82);
+        rgba(0,55,28,.84);
 
     color: white;
 
     text-align: center;
 
-    padding: 19px;
+    padding: 20px;
 
     font-size: 19px;
 
@@ -763,20 +778,175 @@ nav a:hover {
 
 
 /* =====================================================
-   FOOTER
+   NEW FULL FOOTER
 ===================================================== */
 
-footer {
+.main-footer {
 
-    background: #063d20;
+    background:
+
+        linear-gradient(
+            135deg,
+            rgba(3,55,27,.98),
+            rgba(7,82,40,.98)
+        );
 
     color: white;
 
     text-align: center;
 
-    padding: 30px 20px;
+    padding: 48px 20px 35px;
 
-    line-height: 1.7;
+    position: relative;
+
+    overflow: hidden;
+}
+
+.footer-content {
+
+    max-width: 1000px;
+
+    margin: auto;
+}
+
+
+/* TITLE */
+
+.footer-title {
+
+    font-size:
+        clamp(24px, 3vw, 34px);
+
+    font-weight: 900;
+
+    margin-bottom: 12px;
+}
+
+
+/* COLLEGE */
+
+.footer-college {
+
+    font-size:
+        clamp(16px, 2vw, 21px);
+
+    font-weight: 800;
+
+    letter-spacing: .5px;
+
+    margin-bottom: 3px;
+}
+
+
+/* LOCATION */
+
+.footer-location {
+
+    font-size: 16px;
+
+    opacity: .9;
+
+    margin-bottom: 28px;
+}
+
+
+/* TEAM TITLE */
+
+.footer-team-title {
+
+    font-size:
+        clamp(20px, 2.5vw, 27px);
+
+    font-weight: 800;
+
+    margin-bottom: 14px;
+
+    color: #c9e6b9;
+}
+
+
+/* STUDENTS */
+
+.footer-students {
+
+    max-width: 900px;
+
+    margin: auto;
+
+    font-size: 15px;
+
+    line-height: 1.8;
+
+    opacity: .95;
+}
+
+
+/* MOTTO */
+
+.footer-motto {
+
+    margin-top: 27px;
+
+    font-size:
+        clamp(18px, 2vw, 23px);
+
+    font-weight: 800;
+
+    color: #d6edc9;
+
+    letter-spacing: .5px;
+}
+
+
+/* QUOTE */
+
+.footer-quote {
+
+    margin-top: 9px;
+
+    font-family: Georgia, serif;
+
+    font-style: italic;
+
+    font-size: 16px;
+
+    opacity: .9;
+}
+
+
+/* LINE */
+
+.footer-line {
+
+    width: 120px;
+
+    height: 2px;
+
+    background: #8cc46f;
+
+    margin: 28px auto 20px;
+}
+
+
+/* COPYRIGHT */
+
+.footer-copy {
+
+    font-size: 14px;
+
+    font-weight: bold;
+}
+
+
+/* ACRI */
+
+.footer-acri {
+
+    margin-top: 4px;
+
+    font-size: 13px;
+
+    opacity: .8;
 }
 
 
@@ -799,6 +969,12 @@ footer {
             repeat(3, 1fr);
     }
 
+    .student-list {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
 }
 
 
@@ -809,7 +985,7 @@ footer {
 @media (max-width: 768px) {
 
 
-    /* HEADER */
+    /* TOP HEADER */
 
     .top-header {
 
@@ -834,6 +1010,8 @@ footer {
     .header-text h1 {
 
         font-size: 23px;
+
+        line-height: 1.2;
     }
 
     .subtitle {
@@ -869,7 +1047,7 @@ footer {
     }
 
 
-    /* MENU */
+    /* MOBILE MENU */
 
     .menu-btn {
 
@@ -919,9 +1097,10 @@ footer {
         padding: 45px 22px;
 
         background:
+
             linear-gradient(
                 90deg,
-                rgba(0,45,22,.78),
+                rgba(0,45,22,.82),
                 rgba(0,45,22,.28)
             );
     }
@@ -939,6 +1118,8 @@ footer {
     .hero-content h2 {
 
         font-size: 35px;
+
+        line-height: 1.12;
     }
 
     .hero-content p {
@@ -1017,6 +1198,21 @@ footer {
     }
 
 
+    /* STUDENTS */
+
+    .student-list {
+
+        grid-template-columns: 1fr;
+
+        gap: 8px;
+    }
+
+    .student {
+
+        font-size: 14px;
+    }
+
+
     /* CONTENT */
 
     .content-section {
@@ -1039,7 +1235,7 @@ footer {
     }
 
 
-    /* BOTTOM */
+    /* BOTTOM IMAGE */
 
     .bottom-campus {
 
@@ -1053,11 +1249,77 @@ footer {
         padding: 14px;
     }
 
+
+    /* FOOTER */
+
+    .main-footer {
+
+        padding:
+            38px 18px 28px;
+    }
+
+    .footer-title {
+
+        font-size: 24px;
+
+        line-height: 1.3;
+    }
+
+    .footer-college {
+
+        font-size: 16px;
+
+        line-height: 1.4;
+    }
+
+    .footer-location {
+
+        font-size: 14px;
+
+        margin-bottom: 22px;
+    }
+
+    .footer-team-title {
+
+        font-size: 21px;
+    }
+
+    .footer-students {
+
+        font-size: 14px;
+
+        line-height: 1.9;
+    }
+
+    .footer-motto {
+
+        font-size: 18px;
+
+        line-height: 1.4;
+    }
+
+    .footer-quote {
+
+        font-size: 14px;
+
+        line-height: 1.5;
+    }
+
+    .footer-copy {
+
+        font-size: 13px;
+    }
+
+    .footer-acri {
+
+        font-size: 12px;
+    }
+
 }
 
 
 /* =====================================================
-   SMALL PHONE
+   SMALL MOBILE
 ===================================================== */
 
 @media (max-width: 420px) {
@@ -1151,11 +1413,11 @@ footer {
         </div>
 
         <div class="college">
-            Agricultural College & Research Institute (AC&RI)
+            AGRICULTURAL COLLEGE & RESEARCH INSTITUTE
         </div>
 
         <div class="location">
-            Vazhavachanur, Tiruvannamalai
+            Vazhavachanur · Tiruvannamalai
         </div>
 
     </div>
@@ -1177,7 +1439,7 @@ footer {
 
 
 <!-- =====================================================
-     MOBILE MENU BUTTON
+     MOBILE MENU
 ===================================================== -->
 
 <button
@@ -1310,7 +1572,7 @@ footer {
     <div class="team-grid">
 
 
-        <!-- DR. M. SANKAR -->
+        <!-- TEAM IN-CHARGE -->
 
         <div class="team-card">
 
@@ -1339,7 +1601,7 @@ footer {
         </div>
 
 
-        <!-- DR. P. SENTHIL KUMAR -->
+        <!-- STAFF IN-CHARGE -->
 
         <div class="team-card">
 
@@ -1372,7 +1634,7 @@ footer {
         </div>
 
 
-        <!-- KOWSHIK -->
+        <!-- TEAM LEADER -->
 
         <div class="team-card">
 
@@ -1535,6 +1797,78 @@ footer {
 
 
 <!-- =====================================================
+     STUDENTS
+===================================================== -->
+
+<section
+    class="content-section"
+    id="student-list">
+
+    <h2>
+        👨‍🌾 Team : Paiyur
+    </h2>
+
+
+    <div class="student-list">
+
+        <div class="student">
+            01 · Dinesh M
+        </div>
+
+        <div class="student">
+            02 · Gokul Raj R
+        </div>
+
+        <div class="student">
+            03 · GokulaBalaji R
+        </div>
+
+        <div class="student">
+            04 · GopiBalaji M
+        </div>
+
+        <div class="student">
+            05 · Gowsikan P
+        </div>
+
+        <div class="student">
+            06 · Jana P
+        </div>
+
+        <div class="student">
+            07 · Jayasurya J
+        </div>
+
+        <div class="student">
+            08 · Joshan P
+        </div>
+
+        <div class="student">
+            09 · Jothishkumar K
+        </div>
+
+        <div class="student">
+            10 · Kishor S
+        </div>
+
+        <div class="student">
+            11 · Kowshik S
+        </div>
+
+        <div class="student">
+            12 · Akshaya K
+        </div>
+
+        <div class="student">
+            13 · Swapanjit Behera
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
      ABOUT RAWE
 ===================================================== -->
 
@@ -1564,6 +1898,160 @@ footer {
             experience in agricultural development.
         </p>
 
+        <br>
+
+        <p>
+            <strong>
+                Learn × Experience × Serve × Grow
+            </strong>
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     VILLAGE PROFILE
+===================================================== -->
+
+<section
+    class="content-section"
+    id="village-profile">
+
+    <h2>
+        Village Profile
+    </h2>
+
+    <div class="content-box">
+
+        <p>
+            <strong>
+                RAWE Theme : PAIYUR
+            </strong>
+        </p>
+
+        <br>
+
+        <p>
+            Field-level learning, farmer interaction,
+            agricultural surveys and practical rural
+            experience are key components of the
+            programme.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     ACTIVITIES
+===================================================== -->
+
+<section
+    class="content-section"
+    id="activity-section">
+
+    <h2>
+        Activities
+    </h2>
+
+    <div class="content-box">
+
+        <p>
+            🌱 Farmer interaction
+        </p>
+
+        <p>
+            🌾 Field visits
+        </p>
+
+        <p>
+            📋 Agricultural surveys
+        </p>
+
+        <p>
+            👨‍🌾 Rural agricultural experience
+        </p>
+
+        <p>
+            🌿 Crop and farm observations
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     GALLERY
+===================================================== -->
+
+<section
+    class="content-section"
+    id="gallery-section">
+
+    <h2>
+        Gallery
+    </h2>
+
+    <div class="content-box">
+
+        <p>
+            📸 RAWE programme photographs and
+            field activity memories will be
+            displayed here.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     REPORTS
+===================================================== -->
+
+<section
+    class="content-section"
+    id="reports-section">
+
+    <h2>
+        Reports
+    </h2>
+
+    <div class="content-box">
+
+        <p>
+            📄 RAWE reports and programme
+            documents will be added here.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     SCHEDULE
+===================================================== -->
+
+<section
+    class="content-section"
+    id="schedule-section">
+
+    <h2>
+        Schedule
+    </h2>
+
+    <div class="content-box">
+
+        <p>
+            📅 RAWE programme schedule and
+            important events will be updated here.
+        </p>
+
     </div>
 
 </section>
@@ -1584,13 +2072,15 @@ footer {
     <div class="content-box">
 
         <p>
-            📢 RAWE Programme 2026 – Paiyur Team
+            📢 TNAU RAWE Programme 2026 –
+            Paiyur Team
         </p>
 
         <br>
 
         <p>
-            📢 Programme updates will be published here.
+            📢 Programme updates will be
+            published here.
         </p>
 
     </div>
@@ -1614,22 +2104,20 @@ footer {
 
         <p>
             <strong>
-                Agricultural College & Research Institute (AC&RI)
+                AGRICULTURAL COLLEGE & RESEARCH INSTITUTE
             </strong>
         </p>
 
         <p>
-            Vazhavachanur, Tiruvannamalai
+            Vazhavachanur · Tiruvannamalai
         </p>
 
         <br>
 
         <p>
             <strong>
-                RAWE Theme:
+                Team : Paiyur
             </strong>
-
-            Paiyur
         </p>
 
         <br>
@@ -1664,267 +2152,143 @@ footer {
 
 
 <!-- =====================================================
-     BOTTOM VVNR ENTRANCE IMAGE
+     BOTTOM ENTRANCE IMAGE
 ===================================================== -->
 
 <section class="bottom-campus">
 
     <div class="bottom-campus-text">
 
-        Agricultural College & Research Institute (AC&RI)
+        AGRICULTURAL COLLEGE & RESEARCH INSTITUTE
 
         <br>
 
-        Vazhavachanur, Tiruvannamalai
+        Vazhavachanur · Tiruvannamalai
 
         <br>
 
-        🌾 RAWE Theme: PAIYUR
+        🌾 TEAM : PAIYUR
 
     </div>
 
 </section>
 
 
-/* =====================================================
-   NEW FOOTER
-===================================================== */
+<!-- =====================================================
+     FINAL FOOTER
+===================================================== -->
 
-.main-footer {
+<footer class="main-footer">
 
-    background:
-        linear-gradient(
-            135deg,
-            rgba(3,55,27,.98),
-            rgba(7,82,40,.98)
+    <div class="footer-content">
+
+
+        <div class="footer-title">
+            🌾 TNAU RAWE Programme 2026
+        </div>
+
+
+        <div class="footer-college">
+            AGRICULTURAL COLLEGE & RESEARCH INSTITUTE
+        </div>
+
+
+        <div class="footer-location">
+            Vazhavachanur · Tiruvannamalai
+        </div>
+
+
+        <div class="footer-team-title">
+            👨‍🌾 TEAM : PAIYUR
+        </div>
+
+
+        <div class="footer-students">
+
+            Dinesh M · Gokul Raj R · GokulaBalaji R ·
+            GopiBalaji M · Gowsikan P · Jana P ·
+            Jayasurya J · Joshan P · Jothishkumar K ·
+            Kishor S · Kowshik S · Akshaya K ·
+            Swapanjit Behera
+
+        </div>
+
+
+        <div class="footer-motto">
+
+            Learn × Experience × Serve × Grow
+
+        </div>
+
+
+        <div class="footer-quote">
+
+            “Together in the field, growing through experience.”
+
+        </div>
+
+
+        <div class="footer-line"></div>
+
+
+        <div class="footer-copy">
+
+            © 2026 TNAU RAWE Programme
+
+        </div>
+
+
+        <div class="footer-acri">
+
+            AC&RI Vazhavachanur · Tiruvannamalai
+
+        </div>
+
+
+    </div>
+
+</footer>
+
+
+<!-- =====================================================
+     MOBILE MENU SCRIPT
+===================================================== -->
+
+<script>
+
+function toggleMenu() {
+
+    const nav =
+        document.getElementById("mainNav");
+
+    nav.classList.toggle("show");
+
+}
+
+
+/* Close mobile menu after clicking */
+
+document
+    .querySelectorAll("#mainNav a")
+    .forEach(function(link) {
+
+        link.addEventListener(
+            "click",
+            function() {
+
+                document
+                    .getElementById("mainNav")
+                    .classList
+                    .remove("show");
+
+            }
         );
 
-    color: white;
+    });
 
-    text-align: center;
+</script>
 
-    padding: 48px 20px 35px;
 
-    position: relative;
+</body>
 
-    overflow: hidden;
-}
-
-.footer-content {
-
-    max-width: 1000px;
-
-    margin: auto;
-}
-
-
-/* TITLE */
-
-.footer-title {
-
-    font-size:
-        clamp(24px, 3vw, 34px);
-
-    font-weight: 900;
-
-    margin-bottom: 12px;
-}
-
-
-/* COLLEGE */
-
-.footer-college {
-
-    font-size:
-        clamp(16px, 2vw, 21px);
-
-    font-weight: 800;
-
-    letter-spacing: .5px;
-
-    margin-bottom: 3px;
-}
-
-
-/* LOCATION */
-
-.footer-location {
-
-    font-size: 16px;
-
-    opacity: .9;
-
-    margin-bottom: 28px;
-}
-
-
-/* TEAM */
-
-.footer-team-title {
-
-    font-size:
-        clamp(20px, 2.5vw, 27px);
-
-    font-weight: 800;
-
-    margin-bottom: 14px;
-
-    color: #c9e6b9;
-}
-
-
-/* STUDENT NAMES */
-
-.footer-students {
-
-    max-width: 900px;
-
-    margin: auto;
-
-    font-size: 15px;
-
-    line-height: 1.8;
-
-    opacity: .95;
-}
-
-
-/* MOTTO */
-
-.footer-motto {
-
-    margin-top: 27px;
-
-    font-size:
-        clamp(18px, 2vw, 23px);
-
-    font-weight: 800;
-
-    color: #d6edc9;
-
-    letter-spacing: .5px;
-}
-
-
-/* QUOTE */
-
-.footer-quote {
-
-    margin-top: 9px;
-
-    font-family: Georgia, serif;
-
-    font-style: italic;
-
-    font-size: 16px;
-
-    opacity: .9;
-}
-
-
-/* LINE */
-
-.footer-line {
-
-    width: 120px;
-
-    height: 2px;
-
-    background: #8cc46f;
-
-    margin: 28px auto 20px;
-}
-
-
-/* COPYRIGHT */
-
-.footer-copy {
-
-    font-size: 14px;
-
-    font-weight: bold;
-}
-
-
-/* ACRI */
-
-.footer-acri {
-
-    margin-top: 4px;
-
-    font-size: 13px;
-
-    opacity: .8;
-}
-
-
-/* =====================================================
-   MOBILE FOOTER
-===================================================== */
-
-@media (max-width: 768px) {
-
-    .main-footer {
-
-        padding:
-            38px 18px 28px;
-    }
-
-    .footer-title {
-
-        font-size: 24px;
-
-        line-height: 1.3;
-    }
-
-    .footer-college {
-
-        font-size: 16px;
-
-        line-height: 1.4;
-    }
-
-    .footer-location {
-
-        font-size: 14px;
-
-        margin-bottom: 22px;
-    }
-
-    .footer-team-title {
-
-        font-size: 21px;
-    }
-
-    .footer-students {
-
-        font-size: 14px;
-
-        line-height: 1.9;
-    }
-
-    .footer-motto {
-
-        font-size: 18px;
-
-        line-height: 1.4;
-    }
-
-    .footer-quote {
-
-        font-size: 14px;
-
-        line-height: 1.5;
-    }
-
-    .footer-copy {
-
-        font-size: 13px;
-    }
-
-    .footer-acri {
-
-        font-size: 12px;
-    }
-
-}
+</html>
