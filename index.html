@@ -6,18 +6,18 @@
 <meta charset="UTF-8">
 
 <meta name="viewport"
-content="width=device-width, initial-scale=1.0">
+      content="width=device-width, initial-scale=1.0">
 
-<title>TNAU RAWE Programme 2026 | Paiyur</title>
+<title>TNAU RAWE Programme 2026 | Paiyur Team</title>
 
 <link rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
 
 <style>
 
 /* =====================================================
-   BASIC
+   RESET
 ===================================================== */
 
 * {
@@ -39,14 +39,17 @@ body {
     line-height: 1.6;
 
     /*
-       VVNR CAMPUS = WHOLE WEBSITE BACKGROUND
+       VVNR CAMPUS
+       FULL WEBSITE BACKGROUND
     */
 
     background-image:
+
         linear-gradient(
-            rgba(255,255,255,0.84),
-            rgba(255,255,255,0.84)
+            rgba(255, 255, 255, 0.72),
+            rgba(255, 255, 255, 0.72)
         ),
+
         url("vvnr-campus.jpg");
 
     background-size: cover;
@@ -56,6 +59,8 @@ body {
     background-attachment: fixed;
 
     background-repeat: no-repeat;
+
+    min-height: 100vh;
 }
 
 
@@ -71,10 +76,10 @@ body {
 
         linear-gradient(
             90deg,
-            rgba(255,255,255,.97) 0%,
-            rgba(255,255,255,.94) 40%,
-            rgba(255,255,255,.70) 65%,
-            rgba(255,255,255,.25) 100%
+            rgba(255,255,255,.94) 0%,
+            rgba(255,255,255,.88) 45%,
+            rgba(255,255,255,.55) 75%,
+            rgba(255,255,255,.15) 100%
         ),
 
         url("tnau-coimbatore.jpg");
@@ -90,10 +95,14 @@ body {
     gap: 25px;
 
     padding: 18px 5%;
+
+    position: relative;
 }
 
 
-/* LOGO */
+/* =====================================================
+   TNAU LOGO
+===================================================== */
 
 .logo {
 
@@ -104,76 +113,92 @@ body {
     object-fit: contain;
 
     flex-shrink: 0;
+
+    position: relative;
+
+    z-index: 2;
+
+    /*
+       Keep logo clear and dark
+    */
+
+    filter:
+        contrast(1.15)
+        brightness(.92);
 }
 
 
-/* HEADER TEXT */
+/* =====================================================
+   HEADER TEXT
+===================================================== */
 
 .header-text {
 
     flex: 1;
+
+    position: relative;
+
+    z-index: 2;
 }
 
 .header-text h1 {
 
     color: #104d2b;
 
-    font-size: clamp(
-        24px,
-        3vw,
-        36px
-    );
+    font-size:
+        clamp(24px, 3vw, 36px);
 
     font-weight: 800;
 
-    margin-bottom: 5px;
+    line-height: 1.2;
+
+    margin-bottom: 6px;
 }
 
 .subtitle {
 
-    font-size: clamp(
-        15px,
-        1.5vw,
-        20px
-    );
+    color: #222;
 
-    margin-bottom: 10px;
+    font-size:
+        clamp(15px, 1.5vw, 20px);
+
+    margin-bottom: 9px;
 }
 
 .college {
 
-    font-size: clamp(
-        15px,
-        1.5vw,
-        20px
-    );
+    color: #104d2b;
+
+    font-size:
+        clamp(15px, 1.5vw, 20px);
 
     font-weight: bold;
-
-    color: #124d2b;
 }
 
 .location {
 
-    font-size: clamp(
-        14px,
-        1.4vw,
-        19px
-    );
-
     color: #193b25;
+
+    font-size:
+        clamp(14px, 1.4vw, 19px);
 }
 
 
-/* PAIYUR THEME */
+/* =====================================================
+   PAIYUR THEME
+===================================================== */
 
 .theme-box {
 
     text-align: center;
 
-    padding: 10px 25px;
+    padding: 10px 20px;
 
     flex-shrink: 0;
+
+    position: relative;
+
+    z-index: 2;
 }
 
 .theme-box small {
@@ -193,13 +218,10 @@ body {
 
     display: block;
 
-    color: #176b3a;
+    color: #0c572d;
 
-    font-size: clamp(
-        28px,
-        3vw,
-        40px
-    );
+    font-size:
+        clamp(28px, 3vw, 40px);
 
     font-weight: 900;
 }
@@ -221,7 +243,7 @@ nav {
 
     align-items: center;
 
-    gap: 3px;
+    gap: 2px;
 
     position: sticky;
 
@@ -241,11 +263,13 @@ nav a {
 
     padding: 12px 14px;
 
-    font-size: 15px;
+    font-size: 14px;
 
-    border-radius: 6px;
+    font-weight: 600;
 
     white-space: nowrap;
+
+    border-radius: 5px;
 
     transition: .25s;
 }
@@ -255,15 +279,14 @@ nav a i {
     margin-right: 6px;
 }
 
-nav a:hover,
-nav a.active {
+nav a:hover {
 
     background: #247b3d;
 }
 
 
 /* =====================================================
-   MOBILE MENU
+   MOBILE MENU BUTTON
 ===================================================== */
 
 .menu-btn {
@@ -285,6 +308,12 @@ nav a.active {
     text-align: right;
 
     cursor: pointer;
+
+    position: sticky;
+
+    top: 0;
+
+    z-index: 1001;
 }
 
 
@@ -294,36 +323,33 @@ nav a.active {
 
 .hero {
 
-    min-height: 530px;
+    min-height: 500px;
 
-    background-image:
+    /*
+       NO NEW IMAGE HERE.
+       VVNR CAMPUS FROM BODY SHOWS THROUGH.
+    */
+
+    background:
 
         linear-gradient(
             90deg,
-            rgba(0,35,18,.85) 0%,
-            rgba(0,45,22,.62) 32%,
-            rgba(0,40,20,.18) 72%,
-            rgba(0,40,20,.05) 100%
-        ),
-
-        url("vvnr-campus.jpg");
-
-    background-size: cover;
-
-    background-position: center;
+            rgba(0,45,22,.78) 0%,
+            rgba(0,45,22,.50) 35%,
+            rgba(0,45,22,.16) 72%,
+            rgba(0,45,22,.04) 100%
+        );
 
     display: flex;
 
     align-items: center;
 
-    padding: 50px 5%;
-
-    position: relative;
+    padding: 60px 5%;
 }
 
 .hero-content {
 
-    max-width: 550px;
+    max-width: 560px;
 
     color: white;
 }
@@ -332,26 +358,20 @@ nav a.active {
 
     font-family: Georgia, serif;
 
-    font-size: clamp(
-        25px,
-        3vw,
-        34px
-    );
+    font-size:
+        clamp(25px, 3vw, 34px);
 
     font-style: italic;
 
-    color: #9ac67e;
+    color: #a3ce88;
 
-    margin-bottom: 5px;
+    margin-bottom: 7px;
 }
 
 .hero-content h2 {
 
-    font-size: clamp(
-        34px,
-        5vw,
-        55px
-    );
+    font-size:
+        clamp(34px, 5vw, 56px);
 
     line-height: 1.08;
 
@@ -368,20 +388,19 @@ nav a.active {
 
     height: 3px;
 
-    background: #63a94c;
+    background: #70b258;
 
-    margin-bottom: 23px;
+    margin-bottom: 24px;
 }
 
 .hero-content p {
 
-    font-size: clamp(
-        16px,
-        1.5vw,
-        19px
-    );
+    font-size:
+        clamp(16px, 1.5vw, 19px);
 
     line-height: 1.65;
+
+    color: white;
 }
 
 .explore {
@@ -390,7 +409,7 @@ nav a.active {
 
     align-items: center;
 
-    gap: 15px;
+    gap: 13px;
 
     margin-top: 25px;
 
@@ -402,7 +421,7 @@ nav a.active {
 
     text-decoration: none;
 
-    border-radius: 8px;
+    border-radius: 7px;
 
     font-weight: bold;
 
@@ -418,16 +437,16 @@ nav a.active {
 
 
 /* =====================================================
-   TEAM
+   PAIYUR TEAM
 ===================================================== */
 
 .team-wrapper {
 
     position: relative;
 
-    margin-top: -90px;
+    z-index: 5;
 
-    z-index: 10;
+    margin-top: -65px;
 
     padding: 0 5%;
 }
@@ -436,17 +455,14 @@ nav a.active {
 
     text-align: center;
 
-    color: #064e27;
+    color: #075128;
 
-    font-size: clamp(
-        21px,
-        2.2vw,
-        27px
-    );
+    font-size:
+        clamp(21px, 2.2vw, 28px);
 
     font-weight: 800;
 
-    margin-bottom: 14px;
+    margin-bottom: 15px;
 }
 
 .section-heading::before,
@@ -462,26 +478,26 @@ nav a.active {
 
 .team-grid {
 
+    max-width: 930px;
+
+    margin: auto;
+
     display: grid;
 
     grid-template-columns:
-        repeat(3, minmax(0, 1fr));
+        repeat(3, 1fr);
 
     gap: 18px;
-
-    max-width: 900px;
-
-    margin: auto;
 }
 
 .team-card {
 
     background:
-        rgba(255,255,255,.95);
+        rgba(255,255,255,.94);
 
     border-radius: 12px;
 
-    padding: 22px 18px;
+    padding: 23px 18px;
 
     text-align: center;
 
@@ -495,20 +511,36 @@ nav a.active {
 .team-card:hover {
 
     transform: translateY(-5px);
-
-    box-shadow:
-        0 9px 25px
-        rgba(0,0,0,.22);
 }
 
+.team-icon {
 
-/* TEAM PHOTOS */
+    width: 85px;
+
+    height: 85px;
+
+    border-radius: 50%;
+
+    margin: 0 auto 11px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background: #eaf6ed;
+
+    color: #21733a;
+
+    font-size: 36px;
+}
 
 .team-photo {
 
-    width: 110px;
+    width: 105px;
 
-    height: 110px;
+    height: 105px;
 
     border-radius: 50%;
 
@@ -519,36 +551,13 @@ nav a.active {
     margin-bottom: 10px;
 }
 
-.team-icon {
-
-    width: 90px;
-
-    height: 90px;
-
-    margin: 0 auto 10px;
-
-    border-radius: 50%;
-
-    display: flex;
-
-    justify-content: center;
-
-    align-items: center;
-
-    background: #edf7ee;
-
-    color: #23763b;
-
-    font-size: 38px;
-}
-
 .team-card h3 {
 
     color: #0d4d28;
 
     font-size: 18px;
 
-    margin-bottom: 3px;
+    margin-bottom: 4px;
 }
 
 .role {
@@ -569,45 +578,46 @@ nav a.active {
 
 
 /* =====================================================
-   PROGRAMME
+   RAWE PROGRAMME
 ===================================================== */
 
 .programme {
 
-    padding: 25px 5% 55px;
+    padding: 35px 5% 60px;
 
     /*
-       LIGHT SHADE OVER VVNR BACKGROUND
+       TRANSPARENT
+       VVNR BACKGROUND REMAINS VISIBLE
     */
 
     background:
-        rgba(255,255,255,.76);
+        rgba(255,255,255,.42);
 }
 
 .programme-grid {
 
-    display: grid;
-
-    grid-template-columns:
-        repeat(6, minmax(0,1fr));
-
-    gap: 10px;
-
     max-width: 1350px;
 
     margin: auto;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(6, 1fr);
+
+    gap: 11px;
 }
 
 .programme-card {
 
     background:
-        rgba(255,255,255,.94);
+        rgba(255,255,255,.93);
 
-    border: 1px solid #e2e2e2;
+    border: 1px solid #e0e0e0;
 
     border-radius: 10px;
 
-    padding: 18px 10px;
+    padding: 20px 10px;
 
     min-height: 150px;
 
@@ -626,14 +636,14 @@ nav a.active {
 
     box-shadow:
         0 8px 18px
-        rgba(0,0,0,.15);
+        rgba(0,0,0,.16);
 }
 
 .programme-card i {
 
-    font-size: 31px;
-
     color: #24783b;
+
+    font-size: 31px;
 
     margin-bottom: 9px;
 }
@@ -649,6 +659,8 @@ nav a.active {
 
 .programme-card p {
 
+    color: #333;
+
     font-size: 14px;
 
     line-height: 1.45;
@@ -656,7 +668,7 @@ nav a.active {
 
 
 /* =====================================================
-   CONTENT SECTIONS
+   CONTENT
 ===================================================== */
 
 .content-section {
@@ -664,14 +676,14 @@ nav a.active {
     padding: 65px 7%;
 
     background:
-        rgba(255,255,255,.82);
+        rgba(255,255,255,.42);
 }
 
 .content-section h2 {
 
-    text-align: center;
-
     color: #0d542c;
+
+    text-align: center;
 
     font-size: 30px;
 
@@ -684,16 +696,16 @@ nav a.active {
 
     margin: auto;
 
+    padding: 28px;
+
     background:
         rgba(255,255,255,.91);
-
-    padding: 28px;
 
     border-radius: 12px;
 
     box-shadow:
-        0 3px 12px
-        rgba(0,0,0,.08);
+        0 4px 13px
+        rgba(0,0,0,.09);
 
     font-size: 17px;
 
@@ -702,20 +714,20 @@ nav a.active {
 
 
 /* =====================================================
-   BOTTOM VVNR ENTRANCE IMAGE
+   BOTTOM VVNR ENTRANCE
 ===================================================== */
 
 .bottom-campus {
 
     width: 100%;
 
-    min-height: 390px;
+    min-height: 400px;
 
     background-image:
 
         linear-gradient(
-            rgba(0,45,22,.12),
-            rgba(0,45,22,.12)
+            rgba(0,45,22,.10),
+            rgba(0,45,22,.10)
         ),
 
         url("vvnr-entrance.jpg");
@@ -742,7 +754,7 @@ nav a.active {
 
     text-align: center;
 
-    padding: 18px;
+    padding: 19px;
 
     font-size: 19px;
 
@@ -776,7 +788,7 @@ footer {
 
     nav a {
 
-        font-size: 13px;
+        font-size: 12px;
 
         padding: 11px 8px;
     }
@@ -784,7 +796,7 @@ footer {
     .programme-grid {
 
         grid-template-columns:
-            repeat(3,1fr);
+            repeat(3, 1fr);
     }
 
 }
@@ -805,8 +817,6 @@ footer {
 
         padding: 20px 15px;
 
-        display: flex;
-
         flex-direction: column;
 
         text-align: center;
@@ -824,15 +834,11 @@ footer {
     .header-text h1 {
 
         font-size: 23px;
-
-        line-height: 1.2;
     }
 
     .subtitle {
 
         font-size: 14px;
-
-        margin-bottom: 7px;
     }
 
     .college {
@@ -863,17 +869,11 @@ footer {
     }
 
 
-    /* MOBILE MENU */
+    /* MENU */
 
     .menu-btn {
 
         display: block;
-
-        position: sticky;
-
-        top: 0;
-
-        z-index: 1001;
     }
 
     nav {
@@ -886,9 +886,7 @@ footer {
 
         position: relative;
 
-        width: 100%;
-
-        gap: 0;
+        min-height: 0;
     }
 
     nav.show {
@@ -918,9 +916,14 @@ footer {
 
         min-height: 510px;
 
-        padding: 45px 23px;
+        padding: 45px 22px;
 
-        background-position: center;
+        background:
+            linear-gradient(
+                90deg,
+                rgba(0,45,22,.78),
+                rgba(0,45,22,.28)
+            );
     }
 
     .hero-content {
@@ -936,8 +939,6 @@ footer {
     .hero-content h2 {
 
         font-size: 35px;
-
-        line-height: 1.12;
     }
 
     .hero-content p {
@@ -952,9 +953,9 @@ footer {
 
     .team-wrapper {
 
-        margin-top: -45px;
+        margin-top: -40px;
 
-        padding: 0 18px;
+        padding: 0 17px;
     }
 
     .section-heading {
@@ -977,23 +978,18 @@ footer {
         gap: 15px;
     }
 
-    .team-card {
-
-        padding: 22px;
-    }
-
 
     /* PROGRAMME */
 
     .programme {
 
-        padding: 25px 15px 45px;
+        padding: 30px 15px 45px;
     }
 
     .programme-grid {
 
         grid-template-columns:
-            repeat(2,1fr);
+            repeat(2, 1fr);
 
         gap: 10px;
     }
@@ -1002,7 +998,7 @@ footer {
 
         min-height: 145px;
 
-        padding: 16px 8px;
+        padding: 17px 8px;
     }
 
     .programme-card i {
@@ -1025,7 +1021,7 @@ footer {
 
     .content-section {
 
-        padding: 45px 18px;
+        padding: 45px 17px;
     }
 
     .content-section h2 {
@@ -1043,7 +1039,7 @@ footer {
     }
 
 
-    /* BOTTOM IMAGE */
+    /* BOTTOM */
 
     .bottom-campus {
 
@@ -1061,7 +1057,7 @@ footer {
 
 
 /* =====================================================
-   SMALL MOBILE
+   SMALL PHONE
 ===================================================== */
 
 @media (max-width: 420px) {
@@ -1075,7 +1071,7 @@ footer {
 
         min-height: 480px;
 
-        padding: 35px 20px;
+        padding: 35px 19px;
     }
 
     .hero-content h2 {
@@ -1102,7 +1098,7 @@ footer {
 
 
 /* =====================================================
-   VERY SMALL SCREEN
+   VERY SMALL PHONE
 ===================================================== */
 
 @media (max-width: 330px) {
@@ -1112,11 +1108,13 @@ footer {
         font-size: 27px;
     }
 
-    .team-photo {
+    .team-icon {
 
-        width: 95px;
+        width: 75px;
 
-        height: 95px;
+        height: 75px;
+
+        font-size: 32px;
     }
 
 }
@@ -1130,7 +1128,7 @@ footer {
 
 
 <!-- =====================================================
-     TOP TNAU HEADER
+     TOP HEADER
 ===================================================== -->
 
 <header class="top-header">
@@ -1140,6 +1138,7 @@ footer {
         alt="TNAU Logo"
         class="logo"
     >
+
 
     <div class="header-text">
 
@@ -1178,7 +1177,7 @@ footer {
 
 
 <!-- =====================================================
-     MOBILE MENU
+     MOBILE MENU BUTTON
 ===================================================== -->
 
 <button
@@ -1214,7 +1213,7 @@ footer {
     </a>
 
     <a href="#village">
-        <i class="fa-solid fa-house"></i>
+        <i class="fa-solid fa-location-dot"></i>
         Village Profile
     </a>
 
@@ -1304,16 +1303,14 @@ footer {
     id="team">
 
     <h2 class="section-heading">
-
         🌿 PAIYUR RAWE TEAM 🌿
-
     </h2>
 
 
     <div class="team-grid">
 
 
-        <!-- TEAM 1 -->
+        <!-- DR. M. SANKAR -->
 
         <div class="team-card">
 
@@ -1342,7 +1339,7 @@ footer {
         </div>
 
 
-        <!-- TEAM 2 -->
+        <!-- DR. P. SENTHIL KUMAR -->
 
         <div class="team-card">
 
@@ -1375,7 +1372,7 @@ footer {
         </div>
 
 
-        <!-- TEAM 3 -->
+        <!-- KOWSHIK -->
 
         <div class="team-card">
 
@@ -1416,9 +1413,7 @@ footer {
 <section class="programme">
 
     <h2 class="section-heading">
-
         🌿 RAWE PROGRAMME 🌿
-
     </h2>
 
 
@@ -1447,7 +1442,7 @@ footer {
             class="programme-card"
             id="village">
 
-            <i class="fa-solid fa-house"></i>
+            <i class="fa-solid fa-location-dot"></i>
 
             <h3>
                 Village Profile
@@ -1540,7 +1535,7 @@ footer {
 
 
 <!-- =====================================================
-     ABOUT
+     ABOUT RAWE
 ===================================================== -->
 
 <section
@@ -1669,7 +1664,7 @@ footer {
 
 
 <!-- =====================================================
-     BOTTOM AC&RI VVNR ENTRANCE
+     BOTTOM VVNR ENTRANCE IMAGE
 ===================================================== -->
 
 <section class="bottom-campus">
@@ -1722,7 +1717,7 @@ footer {
 
 
 <!-- =====================================================
-     MOBILE MENU SCRIPT
+     MOBILE MENU
 ===================================================== -->
 
 <script>
@@ -1736,8 +1731,6 @@ function toggleMenu() {
 
 }
 
-
-/* Close menu after selecting */
 
 document
     .querySelectorAll("#mainNav a")
