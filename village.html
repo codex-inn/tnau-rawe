@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
+
+<title>Village Profile | TNAU RAWE</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+
+    font-family:Arial, sans-serif;
+
+    color:#18301f;
+
+    background-image:
+    linear-gradient(
+        rgba(255,255,255,.78),
+        rgba(255,255,255,.78)
+    ),
+    url("vvnr-campus.jpg");
+
+    background-size:cover;
+
+    background-position:center;
+
+    background-attachment:fixed;
+
+    line-height:1.7;
+}
+
+
+/* HEADER */
+
+header{
+
+    background:
+    linear-gradient(
+        135deg,
+        rgba(0,75,35,.96),
+        rgba(17,113,54,.92)
+    );
+
+    color:white;
+
+    text-align:center;
+
+    padding:30px 20px;
+}
+
+header h1{
+
+    font-size:
+    clamp(25px,4vw,40px);
+
+    margin-bottom:8px;
+}
+
+header p{
+
+    font-size:16px;
+}
+
+
+/* NAVIGATION */
+
+nav{
+
+    background:#063f20;
+
+    text-align:center;
+
+    padding:12px;
+}
+
+nav a{
+
+    color:white;
+
+    text-decoration:none;
+
+    margin:0 12px;
+
+    font-weight:bold;
+
+    font-size:15px;
+}
+
+nav a:hover{
+
+    color:#a9df8d;
+}
+
+
+/* MAIN */
+
+.container{
+
+    max-width:1050px;
+
+    margin:45px auto;
+
+    padding:0 20px;
+}
+
+
+/* TITLE */
+
+.page-title{
+
+    text-align:center;
+
+    color:#075128;
+
+    font-size:
+    clamp(25px,4vw,38px);
+
+    margin-bottom:30px;
+}
+
+
+/* CONTENT CARD */
+
+.content{
+
+    background:
+    rgba(255,255,255,.95);
+
+    border-radius:15px;
+
+    padding:30px;
+
+    box-shadow:
+    0 5px 20px
+    rgba(0,0,0,.15);
+
+    margin-bottom:30px;
+}
+
+.content h2{
+
+    color:#075128;
+
+    margin-bottom:15px;
+
+    font-size:25px;
+}
+
+.content p{
+
+    font-size:16px;
+
+    margin-bottom:14px;
+}
+
+
+/* DETAILS */
+
+.details{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(2,1fr);
+
+    gap:15px;
+
+    margin-top:20px;
+}
+
+.detail{
+
+    background:#edf7ef;
+
+    padding:18px;
+
+    border-left:
+    5px solid #24783b;
+
+    border-radius:8px;
+}
+
+.detail strong{
+
+    color:#075128;
+}
+
+
+/* IMAGES */
+
+.village-images{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(2,1fr);
+
+    gap:25px;
+
+    margin-top:25px;
+}
+
+.image-card{
+
+    background:white;
+
+    border-radius:12px;
+
+    overflow:hidden;
+
+    box-shadow:
+    0 4px 15px
+    rgba(0,0,0,.16);
+}
+
+.image-card img{
+
+    width:100%;
+
+    height:280px;
+
+    object-fit:cover;
+
+    display:block;
+}
+
+.caption{
+
+    padding:12px;
+
+    text-align:center;
+
+    font-weight:bold;
+
+    color:#075128;
+}
+
+
+/* BACK BUTTON */
+
+.back{
+
+    display:block;
+
+    width:max-content;
+
+    margin:30px auto;
+
+    padding:12px 25px;
+
+    background:#16753a;
+
+    color:white;
+
+    text-decoration:none;
+
+    border-radius:8px;
+
+    font-weight:bold;
+
+}
+
+.back:hover{
+
+    background:#0b5729;
+}
+
+
+/* FOOTER */
+
+footer{
+
+    background:#063f20;
+
+    color:white;
+
+    text-align:center;
+
+    padding:30px 15px;
+
+    margin-top:50px;
+}
+
+
+/* MOBILE */
+
+@media(max-width:700px){
+
+    nav a{
+
+        display:inline-block;
+
+        margin:5px 7px;
+
+    }
+
+    .content{
+
+        padding:22px;
+    }
+
+    .details{
+
+        grid-template-columns:1fr;
+    }
+
+    .village-images{
+
+        grid-template-columns:1fr;
+    }
+
+    .image-card img{
+
+        height:230px;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<header>
+
+    <h1>
+        🌾 Village Profile
+    </h1>
+
+    <p>
+        TNAU RAWE Programme 2026 · Paiyur Team
+    </p>
+
+</header>
+
+
+<nav>
+
+    <a href="index.html">
+        Home
+    </a>
+
+    <a href="village.html">
+        Village Profile
+    </a>
+
+</nav>
+
+
+<main class="container">
+
+
+    <h1 class="page-title">
+        Regional Research Station – Krishnagiri
+    </h1>
+
+
+    <!-- INTRODUCTION -->
+
+    <div class="content">
+
+        <h2>
+            🌱 About the Research Station
+        </h2>
+
+        <p>
+
+            Established by <strong>TNAU in 1973</strong>
+            to conduct crop research and support farmers.
+
+        </p>
+
+        <p>
+
+            The Regional Research Station plays an
+            important role in agricultural research and
+            supporting the farming community in the region.
+
+        </p>
+
+    </div>
+
+
+    <!-- KEY DETAILS -->
+
+    <div class="content">
+
+        <h2>
+            📋 Station Details
+        </h2>
+
+
+        <div class="details">
+
+
+            <div class="detail">
+
+                <strong>
+                    Establishment
+                </strong>
+
+                <br>
+
+                1973
+
+            </div>
+
+
+            <div class="detail">
+
+                <strong>
+                    Area
+                </strong>
+
+                <br>
+
+                18.51 ha
+
+            </div>
+
+
+            <div class="detail">
+
+                <strong>
+                    Soil Type
+                </strong>
+
+                <br>
+
+                Red loamy sandy soil
+
+            </div>
+
+
+            <div class="detail">
+
+                <strong>
+                    Average Annual Rainfall
+                </strong>
+
+                <br>
+
+                917 mm
+
+            </div>
+
+
+            <div class="detail">
+
+                <strong>
+                    Temperature
+                </strong>
+
+                <br>
+
+                21.9°C – 33.9°C
+
+            </div>
+
+
+            <div class="detail">
+
+                <strong>
+                    RAWE Team
+                </strong>
+
+                <br>
+
+                Paiyur
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+
+    <!-- IMAGES -->
+
+    <div class="content">
+
+        <h2>
+            📸 Village & Research Station
+        </h2>
+
+
+        <div class="village-images">
+
+
+            <div class="image-card">
+
+                <img
+                    src="village-1.jpg"
+                    alt="Regional Research Station Krishnagiri">
+
+                <div class="caption">
+
+                    Regional Research Station –
+                    Krishnagiri
+
+                </div>
+
+            </div>
+
+
+            <div class="image-card">
+
+                <img
+                    src="village-2.jpg"
+                    alt="Paiyur Agricultural Area">
+
+                <div class="caption">
+
+                    Paiyur Agricultural Area
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+
+    <!-- RAWE -->
+
+    <div class="content">
+
+        <h2>
+            👨‍🌾 RAWE – Paiyur Team
+        </h2>
+
+        <p>
+
+            The Paiyur RAWE team gains practical
+            agricultural experience through field visits,
+            farmer interactions, agricultural surveys and
+            other programme activities.
+
+        </p>
+
+    </div>
+
+
+    <a
+        href="index.html"
+        class="back">
+
+        ← Back to Home
+
+    </a>
+
+
+</main>
+
+
+<footer>
+
+    <strong>
+        🌾 TNAU RAWE Programme 2026
+    </strong>
+
+    <br>
+
+    Team : Paiyur
+
+    <br>
+
+    AC&amp;RI VVNR · Tiruvannamalai District
+
+</footer>
+
+
+</body>
+
+</html>
