@@ -1,0 +1,1500 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
+
+<title>Students Attendance | TNAU RAWE</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+
+    font-family:Arial,Helvetica,sans-serif;
+
+    color:#17301f;
+
+    min-height:100vh;
+
+    background:
+    linear-gradient(
+        rgba(255,255,255,.78),
+        rgba(255,255,255,.78)
+    ),
+    url("vvnr-campus.jpg");
+
+    background-size:cover;
+
+    background-position:center;
+
+    background-attachment:fixed;
+}
+
+
+/* HEADER */
+
+header{
+
+    background:
+    linear-gradient(
+        rgba(0,75,35,.94),
+        rgba(0,95,45,.92)
+    );
+
+    color:white;
+
+    text-align:center;
+
+    padding:30px 15px;
+}
+
+header h1{
+
+    font-size:
+    clamp(25px,4vw,40px);
+
+    margin-bottom:8px;
+}
+
+header p{
+
+    font-size:16px;
+
+    color:#d9efd1;
+}
+
+
+/* NAVIGATION */
+
+nav{
+
+    background:#063f20;
+
+    text-align:center;
+
+    padding:13px;
+}
+
+nav a{
+
+    color:white;
+
+    text-decoration:none;
+
+    font-weight:bold;
+
+    margin:0 12px;
+
+    font-size:14px;
+}
+
+nav a:hover{
+
+    color:#a9df8d;
+}
+
+
+/* MAIN */
+
+.container{
+
+    max-width:1000px;
+
+    margin:40px auto;
+
+    padding:0 15px;
+}
+
+
+/* TITLE */
+
+.title{
+
+    text-align:center;
+
+    color:#075128;
+
+    margin-bottom:25px;
+}
+
+.title h2{
+
+    font-size:
+    clamp(26px,4vw,38px);
+}
+
+.title p{
+
+    margin-top:5px;
+
+    color:#53665a;
+}
+
+
+/* DATE */
+
+.date-box{
+
+    background:white;
+
+    padding:20px;
+
+    border-radius:12px;
+
+    box-shadow:
+    0 4px 15px rgba(0,0,0,.13);
+
+    text-align:center;
+
+    margin-bottom:20px;
+}
+
+.date-box label{
+
+    display:block;
+
+    color:#075128;
+
+    font-weight:bold;
+
+    margin-bottom:8px;
+}
+
+#attendanceDate{
+
+    padding:10px;
+
+    border:1px solid #bbb;
+
+    border-radius:7px;
+
+    font-size:16px;
+}
+
+
+/* STUDENTS */
+
+.students{
+
+    background:white;
+
+    border-radius:12px;
+
+    overflow:hidden;
+
+    box-shadow:
+    0 4px 15px rgba(0,0,0,.13);
+}
+
+.student{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    gap:15px;
+
+    padding:15px 18px;
+
+    border-bottom:1px solid #e4e9e5;
+}
+
+.student:last-child{
+
+    border-bottom:none;
+}
+
+.student-info{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    min-width:0;
+}
+
+.number{
+
+    width:38px;
+
+    height:38px;
+
+    flex-shrink:0;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    border-radius:50%;
+
+    background:#eaf6ed;
+
+    color:#176b3a;
+
+    font-weight:bold;
+}
+
+.name{
+
+    font-weight:bold;
+
+    color:#173f24;
+}
+
+
+/* BUTTONS */
+
+.buttons{
+
+    display:flex;
+
+    gap:7px;
+
+    flex-shrink:0;
+}
+
+.att-btn{
+
+    border:none;
+
+    padding:9px 13px;
+
+    border-radius:6px;
+
+    cursor:pointer;
+
+    font-weight:bold;
+
+    color:white;
+
+    opacity:.55;
+
+    transition:.2s;
+}
+
+.present{
+
+    background:#17823b;
+}
+
+.absent{
+
+    background:#c62828;
+}
+
+.att-btn.active{
+
+    opacity:1;
+
+    transform:scale(1.03);
+
+    box-shadow:
+    0 2px 7px rgba(0,0,0,.22);
+}
+
+
+/* SUMMARY */
+
+.summary{
+
+    margin-top:25px;
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(4,1fr);
+
+    gap:15px;
+}
+
+.summary-card{
+
+    background:white;
+
+    padding:20px;
+
+    text-align:center;
+
+    border-radius:10px;
+
+    box-shadow:
+    0 3px 12px rgba(0,0,0,.12);
+}
+
+.summary-card strong{
+
+    display:block;
+
+    font-size:27px;
+
+    color:#075128;
+
+    margin-top:5px;
+}
+
+
+/* SAVE */
+
+.save-box{
+
+    text-align:center;
+
+    margin-top:25px;
+}
+
+.save-btn{
+
+    border:none;
+
+    background:#126c34;
+
+    color:white;
+
+    padding:14px 30px;
+
+    border-radius:8px;
+
+    font-size:16px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+}
+
+.save-btn:hover{
+
+    background:#0a5428;
+}
+
+.message{
+
+    margin-top:15px;
+
+    font-weight:bold;
+
+    color:#126c34;
+}
+
+
+/* BACK */
+
+.back{
+
+    display:block;
+
+    width:max-content;
+
+    margin:30px auto;
+
+    background:#16753a;
+
+    color:white;
+
+    text-decoration:none;
+
+    padding:11px 22px;
+
+    border-radius:7px;
+
+    font-weight:bold;
+}
+
+
+/* FOOTER */
+
+footer{
+
+    background:#063f20;
+
+    color:white;
+
+    text-align:center;
+
+    padding:30px 15px;
+
+    margin-top:50px;
+}
+
+.footer-title{
+
+    color:#c9e6b9;
+
+    font-size:22px;
+
+    font-weight:bold;
+}
+
+
+/* MOBILE */
+
+@media(max-width:700px){
+
+    nav a{
+
+        display:inline-block;
+
+        margin:4px 6px;
+
+        font-size:13px;
+    }
+
+    .student{
+
+        align-items:flex-start;
+
+        flex-direction:column;
+
+    }
+
+    .student-info{
+
+        width:100%;
+    }
+
+    .buttons{
+
+        width:100%;
+    }
+
+    .att-btn{
+
+        flex:1;
+    }
+
+    .summary{
+
+        grid-template-columns:
+        repeat(2,1fr);
+    }
+
+}
+
+
+@media(max-width:420px){
+
+    .student{
+
+        padding:14px;
+    }
+
+    .name{
+
+        font-size:14px;
+    }
+
+    .summary{
+
+        grid-template-columns:1fr 1fr;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- HEADER -->
+
+<header>
+
+    <h1>
+        👨‍🎓 Students Attendance
+    </h1>
+
+    <p>
+        TNAU RAWE Programme 2026 ·
+        Team : Paiyur
+    </p>
+
+</header>
+
+
+<!-- NAV -->
+
+<nav>
+
+    <a href="index.html">
+        🏠 Home
+    </a>
+
+    <a href="village.html">
+        📍 Village Profile
+    </a>
+
+    <a href="students.html">
+        👨‍🎓 Students
+    </a>
+
+    <a href="attendance.html">
+        📋 Attendance
+    </a>
+
+</nav>
+
+
+<!-- MAIN -->
+
+<main class="container">
+
+
+    <div class="title">
+
+        <h2>
+            Daily Attendance
+        </h2>
+
+        <p>
+            Mark each student's attendance
+            for the selected date.
+        </p>
+
+    </div>
+
+
+    <!-- DATE -->
+
+    <div class="date-box">
+
+        <label for="attendanceDate">
+            📅 Select Date
+        </label>
+
+        <input
+            type="date"
+            id="attendanceDate">
+
+    </div>
+
+
+    <!-- STUDENTS -->
+
+    <div class="students">
+
+
+        <div class="student">
+
+            <div class="student-info">
+
+                <div class="number">01</div>
+
+                <div class="name">
+                    Dinesh M
+                </div>
+
+            </div>
+
+            <div class="buttons">
+
+                <button
+                    class="att-btn present"
+                    onclick="markAttendance(0,'Present')">
+
+                    🟢 Present
+
+                </button>
+
+                <button
+                    class="att-btn absent"
+                    onclick="markAttendance(0,'Absent')">
+
+                    🔴 Absent
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <div class="student">
+
+            <div class="student-info">
+
+                <div class="number">02</div>
+
+                <div class="name">
+                    Gokul Raj R
+                </div>
+
+            </div>
+
+            <div class="buttons">
+
+                <button
+                    class="att-btn present"
+                    onclick="markAttendance(1,'Present')">
+
+                    🟢 Present
+
+                </button>
+
+                <button
+                    class="att-btn absent"
+                    onclick="markAttendance(1,'Absent')">
+
+                    🔴 Absent
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <div class="student">
+
+            <div class="student-info">
+
+                <div class="number">03</div>
+
+                <div class="name">
+                    GokulaBalaji R
+                </div>
+
+            </div>
+
+            <div class="buttons">
+
+                <button
+                    class="att-btn present"
+                    onclick="markAttendance(2,'Present')">
+
+                    🟢 Present
+
+                </button>
+
+                <button
+                    class="att-btn absent"
+                    onclick="markAttendance(2,'Absent')">
+
+                    🔴 Absent
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <div class="student">
+
+            <div class="student-info">
+
+                <div class="number">04</div>
+
+                <div class="name">
+                    GopiBalaji M
+                </div>
+
+            </div>
+
+            <div class="buttons">
+
+                <button
+                    class="att-btn present"
+                    onclick="markAttendance(3,'Present')">
+
+                    🟢 Present
+
+                </button>
+
+                <button
+                    class="att-btn absent"
+                    onclick="markAttendance(3,'Absent')">
+
+                    🔴 Absent
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <div class="student">
+
+            <div class="student-info">
+
+                <div class="number">05</div>
+
+                <div class="name">
+                    Gowsikan P
+                </div>
+
+            </div>
+
+            <div class="buttons">
+
+                <button
+                    class="att-btn present"
+                    onclick="markAttendance(4,'Present')">
+
+                    🟢 Present
+
+                </button>
+
+                <button
+                    class="att-btn absent"
+                    onclick="markAttendance(4,'Absent')">
+
+                    🔴 Absent
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <div class="student">
+
+            <div class="student-info">
+
+                <div class="number">06</div>
+
+                <div class="name">
+                    Jana P
+                </div>
+
+            </div>
+
+            <div class="buttons">
+
+                <button
+                    class="att-btn present"
+                    onclick="markAttendance(5,'Present')">
+
+                    🟢 Present
+
+                </button>
+
+                <button
+                    class="att-btn absent"
+                    onclick="markAttendance(5,'Absent')">
+
+                    🔴 Absent
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <div class="student">
+
+            <div class="student-info">
+
+                <div class="number">07</div>
+
+                <div class="name">
+                    Jayasurya J
+                </div>
+
+            </div>
+
+            <div class="buttons">
+
+                <button
+                    class="att-btn present"
+                    onclick="markAttendance(6,'Present')">
+
+                    🟢 Present
+
+                </button>
+
+                <button
+                    class="att-btn absent"
+                    onclick="markAttendance(6,'Absent')">
+
+                    🔴 Absent
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <div class="student">
+
+            <div class="student-info">
+
+                <div class="number">08</div>
+
+                <div class="name">
+                    Joshan P
+                </div>
+
+            </div>
+
+            <div class="buttons">
+
+                <button
+                    class="att-btn present"
+                    onclick="markAttendance(7,'Present')">
+
+                    🟢 Present
+
+                </button>
+
+                <button
+                    class="att-btn absent"
+                    onclick="markAttendance(7,'Absent')">
+
+                    🔴 Absent
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <div class="student">
+
+            <div class="student-info">
+
+                <div class="number">09</div>
+
+                <div class="name">
+                    Jothishkumar K
+                </div>
+
+            </div>
+
+            <div class="buttons">
+
+                <button
+                    class="att-btn present"
+                    onclick="markAttendance(8,'Present')">
+
+                    🟢 Present
+
+                </button>
+
+                <button
+                    class="att-btn absent"
+                    onclick="markAttendance(8,'Absent')">
+
+                    🔴 Absent
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <div class="student">
+
+            <div class="student-info">
+
+                <div class="number">10</div>
+
+                <div class="name">
+                    Kishor S
+                </div>
+
+            </div>
+
+            <div class="buttons">
+
+                <button
+                    class="att-btn present"
+                    onclick="markAttendance(9,'Present')">
+
+                    🟢 Present
+
+                </button>
+
+                <button
+                    class="att-btn absent"
+                    onclick="markAttendance(9,'Absent')">
+
+                    🔴 Absent
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <div class="student">
+
+            <div class="student-info">
+
+                <div class="number">11</div>
+
+                <div class="name">
+                    Kowshik S
+                </div>
+
+            </div>
+
+            <div class="buttons">
+
+                <button
+                    class="att-btn present"
+                    onclick="markAttendance(10,'Present')">
+
+                    🟢 Present
+
+                </button>
+
+                <button
+                    class="att-btn absent"
+                    onclick="markAttendance(10,'Absent')">
+
+                    🔴 Absent
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <div class="student">
+
+            <div class="student-info">
+
+                <div class="number">12</div>
+
+                <div class="name">
+                    Akshaya K
+                </div>
+
+            </div>
+
+            <div class="buttons">
+
+                <button
+                    class="att-btn present"
+                    onclick="markAttendance(11,'Present')">
+
+                    🟢 Present
+
+                </button>
+
+                <button
+                    class="att-btn absent"
+                    onclick="markAttendance(11,'Absent')">
+
+                    🔴 Absent
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <div class="student">
+
+            <div class="student-info">
+
+                <div class="number">13</div>
+
+                <div class="name">
+                    Swapanjit Behera
+                </div>
+
+            </div>
+
+            <div class="buttons">
+
+                <button
+                    class="att-btn present"
+                    onclick="markAttendance(12,'Present')">
+
+                    🟢 Present
+
+                </button>
+
+                <button
+                    class="att-btn absent"
+                    onclick="markAttendance(12,'Absent')">
+
+                    🔴 Absent
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+    <!-- SUMMARY -->
+
+    <div class="summary">
+
+        <div class="summary-card">
+
+            Total
+
+            <strong id="total">
+                13
+            </strong>
+
+        </div>
+
+        <div class="summary-card">
+
+            Present
+
+            <strong id="present">
+                0
+            </strong>
+
+        </div>
+
+        <div class="summary-card">
+
+            Absent
+
+            <strong id="absent">
+                0
+            </strong>
+
+        </div>
+
+        <div class="summary-card">
+
+            Attendance
+
+            <strong id="percentage">
+                0%
+            </strong>
+
+        </div>
+
+    </div>
+
+
+    <!-- SAVE -->
+
+    <div class="save-box">
+
+        <button
+            class="save-btn"
+            onclick="saveAttendance()">
+
+            💾 Save Attendance
+
+        </button>
+
+        <div
+            class="message"
+            id="message">
+        </div>
+
+    </div>
+
+
+    <a
+        href="index.html"
+        class="back">
+
+        ← Back to Home
+
+    </a>
+
+
+</main>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+    <div class="footer-title">
+        👨‍🌾 TEAM : PAIYUR
+    </div>
+
+    <div>
+        TNAU RAWE Programme 2026
+    </div>
+
+    <div>
+        AC&amp;RI VVNR ·
+        Tiruvannamalai District
+    </div>
+
+</footer>
+
+
+<script>
+
+/* =========================
+   STUDENTS
+========================= */
+
+const students = [
+
+    "Dinesh M",
+    "Gokul Raj R",
+    "GokulaBalaji R",
+    "GopiBalaji M",
+    "Gowsikan P",
+    "Jana P",
+    "Jayasurya J",
+    "Joshan P",
+    "Jothishkumar K",
+    "Kishor S",
+    "Kowshik S",
+    "Akshaya K",
+    "Swapanjit Behera"
+
+];
+
+
+/* =========================
+   ATTENDANCE DATA
+========================= */
+
+let attendance =
+    new Array(students.length).fill(null);
+
+
+/* =========================
+   DATE
+========================= */
+
+const dateInput =
+    document.getElementById(
+        "attendanceDate"
+    );
+
+
+const today =
+    new Date()
+    .toISOString()
+    .split("T")[0];
+
+
+dateInput.value = today;
+
+
+/* =========================
+   MARK ATTENDANCE
+========================= */
+
+function markAttendance(index,status){
+
+    attendance[index] = status;
+
+
+    const studentRows =
+        document.querySelectorAll(
+            ".student"
+        );
+
+
+    const row =
+        studentRows[index];
+
+
+    const buttons =
+        row.querySelectorAll(
+            ".att-btn"
+        );
+
+
+    buttons.forEach(function(button){
+
+        button.classList.remove(
+            "active"
+        );
+
+    });
+
+
+    if(status === "Present"){
+
+        buttons[0]
+        .classList.add("active");
+
+    }
+
+    else{
+
+        buttons[1]
+        .classList.add("active");
+
+    }
+
+
+    updateSummary();
+
+}
+
+
+/* =========================
+   SUMMARY
+========================= */
+
+function updateSummary(){
+
+    let present = 0;
+
+    let absent = 0;
+
+
+    attendance.forEach(function(status){
+
+        if(status === "Present"){
+
+            present++;
+
+        }
+
+        if(status === "Absent"){
+
+            absent++;
+
+        }
+
+    });
+
+
+    document.getElementById(
+        "present"
+    ).textContent = present;
+
+
+    document.getElementById(
+        "absent"
+    ).textContent = absent;
+
+
+    let percentage = 0;
+
+
+    if(present > 0){
+
+        percentage =
+        ((present / students.length) * 100)
+        .toFixed(1);
+
+    }
+
+
+    document.getElementById(
+        "percentage"
+    ).textContent =
+    percentage + "%";
+
+}
+
+
+/* =========================
+   SAVE
+========================= */
+
+function saveAttendance(){
+
+    const date =
+        dateInput.value;
+
+
+    if(!date){
+
+        alert(
+            "Please select a date."
+        );
+
+        return;
+
+    }
+
+
+    const unmarked =
+        attendance.filter(
+            item => item === null
+        ).length;
+
+
+    if(unmarked > 0){
+
+        alert(
+            "Please mark attendance for all 13 students."
+        );
+
+        return;
+
+    }
+
+
+    const record = {
+
+        date:date,
+
+        attendance:
+            students.map(
+                function(name,index){
+
+                    return {
+
+                        name:name,
+
+                        status:
+                        attendance[index]
+
+                    };
+
+                }
+            )
+
+    };
+
+
+    /*
+       This version saves to the
+       browser on this device.
+    */
+
+    localStorage.setItem(
+
+        "raweAttendance_" + date,
+
+        JSON.stringify(record)
+
+    );
+
+
+    document.getElementById(
+        "message"
+    ).textContent =
+    "✅ Attendance saved successfully on this device.";
+
+}
+
+
+/* =========================
+   LOAD SAVED ATTENDANCE
+========================= */
+
+dateInput.addEventListener(
+    "change",
+    loadAttendance
+);
+
+
+function loadAttendance(){
+
+    const date =
+        dateInput.value;
+
+
+    const saved =
+        localStorage.getItem(
+            "raweAttendance_" + date
+        );
+
+
+    attendance =
+        new Array(
+            students.length
+        ).fill(null);
+
+
+    const rows =
+        document.querySelectorAll(
+            ".student"
+        );
+
+
+    rows.forEach(function(row){
+
+        row.querySelectorAll(
+            ".att-btn"
+        ).forEach(function(button){
+
+            button.classList.remove(
+                "active"
+            );
+
+        });
+
+    });
+
+
+    if(saved){
+
+        const record =
+            JSON.parse(saved);
+
+
+        record.attendance.forEach(
+            function(item,index){
+
+                attendance[index] =
+                    item.status;
+
+
+                const buttons =
+                    rows[index]
+                    .querySelectorAll(
+                        ".att-btn"
+                    );
+
+
+                if(item.status === "Present"){
+
+                    buttons[0]
+                    .classList.add(
+                        "active"
+                    );
+
+                }
+
+                else{
+
+                    buttons[1]
+                    .classList.add(
+                        "active"
+                    );
+
+                }
+
+            }
+        );
+
+    }
+
+
+    updateSummary();
+
+}
+
+</script>
+
+
+</body>
+
+</html>
