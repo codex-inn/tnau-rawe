@@ -1,19 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
 
 <title>TNAU RAWE Programme 2026 | Paiyur Team</title>
 
 <link rel="stylesheet"
 href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
+
 <style>
 
-/* =========================
+/* =====================================================
    RESET
-========================= */
+===================================================== */
 
 *{
     margin:0;
@@ -26,34 +31,46 @@ html{
 }
 
 body{
+
     font-family:Arial,Helvetica,sans-serif;
+
     color:#17231a;
+
     line-height:1.6;
 
     /* FULL WEBSITE BACKGROUND */
+
     background-image:
+
         linear-gradient(
             rgba(255,255,255,.72),
             rgba(255,255,255,.72)
         ),
+
         url("vvnr-campus.jpg");
 
     background-size:cover;
+
     background-position:center;
+
     background-attachment:fixed;
+
     background-repeat:no-repeat;
+
     min-height:100vh;
 }
 
 
-/* =========================
+/* =====================================================
    TOP HEADER
-========================= */
+===================================================== */
 
 .top-header{
+
     min-height:190px;
 
     background-image:
+
         linear-gradient(
             90deg,
             rgba(255,255,255,.93) 0%,
@@ -61,13 +78,17 @@ body{
             rgba(255,255,255,.52) 75%,
             rgba(255,255,255,.18) 100%
         ),
+
         url("tnau-coimbatore.jpg");
 
     background-size:cover;
+
     background-position:center;
 
     display:flex;
+
     align-items:center;
+
     gap:25px;
 
     padding:18px 5%;
@@ -76,17 +97,22 @@ body{
 }
 
 
-/* =========================
-   LOGO
-========================= */
+/* =====================================================
+   TNAU LOGO
+===================================================== */
 
 .logo{
+
     width:125px;
+
     height:125px;
+
     object-fit:contain;
+
     flex-shrink:0;
 
     position:relative;
+
     z-index:5;
 
     filter:
@@ -95,98 +121,144 @@ body{
 }
 
 
-/* =========================
+/* =====================================================
    HEADER TEXT
-========================= */
+===================================================== */
 
 .header-text{
+
     flex:1;
+
     position:relative;
+
     z-index:5;
 }
 
 .header-text h1{
+
     color:#104d2b;
-    font-size:clamp(24px,3vw,36px);
+
+    font-size:
+        clamp(24px,3vw,36px);
+
     font-weight:800;
+
     line-height:1.2;
-    margin-bottom:6px;
+
+    margin-bottom:7px;
 }
 
 .subtitle{
+
     color:#222;
-    font-size:clamp(15px,1.5vw,20px);
+
+    font-size:
+        clamp(15px,1.5vw,20px);
+
     margin-bottom:9px;
 }
 
 .college{
+
     color:#104d2b;
-    font-size:clamp(15px,1.5vw,20px);
+
+    font-size:
+        clamp(15px,1.5vw,20px);
+
     font-weight:bold;
 }
 
 .location{
+
     color:#193b25;
-    font-size:clamp(14px,1.4vw,19px);
+
+    font-size:
+        clamp(14px,1.4vw,19px);
 }
 
 
-/* =========================
+/* =====================================================
    RAWE TEAM
-========================= */
+===================================================== */
 
 .theme-box{
+
     text-align:center;
+
     padding:10px 20px;
+
     flex-shrink:0;
+
     position:relative;
+
     z-index:5;
 }
 
 .theme-box small{
+
     display:block;
+
     color:#176b3a;
+
     font-size:17px;
+
     font-weight:bold;
+
     letter-spacing:1px;
 }
 
 .theme-box strong{
+
     display:block;
+
     color:#0c572d;
-    font-size:clamp(28px,3vw,40px);
+
+    font-size:
+        clamp(28px,3vw,40px);
+
     font-weight:900;
 }
 
 
-/* =========================
+/* =====================================================
    NAVIGATION
-========================= */
+===================================================== */
 
 nav{
+
     background:#005425;
+
     min-height:55px;
 
     display:flex;
+
     justify-content:center;
+
     align-items:center;
 
     gap:2px;
 
     position:sticky;
+
     top:0;
+
     z-index:1000;
 
-    box-shadow:0 2px 8px rgba(0,0,0,.25);
+    box-shadow:
+        0 2px 8px
+        rgba(0,0,0,.25);
 }
 
 nav a{
+
     color:white;
+
     text-decoration:none;
 
-    padding:12px 14px;
+    padding:12px 15px;
 
     font-size:14px;
+
     font-weight:600;
 
     white-space:nowrap;
@@ -197,19 +269,22 @@ nav a{
 }
 
 nav a i{
+
     margin-right:6px;
 }
 
 nav a:hover{
+
     background:#247b3d;
 }
 
 
-/* =========================
-   MOBILE MENU
-========================= */
+/* =====================================================
+   MOBILE MENU BUTTON
+===================================================== */
 
 .menu-btn{
+
     display:none;
 
     width:100%;
@@ -229,20 +304,23 @@ nav a:hover{
     cursor:pointer;
 
     position:sticky;
+
     top:0;
 
     z-index:1001;
 }
 
 
-/* =========================
+/* =====================================================
    HERO
-========================= */
+===================================================== */
 
 .hero{
+
     min-height:510px;
 
     background:
+
         linear-gradient(
             90deg,
             rgba(0,45,22,.80) 0%,
@@ -252,20 +330,25 @@ nav a:hover{
         );
 
     display:flex;
+
     align-items:center;
 
     padding:60px 5%;
 }
 
 .hero-content{
+
     max-width:650px;
+
     color:white;
 }
 
 .welcome{
+
     font-family:Georgia,serif;
 
-    font-size:clamp(25px,3vw,34px);
+    font-size:
+        clamp(25px,3vw,34px);
 
     font-style:italic;
 
@@ -275,26 +358,19 @@ nav a:hover{
 }
 
 .hero-content h2{
-    font-size:clamp(34px,5vw,56px);
+
+    font-size:
+        clamp(34px,5vw,56px);
 
     line-height:1.08;
 
     font-weight:900;
 
-    margin-bottom:12px;
-}
-
-.batch{
-    font-size:clamp(18px,2vw,25px);
-
-    font-weight:700;
-
-    color:#d8efcc;
-
-    margin-bottom:20px;
+    margin-bottom:24px;
 }
 
 .hero-line{
+
     width:430px;
 
     max-width:100%;
@@ -307,7 +383,9 @@ nav a:hover{
 }
 
 .hero-content p{
-    font-size:clamp(16px,1.5vw,19px);
+
+    font-size:
+        clamp(16px,1.5vw,19px);
 
     line-height:1.65;
 
@@ -315,6 +393,7 @@ nav a:hover{
 }
 
 .explore{
+
     display:inline-flex;
 
     align-items:center;
@@ -339,17 +418,21 @@ nav a:hover{
 }
 
 .explore:hover{
+
     background:#2fa94e;
+
     transform:translateY(-2px);
 }
 
 
-/* =========================
+/* =====================================================
    TEAM ORGANIZATION
-========================= */
+===================================================== */
 
 .team-wrapper{
+
     position:relative;
+
     z-index:5;
 
     margin-top:-65px;
@@ -358,11 +441,13 @@ nav a:hover{
 }
 
 .section-heading{
+
     text-align:center;
 
     color:#075128;
 
-    font-size:clamp(21px,2.2vw,28px);
+    font-size:
+        clamp(21px,2.2vw,28px);
 
     font-weight:800;
 
@@ -371,6 +456,7 @@ nav a:hover{
 
 .section-heading::before,
 .section-heading::after{
+
     content:"────";
 
     color:#4e9c56;
@@ -379,6 +465,7 @@ nav a:hover{
 }
 
 .team-grid{
+
     max-width:1100px;
 
     margin:auto;
@@ -392,7 +479,9 @@ nav a:hover{
 }
 
 .team-card{
-    background:rgba(255,255,255,.95);
+
+    background:
+        rgba(255,255,255,.95);
 
     border-radius:12px;
 
@@ -408,6 +497,7 @@ nav a:hover{
 }
 
 .team-card:hover{
+
     transform:translateY(-5px);
 
     box-shadow:
@@ -416,7 +506,9 @@ nav a:hover{
 }
 
 .team-icon{
+
     width:85px;
+
     height:85px;
 
     border-radius:50%;
@@ -437,6 +529,7 @@ nav a:hover{
 }
 
 .team-card h3{
+
     color:#0d4d28;
 
     font-size:18px;
@@ -445,6 +538,7 @@ nav a:hover{
 }
 
 .role{
+
     color:#a31313;
 
     font-weight:bold;
@@ -453,23 +547,27 @@ nav a:hover{
 }
 
 .team-card p{
+
     font-size:15px;
 
     line-height:1.45;
 }
 
 
-/* =========================
+/* =====================================================
    RAWE PROGRAMME
-========================= */
+===================================================== */
 
 .programme{
-    padding:35px 5% 60px;
 
-    background:rgba(255,255,255,.42);
+    padding:40px 5% 60px;
+
+    background:
+        rgba(255,255,255,.42);
 }
 
 .programme-grid{
+
     max-width:1000px;
 
     margin:auto;
@@ -483,7 +581,9 @@ nav a:hover{
 }
 
 .programme-card{
-    background:rgba(255,255,255,.94);
+
+    background:
+        rgba(255,255,255,.94);
 
     border:1px solid #e0e0e0;
 
@@ -503,6 +603,7 @@ nav a:hover{
 }
 
 .programme-card:hover{
+
     transform:translateY(-4px);
 
     box-shadow:
@@ -511,6 +612,7 @@ nav a:hover{
 }
 
 .programme-card i{
+
     color:#24783b;
 
     font-size:31px;
@@ -519,6 +621,7 @@ nav a:hover{
 }
 
 .programme-card h3{
+
     color:#0b4d27;
 
     font-size:17px;
@@ -527,6 +630,7 @@ nav a:hover{
 }
 
 .programme-card p{
+
     color:#333;
 
     font-size:14px;
@@ -535,17 +639,20 @@ nav a:hover{
 }
 
 
-/* =========================
+/* =====================================================
    CONTENT
-========================= */
+===================================================== */
 
 .content-section{
+
     padding:65px 7%;
 
-    background:rgba(255,255,255,.42);
+    background:
+        rgba(255,255,255,.42);
 }
 
 .content-section h2{
+
     color:#0d542c;
 
     text-align:center;
@@ -556,13 +663,15 @@ nav a:hover{
 }
 
 .content-box{
+
     max-width:950px;
 
     margin:auto;
 
     padding:28px;
 
-    background:rgba(255,255,255,.93);
+    background:
+        rgba(255,255,255,.93);
 
     border-radius:12px;
 
@@ -576,11 +685,12 @@ nav a:hover{
 }
 
 
-/* =========================
+/* =====================================================
    PROFILE CARDS
-========================= */
+===================================================== */
 
 .profile-grid{
+
     max-width:1100px;
 
     margin:auto;
@@ -594,7 +704,9 @@ nav a:hover{
 }
 
 .profile-card{
-    background:rgba(255,255,255,.95);
+
+    background:
+        rgba(255,255,255,.95);
 
     border-radius:12px;
 
@@ -606,6 +718,7 @@ nav a:hover{
 }
 
 .profile-card h3{
+
     color:#0b542c;
 
     font-size:23px;
@@ -614,19 +727,22 @@ nav a:hover{
 }
 
 .profile-card .role{
+
     font-size:16px;
 }
 
 .profile-card p{
+
     font-size:16px;
 }
 
 
-/* =========================
+/* =====================================================
    STUDENTS
-========================= */
+===================================================== */
 
 .student-list{
+
     max-width:1100px;
 
     margin:auto;
@@ -640,7 +756,9 @@ nav a:hover{
 }
 
 .student{
-    background:rgba(255,255,255,.94);
+
+    background:
+        rgba(255,255,255,.94);
 
     border-left:
         4px solid #24783b;
@@ -657,56 +775,42 @@ nav a:hover{
 }
 
 
-/* =========================
-   BOTTOM ENTRANCE IMAGE
-========================= */
+/* =====================================================
+   BOTTOM VVNR ENTRANCE IMAGE
+   NO TEXT
+===================================================== */
 
 .bottom-campus{
+
     width:100%;
 
-    min-height:410px;
+    height:450px;
 
     background-image:
+
         linear-gradient(
-            rgba(0,45,22,.10),
-            rgba(0,45,22,.10)
+            rgba(0,45,22,.08),
+            rgba(0,45,22,.08)
         ),
+
         url("vvnr-entrance.jpg");
 
     background-size:cover;
 
     background-position:center;
 
-    display:flex;
-
-    align-items:flex-end;
-
-    justify-content:center;
-}
-
-.bottom-campus-text{
-    width:100%;
-
-    background:rgba(0,55,28,.84);
-
-    color:white;
-
-    text-align:center;
-
-    padding:20px;
-
-    font-size:19px;
-
-    font-weight:bold;
+    background-repeat:no-repeat;
 }
 
 
-/* =========================
+/* =====================================================
    FOOTER
-========================= */
+===================================================== */
 
 .main-footer{
+
     background:
+
         linear-gradient(
             135deg,
             rgba(3,55,27,.98),
@@ -721,25 +825,30 @@ nav a:hover{
 }
 
 .footer-content{
+
     max-width:1000px;
 
     margin:auto;
 }
 
 .footer-team-title{
-    font-size:clamp(22px,2.5vw,29px);
+
+    font-size:
+        clamp(22px,2.5vw,29px);
 
     font-weight:800;
 
-    margin-bottom:15px;
-
     color:#c9e6b9;
+
+    margin-bottom:15px;
 }
 
 .footer-motto{
-    margin-top:27px;
 
-    font-size:clamp(18px,2vw,23px);
+    margin-top:10px;
+
+    font-size:
+        clamp(18px,2vw,23px);
 
     font-weight:800;
 
@@ -749,6 +858,7 @@ nav a:hover{
 }
 
 .footer-quote{
+
     margin-top:9px;
 
     font-family:Georgia,serif;
@@ -761,6 +871,7 @@ nav a:hover{
 }
 
 .footer-line{
+
     width:120px;
 
     height:2px;
@@ -771,50 +882,48 @@ nav a:hover{
 }
 
 .footer-copy{
+
     font-size:14px;
 
     font-weight:bold;
 }
 
-.footer-acri{
-    margin-top:4px;
 
-    font-size:13px;
-
-    opacity:.8;
-}
-
-
-/* =========================
+/* =====================================================
    TABLET
-========================= */
+===================================================== */
 
 @media(max-width:1100px){
 
     nav a{
+
         font-size:12px;
+
         padding:11px 8px;
     }
 
     .team-grid{
+
         grid-template-columns:
             repeat(2,1fr);
     }
 
     .student-list{
+
         grid-template-columns:
             repeat(2,1fr);
     }
 }
 
 
-/* =========================
+/* =====================================================
    MOBILE
-========================= */
+===================================================== */
 
 @media(max-width:768px){
 
     .top-header{
+
         min-height:auto;
 
         padding:20px 15px;
@@ -827,42 +936,53 @@ nav a:hover{
     }
 
     .logo{
+
         width:90px;
+
         height:90px;
     }
 
     .header-text h1{
+
         font-size:23px;
+
         line-height:1.2;
     }
 
     .subtitle,
     .college,
     .location{
+
         font-size:14px;
     }
 
     .theme-box{
+
         padding:5px;
+
         margin-top:5px;
     }
 
     .theme-box small{
+
         font-size:13px;
     }
 
     .theme-box strong{
+
         font-size:28px;
     }
 
 
-    /* MOBILE MENU */
+    /* MOBILE NAV */
 
     .menu-btn{
+
         display:block;
     }
 
     nav{
+
         display:none;
 
         flex-direction:column;
@@ -875,10 +995,12 @@ nav a:hover{
     }
 
     nav.show{
+
         display:flex;
     }
 
     nav a{
+
         width:100%;
 
         padding:13px 20px;
@@ -896,11 +1018,13 @@ nav a:hover{
     /* HERO */
 
     .hero{
+
         min-height:510px;
 
         padding:45px 22px;
 
         background:
+
             linear-gradient(
                 90deg,
                 rgba(0,45,22,.82),
@@ -909,24 +1033,26 @@ nav a:hover{
     }
 
     .hero-content{
+
         max-width:100%;
     }
 
     .welcome{
+
         font-size:25px;
     }
 
     .hero-content h2{
+
         font-size:35px;
+
         line-height:1.12;
     }
 
-    .batch{
-        font-size:18px;
-    }
-
     .hero-content p{
+
         font-size:16px;
+
         line-height:1.55;
     }
 
@@ -934,20 +1060,25 @@ nav a:hover{
     /* TEAM */
 
     .team-wrapper{
+
         margin-top:-40px;
+
         padding:0 17px;
     }
 
     .section-heading{
+
         font-size:21px;
     }
 
     .section-heading::before,
     .section-heading::after{
+
         content:"";
     }
 
     .team-grid{
+
         grid-template-columns:1fr;
 
         max-width:390px;
@@ -959,10 +1090,12 @@ nav a:hover{
     /* PROGRAMME */
 
     .programme{
+
         padding:30px 15px 45px;
     }
 
     .programme-grid{
+
         grid-template-columns:
             repeat(2,1fr);
 
@@ -970,20 +1103,24 @@ nav a:hover{
     }
 
     .programme-card{
+
         min-height:145px;
 
         padding:17px 8px;
     }
 
     .programme-card i{
+
         font-size:27px;
     }
 
     .programme-card h3{
+
         font-size:16px;
     }
 
     .programme-card p{
+
         font-size:13px;
     }
 
@@ -991,6 +1128,7 @@ nav a:hover{
     /* PROFILE */
 
     .profile-grid{
+
         grid-template-columns:1fr;
     }
 
@@ -998,12 +1136,14 @@ nav a:hover{
     /* STUDENTS */
 
     .student-list{
+
         grid-template-columns:1fr;
 
         gap:8px;
     }
 
     .student{
+
         font-size:14px;
     }
 
@@ -1011,14 +1151,17 @@ nav a:hover{
     /* CONTENT */
 
     .content-section{
+
         padding:45px 17px;
     }
 
     .content-section h2{
+
         font-size:26px;
     }
 
     .content-box{
+
         padding:22px;
 
         font-size:15px;
@@ -1027,81 +1170,110 @@ nav a:hover{
     }
 
 
-    /* BOTTOM */
+    /* BOTTOM IMAGE */
 
     .bottom-campus{
-        min-height:270px;
-    }
 
-    .bottom-campus-text{
-        font-size:15px;
-        padding:14px;
+        height:280px;
     }
 
 
     /* FOOTER */
 
     .main-footer{
+
         padding:35px 18px 27px;
     }
 
     .footer-team-title{
+
         font-size:21px;
     }
 
     .footer-motto{
+
         font-size:18px;
+
         line-height:1.4;
     }
 
     .footer-quote{
+
         font-size:14px;
+
         line-height:1.5;
     }
 
     .footer-copy{
-        font-size:13px;
-    }
 
-    .footer-acri{
-        font-size:12px;
+        font-size:13px;
     }
 }
 
 
-/* =========================
+/* =====================================================
    SMALL MOBILE
-========================= */
+===================================================== */
 
 @media(max-width:420px){
 
     .header-text h1{
+
         font-size:21px;
     }
 
     .hero{
+
         min-height:480px;
+
         padding:35px 19px;
     }
 
     .hero-content h2{
+
         font-size:30px;
     }
 
     .hero-content p{
+
         font-size:15px;
     }
 
     .programme-grid{
+
         grid-template-columns:1fr;
     }
 
     .bottom-campus{
-        min-height:230px;
+
+        height:230px;
+    }
+}
+
+
+/* =====================================================
+   VERY SMALL PHONE
+===================================================== */
+
+@media(max-width:330px){
+
+    .hero-content h2{
+
+        font-size:27px;
+    }
+
+    .team-icon{
+
+        width:75px;
+
+        height:75px;
+
+        font-size:32px;
     }
 }
 
 </style>
+
 </head>
 
 
@@ -1120,13 +1292,13 @@ nav a:hover{
         class="logo"
     >
 
+
     <div class="header-text">
+
+        <!-- (2023 Batch) REMOVED -->
 
         <h1>
             TNAU RAWE PROGRAMME 2026
-            <span style="font-size:.65em;">
-                (2023 Batch)
-            </span>
         </h1>
 
         <div class="subtitle">
@@ -1195,18 +1367,18 @@ nav a:hover{
         Team Organization
     </a>
 
-    <a href="#village">
-        <i class="fa-solid fa-location-dot"></i>
-        Village Profile
-    </a>
-
     <a href="#activities">
         <i class="fa-solid fa-leaf"></i>
         Activities
     </a>
 
+    <a href="#profiles">
+        <i class="fa-solid fa-user-graduate"></i>
+        Profiles
+    </a>
+
     <a href="#students">
-        <i class="fa-solid fa-graduation-cap"></i>
+        <i class="fa-solid fa-users"></i>
         Students
     </a>
 
@@ -1236,10 +1408,6 @@ nav a:hover{
             TNAU RAWE<br>
             PROGRAMME 2026
         </h2>
-
-        <div class="batch">
-            (2023 Batch) · AC&amp;RI VVNR
-        </div>
 
         <div class="hero-line"></div>
 
@@ -1344,7 +1512,7 @@ nav a:hover{
         </div>
 
 
-        <!-- GOKULA BALAJI R -->
+        <!-- GOKULA BALAJI -->
 
         <div class="team-card">
 
@@ -1373,7 +1541,7 @@ nav a:hover{
         </div>
 
 
-        <!-- KOWSHIK S -->
+        <!-- KOWSHIK -->
 
         <div class="team-card">
 
@@ -1442,22 +1610,6 @@ nav a:hover{
 
         <div class="programme-card">
 
-            <i class="fa-solid fa-location-dot"></i>
-
-            <h3>
-                Village Profile
-            </h3>
-
-            <p>
-                Explore the adopted
-                village and its agriculture.
-            </p>
-
-        </div>
-
-
-        <div class="programme-card">
-
             <i class="fa-solid fa-leaf"></i>
 
             <h3>
@@ -1468,6 +1620,22 @@ nav a:hover{
                 View field activities,
                 farmer interactions and
                 demonstrations.
+            </p>
+
+        </div>
+
+
+        <div class="programme-card">
+
+            <i class="fa-solid fa-seedling"></i>
+
+            <h3>
+                Rural Experience
+            </h3>
+
+            <p>
+                Practical agricultural
+                learning and field experience.
             </p>
 
         </div>
@@ -1514,40 +1682,6 @@ nav a:hover{
             <strong>
                 Learn × Experience × Serve × Grow
             </strong>
-        </p>
-
-    </div>
-
-</section>
-
-
-<!-- =====================================================
-     VILLAGE PROFILE
-===================================================== -->
-
-<section
-    class="content-section"
-    id="village">
-
-    <h2>
-        Village Profile
-    </h2>
-
-    <div class="content-box">
-
-        <p>
-            <strong>
-                RAWE Team : PAIYUR
-            </strong>
-        </p>
-
-        <br>
-
-        <p>
-            Field-level learning, farmer interaction,
-            agricultural surveys and practical rural
-            experience are key components of the
-            programme.
         </p>
 
     </div>
@@ -1746,7 +1880,7 @@ nav a:hover{
 
         <p>
             <strong>
-                Team : Paiyur
+                TEAM : PAIYUR
             </strong>
         </p>
 
@@ -1786,27 +1920,15 @@ nav a:hover{
 
 
 <!-- =====================================================
-     BOTTOM ENTRANCE IMAGE
+     VVNR ENTRANCE IMAGE
+     
+     NO TEXT
+     NO TEAM NAME
+     NO BATCH
+     NO AC&RI TEXT
 ===================================================== -->
 
 <section class="bottom-campus">
-
-    <div class="bottom-campus-text">
-
-        <strong>
-            🌾 TEAM : PAIYUR
-        </strong>
-
-        <br>
-
-        TNAU RAWE PROGRAMME 2026 · (2023 Batch)
-
-        <br>
-
-        AC&amp;RI VVNR
-
-    </div>
-
 </section>
 
 
@@ -1833,11 +1955,7 @@ nav a:hover{
         <div class="footer-line"></div>
 
         <div class="footer-copy">
-            © 2026 TNAU RAWE Programme · (2023 Batch)
-        </div>
-
-        <div class="footer-acri">
-            AC&amp;RI VVNR
+            © 2026 TNAU RAWE Programme
         </div>
 
     </div>
