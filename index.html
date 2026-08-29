@@ -13,10 +13,6 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
 
 <style>
 
-/* =========================
-   RESET
-========================= */
-
 *{
     margin:0;
     padding:0;
@@ -45,9 +41,7 @@ body{
 }
 
 
-/* =========================
-   TOP HEADER
-========================= */
+/* ================= HEADER ================= */
 
 .top-header{
 
@@ -126,7 +120,6 @@ body{
 }
 
 .theme-box{
-
     text-align:center;
 }
 
@@ -149,9 +142,7 @@ body{
 }
 
 
-/* =========================
-   NAVIGATION
-========================= */
+/* ================= NAVIGATION ================= */
 
 nav{
 
@@ -197,9 +188,7 @@ nav i{
 }
 
 
-/* =========================
-   HERO
-========================= */
+/* ================= HERO ================= */
 
 .hero{
 
@@ -298,9 +287,7 @@ nav i{
 }
 
 
-/* =========================
-   SECTION
-========================= */
+/* ================= SECTION ================= */
 
 .section{
 
@@ -339,9 +326,7 @@ nav i{
 }
 
 
-/* =========================
-   TEAM ORGANIZATION
-========================= */
+/* ================= TEAM ORGANIZATION ================= */
 
 .team-grid{
 
@@ -417,9 +402,7 @@ nav i{
 }
 
 
-/* =========================
-   PROGRAMME CARDS
-========================= */
+/* ================= PROGRAMME CARDS ================= */
 
 .programme-grid{
 
@@ -441,7 +424,7 @@ nav i{
 
     padding:22px 12px;
 
-    min-height:160px;
+    min-height:180px;
 
     text-align:center;
 
@@ -473,7 +456,7 @@ nav i{
 
     font-size:13px;
 
-    margin-bottom:10px;
+    margin-bottom:12px;
 }
 
 .card-button{
@@ -484,7 +467,7 @@ nav i{
 
     color:white;
 
-    padding:7px 12px;
+    padding:8px 14px;
 
     border-radius:5px;
 
@@ -495,13 +478,15 @@ nav i{
     font-weight:bold;
 }
 
+.card-button:hover{
 
-/* =========================
-   VILLAGE PREVIEW
-========================= */
+    background:#0c572b;
+}
+
+
+/* ================= VILLAGE PREVIEW ================= */
 
 .village-preview{
-
     text-align:center;
 }
 
@@ -522,45 +507,7 @@ nav i{
 }
 
 
-/* =========================
-   STUDENTS
-========================= */
-
-.student-list{
-
-    max-width:1100px;
-
-    margin:auto;
-
-    display:grid;
-
-    grid-template-columns:
-    repeat(3,1fr);
-
-    gap:10px;
-}
-
-.student{
-
-    background:white;
-
-    border-left:
-    4px solid #24783b;
-
-    padding:12px 15px;
-
-    border-radius:7px;
-
-    font-weight:bold;
-
-    box-shadow:
-    0 2px 8px rgba(0,0,0,.08);
-}
-
-
-/* =========================
-   CONTACT
-========================= */
+/* ================= CONTACT ================= */
 
 .contact p{
     margin-bottom:12px;
@@ -576,9 +523,7 @@ nav i{
 }
 
 
-/* =========================
-   BOTTOM IMAGE
-========================= */
+/* ================= BOTTOM IMAGE ================= */
 
 .bottom-campus{
 
@@ -599,9 +544,7 @@ nav i{
 }
 
 
-/* =========================
-   FOOTER
-========================= */
+/* ================= FOOTER ================= */
 
 footer{
 
@@ -653,9 +596,7 @@ footer{
 }
 
 
-/* =========================
-   MOBILE
-========================= */
+/* ================= MOBILE ================= */
 
 @media(max-width:1000px){
 
@@ -667,11 +608,6 @@ footer{
     .programme-grid{
         grid-template-columns:
         repeat(3,1fr);
-    }
-
-    .student-list{
-        grid-template-columns:
-        repeat(2,1fr);
     }
 }
 
@@ -698,7 +634,6 @@ footer{
     }
 
     nav{
-
         position:relative;
     }
 
@@ -733,19 +668,12 @@ footer{
     }
 
     .team-grid{
-
         grid-template-columns:1fr;
     }
 
     .programme-grid{
-
         grid-template-columns:
         repeat(2,1fr);
-    }
-
-    .student-list{
-
-        grid-template-columns:1fr;
     }
 
     .content-box{
@@ -778,9 +706,7 @@ footer{
 <body>
 
 
-<!-- =========================
-     HEADER
-========================= -->
+<!-- ================= HEADER ================= -->
 
 <header class="top-header">
 
@@ -793,26 +719,41 @@ footer{
     <div class="header-text">
 
         <h1>
+
             TNAU RAWE PROGRAMME 2026
+
             <br>
+
             <span style="font-size:.72em;">
+
                 (2023 Batch AC&amp;RI VVNR)
+
             </span>
+
         </h1>
 
         <div class="subtitle">
+
             Rural Agricultural Work Experience Programme
+
         </div>
 
         <div class="college">
-            AGRICULTURAL COLLEGE &amp; RESEARCH INSTITUTE
+
+            AGRICULTURAL COLLEGE &amp;
+            RESEARCH INSTITUTE
+
         </div>
 
         <div class="location">
-            Vazhavachanur · Tiruvannamalai District
+
+            Vazhavachanur ·
+            Tiruvannamalai District
+
         </div>
 
     </div>
+
 
     <div class="theme-box">
 
@@ -829,13 +770,11 @@ footer{
 </header>
 
 
-<!-- =========================
-     NAVIGATION
-========================= -->
+<!-- ================= NAVIGATION ================= -->
 
 <nav>
 
-    <a href="#home">
+    <a href="index.html">
         <i class="fa-solid fa-house"></i>
         Home
     </a>
@@ -850,8 +789,6 @@ footer{
         Team Organization
     </a>
 
-    <!-- IMPORTANT:
-         Opens separate village page -->
     <a href="village.html">
         <i class="fa-solid fa-location-dot"></i>
         Village Profile
@@ -872,7 +809,9 @@ footer{
         Reports
     </a>
 
-    <a href="#students">
+    <!-- NEW STUDENTS PAGE -->
+
+    <a href="students.html">
         <i class="fa-solid fa-graduation-cap"></i>
         Students
     </a>
@@ -885,9 +824,7 @@ footer{
 </nav>
 
 
-<!-- =========================
-     HERO
-========================= -->
+<!-- ================= HERO ================= -->
 
 <section class="hero" id="home">
 
@@ -898,17 +835,21 @@ footer{
         </div>
 
         <h2>
+
             TNAU RAWE<br>
             PROGRAMME 2026
+
         </h2>
 
         <div class="hero-line"></div>
 
         <p>
+
             Practical agricultural learning through
             farmer interaction, field visits,
             agricultural surveys and field-level
             agricultural activities.
+
         </p>
 
         <a href="#about" class="explore">
@@ -924,9 +865,7 @@ footer{
 </section>
 
 
-<!-- =========================
-     TEAM ORGANIZATION
-========================= -->
+<!-- ================= TEAM ORGANIZATION ================= -->
 
 <section class="section" id="team">
 
@@ -940,7 +879,9 @@ footer{
         <div class="team-card">
 
             <div class="team-icon">
+
                 <i class="fa-solid fa-user-tie"></i>
+
             </div>
 
             <h3>
@@ -965,7 +906,9 @@ footer{
         <div class="team-card">
 
             <div class="team-icon">
+
                 <i class="fa-solid fa-user-tie"></i>
+
             </div>
 
             <h3>
@@ -994,7 +937,9 @@ footer{
         <div class="team-card">
 
             <div class="team-icon">
+
                 <i class="fa-solid fa-user-graduate"></i>
+
             </div>
 
             <h3>
@@ -1002,8 +947,10 @@ footer{
             </h3>
 
             <div class="role">
+
                 Team Leader &amp;
                 Students In-charge
+
             </div>
 
             <p>
@@ -1020,7 +967,9 @@ footer{
         <div class="team-card">
 
             <div class="team-icon">
+
                 <i class="fa-solid fa-laptop-code"></i>
+
             </div>
 
             <h3>
@@ -1051,9 +1000,7 @@ footer{
 </section>
 
 
-<!-- =========================
-     PROGRAMME
-========================= -->
+<!-- ================= PROGRAMME ================= -->
 
 <section class="section">
 
@@ -1065,6 +1012,8 @@ footer{
     <div class="programme-grid">
 
 
+        <!-- STUDENTS -->
+
         <div class="programme-card">
 
             <i class="fa-solid fa-users"></i>
@@ -1074,21 +1023,22 @@ footer{
             </h3>
 
             <p>
-                View Paiyur RAWE team members.
+                View all Paiyur RAWE
+                team students.
             </p>
 
             <a
-                href="#students"
+                href="students.html"
                 class="card-button">
 
-                View
+                View Students
 
             </a>
 
         </div>
 
 
-        <!-- VILLAGE PROFILE -->
+        <!-- VILLAGE -->
 
         <div class="programme-card">
 
@@ -1099,7 +1049,8 @@ footer{
             </h3>
 
             <p>
-                View detailed village profile.
+                View detailed village
+                profile.
             </p>
 
             <a
@@ -1113,6 +1064,8 @@ footer{
         </div>
 
 
+        <!-- ACTIVITIES -->
+
         <div class="programme-card">
 
             <i class="fa-solid fa-calendar-day"></i>
@@ -1122,7 +1075,8 @@ footer{
             </h3>
 
             <p>
-                Daily field activities and visits.
+                Daily field activities
+                and visits.
             </p>
 
             <a
@@ -1136,6 +1090,8 @@ footer{
         </div>
 
 
+        <!-- ATTENDANCE -->
+
         <div class="programme-card">
 
             <i class="fa-solid fa-clipboard-check"></i>
@@ -1145,7 +1101,8 @@ footer{
             </h3>
 
             <p>
-                Student attendance records.
+                Student attendance
+                records.
             </p>
 
             <a
@@ -1159,6 +1116,8 @@ footer{
         </div>
 
 
+        <!-- REPORTS -->
+
         <div class="programme-card">
 
             <i class="fa-solid fa-file-lines"></i>
@@ -1168,7 +1127,8 @@ footer{
             </h3>
 
             <p>
-                RAWE reports and documents.
+                RAWE reports and
+                documents.
             </p>
 
             <a
@@ -1187,9 +1147,7 @@ footer{
 </section>
 
 
-<!-- =========================
-     ABOUT
-========================= -->
+<!-- ================= ABOUT ================= -->
 
 <section class="section" id="about">
 
@@ -1200,18 +1158,23 @@ footer{
     <div class="content-box">
 
         <p>
+
             The Rural Agricultural Work Experience
             (RAWE) Programme provides students with
             practical exposure to rural life, farming
             systems and agricultural practices.
+
         </p>
 
         <br>
 
         <p>
-            Students interact with farmers, understand
-            agricultural practices and gain practical
-            experience through field-level activities.
+
+            Students interact with farmers,
+            understand agricultural practices and
+            gain practical experience through
+            field-level activities.
+
         </p>
 
         <br>
@@ -1225,22 +1188,26 @@ footer{
 </section>
 
 
-<!-- =========================
-     VILLAGE SHORT PREVIEW
-========================= -->
+<!-- ================= VILLAGE PREVIEW ================= -->
 
 <section class="section">
 
     <div class="content-box village-preview">
 
         <h3>
-            🌾 Regional Research Station – Krishnagiri
+
+            🌾 Regional Research Station –
+            Krishnagiri
+
         </h3>
 
         <p>
-            Explore the complete village and research
-            station profile, including agricultural
-            information and photographs.
+
+            Explore the complete village and
+            research station profile, including
+            agricultural information and
+            photographs.
+
         </p>
 
         <a
@@ -1258,9 +1225,7 @@ footer{
 </section>
 
 
-<!-- =========================
-     DAILY ACTIVITIES
-========================= -->
+<!-- ================= DAILY ACTIVITIES ================= -->
 
 <section class="section" id="activities">
 
@@ -1270,26 +1235,36 @@ footer{
 
     <div class="content-box">
 
-        <p>🌱 Farmer interaction</p>
+        <p>
+            🌱 Farmer interaction
+        </p>
 
-        <p>🌾 Field visits</p>
+        <p>
+            🌾 Field visits
+        </p>
 
-        <p>📋 Agricultural surveys</p>
+        <p>
+            📋 Agricultural surveys
+        </p>
 
-        <p>👨‍🌾 Farmer meetings</p>
+        <p>
+            👨‍🌾 Farmer meetings
+        </p>
 
-        <p>🌿 Crop and farm observations</p>
+        <p>
+            🌿 Crop and farm observations
+        </p>
 
-        <p>📝 Daily RAWE field activities</p>
+        <p>
+            📝 Daily RAWE field activities
+        </p>
 
     </div>
 
 </section>
 
 
-<!-- =========================
-     ATTENDANCE
-========================= -->
+<!-- ================= ATTENDANCE ================= -->
 
 <section class="section" id="attendance">
 
@@ -1300,9 +1275,11 @@ footer{
     <div class="content-box">
 
         <p>
+
             Student attendance records for the
             RAWE programme will be maintained
             and updated here.
+
         </p>
 
         <br>
@@ -1318,9 +1295,7 @@ footer{
 </section>
 
 
-<!-- =========================
-     REPORTS
-========================= -->
+<!-- ================= REPORTS ================= -->
 
 <section class="section" id="reports">
 
@@ -1330,13 +1305,21 @@ footer{
 
     <div class="content-box">
 
-        <p>📄 RAWE programme reports</p>
+        <p>
+            📄 RAWE programme reports
+        </p>
 
-        <p>📋 Field survey reports</p>
+        <p>
+            📋 Field survey reports
+        </p>
 
-        <p>🌾 Agricultural activity reports</p>
+        <p>
+            🌾 Agricultural activity reports
+        </p>
 
-        <p>👨‍🌾 Farmer interaction reports</p>
+        <p>
+            👨‍🌾 Farmer interaction reports
+        </p>
 
         <br>
 
@@ -1350,52 +1333,7 @@ footer{
 </section>
 
 
-<!-- =========================
-     STUDENTS
-========================= -->
-
-<section class="section" id="students">
-
-    <h2 class="section-heading">
-        Paiyur RAWE Team Students
-    </h2>
-
-    <div class="student-list">
-
-        <div class="student">01 · Dinesh M</div>
-
-        <div class="student">02 · Gokul Raj R</div>
-
-        <div class="student">03 · GokulaBalaji R</div>
-
-        <div class="student">04 · GopiBalaji M</div>
-
-        <div class="student">05 · Gowsikan P</div>
-
-        <div class="student">06 · Jana P</div>
-
-        <div class="student">07 · Jayasurya J</div>
-
-        <div class="student">08 · Joshan P</div>
-
-        <div class="student">09 · Jothishkumar K</div>
-
-        <div class="student">10 · Kishor S</div>
-
-        <div class="student">11 · Kowshik S</div>
-
-        <div class="student">12 · Akshaya K</div>
-
-        <div class="student">13 · Swapanjit Behera</div>
-
-    </div>
-
-</section>
-
-
-<!-- =========================
-     CONTACT
-========================= -->
+<!-- ================= CONTACT ================= -->
 
 <section class="section" id="contact">
 
@@ -1406,68 +1344,112 @@ footer{
     <div class="content-box contact">
 
         <p>
-            <strong>TEAM : PAIYUR</strong>
+            <strong>
+                TEAM : PAIYUR
+            </strong>
         </p>
 
         <br>
 
         <p>
-            <strong>Team In-charge:</strong>
+
+            <strong>
+                Team In-charge:
+            </strong>
+
             Dr. M. Sankar, Ph.D
+
         </p>
 
         <p>
-            <strong>Mail:</strong>
+
+            <strong>
+                Mail:
+            </strong>
+
             <a href="mailto:librarytvmalai@tnau.ac.in">
+
                 librarytvmalai@tnau.ac.in
+
             </a>
+
         </p>
 
         <br>
 
         <p>
-            <strong>Staff In-charge:</strong>
+
+            <strong>
+                Staff In-charge:
+            </strong>
+
             Dr. P. Senthil Kumar
+
         </p>
 
         <p>
-            <strong>Mail:</strong>
+
+            <strong>
+                Mail:
+            </strong>
+
             <a href="mailto:senthilkumarp@tnau.ac.in">
+
                 senthilkumarp@tnau.ac.in
+
             </a>
+
         </p>
 
         <br>
 
         <p>
+
             <strong>
                 Team Leader &amp;
                 Students In-charge:
             </strong>
+
             Gokula Balaji R
+
         </p>
 
         <p>
-            <strong>PH:</strong>
+
+            <strong>
+                PH:
+            </strong>
+
             <a href="tel:9597135679">
                 9597135679
             </a>
+
         </p>
 
         <br>
 
         <p>
+
             <strong>
                 Web Admin &amp; CEO:
             </strong>
+
             Kowshik S
+
         </p>
 
         <p>
-            <strong>Mail:</strong>
+
+            <strong>
+                Mail:
+            </strong>
+
             <a href="mailto:kowshik.in@outlook.com">
+
                 kowshik.in@outlook.com
+
             </a>
+
         </p>
 
     </div>
@@ -1475,16 +1457,12 @@ footer{
 </section>
 
 
-<!-- =========================
-     BOTTOM CAMPUS IMAGE
-========================= -->
+<!-- ================= BOTTOM IMAGE ================= -->
 
 <section class="bottom-campus"></section>
 
 
-<!-- =========================
-     FOOTER
-========================= -->
+<!-- ================= FOOTER ================= -->
 
 <footer>
 
@@ -1497,8 +1475,10 @@ footer{
     </div>
 
     <div class="footer-quote">
+
         “Together in the field,
         growing through experience.”
+
     </div>
 
     <div class="footer-line"></div>
