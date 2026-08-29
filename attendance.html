@@ -4,9 +4,7 @@
 <head>
 
 <meta charset="UTF-8">
-
-<meta name="viewport"
-      content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Students Attendance | TNAU RAWE</title>
 
@@ -28,34 +26,32 @@ body{
 
     background:
     linear-gradient(
-        rgba(255,255,255,.78),
-        rgba(255,255,255,.78)
+        rgba(255,255,255,.76),
+        rgba(255,255,255,.76)
     ),
     url("vvnr-campus.jpg");
 
     background-size:cover;
-
     background-position:center;
-
     background-attachment:fixed;
 }
 
 
-/* HEADER */
+/* ================= HEADER ================= */
 
 header{
 
     background:
     linear-gradient(
-        rgba(0,75,35,.94),
-        rgba(0,95,45,.92)
+        rgba(0,70,32,.96),
+        rgba(0,95,45,.94)
     );
 
     color:white;
 
     text-align:center;
 
-    padding:30px 15px;
+    padding:28px 15px;
 }
 
 header h1{
@@ -63,26 +59,33 @@ header h1{
     font-size:
     clamp(25px,4vw,40px);
 
-    margin-bottom:8px;
+    margin-bottom:7px;
 }
 
 header p{
 
-    font-size:16px;
-
     color:#d9efd1;
+
+    font-size:15px;
+
+    margin:3px;
 }
 
 
-/* NAVIGATION */
+/* ================= NAV ================= */
 
 nav{
 
     background:#063f20;
 
-    text-align:center;
+    display:flex;
 
-    padding:13px;
+    justify-content:center;
+
+    flex-wrap:wrap;
+
+    padding:11px;
+
 }
 
 nav a{
@@ -93,66 +96,92 @@ nav a{
 
     font-weight:bold;
 
-    margin:0 12px;
-
     font-size:14px;
+
+    padding:7px 12px;
+
+    border-radius:5px;
+
+    margin:2px 4px;
 }
 
 nav a:hover{
 
-    color:#a9df8d;
+    background:#247b3d;
 }
 
 
-/* MAIN */
+/* ================= MAIN ================= */
 
 .container{
 
-    max-width:1000px;
+    width:94%;
+
+    max-width:1100px;
 
     margin:40px auto;
-
-    padding:0 15px;
 }
 
 
-/* TITLE */
+/* ================= TITLE ================= */
 
-.title{
+.page-title{
 
     text-align:center;
-
-    color:#075128;
 
     margin-bottom:25px;
 }
 
-.title h2{
+.page-title h2{
+
+    color:#075128;
 
     font-size:
-    clamp(26px,4vw,38px);
+    clamp(28px,4vw,42px);
 }
 
-.title p{
+.page-title p{
+
+    color:#59675e;
 
     margin-top:5px;
-
-    color:#53665a;
 }
 
 
-/* DATE */
+/* ================= PERIOD ================= */
+
+.period{
+
+    background:#e9f6ec;
+
+    color:#075128;
+
+    border:1px solid #b8dbbf;
+
+    border-radius:10px;
+
+    padding:12px;
+
+    text-align:center;
+
+    font-weight:bold;
+
+    margin-bottom:18px;
+}
+
+
+/* ================= DATE BOX ================= */
 
 .date-box{
 
-    background:white;
+    background:rgba(255,255,255,.97);
 
-    padding:20px;
+    padding:22px;
 
-    border-radius:12px;
+    border-radius:13px;
 
     box-shadow:
-    0 4px 15px rgba(0,0,0,.13);
+    0 4px 16px rgba(0,0,0,.14);
 
     text-align:center;
 
@@ -172,28 +201,136 @@ nav a:hover{
 
 #attendanceDate{
 
-    padding:10px;
+    padding:11px 14px;
 
-    border:1px solid #bbb;
+    border:1px solid #b8c5bb;
 
     border-radius:7px;
 
     font-size:16px;
+
+    background:white;
+
+    color:#17301f;
+}
+
+#attendanceDate:disabled{
+
+    background:#eeeeee;
+
+    cursor:not-allowed;
 }
 
 
-/* STUDENTS */
+/* ================= LOCK MESSAGE ================= */
+
+.lock-box{
+
+    display:none;
+
+    margin-top:15px;
+
+    padding:12px;
+
+    border-radius:8px;
+
+    background:#fbe5e5;
+
+    color:#a51d1d;
+
+    font-weight:bold;
+}
+
+.lock-box.show{
+
+    display:block;
+}
+
+.open-box{
+
+    display:none;
+
+    margin-top:15px;
+
+    padding:12px;
+
+    border-radius:8px;
+
+    background:#e5f5e9;
+
+    color:#176b35;
+
+    font-weight:bold;
+}
+
+.open-box.show{
+
+    display:block;
+}
+
+
+/* ================= CONTROLS ================= */
+
+.controls{
+
+    display:flex;
+
+    justify-content:center;
+
+    flex-wrap:wrap;
+
+    gap:10px;
+
+    margin-top:17px;
+}
+
+.control-btn{
+
+    border:none;
+
+    color:white;
+
+    padding:10px 17px;
+
+    border-radius:7px;
+
+    cursor:pointer;
+
+    font-weight:bold;
+
+    font-size:14px;
+}
+
+.all-present{
+
+    background:#17823b;
+}
+
+.reset{
+
+    background:#777;
+}
+
+.control-btn:disabled{
+
+    opacity:.4;
+
+    cursor:not-allowed;
+}
+
+
+/* ================= STUDENTS ================= */
 
 .students{
 
     background:white;
 
-    border-radius:12px;
+    border-radius:13px;
 
     overflow:hidden;
 
     box-shadow:
-    0 4px 15px rgba(0,0,0,.13);
+    0 4px 16px rgba(0,0,0,.14);
 }
 
 .student{
@@ -208,7 +345,7 @@ nav a:hover{
 
     padding:15px 18px;
 
-    border-bottom:1px solid #e4e9e5;
+    border-bottom:1px solid #e3e9e4;
 }
 
 .student:last-child{
@@ -229,11 +366,13 @@ nav a:hover{
 
 .number{
 
-    width:38px;
+    width:40px;
 
-    height:38px;
+    height:40px;
 
-    flex-shrink:0;
+    min-width:40px;
+
+    border-radius:50%;
 
     display:flex;
 
@@ -241,9 +380,7 @@ nav a:hover{
 
     justify-content:center;
 
-    border-radius:50%;
-
-    background:#eaf6ed;
+    background:#e8f5eb;
 
     color:#176b3a;
 
@@ -258,15 +395,13 @@ nav a:hover{
 }
 
 
-/* BUTTONS */
+/* ================= ATTENDANCE BUTTONS ================= */
 
 .buttons{
 
     display:flex;
 
     gap:7px;
-
-    flex-shrink:0;
 }
 
 .att-btn{
@@ -277,20 +412,20 @@ nav a:hover{
 
     border-radius:6px;
 
+    color:white;
+
     cursor:pointer;
 
     font-weight:bold;
 
-    color:white;
-
-    opacity:.55;
+    opacity:.45;
 
     transition:.2s;
 }
 
 .present{
 
-    background:#17823b;
+    background:#16803b;
 }
 
 .absent{
@@ -298,22 +433,32 @@ nav a:hover{
     background:#c62828;
 }
 
+.att-btn:hover{
+
+    opacity:.85;
+}
+
 .att-btn.active{
 
     opacity:1;
 
-    transform:scale(1.03);
+    transform:scale(1.04);
 
     box-shadow:
-    0 2px 7px rgba(0,0,0,.22);
+    0 2px 7px rgba(0,0,0,.25);
+}
+
+.att-btn:disabled{
+
+    cursor:not-allowed;
+
+    opacity:.35;
 }
 
 
-/* SUMMARY */
+/* ================= SUMMARY ================= */
 
 .summary{
-
-    margin-top:25px;
 
     display:grid;
 
@@ -321,37 +466,50 @@ nav a:hover{
     repeat(4,1fr);
 
     gap:15px;
+
+    margin-top:22px;
 }
 
 .summary-card{
 
     background:white;
 
-    padding:20px;
+    padding:19px;
 
     text-align:center;
 
-    border-radius:10px;
+    border-radius:11px;
 
     box-shadow:
-    0 3px 12px rgba(0,0,0,.12);
+    0 3px 13px rgba(0,0,0,.12);
+}
+
+.summary-card span{
+
+    display:block;
+
+    color:#5b685f;
+
+    font-size:14px;
+
+    font-weight:bold;
 }
 
 .summary-card strong{
 
     display:block;
 
-    font-size:27px;
-
     color:#075128;
 
-    margin-top:5px;
+    font-size:28px;
+
+    margin-top:4px;
 }
 
 
-/* SAVE */
+/* ================= SAVE ================= */
 
-.save-box{
+.save-area{
 
     text-align:center;
 
@@ -362,11 +520,11 @@ nav a:hover{
 
     border:none;
 
-    background:#126c34;
+    background:#075128;
 
     color:white;
 
-    padding:14px 30px;
+    padding:14px 32px;
 
     border-radius:8px;
 
@@ -379,20 +537,58 @@ nav a:hover{
 
 .save-btn:hover{
 
-    background:#0a5428;
+    background:#0b6933;
+}
+
+.save-btn:disabled{
+
+    opacity:.4;
+
+    cursor:not-allowed;
 }
 
 .message{
 
-    margin-top:15px;
+    margin-top:13px;
 
     font-weight:bold;
-
-    color:#126c34;
 }
 
 
-/* BACK */
+/* ================= SAVED ================= */
+
+.saved-box{
+
+    background:white;
+
+    margin-top:20px;
+
+    padding:20px;
+
+    border-radius:12px;
+
+    text-align:center;
+
+    box-shadow:
+    0 3px 13px rgba(0,0,0,.12);
+}
+
+.saved-box h3{
+
+    color:#075128;
+
+    margin-bottom:7px;
+}
+
+.saved-box p{
+
+    color:#59675e;
+
+    font-size:14px;
+}
+
+
+/* ================= BACK ================= */
 
 .back{
 
@@ -402,13 +598,13 @@ nav a:hover{
 
     margin:30px auto;
 
+    padding:11px 22px;
+
     background:#16753a;
 
     color:white;
 
     text-decoration:none;
-
-    padding:11px 22px;
 
     border-radius:7px;
 
@@ -416,7 +612,7 @@ nav a:hover{
 }
 
 
-/* FOOTER */
+/* ================= FOOTER ================= */
 
 footer{
 
@@ -428,38 +624,44 @@ footer{
 
     padding:30px 15px;
 
-    margin-top:50px;
+    margin-top:45px;
 }
 
 .footer-title{
 
     color:#c9e6b9;
 
-    font-size:22px;
+    font-size:23px;
 
     font-weight:bold;
 }
 
+.footer-text{
 
-/* MOBILE */
+    color:#d6edc9;
+
+    margin-top:5px;
+}
+
+
+/* ================= MOBILE ================= */
 
 @media(max-width:700px){
 
     nav a{
 
-        display:inline-block;
+        font-size:12px;
 
-        margin:4px 6px;
-
-        font-size:13px;
+        padding:7px 8px;
     }
 
     .student{
 
-        align-items:flex-start;
-
         flex-direction:column;
 
+        align-items:flex-start;
+
+        padding:15px;
     }
 
     .student-info{
@@ -475,12 +677,28 @@ footer{
     .att-btn{
 
         flex:1;
+
+        padding:10px 5px;
+
+        font-size:12px;
     }
 
     .summary{
 
         grid-template-columns:
         repeat(2,1fr);
+
+        gap:10px;
+    }
+
+    .summary-card{
+
+        padding:15px 7px;
+    }
+
+    .summary-card strong{
+
+        font-size:23px;
     }
 
 }
@@ -488,9 +706,9 @@ footer{
 
 @media(max-width:420px){
 
-    .student{
+    .container{
 
-        padding:14px;
+        width:96%;
     }
 
     .name{
@@ -498,9 +716,9 @@ footer{
         font-size:14px;
     }
 
-    .summary{
+    .att-btn{
 
-        grid-template-columns:1fr 1fr;
+        font-size:11px;
     }
 
 }
@@ -513,7 +731,7 @@ footer{
 <body>
 
 
-<!-- HEADER -->
+<!-- ================= HEADER ================= -->
 
 <header>
 
@@ -522,14 +740,18 @@ footer{
     </h1>
 
     <p>
-        TNAU RAWE Programme 2026 ·
-        Team : Paiyur
+        TNAU RAWE PROGRAMME 2026
+        (2023 Batch AC&amp;RI VVNR)
+    </p>
+
+    <p>
+        🌾 TEAM : PAIYUR
     </p>
 
 </header>
 
 
-<!-- NAV -->
+<!-- ================= NAV ================= -->
 
 <nav>
 
@@ -537,12 +759,12 @@ footer{
         🏠 Home
     </a>
 
-    <a href="village.html">
-        📍 Village Profile
-    </a>
-
     <a href="students.html">
         👨‍🎓 Students
+    </a>
+
+    <a href="village.html">
+        📍 Village Profile
     </a>
 
     <a href="attendance.html">
@@ -552,21 +774,38 @@ footer{
 </nav>
 
 
-<!-- MAIN -->
+<!-- ================= MAIN ================= -->
 
 <main class="container">
 
 
-    <div class="title">
+    <div class="page-title">
 
         <h2>
             Daily Attendance
         </h2>
 
         <p>
-            Mark each student's attendance
-            for the selected date.
+            Paiyur RAWE Team Student Attendance
         </p>
+
+    </div>
+
+
+    <!-- ATTENDANCE PERIOD -->
+
+    <div class="period">
+
+        📅 Attendance Period:
+        <strong>
+            02 October 2026
+        </strong>
+
+        →
+
+        <strong>
+            15 December 2026
+        </strong>
 
     </div>
 
@@ -576,26 +815,79 @@ footer{
     <div class="date-box">
 
         <label for="attendanceDate">
-            📅 Select Date
+
+            Select Attendance Date
+
         </label>
+
 
         <input
             type="date"
-            id="attendanceDate">
+            id="attendanceDate"
+            min="2026-10-02"
+            max="2026-12-15">
+
+
+        <div
+            id="lockBox"
+            class="lock-box">
+
+            🔒 Attendance for this date is
+            already submitted and locked.
+
+        </div>
+
+
+        <div
+            id="openBox"
+            class="open-box">
+
+            🟢 This date is available
+            for attendance.
+
+        </div>
+
+
+        <div class="controls">
+
+            <button
+                id="allPresentBtn"
+                class="control-btn all-present"
+                onclick="markAllPresent()">
+
+                ✓ Mark All Present
+
+            </button>
+
+
+            <button
+                id="resetBtn"
+                class="control-btn reset"
+                onclick="resetAttendance()">
+
+                ↻ Reset
+
+            </button>
+
+        </div>
 
     </div>
 
 
-    <!-- STUDENTS -->
+    <!-- ================= STUDENTS ================= -->
 
     <div class="students">
 
+
+        <!-- 01 -->
 
         <div class="student">
 
             <div class="student-info">
 
-                <div class="number">01</div>
+                <div class="number">
+                    01
+                </div>
 
                 <div class="name">
                     Dinesh M
@@ -626,11 +918,15 @@ footer{
         </div>
 
 
+        <!-- 02 -->
+
         <div class="student">
 
             <div class="student-info">
 
-                <div class="number">02</div>
+                <div class="number">
+                    02
+                </div>
 
                 <div class="name">
                     Gokul Raj R
@@ -661,11 +957,15 @@ footer{
         </div>
 
 
+        <!-- 03 -->
+
         <div class="student">
 
             <div class="student-info">
 
-                <div class="number">03</div>
+                <div class="number">
+                    03
+                </div>
 
                 <div class="name">
                     GokulaBalaji R
@@ -696,11 +996,15 @@ footer{
         </div>
 
 
+        <!-- 04 -->
+
         <div class="student">
 
             <div class="student-info">
 
-                <div class="number">04</div>
+                <div class="number">
+                    04
+                </div>
 
                 <div class="name">
                     GopiBalaji M
@@ -731,11 +1035,15 @@ footer{
         </div>
 
 
+        <!-- 05 -->
+
         <div class="student">
 
             <div class="student-info">
 
-                <div class="number">05</div>
+                <div class="number">
+                    05
+                </div>
 
                 <div class="name">
                     Gowsikan P
@@ -766,11 +1074,15 @@ footer{
         </div>
 
 
+        <!-- 06 -->
+
         <div class="student">
 
             <div class="student-info">
 
-                <div class="number">06</div>
+                <div class="number">
+                    06
+                </div>
 
                 <div class="name">
                     Jana P
@@ -801,11 +1113,15 @@ footer{
         </div>
 
 
+        <!-- 07 -->
+
         <div class="student">
 
             <div class="student-info">
 
-                <div class="number">07</div>
+                <div class="number">
+                    07
+                </div>
 
                 <div class="name">
                     Jayasurya J
@@ -836,11 +1152,15 @@ footer{
         </div>
 
 
+        <!-- 08 -->
+
         <div class="student">
 
             <div class="student-info">
 
-                <div class="number">08</div>
+                <div class="number">
+                    08
+                </div>
 
                 <div class="name">
                     Joshan P
@@ -871,11 +1191,15 @@ footer{
         </div>
 
 
+        <!-- 09 -->
+
         <div class="student">
 
             <div class="student-info">
 
-                <div class="number">09</div>
+                <div class="number">
+                    09
+                </div>
 
                 <div class="name">
                     Jothishkumar K
@@ -906,11 +1230,15 @@ footer{
         </div>
 
 
+        <!-- 10 -->
+
         <div class="student">
 
             <div class="student-info">
 
-                <div class="number">10</div>
+                <div class="number">
+                    10
+                </div>
 
                 <div class="name">
                     Kishor S
@@ -941,11 +1269,15 @@ footer{
         </div>
 
 
+        <!-- 11 -->
+
         <div class="student">
 
             <div class="student-info">
 
-                <div class="number">11</div>
+                <div class="number">
+                    11
+                </div>
 
                 <div class="name">
                     Kowshik S
@@ -976,11 +1308,15 @@ footer{
         </div>
 
 
+        <!-- 12 -->
+
         <div class="student">
 
             <div class="student-info">
 
-                <div class="number">12</div>
+                <div class="number">
+                    12
+                </div>
 
                 <div class="name">
                     Akshaya K
@@ -1011,11 +1347,15 @@ footer{
         </div>
 
 
+        <!-- 13 -->
+
         <div class="student">
 
             <div class="student-info">
 
-                <div class="number">13</div>
+                <div class="number">
+                    13
+                </div>
 
                 <div class="name">
                     Swapanjit Behera
@@ -1049,13 +1389,15 @@ footer{
     </div>
 
 
-    <!-- SUMMARY -->
+    <!-- ================= SUMMARY ================= -->
 
     <div class="summary">
 
         <div class="summary-card">
 
-            Total
+            <span>
+                Total Students
+            </span>
 
             <strong id="total">
                 13
@@ -1063,9 +1405,12 @@ footer{
 
         </div>
 
+
         <div class="summary-card">
 
-            Present
+            <span>
+                🟢 Present
+            </span>
 
             <strong id="present">
                 0
@@ -1073,9 +1418,12 @@ footer{
 
         </div>
 
+
         <div class="summary-card">
 
-            Absent
+            <span>
+                🔴 Absent
+            </span>
 
             <strong id="absent">
                 0
@@ -1083,9 +1431,12 @@ footer{
 
         </div>
 
+
         <div class="summary-card">
 
-            Attendance
+            <span>
+                📊 Attendance
+            </span>
 
             <strong id="percentage">
                 0%
@@ -1096,22 +1447,40 @@ footer{
     </div>
 
 
-    <!-- SAVE -->
+    <!-- ================= SAVE ================= -->
 
-    <div class="save-box">
+    <div class="save-area">
 
         <button
+            id="saveBtn"
             class="save-btn"
             onclick="saveAttendance()">
 
-            💾 Save Attendance
+            💾 SAVE &amp; LOCK ATTENDANCE
 
         </button>
 
         <div
-            class="message"
-            id="message">
+            id="message"
+            class="message">
         </div>
+
+    </div>
+
+
+    <!-- ================= SAVED ================= -->
+
+    <div class="saved-box">
+
+        <h3>
+            📋 Current Date Status
+        </h3>
+
+        <p id="savedText">
+
+            Select a date to check attendance.
+
+        </p>
 
     </div>
 
@@ -1128,21 +1497,18 @@ footer{
 </main>
 
 
-<!-- FOOTER -->
-
 <footer>
 
     <div class="footer-title">
-        👨‍🌾 TEAM : PAIYUR
+        🌾 TEAM : PAIYUR
     </div>
 
-    <div>
+    <div class="footer-text">
         TNAU RAWE Programme 2026
     </div>
 
-    <div>
-        AC&amp;RI VVNR ·
-        Tiruvannamalai District
+    <div class="footer-text">
+        AC&amp;RI VVNR · Tiruvannamalai District
     </div>
 
 </footer>
@@ -1150,101 +1516,327 @@ footer{
 
 <script>
 
-/* =========================
+/* ==========================================
+   GOOGLE APPS SCRIPT WEB APP URL
+========================================== */
+
+const GOOGLE_SCRIPT_URL =
+    "PASTE_YOUR_GOOGLE_APPS_SCRIPT_URL_HERE";
+
+
+/* ==========================================
+   ATTENDANCE DATES
+========================================== */
+
+const START_DATE =
+    "2026-10-02";
+
+const END_DATE =
+    "2026-12-15";
+
+
+/* ==========================================
    STUDENTS
-========================= */
+========================================== */
 
 const students = [
 
     "Dinesh M",
+
     "Gokul Raj R",
+
     "GokulaBalaji R",
+
     "GopiBalaji M",
+
     "Gowsikan P",
+
     "Jana P",
+
     "Jayasurya J",
+
     "Joshan P",
+
     "Jothishkumar K",
+
     "Kishor S",
+
     "Kowshik S",
+
     "Akshaya K",
+
     "Swapanjit Behera"
 
 ];
 
 
-/* =========================
-   ATTENDANCE DATA
-========================= */
+/* ==========================================
+   VARIABLES
+========================================== */
 
 let attendance =
-    new Array(students.length).fill(null);
+    new Array(
+        students.length
+    ).fill(null);
+
+let dateLocked = false;
+
+let checkingDate = false;
 
 
-/* =========================
-   DATE
-========================= */
+/* ==========================================
+   ELEMENTS
+========================================== */
 
 const dateInput =
     document.getElementById(
         "attendanceDate"
     );
 
+const lockBox =
+    document.getElementById(
+        "lockBox"
+    );
 
-const today =
-    new Date()
-    .toISOString()
-    .split("T")[0];
+const openBox =
+    document.getElementById(
+        "openBox"
+    );
+
+const saveBtn =
+    document.getElementById(
+        "saveBtn"
+    );
+
+const allPresentBtn =
+    document.getElementById(
+        "allPresentBtn"
+    );
+
+const resetBtn =
+    document.getElementById(
+        "resetBtn"
+    );
+
+const message =
+    document.getElementById(
+        "message"
+    );
+
+const savedText =
+    document.getElementById(
+        "savedText"
+    );
 
 
-dateInput.value = today;
+/* ==========================================
+   TODAY
+========================================== */
+
+function todayDate(){
+
+    const d =
+        new Date();
+
+    const year =
+        d.getFullYear();
+
+    const month =
+        String(
+            d.getMonth()+1
+        ).padStart(2,"0");
+
+    const day =
+        String(
+            d.getDate()
+        ).padStart(2,"0");
+
+    return (
+        year +
+        "-" +
+        month +
+        "-" +
+        day
+    );
+
+}
 
 
-/* =========================
+/* ==========================================
+   INITIAL DATE
+========================================== */
+
+dateInput.value =
+    START_DATE;
+
+
+/* ==========================================
+   DATE RANGE CHECK
+========================================== */
+
+function isAllowedDate(
+    date
+){
+
+    return (
+        date >= START_DATE &&
+        date <= END_DATE
+    );
+
+}
+
+
+/* ==========================================
+   LOCAL STORAGE KEY
+========================================== */
+
+function storageKey(
+    date
+){
+
+    return (
+        "PAIYUR_ATTENDANCE_" +
+        date
+    );
+
+}
+
+
+/* ==========================================
+   CLEAR ATTENDANCE
+========================================== */
+
+function clearAttendance(){
+
+    attendance =
+        new Array(
+            students.length
+        ).fill(null);
+
+
+    document
+        .querySelectorAll(
+            ".att-btn"
+        )
+        .forEach(
+            function(button){
+
+                button.classList.remove(
+                    "active"
+                );
+
+            }
+        );
+
+
+    updateSummary();
+
+}
+
+
+/* ==========================================
+   ENABLE / DISABLE
+========================================== */
+
+function setEditing(
+    enabled
+){
+
+    document
+        .querySelectorAll(
+            ".att-btn"
+        )
+        .forEach(
+            function(button){
+
+                button.disabled =
+                    !enabled;
+
+            }
+        );
+
+
+    allPresentBtn.disabled =
+        !enabled;
+
+    resetBtn.disabled =
+        !enabled;
+
+    saveBtn.disabled =
+        !enabled;
+
+    dateInput.disabled =
+        false;
+
+}
+
+
+/* ==========================================
    MARK ATTENDANCE
-========================= */
+========================================== */
 
-function markAttendance(index,status){
+function markAttendance(
+    index,
+    status
+){
 
-    attendance[index] = status;
+    if(dateLocked){
+
+        return;
+
+    }
 
 
-    const studentRows =
+    attendance[index] =
+        status;
+
+
+    const rows =
         document.querySelectorAll(
             ".student"
         );
 
 
-    const row =
-        studentRows[index];
-
-
     const buttons =
-        row.querySelectorAll(
+        rows[index]
+        .querySelectorAll(
             ".att-btn"
         );
 
 
-    buttons.forEach(function(button){
+    buttons.forEach(
+        function(button){
 
-        button.classList.remove(
-            "active"
-        );
+            button.classList.remove(
+                "active"
+            );
 
-    });
+        }
+    );
 
 
-    if(status === "Present"){
+    if(
+        status ===
+        "Present"
+    ){
 
         buttons[0]
-        .classList.add("active");
+            .classList.add(
+                "active"
+            );
 
     }
 
-    else{
+
+    if(
+        status ===
+        "Absent"
+    ){
 
         buttons[1]
-        .classList.add("active");
+            .classList.add(
+                "active"
+            );
 
     }
 
@@ -1254,9 +1846,97 @@ function markAttendance(index,status){
 }
 
 
-/* =========================
+/* ==========================================
+   MARK ALL PRESENT
+========================================== */
+
+function markAllPresent(){
+
+    if(dateLocked){
+
+        return;
+
+    }
+
+
+    attendance =
+        new Array(
+            students.length
+        ).fill(
+            "Present"
+        );
+
+
+    const rows =
+        document.querySelectorAll(
+            ".student"
+        );
+
+
+    rows.forEach(
+        function(row){
+
+            const buttons =
+                row.querySelectorAll(
+                    ".att-btn"
+                );
+
+
+            buttons[0]
+                .classList.add(
+                    "active"
+                );
+
+
+            buttons[1]
+                .classList.remove(
+                    "active"
+                );
+
+        }
+    );
+
+
+    updateSummary();
+
+}
+
+
+/* ==========================================
+   RESET
+========================================== */
+
+function resetAttendance(){
+
+    if(dateLocked){
+
+        return;
+
+    }
+
+
+    if(
+        !confirm(
+            "Reset attendance for this date?"
+        )
+    ){
+
+        return;
+
+    }
+
+
+    clearAttendance();
+
+
+    message.textContent = "";
+
+}
+
+
+/* ==========================================
    SUMMARY
-========================= */
+========================================== */
 
 function updateSummary(){
 
@@ -1265,67 +1945,311 @@ function updateSummary(){
     let absent = 0;
 
 
-    attendance.forEach(function(status){
+    attendance.forEach(
+        function(status){
 
-        if(status === "Present"){
+            if(
+                status ===
+                "Present"
+            ){
 
-            present++;
+                present++;
+
+            }
+
+
+            if(
+                status ===
+                "Absent"
+            ){
+
+                absent++;
+
+            }
 
         }
+    );
 
-        if(status === "Absent"){
 
-            absent++;
-
-        }
-
-    });
+    document.getElementById(
+        "total"
+    ).textContent =
+        students.length;
 
 
     document.getElementById(
         "present"
-    ).textContent = present;
+    ).textContent =
+        present;
 
 
     document.getElementById(
         "absent"
-    ).textContent = absent;
+    ).textContent =
+        absent;
 
 
-    let percentage = 0;
-
-
-    if(present > 0){
-
-        percentage =
-        ((present / students.length) * 100)
-        .toFixed(1);
-
-    }
+    const percentage =
+        (
+            present /
+            students.length *
+            100
+        ).toFixed(1);
 
 
     document.getElementById(
         "percentage"
     ).textContent =
-    percentage + "%";
+        percentage + "%";
 
 }
 
 
-/* =========================
-   SAVE
-========================= */
+/* ==========================================
+   CHECK GOOGLE SHEETS
+========================================== */
 
-function saveAttendance(){
+async function checkGoogleLock(
+    date
+){
+
+    if(
+        GOOGLE_SCRIPT_URL ===
+        "PASTE_YOUR_GOOGLE_APPS_SCRIPT_URL_HERE"
+    ){
+
+        return false;
+
+    }
+
+
+    try{
+
+        const response =
+            await fetch(
+
+                GOOGLE_SCRIPT_URL +
+                "?date=" +
+                encodeURIComponent(date)
+
+            );
+
+
+        const result =
+            await response.json();
+
+
+        if(
+            result.locked === true
+        ){
+
+            return true;
+
+        }
+
+
+    }
+
+    catch(error){
+
+        console.log(
+            "Google lock check failed:",
+            error
+        );
+
+    }
+
+
+    return false;
+
+}
+
+
+/* ==========================================
+   LOAD DATE
+========================================== */
+
+async function loadDate(){
 
     const date =
         dateInput.value;
 
 
-    if(!date){
+    clearAttendance();
+
+
+    dateLocked = false;
+
+
+    lockBox.classList.remove(
+        "show"
+    );
+
+
+    openBox.classList.remove(
+        "show"
+    );
+
+
+    message.textContent = "";
+
+
+    savedText.textContent =
+        "Checking date...";
+
+
+    if(
+        !isAllowedDate(date)
+    ){
+
+        dateLocked = true;
+
+        setEditing(false);
+
+
+        lockBox.textContent =
+            "🚫 This date is outside the attendance period. Attendance is allowed only from 02 October 2026 to 15 December 2026.";
+
+        lockBox.classList.add(
+            "show"
+        );
+
+
+        savedText.textContent =
+            "This date is not available.";
+
+        return;
+
+    }
+
+
+    checkingDate = true;
+
+    setEditing(false);
+
+
+    /* Check local saved copy */
+
+    const localSaved =
+        localStorage.getItem(
+            storageKey(date)
+        );
+
+
+    if(localSaved){
+
+        lockDate(
+            "🔒 Attendance for this date is already saved on this device."
+        );
+
+        checkingDate = false;
+
+        return;
+
+    }
+
+
+    /* Check Google Sheet */
+
+    const googleLocked =
+        await checkGoogleLock(
+            date
+        );
+
+
+    checkingDate = false;
+
+
+    if(
+        googleLocked
+    ){
+
+        lockDate(
+            "🔒 Attendance for this date is already submitted and locked."
+        );
+
+        return;
+
+    }
+
+
+    /* Date is available */
+
+    dateLocked = false;
+
+    setEditing(true);
+
+    openBox.classList.add(
+        "show"
+    );
+
+    savedText.textContent =
+        "🟢 Attendance is available for this date.";
+
+}
+
+
+/* ==========================================
+   LOCK DATE
+========================================== */
+
+function lockDate(
+    text
+){
+
+    dateLocked = true;
+
+
+    setEditing(false);
+
+
+    lockBox.textContent =
+        text;
+
+
+    lockBox.classList.add(
+        "show"
+    );
+
+
+    openBox.classList.remove(
+        "show"
+    );
+
+
+    savedText.textContent =
+        "🔒 This date is permanently locked.";
+
+}
+
+
+/* ==========================================
+   SAVE ATTENDANCE
+========================================== */
+
+async function saveAttendance(){
+
+    if(dateLocked){
 
         alert(
-            "Please select a date."
+            "This attendance date is already locked."
+        );
+
+        return;
+
+    }
+
+
+    const date =
+        dateInput.value;
+
+
+    if(
+        !isAllowedDate(date)
+    ){
+
+        alert(
+            "Attendance is allowed only from 02 October 2026 to 15 December 2026."
         );
 
         return;
@@ -1335,11 +2259,17 @@ function saveAttendance(){
 
     const unmarked =
         attendance.filter(
-            item => item === null
+            function(status){
+
+                return status === null;
+
+            }
         ).length;
 
 
-    if(unmarked > 0){
+    if(
+        unmarked > 0
+    ){
 
         alert(
             "Please mark attendance for all 13 students."
@@ -1350,11 +2280,48 @@ function saveAttendance(){
     }
 
 
-    const record = {
+    if(
+        GOOGLE_SCRIPT_URL ===
+        "https://script.google.com/macros/s/AKfycbzrE9QU4VNU7mnnX4GGpi7_PuyMhMCnkJMxFT1k3kQ_cROV1rtcXLIXHQ_g5xBki2V4/exec"
+    ){
+
+        alert(
+            "Please add your Google Apps Script Web App URL first."
+        );
+
+        return;
+
+    }
+
+
+    /*
+       FINAL LOCK CHECK
+    */
+
+    const alreadyLocked =
+        await checkGoogleLock(
+            date
+        );
+
+
+    if(
+        alreadyLocked
+    ){
+
+        lockDate(
+            "🔒 Attendance for this date is already submitted and locked."
+        );
+
+        return;
+
+    }
+
+
+    const data = {
 
         date:date,
 
-        attendance:
+        students:
             students.map(
                 function(name,index){
 
@@ -1363,7 +2330,7 @@ function saveAttendance(){
                         name:name,
 
                         status:
-                        attendance[index]
+                            attendance[index]
 
                     };
 
@@ -1373,124 +2340,144 @@ function saveAttendance(){
     };
 
 
-    /*
-       This version saves to the
-       browser on this device.
-    */
+    saveBtn.disabled = true;
 
-    localStorage.setItem(
+    allPresentBtn.disabled = true;
 
-        "raweAttendance_" + date,
-
-        JSON.stringify(record)
-
-    );
+    resetBtn.disabled = true;
 
 
-    document.getElementById(
-        "message"
-    ).textContent =
-    "✅ Attendance saved successfully on this device.";
-
-}
+    message.style.color =
+        "#075128";
 
 
-/* =========================
-   LOAD SAVED ATTENDANCE
-========================= */
-
-dateInput.addEventListener(
-    "change",
-    loadAttendance
-);
+    message.textContent =
+        "⏳ Saving attendance...";
 
 
-function loadAttendance(){
+    try{
 
-    const date =
-        dateInput.value;
+        /*
+          Send data to Google Apps Script
+        */
 
+        await fetch(
 
-    const saved =
-        localStorage.getItem(
-            "raweAttendance_" + date
-        );
+            GOOGLE_SCRIPT_URL,
 
+            {
 
-    attendance =
-        new Array(
-            students.length
-        ).fill(null);
+                method:"POST",
 
+                mode:"no-cors",
 
-    const rows =
-        document.querySelectorAll(
-            ".student"
-        );
+                headers:{
 
+                    "Content-Type":
+                        "text/plain;charset=utf-8"
 
-    rows.forEach(function(row){
+                },
 
-        row.querySelectorAll(
-            ".att-btn"
-        ).forEach(function(button){
-
-            button.classList.remove(
-                "active"
-            );
-
-        });
-
-    });
-
-
-    if(saved){
-
-        const record =
-            JSON.parse(saved);
-
-
-        record.attendance.forEach(
-            function(item,index){
-
-                attendance[index] =
-                    item.status;
-
-
-                const buttons =
-                    rows[index]
-                    .querySelectorAll(
-                        ".att-btn"
-                    );
-
-
-                if(item.status === "Present"){
-
-                    buttons[0]
-                    .classList.add(
-                        "active"
-                    );
-
-                }
-
-                else{
-
-                    buttons[1]
-                    .classList.add(
-                        "active"
-                    );
-
-                }
+                body:
+                    JSON.stringify(data)
 
             }
+
         );
+
+
+        /*
+          Save local backup
+        */
+
+        localStorage.setItem(
+
+            storageKey(date),
+
+            JSON.stringify(data)
+
+        );
+
+
+        /*
+          Lock immediately
+        */
+
+        dateLocked = true;
+
+
+        setEditing(false);
+
+
+        lockBox.textContent =
+            "🔒 Attendance saved successfully. This date is now permanently locked.";
+
+        lockBox.classList.add(
+            "show"
+        );
+
+
+        openBox.classList.remove(
+            "show"
+        );
+
+
+        message.textContent =
+            "✅ Attendance saved and locked successfully!";
+
+
+        savedText.textContent =
+            "🔒 " +
+            date +
+            " — Attendance completed and locked.";
+
 
     }
 
+    catch(error){
 
-    updateSummary();
+        console.error(
+            error
+        );
+
+
+        message.style.color =
+            "#c62828";
+
+
+        message.textContent =
+            "❌ Could not save attendance. Please try again.";
+
+
+        setEditing(true);
+
+    }
 
 }
+
+
+/* ==========================================
+   DATE CHANGE
+========================================== */
+
+dateInput.addEventListener(
+
+    "change",
+
+    function(){
+
+        loadDate();
+
+    }
+
+);
+
+
+/* ==========================================
+   INITIAL LOAD
+========================================== */
+
+loadDate();
 
 </script>
 
