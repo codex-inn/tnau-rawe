@@ -1,14 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Students Attendance | TNAU RAWE</title>
-
-<!-- PDF library -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.8.2/jspdf.plugin.autotable.min.js"></script>
 
 <style>
 
@@ -19,14 +17,17 @@
 }
 
 body{
+
     font-family:Arial,Helvetica,sans-serif;
+
     color:#17301f;
+
     min-height:100vh;
 
     background:
     linear-gradient(
-        rgba(255,255,255,.78),
-        rgba(255,255,255,.78)
+        rgba(255,255,255,.76),
+        rgba(255,255,255,.76)
     ),
     url("vvnr-campus.jpg");
 
@@ -35,1102 +36,1462 @@ body{
     background-attachment:fixed;
 }
 
-/* HEADER */
+
+/* ================= HEADER ================= */
 
 header{
-    background:linear-gradient(
+
+    background:
+    linear-gradient(
         rgba(0,70,32,.96),
         rgba(0,95,45,.94)
     );
+
     color:white;
+
     text-align:center;
+
     padding:28px 15px;
 }
 
 header h1{
-    font-size:clamp(25px,4vw,40px);
-    margin-bottom:8px;
+
+    font-size:
+    clamp(25px,4vw,40px);
+
+    margin-bottom:7px;
 }
 
 header p{
+
     color:#d9efd1;
-    margin:4px;
+
+    font-size:15px;
+
+    margin:3px;
 }
 
-/* NAV */
+
+/* ================= NAV ================= */
 
 nav{
+
     background:#063f20;
+
     display:flex;
+
     justify-content:center;
+
     flex-wrap:wrap;
-    padding:10px;
+
+    padding:11px;
+
 }
 
 nav a{
+
     color:white;
+
     text-decoration:none;
+
     font-weight:bold;
+
     font-size:14px;
-    padding:9px 13px;
-    border-radius:6px;
+
+    padding:7px 12px;
+
+    border-radius:5px;
+
     margin:2px 4px;
 }
 
 nav a:hover{
+
     background:#247b3d;
 }
 
-/* CONTAINER */
+
+/* ================= MAIN ================= */
 
 .container{
+
     width:94%;
+
     max-width:1100px;
-    margin:35px auto;
+
+    margin:40px auto;
 }
 
-/* TITLE */
+
+/* ================= TITLE ================= */
 
 .page-title{
+
     text-align:center;
-    margin-bottom:22px;
+
+    margin-bottom:25px;
 }
 
 .page-title h2{
+
     color:#075128;
-    font-size:clamp(27px,4vw,40px);
+
+    font-size:
+    clamp(28px,4vw,42px);
 }
 
 .page-title p{
+
     color:#59675e;
-    margin-top:7px;
+
+    margin-top:5px;
 }
 
-/* PERIOD */
+
+/* ================= PERIOD ================= */
 
 .period{
+
     background:#e9f6ec;
+
+    color:#075128;
+
     border:1px solid #b8dbbf;
-    color:#075128;
-    padding:13px;
+
     border-radius:10px;
+
+    padding:12px;
+
     text-align:center;
+
     font-weight:bold;
-    margin-bottom:20px;
+
+    margin-bottom:18px;
 }
 
-/* DATE CARD */
 
-.date-card{
+/* ================= DATE BOX ================= */
+
+.date-box{
+
     background:rgba(255,255,255,.97);
+
     padding:22px;
+
     border-radius:13px;
-    box-shadow:0 4px 16px rgba(0,0,0,.14);
+
+    box-shadow:
+    0 4px 16px rgba(0,0,0,.14);
+
     text-align:center;
+
     margin-bottom:20px;
 }
 
-.date-card label{
+.date-box label{
+
     display:block;
+
     color:#075128;
+
     font-weight:bold;
+
     margin-bottom:8px;
 }
 
 #attendanceDate{
+
     padding:11px 14px;
-    border:1px solid #aebbb2;
+
+    border:1px solid #b8c5bb;
+
     border-radius:7px;
+
     font-size:16px;
+
+    background:white;
+
+    color:#17301f;
 }
 
-/* STATUS */
+#attendanceDate:disabled{
 
-.status{
-    margin:15px auto 0;
-    padding:12px;
-    border-radius:8px;
-    max-width:700px;
-    font-weight:bold;
-}
+    background:#eeeeee;
 
-.status.available{
-    background:#e3f5e8;
-    color:#176b35;
-}
-
-.status.locked{
-    background:#f9e2e2;
-    color:#a51d1d;
-}
-
-.status.warning{
-    background:#fff2d8;
-    color:#8a5a00;
-}
-
-/* BUTTONS */
-
-.controls{
-    display:flex;
-    justify-content:center;
-    flex-wrap:wrap;
-    gap:10px;
-    margin-top:18px;
-}
-
-button{
-    font-family:inherit;
-}
-
-.control-btn{
-    border:0;
-    color:white;
-    padding:10px 16px;
-    border-radius:7px;
-    cursor:pointer;
-    font-weight:bold;
-}
-
-.present-all{
-    background:#16803b;
-}
-
-.reset-btn{
-    background:#777;
-}
-
-.pdf-btn{
-    background:#b3261e;
-}
-
-.excel-btn{
-    background:#176b3a;
-}
-
-.control-btn:hover{
-    opacity:.88;
-}
-
-.control-btn:disabled{
-    opacity:.4;
     cursor:not-allowed;
 }
 
-/* STUDENTS */
+
+/* ================= LOCK MESSAGE ================= */
+
+.lock-box{
+
+    display:none;
+
+    margin-top:15px;
+
+    padding:12px;
+
+    border-radius:8px;
+
+    background:#fbe5e5;
+
+    color:#a51d1d;
+
+    font-weight:bold;
+}
+
+.lock-box.show{
+
+    display:block;
+}
+
+.open-box{
+
+    display:none;
+
+    margin-top:15px;
+
+    padding:12px;
+
+    border-radius:8px;
+
+    background:#e5f5e9;
+
+    color:#176b35;
+
+    font-weight:bold;
+}
+
+.open-box.show{
+
+    display:block;
+}
+
+
+/* ================= CONTROLS ================= */
+
+.controls{
+
+    display:flex;
+
+    justify-content:center;
+
+    flex-wrap:wrap;
+
+    gap:10px;
+
+    margin-top:17px;
+}
+
+.control-btn{
+
+    border:none;
+
+    color:white;
+
+    padding:10px 17px;
+
+    border-radius:7px;
+
+    cursor:pointer;
+
+    font-weight:bold;
+
+    font-size:14px;
+}
+
+.all-present{
+
+    background:#17823b;
+}
+
+.reset{
+
+    background:#777;
+}
+
+.control-btn:disabled{
+
+    opacity:.4;
+
+    cursor:not-allowed;
+}
+
+
+/* ================= STUDENTS ================= */
 
 .students{
+
     background:white;
+
     border-radius:13px;
+
     overflow:hidden;
-    box-shadow:0 4px 16px rgba(0,0,0,.14);
+
+    box-shadow:
+    0 4px 16px rgba(0,0,0,.14);
 }
 
 .student{
+
     display:flex;
+
     align-items:center;
+
     justify-content:space-between;
+
     gap:15px;
-    padding:14px 18px;
+
+    padding:15px 18px;
+
     border-bottom:1px solid #e3e9e4;
 }
 
 .student:last-child{
-    border-bottom:0;
+
+    border-bottom:none;
 }
 
 .student-info{
+
     display:flex;
+
     align-items:center;
+
     gap:12px;
+
+    min-width:0;
 }
 
 .number{
+
     width:40px;
+
     height:40px;
+
     min-width:40px;
+
     border-radius:50%;
+
     display:flex;
-    justify-content:center;
+
     align-items:center;
+
+    justify-content:center;
+
     background:#e8f5eb;
+
     color:#176b3a;
+
     font-weight:bold;
 }
 
 .name{
+
     font-weight:bold;
+
+    color:#173f24;
 }
 
+
+/* ================= ATTENDANCE BUTTONS ================= */
+
 .buttons{
+
     display:flex;
+
     gap:7px;
 }
 
 .att-btn{
-    border:0;
-    color:white;
-    padding:9px 12px;
+
+    border:none;
+
+    padding:9px 13px;
+
     border-radius:6px;
+
+    color:white;
+
     cursor:pointer;
+
     font-weight:bold;
+
     opacity:.45;
+
+    transition:.2s;
 }
 
-.att-btn.present{
+.present{
+
     background:#16803b;
 }
 
-.att-btn.absent{
+.absent{
+
     background:#c62828;
 }
 
+.att-btn:hover{
+
+    opacity:.85;
+}
+
 .att-btn.active{
+
     opacity:1;
-    transform:scale(1.03);
-    box-shadow:0 2px 7px rgba(0,0,0,.25);
+
+    transform:scale(1.04);
+
+    box-shadow:
+    0 2px 7px rgba(0,0,0,.25);
 }
 
 .att-btn:disabled{
-    opacity:.3;
+
     cursor:not-allowed;
+
+    opacity:.35;
 }
 
-/* SUMMARY */
+
+/* ================= SUMMARY ================= */
 
 .summary{
+
     display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:14px;
-    margin-top:20px;
+
+    grid-template-columns:
+    repeat(4,1fr);
+
+    gap:15px;
+
+    margin-top:22px;
 }
 
 .summary-card{
+
     background:white;
-    padding:18px;
+
+    padding:19px;
+
     text-align:center;
+
     border-radius:11px;
-    box-shadow:0 3px 13px rgba(0,0,0,.12);
+
+    box-shadow:
+    0 3px 13px rgba(0,0,0,.12);
 }
 
 .summary-card span{
+
     display:block;
+
     color:#5b685f;
+
     font-size:14px;
+
     font-weight:bold;
 }
 
 .summary-card strong{
+
     display:block;
+
     color:#075128;
+
     font-size:28px;
-    margin-top:5px;
+
+    margin-top:4px;
 }
 
-/* SAVE */
+
+/* ================= SAVE ================= */
 
 .save-area{
+
     text-align:center;
+
     margin-top:25px;
 }
 
 .save-btn{
-    border:0;
+
+    border:none;
+
     background:#075128;
+
     color:white;
-    padding:14px 30px;
+
+    padding:14px 32px;
+
     border-radius:8px;
+
     font-size:16px;
+
     font-weight:bold;
+
     cursor:pointer;
 }
 
 .save-btn:hover{
+
     background:#0b6933;
 }
 
 .save-btn:disabled{
+
     opacity:.4;
+
     cursor:not-allowed;
 }
 
 .message{
-    margin-top:12px;
+
+    margin-top:13px;
+
     font-weight:bold;
 }
 
-/* EXPORT */
 
-.export-box{
+/* ================= SAVED ================= */
+
+.saved-box{
+
     background:white;
-    margin-top:25px;
-    padding:22px;
+
+    margin-top:20px;
+
+    padding:20px;
+
     border-radius:12px;
+
     text-align:center;
-    box-shadow:0 3px 13px rgba(0,0,0,.12);
+
+    box-shadow:
+    0 3px 13px rgba(0,0,0,.12);
 }
 
-.export-box h3{
+.saved-box h3{
+
     color:#075128;
+
     margin-bottom:7px;
 }
 
-.export-box p{
+.saved-box p{
+
     color:#59675e;
+
     font-size:14px;
-    margin-bottom:15px;
 }
 
-/* FOOTER */
+
+/* ================= BACK ================= */
+
+.back{
+
+    display:block;
+
+    width:max-content;
+
+    margin:30px auto;
+
+    padding:11px 22px;
+
+    background:#16753a;
+
+    color:white;
+
+    text-decoration:none;
+
+    border-radius:7px;
+
+    font-weight:bold;
+}
+
+
+/* ================= FOOTER ================= */
 
 footer{
+
     background:#063f20;
+
     color:white;
+
     text-align:center;
-    padding:28px 15px;
+
+    padding:30px 15px;
+
     margin-top:45px;
 }
 
 .footer-title{
+
     color:#c9e6b9;
-    font-size:22px;
+
+    font-size:23px;
+
     font-weight:bold;
 }
 
 .footer-text{
+
     color:#d6edc9;
+
     margin-top:5px;
 }
 
-/* MOBILE */
+
+/* ================= MOBILE ================= */
 
 @media(max-width:700px){
 
     nav a{
+
         font-size:12px;
-        padding:7px 9px;
+
+        padding:7px 8px;
     }
 
     .student{
+
         flex-direction:column;
+
         align-items:flex-start;
+
         padding:15px;
     }
 
     .student-info{
+
         width:100%;
     }
 
     .buttons{
+
         width:100%;
     }
 
     .att-btn{
+
         flex:1;
+
         padding:10px 5px;
+
         font-size:12px;
     }
 
     .summary{
-        grid-template-columns:repeat(2,1fr);
+
+        grid-template-columns:
+        repeat(2,1fr);
+
         gap:10px;
     }
 
     .summary-card{
+
         padding:15px 7px;
     }
 
     .summary-card strong{
+
         font-size:23px;
     }
 
 }
 
+
 @media(max-width:420px){
 
     .container{
+
         width:96%;
     }
 
     .name{
+
         font-size:14px;
     }
 
-    .control-btn{
-        width:100%;
+    .att-btn{
+
+        font-size:11px;
     }
 
 }
 
 </style>
+
 </head>
 
 
 <body>
 
+
+<!-- ================= HEADER ================= -->
+
 <header>
 
-    <h1>👨‍🎓 Students Attendance</h1>
+    <h1>
+        👨‍🎓 Students Attendance
+    </h1>
 
     <p>
         TNAU RAWE PROGRAMME 2026
         (2023 Batch AC&amp;RI VVNR)
     </p>
 
-    <p>🌾 TEAM : PAIYUR</p>
+    <p>
+        🌾 TEAM : PAIYUR
+    </p>
 
 </header>
 
 
+<!-- ================= NAV ================= -->
+
 <nav>
 
-    <a href="index.html">🏠 Home</a>
+    <a href="index.html">
+        🏠 Home
+    </a>
 
-    <a href="students.html">👨‍🎓 Students</a>
+    <a href="students.html">
+        👨‍🎓 Students
+    </a>
 
-    <a href="village.html">📍 Village Profile</a>
+    <a href="village.html">
+        📍 Village Profile
+    </a>
 
-    <a href="attendance.html">📋 Attendance</a>
+    <a href="attendance.html">
+        📋 Attendance
+    </a>
 
 </nav>
 
 
+<!-- ================= MAIN ================= -->
+
 <main class="container">
 
 
-<div class="page-title">
+    <div class="page-title">
 
-    <h2>Daily Attendance</h2>
+        <h2>
+            Daily Attendance
+        </h2>
 
-    <p>
-        Paiyur RAWE Team Student Attendance
-    </p>
-
-</div>
-
-
-<div class="period">
-
-    📅 Attendance Period :
-    <strong>02 October 2026</strong>
-    →
-    <strong>15 December 2026</strong>
-
-</div>
-
-
-<!-- DATE -->
-
-<div class="date-card">
-
-    <label for="attendanceDate">
-        Select Attendance Date
-    </label>
-
-    <input
-        type="date"
-        id="attendanceDate"
-        min="2026-10-02"
-        max="2026-12-15"
-    >
-
-    <div
-        id="status"
-        class="status available">
-
-        🟢 Attendance is available.
+        <p>
+            Paiyur RAWE Team Student Attendance
+        </p>
 
     </div>
 
 
-    <div class="controls">
+    <!-- ATTENDANCE PERIOD -->
+
+    <div class="period">
+
+        📅 Attendance Period:
+        <strong>
+            02 October 2026
+        </strong>
+
+        →
+
+        <strong>
+            15 December 2026
+        </strong>
+
+    </div>
+
+
+    <!-- DATE -->
+
+    <div class="date-box">
+
+        <label for="attendanceDate">
+
+            Select Attendance Date
+
+        </label>
+
+
+        <input
+            type="date"
+            id="attendanceDate"
+            min="2026-10-02"
+            max="2026-12-15">
+
+
+        <div
+            id="lockBox"
+            class="lock-box">
+
+            🔒 Attendance for this date is
+            already submitted and locked.
+
+        </div>
+
+
+        <div
+            id="openBox"
+            class="open-box">
+
+            🟢 This date is available
+            for attendance.
+
+        </div>
+
+
+        <div class="controls">
+
+            <button
+                id="allPresentBtn"
+                class="control-btn all-present"
+                onclick="markAllPresent()">
+
+                ✓ Mark All Present
+
+            </button>
+
+
+            <button
+                id="resetBtn"
+                class="control-btn reset"
+                onclick="resetAttendance()">
+
+                ↻ Reset
+
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- ================= STUDENTS ================= -->
+
+    <div class="students">
+
+
+        <!-- 01 -->
+
+        <div class="student">
+
+            <div class="student-info">
+
+                <div class="number">
+                    01
+                </div>
+
+                <div class="name">
+                    Dinesh M
+                </div>
+
+            </div>
+
+            <div class="buttons">
+
+                <button
+                    class="att-btn present"
+                    onclick="markAttendance(0,'Present')">
+
+                    🟢 Present
+
+                </button>
+
+                <button
+                    class="att-btn absent"
+                    onclick="markAttendance(0,'Absent')">
+
+                    🔴 Absent
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- 02 -->
+
+        <div class="student">
+
+            <div class="student-info">
+
+                <div class="number">
+                    02
+                </div>
+
+                <div class="name">
+                    Gokul Raj R
+                </div>
+
+            </div>
+
+            <div class="buttons">
+
+                <button
+                    class="att-btn present"
+                    onclick="markAttendance(1,'Present')">
+
+                    🟢 Present
+
+                </button>
+
+                <button
+                    class="att-btn absent"
+                    onclick="markAttendance(1,'Absent')">
+
+                    🔴 Absent
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- 03 -->
+
+        <div class="student">
+
+            <div class="student-info">
+
+                <div class="number">
+                    03
+                </div>
+
+                <div class="name">
+                    GokulaBalaji R
+                </div>
+
+            </div>
+
+            <div class="buttons">
+
+                <button
+                    class="att-btn present"
+                    onclick="markAttendance(2,'Present')">
+
+                    🟢 Present
+
+                </button>
+
+                <button
+                    class="att-btn absent"
+                    onclick="markAttendance(2,'Absent')">
+
+                    🔴 Absent
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- 04 -->
+
+        <div class="student">
+
+            <div class="student-info">
+
+                <div class="number">
+                    04
+                </div>
+
+                <div class="name">
+                    GopiBalaji M
+                </div>
+
+            </div>
+
+            <div class="buttons">
+
+                <button
+                    class="att-btn present"
+                    onclick="markAttendance(3,'Present')">
+
+                    🟢 Present
+
+                </button>
+
+                <button
+                    class="att-btn absent"
+                    onclick="markAttendance(3,'Absent')">
+
+                    🔴 Absent
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- 05 -->
+
+        <div class="student">
+
+            <div class="student-info">
+
+                <div class="number">
+                    05
+                </div>
+
+                <div class="name">
+                    Gowsikan P
+                </div>
+
+            </div>
+
+            <div class="buttons">
+
+                <button
+                    class="att-btn present"
+                    onclick="markAttendance(4,'Present')">
+
+                    🟢 Present
+
+                </button>
+
+                <button
+                    class="att-btn absent"
+                    onclick="markAttendance(4,'Absent')">
+
+                    🔴 Absent
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- 06 -->
+
+        <div class="student">
+
+            <div class="student-info">
+
+                <div class="number">
+                    06
+                </div>
+
+                <div class="name">
+                    Jana P
+                </div>
+
+            </div>
+
+            <div class="buttons">
+
+                <button
+                    class="att-btn present"
+                    onclick="markAttendance(5,'Present')">
+
+                    🟢 Present
+
+                </button>
+
+                <button
+                    class="att-btn absent"
+                    onclick="markAttendance(5,'Absent')">
+
+                    🔴 Absent
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- 07 -->
+
+        <div class="student">
+
+            <div class="student-info">
+
+                <div class="number">
+                    07
+                </div>
+
+                <div class="name">
+                    Jayasurya J
+                </div>
+
+            </div>
+
+            <div class="buttons">
+
+                <button
+                    class="att-btn present"
+                    onclick="markAttendance(6,'Present')">
+
+                    🟢 Present
+
+                </button>
+
+                <button
+                    class="att-btn absent"
+                    onclick="markAttendance(6,'Absent')">
+
+                    🔴 Absent
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- 08 -->
+
+        <div class="student">
+
+            <div class="student-info">
+
+                <div class="number">
+                    08
+                </div>
+
+                <div class="name">
+                    Joshan P
+                </div>
+
+            </div>
+
+            <div class="buttons">
+
+                <button
+                    class="att-btn present"
+                    onclick="markAttendance(7,'Present')">
+
+                    🟢 Present
+
+                </button>
+
+                <button
+                    class="att-btn absent"
+                    onclick="markAttendance(7,'Absent')">
+
+                    🔴 Absent
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- 09 -->
+
+        <div class="student">
+
+            <div class="student-info">
+
+                <div class="number">
+                    09
+                </div>
+
+                <div class="name">
+                    Jothishkumar K
+                </div>
+
+            </div>
+
+            <div class="buttons">
+
+                <button
+                    class="att-btn present"
+                    onclick="markAttendance(8,'Present')">
+
+                    🟢 Present
+
+                </button>
+
+                <button
+                    class="att-btn absent"
+                    onclick="markAttendance(8,'Absent')">
+
+                    🔴 Absent
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- 10 -->
+
+        <div class="student">
+
+            <div class="student-info">
+
+                <div class="number">
+                    10
+                </div>
+
+                <div class="name">
+                    Kishor S
+                </div>
+
+            </div>
+
+            <div class="buttons">
+
+                <button
+                    class="att-btn present"
+                    onclick="markAttendance(9,'Present')">
+
+                    🟢 Present
+
+                </button>
+
+                <button
+                    class="att-btn absent"
+                    onclick="markAttendance(9,'Absent')">
+
+                    🔴 Absent
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- 11 -->
+
+        <div class="student">
+
+            <div class="student-info">
+
+                <div class="number">
+                    11
+                </div>
+
+                <div class="name">
+                    Kowshik S
+                </div>
+
+            </div>
+
+            <div class="buttons">
+
+                <button
+                    class="att-btn present"
+                    onclick="markAttendance(10,'Present')">
+
+                    🟢 Present
+
+                </button>
+
+                <button
+                    class="att-btn absent"
+                    onclick="markAttendance(10,'Absent')">
+
+                    🔴 Absent
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- 12 -->
+
+        <div class="student">
+
+            <div class="student-info">
+
+                <div class="number">
+                    12
+                </div>
+
+                <div class="name">
+                    Akshaya K
+                </div>
+
+            </div>
+
+            <div class="buttons">
+
+                <button
+                    class="att-btn present"
+                    onclick="markAttendance(11,'Present')">
+
+                    🟢 Present
+
+                </button>
+
+                <button
+                    class="att-btn absent"
+                    onclick="markAttendance(11,'Absent')">
+
+                    🔴 Absent
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- 13 -->
+
+        <div class="student">
+
+            <div class="student-info">
+
+                <div class="number">
+                    13
+                </div>
+
+                <div class="name">
+                    Swapanjit Behera
+                </div>
+
+            </div>
+
+            <div class="buttons">
+
+                <button
+                    class="att-btn present"
+                    onclick="markAttendance(12,'Present')">
+
+                    🟢 Present
+
+                </button>
+
+                <button
+                    class="att-btn absent"
+                    onclick="markAttendance(12,'Absent')">
+
+                    🔴 Absent
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+    <!-- ================= SUMMARY ================= -->
+
+    <div class="summary">
+
+        <div class="summary-card">
+
+            <span>
+                Total Students
+            </span>
+
+            <strong id="total">
+                13
+            </strong>
+
+        </div>
+
+
+        <div class="summary-card">
+
+            <span>
+                🟢 Present
+            </span>
+
+            <strong id="present">
+                0
+            </strong>
+
+        </div>
+
+
+        <div class="summary-card">
+
+            <span>
+                🔴 Absent
+            </span>
+
+            <strong id="absent">
+                0
+            </strong>
+
+        </div>
+
+
+        <div class="summary-card">
+
+            <span>
+                📊 Attendance
+            </span>
+
+            <strong id="percentage">
+                0%
+            </strong>
+
+        </div>
+
+    </div>
+
+
+    <!-- ================= SAVE ================= -->
+
+    <div class="save-area">
 
         <button
-            id="allPresent"
-            class="control-btn present-all"
-            onclick="markAllPresent()">
+            id="saveBtn"
+            class="save-btn"
+            onclick="saveAttendance()">
 
-            ✓ Mark All Present
+            💾 SAVE &amp; LOCK ATTENDANCE
 
         </button>
 
-
-        <button
-            id="reset"
-            class="control-btn reset-btn"
-            onclick="resetAttendance()">
-
-            ↻ Reset
-
-        </button>
+        <div
+            id="message"
+            class="message">
+        </div>
 
     </div>
 
-</div>
 
+    <!-- ================= SAVED ================= -->
 
-<!-- STUDENTS -->
+    <div class="saved-box">
 
-<div class="students">
+        <h3>
+            📋 Current Date Status
+        </h3>
 
+        <p id="savedText">
 
-<div class="student">
+            Select a date to check attendance.
 
-    <div class="student-info">
-
-        <div class="number">01</div>
-
-        <div class="name">Dinesh M</div>
-
-    </div>
-
-    <div class="buttons">
-
-        <button
-            class="att-btn present"
-            onclick="markAttendance(0,'Present')">
-
-            🟢 Present
-
-        </button>
-
-        <button
-            class="att-btn absent"
-            onclick="markAttendance(0,'Absent')">
-
-            🔴 Absent
-
-        </button>
-
-    </div>
-
-</div>
-
-
-<div class="student">
-
-    <div class="student-info">
-
-        <div class="number">02</div>
-
-        <div class="name">Gokul Raj R</div>
-
-    </div>
-
-    <div class="buttons">
-
-        <button
-            class="att-btn present"
-            onclick="markAttendance(1,'Present')">
-
-            🟢 Present
-
-        </button>
-
-        <button
-            class="att-btn absent"
-            onclick="markAttendance(1,'Absent')">
-
-            🔴 Absent
-
-        </button>
-
-    </div>
-
-</div>
-
-
-<div class="student">
-
-    <div class="student-info">
-
-        <div class="number">03</div>
-
-        <div class="name">GokulaBalaji R</div>
-
-    </div>
-
-    <div class="buttons">
-
-        <button
-            class="att-btn present"
-            onclick="markAttendance(2,'Present')">
-
-            🟢 Present
-
-        </button>
-
-        <button
-            class="att-btn absent"
-            onclick="markAttendance(2,'Absent')">
-
-            🔴 Absent
-
-        </button>
-
-    </div>
-
-</div>
-
-
-<div class="student">
-
-    <div class="student-info">
-
-        <div class="number">04</div>
-
-        <div class="name">GopiBalaji M</div>
-
-    </div>
-
-    <div class="buttons">
-
-        <button
-            class="att-btn present"
-            onclick="markAttendance(3,'Present')">
-
-            🟢 Present
-
-        </button>
-
-        <button
-            class="att-btn absent"
-            onclick="markAttendance(3,'Absent')">
-
-            🔴 Absent
-
-        </button>
-
-    </div>
-
-</div>
-
-
-<div class="student">
-
-    <div class="student-info">
-
-        <div class="number">05</div>
-
-        <div class="name">Gowsikan P</div>
-
-    </div>
-
-    <div class="buttons">
-
-        <button
-            class="att-btn present"
-            onclick="markAttendance(4,'Present')">
-
-            🟢 Present
-
-        </button>
-
-        <button
-            class="att-btn absent"
-            onclick="markAttendance(4,'Absent')">
-
-            🔴 Absent
-
-        </button>
-
-    </div>
-
-</div>
-
-
-<div class="student">
-
-    <div class="student-info">
-
-        <div class="number">06</div>
-
-        <div class="name">Jana P</div>
-
-    </div>
-
-    <div class="buttons">
-
-        <button
-            class="att-btn present"
-            onclick="markAttendance(5,'Present')">
-
-            🟢 Present
-
-        </button>
-
-        <button
-            class="att-btn absent"
-            onclick="markAttendance(5,'Absent')">
-
-            🔴 Absent
-
-        </button>
-
-    </div>
-
-</div>
-
-
-<div class="student">
-
-    <div class="student-info">
-
-        <div class="number">07</div>
-
-        <div class="name">Jayasurya J</div>
-
-    </div>
-
-    <div class="buttons">
-
-        <button
-            class="att-btn present"
-            onclick="markAttendance(6,'Present')">
-
-            🟢 Present
-
-        </button>
-
-        <button
-            class="att-btn absent"
-            onclick="markAttendance(6,'Absent')">
-
-            🔴 Absent
-
-        </button>
-
-    </div>
-
-</div>
-
-
-<div class="student">
-
-    <div class="student-info">
-
-        <div class="number">08</div>
-
-        <div class="name">Joshan P</div>
-
-    </div>
-
-    <div class="buttons">
-
-        <button
-            class="att-btn present"
-            onclick="markAttendance(7,'Present')">
-
-            🟢 Present
-
-        </button>
-
-        <button
-            class="att-btn absent"
-            onclick="markAttendance(7,'Absent')">
-
-            🔴 Absent
-
-        </button>
-
-    </div>
-
-</div>
-
-
-<div class="student">
-
-    <div class="student-info">
-
-        <div class="number">09</div>
-
-        <div class="name">Jothishkumar K</div>
-
-    </div>
-
-    <div class="buttons">
-
-        <button
-            class="att-btn present"
-            onclick="markAttendance(8,'Present')">
-
-            🟢 Present
-
-        </button>
-
-        <button
-            class="att-btn absent"
-            onclick="markAttendance(8,'Absent')">
-
-            🔴 Absent
-
-        </button>
-
-    </div>
-
-</div>
-
-
-<div class="student">
-
-    <div class="student-info">
-
-        <div class="number">10</div>
-
-        <div class="name">Kishor S</div>
-
-    </div>
-
-    <div class="buttons">
-
-        <button
-            class="att-btn present"
-            onclick="markAttendance(9,'Present')">
-
-            🟢 Present
-
-        </button>
-
-        <button
-            class="att-btn absent"
-            onclick="markAttendance(9,'Absent')">
-
-            🔴 Absent
-
-        </button>
-
-    </div>
-
-</div>
-
-
-<div class="student">
-
-    <div class="student-info">
-
-        <div class="number">11</div>
-
-        <div class="name">Kowshik S</div>
-
-    </div>
-
-    <div class="buttons">
-
-        <button
-            class="att-btn present"
-            onclick="markAttendance(10,'Present')">
-
-            🟢 Present
-
-        </button>
-
-        <button
-            class="att-btn absent"
-            onclick="markAttendance(10,'Absent')">
-
-            🔴 Absent
-
-        </button>
-
-    </div>
-
-</div>
-
-
-<div class="student">
-
-    <div class="student-info">
-
-        <div class="number">12</div>
-
-        <div class="name">Akshaya K</div>
-
-    </div>
-
-    <div class="buttons">
-
-        <button
-            class="att-btn present"
-            onclick="markAttendance(11,'Present')">
-
-            🟢 Present
-
-        </button>
-
-        <button
-            class="att-btn absent"
-            onclick="markAttendance(11,'Absent')">
-
-            🔴 Absent
-
-        </button>
-
-    </div>
-
-</div>
-
-
-<div class="student">
-
-    <div class="student-info">
-
-        <div class="number">13</div>
-
-        <div class="name">Swapanjit Behera</div>
-
-    </div>
-
-    <div class="buttons">
-
-        <button
-            class="att-btn present"
-            onclick="markAttendance(12,'Present')">
-
-            🟢 Present
-
-        </button>
-
-        <button
-            class="att-btn absent"
-            onclick="markAttendance(12,'Absent')">
-
-            🔴 Absent
-
-        </button>
-
-    </div>
-
-</div>
-
-
-</div>
-
-
-<!-- SUMMARY -->
-
-<div class="summary">
-
-    <div class="summary-card">
-
-        <span>Total Students</span>
-
-        <strong id="total">13</strong>
+        </p>
 
     </div>
 
 
-    <div class="summary-card">
+    <a
+        href="index.html"
+        class="back">
 
-        <span>🟢 Present</span>
+        ← Back to Home
 
-        <strong id="present">0</strong>
-
-    </div>
-
-
-    <div class="summary-card">
-
-        <span>🔴 Absent</span>
-
-        <strong id="absent">0</strong>
-
-    </div>
-
-
-    <div class="summary-card">
-
-        <span>📊 Percentage</span>
-
-        <strong id="percentage">0%</strong>
-
-    </div>
-
-</div>
-
-
-<!-- SAVE -->
-
-<div class="save-area">
-
-    <button
-        id="saveBtn"
-        class="save-btn"
-        onclick="saveAttendance()">
-
-        💾 SAVE &amp; LOCK THIS DAY
-
-    </button>
-
-    <div
-        id="message"
-        class="message">
-    </div>
-
-</div>
-
-
-<!-- EXPORT -->
-
-<div class="export-box">
-
-    <h3>📥 Attendance Records</h3>
-
-    <p>
-        Download your saved attendance records
-        anytime from this device.
-    </p>
-
-
-    <div class="controls">
-
-        <button
-            class="control-btn pdf-btn"
-            onclick="downloadDailyPDF()">
-
-            📄 Daily PDF
-
-        </button>
-
-
-        <button
-            class="control-btn excel-btn"
-            onclick="downloadCSV()">
-
-            📊 Excel / CSV
-
-        </button>
-
-
-        <button
-            class="control-btn reset-btn"
-            onclick="downloadAllPDF()">
-
-            📚 Full PDF
-
-        </button>
-
-    </div>
-
-</div>
-
-
-<a
-    href="index.html"
-    style="
-    display:block;
-    width:max-content;
-    margin:30px auto;
-    padding:11px 22px;
-    background:#16753a;
-    color:white;
-    text-decoration:none;
-    border-radius:7px;
-    font-weight:bold;
-    ">
-
-    ← Back to Home
-
-</a>
+    </a>
 
 
 </main>
@@ -1156,11 +1517,22 @@ footer{
 <script>
 
 /* ==========================================
-   SETTINGS
+   GOOGLE APPS SCRIPT WEB APP URL
 ========================================== */
 
-const START_DATE = "2026-10-02";
-const END_DATE   = "2026-12-15";
+const GOOGLE_SCRIPT_URL =
+    "PASTE_YOUR_GOOGLE_APPS_SCRIPT_URL_HERE";
+
+
+/* ==========================================
+   ATTENDANCE DATES
+========================================== */
+
+const START_DATE =
+    "2026-10-02";
+
+const END_DATE =
+    "2026-12-15";
 
 
 /* ==========================================
@@ -1170,26 +1542,46 @@ const END_DATE   = "2026-12-15";
 const students = [
 
     "Dinesh M",
+
     "Gokul Raj R",
+
     "GokulaBalaji R",
+
     "GopiBalaji M",
+
     "Gowsikan P",
+
     "Jana P",
+
     "Jayasurya J",
+
     "Joshan P",
+
     "Jothishkumar K",
+
     "Kishor S",
+
     "Kowshik S",
+
     "Akshaya K",
+
     "Swapanjit Behera"
 
 ];
 
 
-let attendance =
-    new Array(students.length).fill(null);
+/* ==========================================
+   VARIABLES
+========================================== */
 
-let locked = false;
+let attendance =
+    new Array(
+        students.length
+    ).fill(null);
+
+let dateLocked = false;
+
+let checkingDate = false;
 
 
 /* ==========================================
@@ -1197,56 +1589,94 @@ let locked = false;
 ========================================== */
 
 const dateInput =
-    document.getElementById("attendanceDate");
+    document.getElementById(
+        "attendanceDate"
+    );
 
-const statusBox =
-    document.getElementById("status");
+const lockBox =
+    document.getElementById(
+        "lockBox"
+    );
+
+const openBox =
+    document.getElementById(
+        "openBox"
+    );
 
 const saveBtn =
-    document.getElementById("saveBtn");
+    document.getElementById(
+        "saveBtn"
+    );
 
 const allPresentBtn =
-    document.getElementById("allPresent");
+    document.getElementById(
+        "allPresentBtn"
+    );
 
 const resetBtn =
-    document.getElementById("reset");
+    document.getElementById(
+        "resetBtn"
+    );
 
 const message =
-    document.getElementById("message");
+    document.getElementById(
+        "message"
+    );
+
+const savedText =
+    document.getElementById(
+        "savedText"
+    );
 
 
 /* ==========================================
-   STORAGE
+   TODAY
 ========================================== */
 
-const STORAGE_KEY =
-    "PAIYUR_RAWE_ATTENDANCE_2026";
+function todayDate(){
 
+    const d =
+        new Date();
 
-function getRecords(){
+    const year =
+        d.getFullYear();
 
-    return JSON.parse(
-        localStorage.getItem(STORAGE_KEY)
-    ) || {};
+    const month =
+        String(
+            d.getMonth()+1
+        ).padStart(2,"0");
 
-}
+    const day =
+        String(
+            d.getDate()
+        ).padStart(2,"0");
 
-
-function saveRecords(records){
-
-    localStorage.setItem(
-        STORAGE_KEY,
-        JSON.stringify(records)
+    return (
+        year +
+        "-" +
+        month +
+        "-" +
+        day
     );
 
 }
 
 
 /* ==========================================
-   DATE CHECK
+   INITIAL DATE
 ========================================== */
 
-function allowedDate(date){
+dateInput.value =
+    START_DATE;
+
+
+/* ==========================================
+   DATE RANGE CHECK
+========================================== */
+
+function isAllowedDate(
+    date
+){
 
     return (
         date >= START_DATE &&
@@ -1257,82 +1687,47 @@ function allowedDate(date){
 
 
 /* ==========================================
-   LOAD DATE
+   LOCAL STORAGE KEY
 ========================================== */
 
-function loadDate(){
+function storageKey(
+    date
+){
 
-    const date =
-        dateInput.value;
+    return (
+        "PAIYUR_ATTENDANCE_" +
+        date
+    );
+
+}
+
+
+/* ==========================================
+   CLEAR ATTENDANCE
+========================================== */
+
+function clearAttendance(){
 
     attendance =
-        new Array(students.length)
-        .fill(null);
-
-    locked = false;
-
-    message.textContent = "";
+        new Array(
+            students.length
+        ).fill(null);
 
 
-    clearButtons();
+    document
+        .querySelectorAll(
+            ".att-btn"
+        )
+        .forEach(
+            function(button){
 
+                button.classList.remove(
+                    "active"
+                );
 
-    if(!allowedDate(date)){
+            }
+        );
 
-        locked = true;
-
-        disableEditing();
-
-        statusBox.className =
-            "status warning";
-
-        statusBox.textContent =
-            "🚫 Select a date between 02 October 2026 and 15 December 2026.";
-
-        return;
-
-    }
-
-
-    const records =
-        getRecords();
-
-
-    if(records[date]){
-
-        attendance =
-            records[date].attendance;
-
-        locked = true;
-
-        showAttendance();
-
-        disableEditing();
-
-        statusBox.className =
-            "status locked";
-
-        statusBox.textContent =
-            "🔒 Attendance for " +
-            formatDate(date) +
-            " is already saved and locked.";
-
-        updateSummary();
-
-        return;
-
-    }
-
-
-    enableEditing();
-
-    statusBox.className =
-        "status available";
-
-    statusBox.textContent =
-        "🟢 Attendance is available for " +
-        formatDate(date) +
-        ".";
 
     updateSummary();
 
@@ -1340,132 +1735,38 @@ function loadDate(){
 
 
 /* ==========================================
-   DATE FORMAT
+   ENABLE / DISABLE
 ========================================== */
 
-function formatDate(date){
-
-    const parts =
-        date.split("-");
-
-    if(parts.length !== 3){
-        return date;
-    }
-
-    return (
-        parts[2] +
-        "-" +
-        parts[1] +
-        "-" +
-        parts[0]
-    );
-
-}
-
-
-/* ==========================================
-   CLEAR BUTTONS
-========================================== */
-
-function clearButtons(){
+function setEditing(
+    enabled
+){
 
     document
-    .querySelectorAll(".att-btn")
-    .forEach(function(btn){
+        .querySelectorAll(
+            ".att-btn"
+        )
+        .forEach(
+            function(button){
 
-        btn.classList.remove("active");
-
-    });
-
-}
-
-
-/* ==========================================
-   SHOW SAVED ATTENDANCE
-========================================== */
-
-function showAttendance(){
-
-    clearButtons();
-
-    const rows =
-        document.querySelectorAll(".student");
-
-
-    attendance.forEach(
-        function(value,index){
-
-            if(!value){
-                return;
-            }
-
-            const buttons =
-                rows[index]
-                .querySelectorAll(".att-btn");
-
-
-            if(value === "Present"){
-
-                buttons[0]
-                .classList.add("active");
+                button.disabled =
+                    !enabled;
 
             }
-
-            if(value === "Absent"){
-
-                buttons[1]
-                .classList.add("active");
-
-            }
-
-        }
-    );
-
-}
+        );
 
 
-/* ==========================================
-   ENABLE
-========================================== */
+    allPresentBtn.disabled =
+        !enabled;
 
-function enableEditing(){
+    resetBtn.disabled =
+        !enabled;
 
-    document
-    .querySelectorAll(".att-btn")
-    .forEach(function(btn){
+    saveBtn.disabled =
+        !enabled;
 
-        btn.disabled = false;
-
-    });
-
-    allPresentBtn.disabled = false;
-
-    resetBtn.disabled = false;
-
-    saveBtn.disabled = false;
-
-}
-
-
-/* ==========================================
-   DISABLE
-========================================== */
-
-function disableEditing(){
-
-    document
-    .querySelectorAll(".att-btn")
-    .forEach(function(btn){
-
-        btn.disabled = true;
-
-    });
-
-    allPresentBtn.disabled = true;
-
-    resetBtn.disabled = true;
-
-    saveBtn.disabled = true;
+    dateInput.disabled =
+        false;
 
 }
 
@@ -1476,44 +1777,66 @@ function disableEditing(){
 
 function markAttendance(
     index,
-    value
+    status
 ){
 
-    if(locked){
+    if(dateLocked){
+
         return;
+
     }
 
 
     attendance[index] =
-        value;
+        status;
 
 
-    const row =
-        document.querySelectorAll(".student")[index];
+    const rows =
+        document.querySelectorAll(
+            ".student"
+        );
 
 
     const buttons =
-        row.querySelectorAll(".att-btn");
+        rows[index]
+        .querySelectorAll(
+            ".att-btn"
+        );
 
 
-    buttons.forEach(function(btn){
+    buttons.forEach(
+        function(button){
 
-        btn.classList.remove("active");
+            button.classList.remove(
+                "active"
+            );
 
-    });
+        }
+    );
 
 
-    if(value === "Present"){
+    if(
+        status ===
+        "Present"
+    ){
 
         buttons[0]
-        .classList.add("active");
+            .classList.add(
+                "active"
+            );
 
     }
 
-    else{
+
+    if(
+        status ===
+        "Absent"
+    ){
 
         buttons[1]
-        .classList.add("active");
+            .classList.add(
+                "active"
+            );
 
     }
 
@@ -1524,22 +1847,55 @@ function markAttendance(
 
 
 /* ==========================================
-   ALL PRESENT
+   MARK ALL PRESENT
 ========================================== */
 
 function markAllPresent(){
 
-    if(locked){
+    if(dateLocked){
+
         return;
+
     }
 
 
     attendance =
-        new Array(students.length)
-        .fill("Present");
+        new Array(
+            students.length
+        ).fill(
+            "Present"
+        );
 
 
-    showAttendance();
+    const rows =
+        document.querySelectorAll(
+            ".student"
+        );
+
+
+    rows.forEach(
+        function(row){
+
+            const buttons =
+                row.querySelectorAll(
+                    ".att-btn"
+                );
+
+
+            buttons[0]
+                .classList.add(
+                    "active"
+                );
+
+
+            buttons[1]
+                .classList.remove(
+                    "active"
+                );
+
+        }
+    );
+
 
     updateSummary();
 
@@ -1552,19 +1908,28 @@ function markAllPresent(){
 
 function resetAttendance(){
 
-    if(locked){
+    if(dateLocked){
+
         return;
+
     }
 
 
-    attendance =
-        new Array(students.length)
-        .fill(null);
+    if(
+        !confirm(
+            "Reset attendance for this date?"
+        )
+    ){
+
+        return;
+
+    }
 
 
-    clearButtons();
+    clearAttendance();
 
-    updateSummary();
+
+    message.textContent = "";
 
 }
 
@@ -1575,16 +1940,53 @@ function resetAttendance(){
 
 function updateSummary(){
 
-    const present =
-        attendance.filter(
-            x => x === "Present"
-        ).length;
+    let present = 0;
+
+    let absent = 0;
 
 
-    const absent =
-        attendance.filter(
-            x => x === "Absent"
-        ).length;
+    attendance.forEach(
+        function(status){
+
+            if(
+                status ===
+                "Present"
+            ){
+
+                present++;
+
+            }
+
+
+            if(
+                status ===
+                "Absent"
+            ){
+
+                absent++;
+
+            }
+
+        }
+    );
+
+
+    document.getElementById(
+        "total"
+    ).textContent =
+        students.length;
+
+
+    document.getElementById(
+        "present"
+    ).textContent =
+        present;
+
+
+    document.getElementById(
+        "absent"
+    ).textContent =
+        absent;
 
 
     const percentage =
@@ -1595,38 +1997,242 @@ function updateSummary(){
         ).toFixed(1);
 
 
-    document.getElementById("total")
-        .textContent =
-        students.length;
-
-
-    document.getElementById("present")
-        .textContent =
-        present;
-
-
-    document.getElementById("absent")
-        .textContent =
-        absent;
-
-
-    document.getElementById("percentage")
-        .textContent =
+    document.getElementById(
+        "percentage"
+    ).textContent =
         percentage + "%";
 
 }
 
 
 /* ==========================================
-   SAVE & LOCK
+   CHECK GOOGLE SHEETS
 ========================================== */
 
-function saveAttendance(){
+async function checkGoogleLock(
+    date
+){
 
-    if(locked){
+    if(
+        GOOGLE_SCRIPT_URL ===
+        "PASTE_YOUR_GOOGLE_APPS_SCRIPT_URL_HERE"
+    ){
+
+        return false;
+
+    }
+
+
+    try{
+
+        const response =
+            await fetch(
+
+                GOOGLE_SCRIPT_URL +
+                "?date=" +
+                encodeURIComponent(date)
+
+            );
+
+
+        const result =
+            await response.json();
+
+
+        if(
+            result.locked === true
+        ){
+
+            return true;
+
+        }
+
+
+    }
+
+    catch(error){
+
+        console.log(
+            "Google lock check failed:",
+            error
+        );
+
+    }
+
+
+    return false;
+
+}
+
+
+/* ==========================================
+   LOAD DATE
+========================================== */
+
+async function loadDate(){
+
+    const date =
+        dateInput.value;
+
+
+    clearAttendance();
+
+
+    dateLocked = false;
+
+
+    lockBox.classList.remove(
+        "show"
+    );
+
+
+    openBox.classList.remove(
+        "show"
+    );
+
+
+    message.textContent = "";
+
+
+    savedText.textContent =
+        "Checking date...";
+
+
+    if(
+        !isAllowedDate(date)
+    ){
+
+        dateLocked = true;
+
+        setEditing(false);
+
+
+        lockBox.textContent =
+            "🚫 This date is outside the attendance period. Attendance is allowed only from 02 October 2026 to 15 December 2026.";
+
+        lockBox.classList.add(
+            "show"
+        );
+
+
+        savedText.textContent =
+            "This date is not available.";
+
+        return;
+
+    }
+
+
+    checkingDate = true;
+
+    setEditing(false);
+
+
+    /* Check local saved copy */
+
+    const localSaved =
+        localStorage.getItem(
+            storageKey(date)
+        );
+
+
+    if(localSaved){
+
+        lockDate(
+            "🔒 Attendance for this date is already saved on this device."
+        );
+
+        checkingDate = false;
+
+        return;
+
+    }
+
+
+    /* Check Google Sheet */
+
+    const googleLocked =
+        await checkGoogleLock(
+            date
+        );
+
+
+    checkingDate = false;
+
+
+    if(
+        googleLocked
+    ){
+
+        lockDate(
+            "🔒 Attendance for this date is already submitted and locked."
+        );
+
+        return;
+
+    }
+
+
+    /* Date is available */
+
+    dateLocked = false;
+
+    setEditing(true);
+
+    openBox.classList.add(
+        "show"
+    );
+
+    savedText.textContent =
+        "🟢 Attendance is available for this date.";
+
+}
+
+
+/* ==========================================
+   LOCK DATE
+========================================== */
+
+function lockDate(
+    text
+){
+
+    dateLocked = true;
+
+
+    setEditing(false);
+
+
+    lockBox.textContent =
+        text;
+
+
+    lockBox.classList.add(
+        "show"
+    );
+
+
+    openBox.classList.remove(
+        "show"
+    );
+
+
+    savedText.textContent =
+        "🔒 This date is permanently locked.";
+
+}
+
+
+/* ==========================================
+   SAVE ATTENDANCE
+========================================== */
+
+async function saveAttendance(){
+
+    if(dateLocked){
 
         alert(
-            "🔒 This date is already locked."
+            "This attendance date is already locked."
         );
 
         return;
@@ -1638,10 +2244,12 @@ function saveAttendance(){
         dateInput.value;
 
 
-    if(!allowedDate(date)){
+    if(
+        !isAllowedDate(date)
+    ){
 
         alert(
-            "Please select a valid attendance date."
+            "Attendance is allowed only from 02 October 2026 to 15 December 2026."
         );
 
         return;
@@ -1649,13 +2257,19 @@ function saveAttendance(){
     }
 
 
-    const missing =
+    const unmarked =
         attendance.filter(
-            x => x === null
+            function(status){
+
+                return status === null;
+
+            }
         ).length;
 
 
-    if(missing > 0){
+    if(
+        unmarked > 0
+    ){
 
         alert(
             "Please mark attendance for all 13 students."
@@ -1666,18 +2280,13 @@ function saveAttendance(){
     }
 
 
-    const records =
-        getRecords();
-
-
-    if(records[date]){
-
-        locked = true;
-
-        disableEditing();
+    if(
+        GOOGLE_SCRIPT_URL ===
+        "PASTE_YOUR_GOOGLE_APPS_SCRIPT_URL_HERE"
+    ){
 
         alert(
-            "🔒 This date has already been saved."
+            "Please add your Google Apps Script Web App URL first."
         );
 
         return;
@@ -1685,40 +2294,164 @@ function saveAttendance(){
     }
 
 
-    records[date] = {
+    /*
+       FINAL LOCK CHECK
+    */
 
-        attendance:
-            attendance,
+    const alreadyLocked =
+        await checkGoogleLock(
+            date
+        );
 
-        savedAt:
-            new Date().toISOString()
+
+    if(
+        alreadyLocked
+    ){
+
+        lockDate(
+            "🔒 Attendance for this date is already submitted and locked."
+        );
+
+        return;
+
+    }
+
+
+    const data = {
+
+        date:date,
+
+        students:
+            students.map(
+                function(name,index){
+
+                    return {
+
+                        name:name,
+
+                        status:
+                            attendance[index]
+
+                    };
+
+                }
+            )
 
     };
 
 
-    saveRecords(records);
+    saveBtn.disabled = true;
 
+    allPresentBtn.disabled = true;
 
-    locked = true;
-
-    disableEditing();
-
-
-    statusBox.className =
-        "status locked";
-
-    statusBox.textContent =
-        "🔒 Attendance saved successfully. This date is now locked.";
+    resetBtn.disabled = true;
 
 
     message.style.color =
-        "#176b35";
+        "#075128";
+
 
     message.textContent =
-        "✅ Attendance saved successfully!";
+        "⏳ Saving attendance...";
 
 
-    updateSummary();
+    try{
+
+        /*
+          Send data to Google Apps Script
+        */
+
+        await fetch(
+
+            GOOGLE_SCRIPT_URL,
+
+            {
+
+                method:"POST",
+
+                mode:"no-cors",
+
+                headers:{
+
+                    "Content-Type":
+                        "text/plain;charset=utf-8"
+
+                },
+
+                body:
+                    JSON.stringify(data)
+
+            }
+
+        );
+
+
+        /*
+          Save local backup
+        */
+
+        localStorage.setItem(
+
+            storageKey(date),
+
+            JSON.stringify(data)
+
+        );
+
+
+        /*
+          Lock immediately
+        */
+
+        dateLocked = true;
+
+
+        setEditing(false);
+
+
+        lockBox.textContent =
+            "🔒 Attendance saved successfully. This date is now permanently locked.";
+
+        lockBox.classList.add(
+            "show"
+        );
+
+
+        openBox.classList.remove(
+            "show"
+        );
+
+
+        message.textContent =
+            "✅ Attendance saved and locked successfully!";
+
+
+        savedText.textContent =
+            "🔒 " +
+            date +
+            " — Attendance completed and locked.";
+
+
+    }
+
+    catch(error){
+
+        console.error(
+            error
+        );
+
+
+        message.style.color =
+            "#c62828";
+
+
+        message.textContent =
+            "❌ Could not save attendance. Please try again.";
+
+
+        setEditing(true);
+
+    }
 
 }
 
@@ -1728,429 +2461,27 @@ function saveAttendance(){
 ========================================== */
 
 dateInput.addEventListener(
+
     "change",
-    loadDate
+
+    function(){
+
+        loadDate();
+
+    }
+
 );
 
 
 /* ==========================================
-   DAILY PDF
+   INITIAL LOAD
 ========================================== */
-
-function downloadDailyPDF(){
-
-    const date =
-        dateInput.value;
-
-
-    if(!allowedDate(date)){
-
-        alert(
-            "Please select a valid date."
-        );
-
-        return;
-
-    }
-
-
-    const records =
-        getRecords();
-
-
-    if(!records[date]){
-
-        alert(
-            "No saved attendance for this date."
-        );
-
-        return;
-
-    }
-
-
-    const data =
-        records[date].attendance;
-
-
-    const { jsPDF } =
-        window.jspdf;
-
-
-    const doc =
-        new jsPDF();
-
-
-    doc.setFontSize(18);
-
-    doc.text(
-        "TNAU RAWE PROGRAMME 2026",
-        105,
-        18,
-        {align:"center"}
-    );
-
-
-    doc.setFontSize(13);
-
-    doc.text(
-        "TEAM : PAIYUR",
-        105,
-        27,
-        {align:"center"}
-    );
-
-
-    doc.setFontSize(11);
-
-    doc.text(
-        "Daily Student Attendance",
-        105,
-        36,
-        {align:"center"}
-    );
-
-
-    doc.text(
-        "Date : " + formatDate(date),
-        14,
-        48
-    );
-
-
-    const rows =
-        students.map(
-            function(name,index){
-
-                return [
-
-                    index + 1,
-
-                    name,
-
-                    data[index]
-
-                ];
-
-            }
-        );
-
-
-    doc.autoTable({
-
-        startY:55,
-
-        head:[
-            [
-                "S.No",
-                "Student Name",
-                "Status"
-            ]
-        ],
-
-        body:rows,
-
-        theme:"grid",
-
-        styles:{
-            fontSize:10
-        }
-
-    });
-
-
-    const present =
-        data.filter(
-            x => x === "Present"
-        ).length;
-
-
-    const absent =
-        data.filter(
-            x => x === "Absent"
-        ).length;
-
-
-    const finalY =
-        doc.lastAutoTable.finalY + 10;
-
-
-    doc.text(
-        "Present : " + present,
-        14,
-        finalY
-    );
-
-
-    doc.text(
-        "Absent : " + absent,
-        70,
-        finalY
-    );
-
-
-    doc.text(
-        "Attendance : " +
-        (
-            present /
-            students.length *
-            100
-        ).toFixed(1) +
-        "%",
-        125,
-        finalY
-    );
-
-
-    doc.save(
-        "Paiyur_Attendance_" +
-        date +
-        ".pdf"
-    );
-
-}
-
-
-/* ==========================================
-   CSV / EXCEL
-========================================== */
-
-function downloadCSV(){
-
-    const records =
-        getRecords();
-
-
-    const dates =
-        Object.keys(records)
-        .sort();
-
-
-    if(dates.length === 0){
-
-        alert(
-            "No attendance records saved yet."
-        );
-
-        return;
-
-    }
-
-
-    let csv =
-        "Date,Student Name,Status\n";
-
-
-    dates.forEach(
-        function(date){
-
-            const data =
-                records[date].attendance;
-
-
-            students.forEach(
-                function(name,index){
-
-                    csv +=
-                        '"' +
-                        date +
-                        '","' +
-                        name.replace(
-                            /"/g,
-                            '""'
-                        ) +
-                        '","' +
-                        data[index] +
-                        '"\n';
-
-                }
-            );
-
-        }
-    );
-
-
-    const blob =
-        new Blob(
-            [csv],
-            {
-                type:
-                "text/csv;charset=utf-8;"
-            }
-        );
-
-
-    const url =
-        URL.createObjectURL(blob);
-
-
-    const link =
-        document.createElement("a");
-
-
-    link.href = url;
-
-    link.download =
-        "Paiyur_RAWE_Attendance_2026.csv";
-
-
-    document.body.appendChild(link);
-
-    link.click();
-
-    document.body.removeChild(link);
-
-    URL.revokeObjectURL(url);
-
-}
-
-
-/* ==========================================
-   FULL PDF
-========================================== */
-
-function downloadAllPDF(){
-
-    const records =
-        getRecords();
-
-
-    const dates =
-        Object.keys(records)
-        .sort();
-
-
-    if(dates.length === 0){
-
-        alert(
-            "No attendance records saved yet."
-        );
-
-        return;
-
-    }
-
-
-    const { jsPDF } =
-        window.jspdf;
-
-
-    const doc =
-        new jsPDF(
-            "landscape"
-        );
-
-
-    doc.setFontSize(18);
-
-    doc.text(
-        "TNAU RAWE PROGRAMME 2026",
-        148,
-        15,
-        {align:"center"}
-    );
-
-
-    doc.setFontSize(12);
-
-    doc.text(
-        "TEAM : PAIYUR",
-        148,
-        23,
-        {align:"center"}
-    );
-
-
-    let firstPage = true;
-
-
-    dates.forEach(
-        function(date){
-
-            if(!firstPage){
-
-                doc.addPage();
-
-            }
-
-            firstPage = false;
-
-
-            doc.setFontSize(13);
-
-            doc.text(
-                "Attendance Date : " +
-                formatDate(date),
-                14,
-                35
-            );
-
-
-            const data =
-                records[date].attendance;
-
-
-            const rows =
-                students.map(
-                    function(name,index){
-
-                        return [
-
-                            index + 1,
-
-                            name,
-
-                            data[index]
-
-                        ];
-
-                    }
-                );
-
-
-            doc.autoTable({
-
-                startY:42,
-
-                head:[
-                    [
-                        "S.No",
-                        "Student Name",
-                        "Status"
-                    ]
-                ],
-
-                body:rows,
-
-                theme:"grid",
-
-                styles:{
-                    fontSize:9
-                }
-
-            });
-
-        }
-    );
-
-
-    doc.save(
-        "Paiyur_RAWE_Full_Attendance_2026.pdf"
-    );
-
-}
-
-
-/* ==========================================
-   START
-========================================== */
-
-dateInput.value =
-    START_DATE;
 
 loadDate();
 
 </script>
 
+
 </body>
+
 </html>
