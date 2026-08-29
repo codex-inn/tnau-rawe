@@ -1,416 +1,1030 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>TNAU RAWE Programme 2026 | Paiyur Team</title>
+<title>TNAU RAWE Programme 2026 | Paiyur</title>
 
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: Arial, sans-serif;
-        }
+<!-- Icons -->
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
-        html {
-            scroll-behavior: smooth;
-        }
+<style>
 
-        body {
-            background: #f5f7f5;
-            color: #222;
-            line-height: 1.6;
-        }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-        /* HEADER */
-        header {
-            background: linear-gradient(135deg, #0f4d2a, #218c4a);
-            color: white;
-            padding: 35px 20px;
-            text-align: center;
-        }
+html {
+    scroll-behavior: smooth;
+}
 
-        header h1 {
-            font-size: 34px;
-            margin-bottom: 10px;
-        }
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    color: #17231a;
+    background: #f5f7f4;
+}
 
-        header p {
-            font-size: 17px;
-            margin: 4px 0;
-        }
 
-        .theme {
-            display: inline-block;
-            margin-top: 15px;
-            padding: 8px 20px;
-            background: white;
-            color: #176b3a;
-            border-radius: 30px;
-            font-weight: bold;
-        }
+/* ================= HEADER ================= */
 
-        /* NAVIGATION */
-        nav {
-            background: #0b3d21;
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
+.top-header {
+    min-height: 185px;
 
-        nav a {
-            color: white;
-            text-decoration: none;
-            padding: 14px 18px;
-            font-weight: bold;
-        }
+    background:
+        linear-gradient(
+            90deg,
+            rgba(255,255,255,.97) 0%,
+            rgba(255,255,255,.93) 45%,
+            rgba(255,255,255,.65) 65%,
+            rgba(255,255,255,.20) 100%
+        ),
+        url("college-bg.jpg");
 
-        nav a:hover {
-            background: #228b4b;
-        }
+    background-size: cover;
+    background-position: center;
 
-        /* HERO */
-        .hero {
-            padding: 75px 20px;
-            text-align: center;
-            background: white;
-        }
+    display: flex;
+    align-items: center;
 
-        .hero h2 {
-            color: #176b3a;
-            font-size: 40px;
-            margin-bottom: 15px;
-        }
+    padding: 18px 4%;
 
-        .hero h3 {
-            color: #555;
-            margin-bottom: 15px;
-        }
+    position: relative;
+}
 
-        .hero p {
-            max-width: 800px;
-            margin: auto;
-            line-height: 1.8;
-        }
 
-        .btn {
-            display: inline-block;
-            margin-top: 25px;
-            padding: 12px 25px;
-            background: #176b3a;
-            color: white;
-            text-decoration: none;
-            border-radius: 25px;
-            font-weight: bold;
-        }
+/* LOGO */
 
-        .btn:hover {
-            background: #228b4b;
-        }
+.logo {
+    width: 125px;
+    height: 125px;
 
-        /* SECTIONS */
-        .container {
-            max-width: 1100px;
-            margin: auto;
-            padding: 55px 20px;
-        }
+    object-fit: contain;
 
-        .section-title {
-            text-align: center;
-            color: #176b3a;
-            font-size: 30px;
-            margin-bottom: 10px;
-        }
+    margin-right: 30px;
+}
 
-        .section-subtitle {
-            text-align: center;
-            color: #666;
-            margin-bottom: 30px;
-        }
 
-        /* CARDS */
-        .cards {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-            gap: 22px;
-            margin-top: 25px;
-        }
+/* HEADER TEXT */
 
-        .card {
-            background: white;
-            padding: 28px 20px;
-            border-radius: 14px;
-            text-align: center;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-            transition: 0.3s;
-        }
+.header-text h1 {
+    color: #104d2b;
 
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.12);
-        }
+    font-size: 34px;
 
-        .card h3 {
-            color: #176b3a;
-            margin-bottom: 12px;
-        }
+    font-weight: 800;
 
-        .icon {
-            font-size: 38px;
-            margin-bottom: 10px;
-        }
+    letter-spacing: .5px;
 
-        /* TEAM */
-        .team-card {
-            background: white;
-            padding: 30px 20px;
-            border-radius: 15px;
-            text-align: center;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-        }
+    margin-bottom: 4px;
+}
 
-        .team-card h3 {
-            color: #176b3a;
-            margin-bottom: 12px;
-        }
+.header-text .subtitle {
+    font-size: 19px;
 
-        .team-card strong {
-            font-size: 19px;
-        }
+    color: #202820;
 
-        /* ABOUT */
-        .about-box {
-            background: white;
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.07);
-        }
+    margin-bottom: 12px;
+}
 
-        /* FOOTER */
-        footer {
-            background: #0b3d21;
-            color: white;
-            text-align: center;
-            padding: 30px 20px;
-            margin-top: 30px;
-        }
+.header-text .college {
+    font-size: 19px;
 
-        footer p {
-            margin: 5px 0;
-        }
+    font-weight: bold;
 
-        /* MOBILE */
-        @media (max-width: 600px) {
+    color: #124d2b;
+}
 
-            header {
-                padding: 28px 15px;
-            }
+.header-text .location {
+    font-size: 18px;
 
-            header h1 {
-                font-size: 25px;
-            }
+    color: #193b25;
+}
 
-            header p {
-                font-size: 14px;
-            }
 
-            .hero {
-                padding: 55px 18px;
-            }
+/* THEME */
 
-            .hero h2 {
-                font-size: 29px;
-            }
+.theme-box {
+    margin-left: auto;
 
-            nav a {
-                padding: 10px 11px;
-                font-size: 13px;
-            }
+    text-align: center;
 
-            .container {
-                padding: 40px 15px;
-            }
+    padding-right: 35px;
+}
 
-            .section-title {
-                font-size: 26px;
-            }
-        }
-    </style>
+.theme-box small {
+    display: block;
+
+    color: #176b3a;
+
+    font-size: 18px;
+
+    font-weight: bold;
+
+    letter-spacing: 1px;
+}
+
+.theme-box strong {
+    display: block;
+
+    color: #176b3a;
+
+    font-size: 37px;
+
+    font-weight: 900;
+}
+
+
+/* ================= NAVIGATION ================= */
+
+nav {
+    height: 55px;
+
+    background: #005425;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 4px;
+
+    position: sticky;
+
+    top: 0;
+
+    z-index: 1000;
+
+    box-shadow: 0 2px 8px rgba(0,0,0,.2);
+}
+
+nav a {
+    color: white;
+
+    text-decoration: none;
+
+    padding: 12px 17px;
+
+    font-size: 16px;
+
+    border-radius: 6px;
+
+    transition: .25s;
+}
+
+nav a i {
+    margin-right: 7px;
+}
+
+nav a:hover,
+nav a.active {
+    background: #247b3d;
+}
+
+
+/* ================= HERO ================= */
+
+.hero {
+    min-height: 520px;
+
+    background-image:
+        linear-gradient(
+            90deg,
+            rgba(0,40,20,.82) 0%,
+            rgba(0,40,20,.55) 32%,
+            rgba(0,40,20,.05) 70%
+        ),
+        url("college-bg.jpg");
+
+    background-size: cover;
+
+    background-position: center;
+
+    position: relative;
+
+    display: flex;
+
+    align-items: center;
+
+    padding: 55px 5%;
+}
+
+
+/* HERO TEXT */
+
+.hero-content {
+    color: white;
+
+    max-width: 520px;
+
+    margin-top: -40px;
+}
+
+.hero-content .welcome {
+    font-family: Georgia, serif;
+
+    font-style: italic;
+
+    font-size: 31px;
+
+    color: #91bd78;
+
+    margin-bottom: 5px;
+}
+
+.hero-content h2 {
+    font-size: 49px;
+
+    line-height: 1.08;
+
+    font-weight: 900;
+
+    margin-bottom: 25px;
+}
+
+.hero-line {
+    width: 430px;
+
+    max-width: 100%;
+
+    height: 3px;
+
+    background: #63a94c;
+
+    margin-bottom: 25px;
+}
+
+.hero-content p {
+    font-size: 18px;
+
+    line-height: 1.65;
+
+    color: #fff;
+}
+
+.explore {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    margin-top: 25px;
+
+    padding: 12px 22px;
+
+    background: #238b3e;
+
+    color: white;
+
+    text-decoration: none;
+
+    border-radius: 8px;
+
+    font-weight: bold;
+
+    font-size: 16px;
+}
+
+.explore:hover {
+    background: #2fa94e;
+}
+
+
+/* ================= TEAM ================= */
+
+.team-wrapper {
+    position: relative;
+
+    margin-top: -90px;
+
+    z-index: 10;
+
+    padding: 0 7%;
+}
+
+.section-heading {
+    text-align: center;
+
+    color: #064e27;
+
+    font-size: 25px;
+
+    font-weight: 800;
+
+    margin-bottom: 10px;
+}
+
+.section-heading::before,
+.section-heading::after {
+    content: "────";
+
+    margin: 0 14px;
+
+    color: #4e9c56;
+}
+
+
+.team-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 18px;
+
+    max-width: 900px;
+
+    margin: auto;
+}
+
+.team-card {
+    background: rgba(255,255,255,.96);
+
+    border-radius: 10px;
+
+    padding: 14px 15px 18px;
+
+    text-align: center;
+
+    box-shadow:
+        0 5px 18px rgba(0,0,0,.18);
+
+    min-height: 220px;
+
+    transition: .3s;
+}
+
+.team-card:hover {
+    transform: translateY(-5px);
+}
+
+.team-photo {
+    width: 105px;
+
+    height: 105px;
+
+    border-radius: 50%;
+
+    object-fit: cover;
+
+    border: 3px solid #398249;
+
+    margin-bottom: 8px;
+}
+
+.team-icon {
+    font-size: 40px;
+
+    color: #23763b;
+
+    margin-bottom: 7px;
+}
+
+.team-card h3 {
+    font-size: 18px;
+
+    color: #0d4d28;
+
+    margin-bottom: 3px;
+}
+
+.role {
+    color: #a31313;
+
+    font-weight: bold;
+
+    margin-bottom: 6px;
+}
+
+.team-card p {
+    font-size: 15px;
+
+    line-height: 1.4;
+}
+
+
+/* ================= PROGRAMME ================= */
+
+.programme {
+    padding: 18px 6% 55px;
+
+    background:
+        linear-gradient(
+            rgba(255,255,255,.83),
+            rgba(255,255,255,.83)
+        );
+}
+
+.programme-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(6, 1fr);
+
+    gap: 8px;
+
+    max-width: 1320px;
+
+    margin: auto;
+}
+
+.programme-card {
+    background: rgba(255,255,255,.94);
+
+    border: 1px solid #e2e2e2;
+
+    border-radius: 8px;
+
+    padding: 17px 10px;
+
+    min-height: 145px;
+
+    text-align: center;
+
+    box-shadow: 0 2px 7px rgba(0,0,0,.07);
+
+    transition: .25s;
+}
+
+.programme-card:hover {
+    transform: translateY(-4px);
+
+    box-shadow: 0 7px 16px rgba(0,0,0,.13);
+}
+
+.programme-card i {
+    font-size: 31px;
+
+    color: #24783b;
+
+    margin-bottom: 8px;
+}
+
+.programme-card h3 {
+    color: #0b4d27;
+
+    font-size: 17px;
+
+    margin-bottom: 7px;
+}
+
+.programme-card p {
+    font-size: 14px;
+
+    line-height: 1.4;
+}
+
+
+/* ================= OTHER SECTIONS ================= */
+
+.content-section {
+    padding: 70px 8%;
+
+    background: rgba(255,255,255,.94);
+}
+
+.content-section h2 {
+    text-align: center;
+
+    color: #0d542c;
+
+    font-size: 30px;
+
+    margin-bottom: 20px;
+}
+
+.content-box {
+    max-width: 950px;
+
+    margin: auto;
+
+    line-height: 1.8;
+
+    font-size: 17px;
+}
+
+
+/* ================= FOOTER ================= */
+
+footer {
+    background: #063d20;
+
+    color: white;
+
+    text-align: center;
+
+    padding: 28px 20px;
+
+    line-height: 1.7;
+}
+
+
+/* ================= MOBILE ================= */
+
+@media(max-width: 900px) {
+
+    .top-header {
+        min-height: 160px;
+
+        padding: 15px 20px;
+    }
+
+    .logo {
+        width: 90px;
+        height: 90px;
+
+        margin-right: 15px;
+    }
+
+    .header-text h1 {
+        font-size: 25px;
+    }
+
+    .header-text .subtitle,
+    .header-text .college,
+    .header-text .location {
+        font-size: 14px;
+    }
+
+    .theme-box {
+        display: none;
+    }
+
+    nav {
+        height: auto;
+
+        padding: 5px;
+
+        overflow-x: auto;
+
+        justify-content: flex-start;
+    }
+
+    nav a {
+        white-space: nowrap;
+
+        font-size: 13px;
+
+        padding: 10px;
+    }
+
+    .hero {
+        min-height: 470px;
+
+        padding: 45px 25px;
+    }
+
+    .hero-content h2 {
+        font-size: 38px;
+    }
+
+    .team-wrapper {
+        margin-top: -55px;
+
+        padding: 0 20px;
+    }
+
+    .team-grid {
+        grid-template-columns: 1fr;
+
+        max-width: 380px;
+    }
+
+    .programme-grid {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+}
+
+
+@media(max-width: 500px) {
+
+    .top-header {
+        text-align: center;
+
+        display: block;
+    }
+
+    .logo {
+        margin: auto auto 8px;
+    }
+
+    .header-text h1 {
+        font-size: 22px;
+    }
+
+    .hero-content h2 {
+        font-size: 32px;
+    }
+
+    .hero-content .welcome {
+        font-size: 25px;
+    }
+
+    .programme-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+</style>
 </head>
+
 
 <body>
 
-<!-- HEADER -->
-<header>
 
-    <h1>TNAU RAWE Programme 2026</h1>
+<!-- ================= HEADER ================= -->
 
-    <p>
-        Rural Agricultural Work Experience Programme
-    </p>
+<header class="top-header">
 
-    <p>
-        Agricultural College & Research Institute (AC&RI)
-    </p>
+    <img
+        src="tnau-logo.png"
+        alt="TNAU Logo"
+        class="logo"
+    >
 
-    <p>
-        Vazhavachanur, Tiruvannamalai
-    </p>
+    <div class="header-text">
 
-    <div class="theme">
-        🌾 RAWE Theme: PAIYUR
+        <h1>
+            TNAU RAWE PROGRAMME 2026
+        </h1>
+
+        <div class="subtitle">
+            Rural Agricultural Work Experience Programme
+        </div>
+
+        <div class="college">
+            Agricultural College & Research Institute (AC&RI)
+        </div>
+
+        <div class="location">
+            Vazhavachanur, Tiruvannamalai
+        </div>
+
+    </div>
+
+
+    <div class="theme-box">
+
+        <small>
+            RAWE THEME
+        </small>
+
+        <strong>
+            PAIYUR
+        </strong>
+
     </div>
 
 </header>
 
 
-<!-- NAVIGATION -->
+<!-- ================= NAVIGATION ================= -->
+
 <nav>
 
-    <a href="#home">Home</a>
-    <a href="#about">About RAWE</a>
-    <a href="#team">Paiyur Team</a>
-    <a href="#activities">Activities</a>
-    <a href="#gallery">Gallery</a>
-    <a href="#reports">Reports</a>
-    <a href="#contact">Contact</a>
+    <a href="#home" class="active">
+        <i class="fa-solid fa-house"></i>
+        Home
+    </a>
+
+    <a href="#about">
+        <i class="fa-solid fa-circle-info"></i>
+        About RAWE
+    </a>
+
+    <a href="#students">
+        <i class="fa-solid fa-users"></i>
+        Students
+    </a>
+
+    <a href="#village">
+        <i class="fa-solid fa-house"></i>
+        Village Profile
+    </a>
+
+    <a href="#activities">
+        <i class="fa-solid fa-leaf"></i>
+        Activities
+    </a>
+
+    <a href="#schedule">
+        <i class="fa-regular fa-calendar-days"></i>
+        Schedule
+    </a>
+
+    <a href="#gallery">
+        <i class="fa-regular fa-image"></i>
+        Gallery
+    </a>
+
+    <a href="#reports">
+        <i class="fa-solid fa-file-lines"></i>
+        Reports
+    </a>
+
+    <a href="#announcements">
+        <i class="fa-solid fa-bullhorn"></i>
+        Announcements
+    </a>
+
+    <a href="#contact">
+        <i class="fa-solid fa-phone"></i>
+        Contact
+    </a>
 
 </nav>
 
 
-<!-- HOME -->
+<!-- ================= HERO ================= -->
+
 <section class="hero" id="home">
 
-    <h2>Welcome to TNAU RAWE</h2>
+    <div class="hero-content">
 
-    <h3>Paiyur Team – RAWE Programme 2026</h3>
+        <div class="welcome">
+            Welcome to
+        </div>
 
-    <p>
-        This website provides information about the Rural Agricultural
-        Work Experience Programme (RAWE), including student activities,
-        village visits, farmer interactions, agricultural surveys,
-        field experiences, demonstrations, photographs and reports.
-    </p>
+        <h2>
+            TNAU RAWE<br>
+            PROGRAMME 2026
+        </h2>
 
-    <a href="#team" class="btn">Meet Our Team</a>
-
-</section>
-
-
-<!-- ABOUT -->
-<section class="container" id="about">
-
-    <h2 class="section-title">About RAWE</h2>
-
-    <p class="section-subtitle">
-        Rural Agricultural Work Experience Programme
-    </p>
-
-    <div class="about-box">
+        <div class="hero-line"></div>
 
         <p>
-            The Rural Agricultural Work Experience (RAWE) Programme
-            provides students with practical exposure to rural life,
-            farming systems and agricultural practices.
+            Providing practical exposure to rural life,
+            farming systems and agricultural practices
+            through farmer interactions, surveys,
+            field activities and agricultural extension
+            programmes.
         </p>
 
-        <br>
-
-        <p>
-            The programme helps students interact with farmers,
-            understand village-level agricultural problems,
-            study farming practices and gain practical experience
-            in agricultural development.
-        </p>
-
-        <br>
-
-        <p>
-            The <strong>Paiyur Team</strong> participates in field
-            activities, farmer interactions, surveys, demonstrations
-            and other agricultural extension activities.
-        </p>
+        <a href="#about" class="explore">
+            Explore More
+            <i class="fa-solid fa-arrow-right"></i>
+        </a>
 
     </div>
 
 </section>
 
 
-<!-- TEAM -->
-<section class="container" id="team">
+<!-- ================= TEAM ================= -->
 
-    <h2 class="section-title">Paiyur RAWE Team</h2>
+<section class="team-wrapper" id="team">
 
-    <p class="section-subtitle">
-        Team In-charge, Staff In-charge & Team Leader
-    </p>
+    <h2 class="section-heading">
+        PAIYUR RAWE TEAM
+    </h2>
 
-    <div class="cards">
+
+    <div class="team-grid">
+
+
+        <!-- SANKAR -->
 
         <div class="team-card">
 
-            <div class="icon">👨‍💼</div>
+            <!--
+            Upload sankar.jpg to GitHub
+            and remove the comments below.
+            -->
 
-            <h3>Paiyur Team In-charge</h3>
+            <!--
+            <img src="sankar.jpg"
+                 class="team-photo"
+                 alt="Dr. M. Sankar">
+            -->
+
+            <div class="team-icon">
+                <i class="fa-solid fa-user-tie"></i>
+            </div>
+
+            <h3>
+                Dr. M. Sankar
+            </h3>
+
+            <div class="role">
+                Team In-charge
+            </div>
 
             <p>
-                <strong>Dr. M. Sankar</strong>
+                Librarian
             </p>
 
-            <p>Librarian</p>
+            <p>
+                AC&RI, Vazhavachanur
+            </p>
 
-            <p>AC&RI, Vazhavachanur E-Mail:librarytvmalai@tnau.ac.in</p>
+            <p>
+                librarytvmalai@tnau.ac.in
+            </p>
 
         </div>
 
 
+        <!-- SENTHIL KUMAR -->
+
         <div class="team-card">
 
-            <div class="icon">👨‍🏫</div>
+            <!--
+            Upload senthil.jpg to GitHub
+            and remove the comments below.
+            -->
 
-            <h3>Staff In-charge</h3>
+            <!--
+            <img src="senthil.jpg"
+                 class="team-photo"
+                 alt="Dr. P. Senthil Kumar">
+            -->
 
-            <p>
-                <strong>Dr. P. Senthil Kumar</strong>
-            </p>
+            <div class="team-icon">
+                <i class="fa-solid fa-user-tie"></i>
+            </div>
+
+            <h3>
+                Dr. P. Senthil Kumar
+            </h3>
+
+            <div class="role">
+                Staff In-charge
+            </div>
 
             <p>
                 Associate Professor
             </p>
 
             <p>
-                Plant Nematology
+                (Plant Nematology)
             </p>
 
             <p>
-                RRS, Paiyur Email ID	senthilkumarp@tnau.ac.in
-                Phone No: 9442407460
+                RRS, Paiyur
             </p>
 
         </div>
 
 
+        <!-- KOWSHIK -->
+
         <div class="team-card">
 
-            <div class="icon">👨‍🎓</div>
+            <!--
+            Upload kowshik.jpg to GitHub
+            and remove the comments below.
+            -->
 
-            <h3>Paiyur Team Leader</h3>
+            <!--
+            <img src="kowshik.jpg"
+                 class="team-photo"
+                 alt="Kowshik S">
+            -->
 
-            <p>
-                <strong>GokulaBalaji R<strong>
-            </p>
+            <div class="team-icon">
+                <i class="fa-solid fa-graduation-cap"></i>
+            </div>
+
+            <h3>
+                Kowshik S
+            </h3>
+
+            <div class="role">
+                Team Leader
+            </div>
 
             <p>
                 B.Sc. Agriculture – TNAU
             </p>
 
             <p>
-                Final Year (AC&RI VVNR) Phone No: 9597135679
+                Cyber Security
+            </p>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- ================= PROGRAMME ================= -->
+
+<section class="programme">
+
+    <h2 class="section-heading">
+        RAWE PROGRAMME
+    </h2>
+
+
+    <div class="programme-grid">
+
+
+        <div class="programme-card"
+             id="students">
+
+            <i class="fa-solid fa-users"></i>
+
+            <h3>
+                Students
+            </h3>
+
+            <p>
+                View RAWE student
+                information and groups.
+            </p>
+
+        </div>
+
+
+        <div class="programme-card"
+             id="village">
+
+            <i class="fa-solid fa-house"></i>
+
+            <h3>
+                Village Profile
+            </h3>
+
+            <p>
+                Explore the adopted
+                village and its agriculture.
+            </p>
+
+        </div>
+
+
+        <div class="programme-card"
+             id="activities">
+
+            <i class="fa-solid fa-leaf"></i>
+
+            <h3>
+                Activities
+            </h3>
+
+            <p>
+                View field activities,
+                farmer interactions and
+                demonstrations.
+            </p>
+
+        </div>
+
+
+        <div class="programme-card"
+             id="gallery">
+
+            <i class="fa-solid fa-camera"></i>
+
+            <h3>
+                Gallery
+            </h3>
+
+            <p>
+                Photos from RAWE
+                programme activities.
+            </p>
+
+        </div>
+
+
+        <div class="programme-card"
+             id="reports">
+
+            <i class="fa-solid fa-file-lines"></i>
+
+            <h3>
+                Reports
+            </h3>
+
+            <p>
+                Access RAWE reports
+                and programme documents.
+            </p>
+
+        </div>
+
+
+        <div class="programme-card"
+             id="schedule">
+
+            <i class="fa-regular fa-calendar-days"></i>
+
+            <h3>
+                Schedule
+            </h3>
+
+            <p>
+                View programme schedule
+                and important events.
             </p>
 
         </div>
@@ -420,168 +1034,128 @@
 </section>
 
 
-<!-- PROGRAMME -->
-<section class="container">
+<!-- ================= ABOUT ================= -->
 
-    <h2 class="section-title">RAWE Programme</h2>
+<section class="content-section"
+         id="about">
 
-    <p class="section-subtitle">
-        Explore the different sections of our programme
-    </p>
+    <h2>
+        About RAWE
+    </h2>
 
-    <div class="cards">
+    <div class="content-box">
 
-        <div class="card">
+        <p>
+            The Rural Agricultural Work Experience
+            (RAWE) Programme provides students with
+            practical exposure to rural life, farming
+            systems and agricultural practices.
+        </p>
 
-            <div class="icon">👨‍🎓</div>
+        <br>
 
-            <h3>Students</h3>
-
-            <p>
-                View RAWE student information,
-                groups and activities.
-            </p>
-
-        </div>
-
-
-        <div class="card">
-
-            <div class="icon">🏘️</div>
-
-            <h3>Village Profile</h3>
-
-            <p>
-                Explore the adopted village,
-                agriculture and farming systems.
-            </p>
-
-        </div>
-
-
-        <div class="card" id="activities">
-
-            <div class="icon">🌾</div>
-
-            <h3>Activities</h3>
-
-            <p>
-                Field activities, farmer interactions,
-                surveys and demonstrations.
-            </p>
-
-        </div>
-
-
-        <div class="card" id="gallery">
-
-            <div class="icon">📸</div>
-
-            <h3>Gallery</h3>
-
-            <p>
-                Photos and memories from
-                RAWE programme activities.
-            </p>
-
-        </div>
-
-
-        <div class="card" id="reports">
-
-            <div class="icon">📄</div>
-
-            <h3>Reports</h3>
-
-            <p>
-                RAWE reports, documents and
-                programme records.
-            </p>
-
-        </div>
-
-
-        <div class="card">
-
-            <div class="icon">📅</div>
-
-            <h3>Schedule</h3>
-
-            <p>
-                Programme schedule and
-                important events.
-            </p>
-
-        </div>
+        <p>
+            Students interact with farmers, understand
+            village-level agricultural problems, study
+            farming practices and gain practical
+            experience in agricultural development.
+        </p>
 
     </div>
 
 </section>
 
 
-<!-- CONTACT -->
-<section class="container" id="contact">
+<!-- ================= ANNOUNCEMENTS ================= -->
 
-    <h2 class="section-title">Contact</h2>
+<section class="content-section"
+         id="announcements">
 
-    <p class="section-subtitle">
-        TNAU RAWE Programme – Paiyur Team
-    </p>
+    <h2>
+        Announcements
+    </h2>
 
-    <div class="cards">
+    <div class="content-box">
 
-        <div class="card">
+        <p>
+            📢 RAWE Programme 2026 – Paiyur Team
+        </p>
 
-            <div class="icon">🏫</div>
+        <p>
+            📢 Programme updates will be published here.
+        </p>
 
-            <h3>Campus</h3>
+    </div>
 
-            <p>
+</section>
+
+
+<!-- ================= CONTACT ================= -->
+
+<section class="content-section"
+         id="contact">
+
+    <h2>
+        Contact
+    </h2>
+
+    <div class="content-box">
+
+        <p>
+            <strong>
                 Agricultural College & Research Institute (AC&RI)
-            </p>
+            </strong>
+        </p>
 
-            <p>
-                Vazhavachanur, Tiruvannamalai
-            </p>
+        <p>
+            Vazhavachanur, Tiruvannamalai
+        </p>
 
-        </div>
+        <br>
 
+        <p>
+            <strong>
+                RAWE Theme:
+            </strong>
+            Paiyur
+        </p>
 
-        <div class="card">
+        <br>
 
-            <div class="icon">🌾</div>
+        <p>
+            <strong>
+                Paiyur Team In-charge:
+            </strong>
+            Dr. M. Sankar
+        </p>
 
-            <h3>RAWE Theme</h3>
+        <p>
+            <strong>
+                Staff In-charge:
+            </strong>
+            Dr. P. Senthil Kumar
+        </p>
 
-            <p>
-                <strong>Paiyur</strong>
-            </p>
-
-        </div>
-
-
-        <div class="card">
-
-            <div class="icon">👨‍🎓</div>
-
-            <h3>Team Leader</h3>
-
-            <p>
-                <strong>Kowshik S</strong>
-            </p>
-
-        </div>
+        <p>
+            <strong>
+                Team Leader:
+            </strong>
+            Kowshik S
+        </p>
 
     </div>
 
 </section>
 
 
-<!-- FOOTER -->
+<!-- ================= FOOTER ================= -->
+
 <footer>
 
     <p>
-        <strong>TNAU RAWE Programme 2026</strong>
+        <strong>
+            TNAU RAWE Programme 2026
+        </strong>
     </p>
 
     <p>
@@ -596,7 +1170,7 @@
     <br>
 
     <p>
-        © 2026 TNAU RAWE Programme. All Rights Reserved.
+        © 2026 TNAU RAWE Programme
     </p>
 
 </footer>
@@ -604,5 +1178,3 @@
 
 </body>
 </html>
-```
-
