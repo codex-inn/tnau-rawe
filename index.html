@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -12,7 +12,9 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
 
 <style>
 
-/* ================= BASIC ================= */
+/* ==================================================
+   RESET
+================================================== */
 
 *{
     margin:0;
@@ -31,8 +33,8 @@ body{
 
     background:
     linear-gradient(
-        rgba(255,255,255,.72),
-        rgba(255,255,255,.72)
+        rgba(255,255,255,.74),
+        rgba(255,255,255,.74)
     ),
     url("vvnr-campus.jpg");
 
@@ -42,24 +44,30 @@ body{
 }
 
 
-/* ================= HEADER ================= */
+/* ==================================================
+   HEADER
+================================================== */
 
 .top-header{
+
     min-height:190px;
 
     display:flex;
     align-items:center;
+
     gap:25px;
 
     padding:18px 5%;
 
     background:
+
     linear-gradient(
         90deg,
-        rgba(255,255,255,.96),
-        rgba(255,255,255,.82),
-        rgba(255,255,255,.40)
+        rgba(255,255,255,.97),
+        rgba(255,255,255,.84),
+        rgba(255,255,255,.45)
     ),
+
     url("tnau-coimbatore.jpg");
 
     background-size:cover;
@@ -67,8 +75,10 @@ body{
 }
 
 .logo{
+
     width:125px;
     height:125px;
+
     object-fit:contain;
 
     filter:
@@ -81,16 +91,19 @@ body{
 }
 
 .header-text h1{
+
     color:#104d2b;
 
     font-size:
     clamp(22px,3vw,36px);
 
     line-height:1.2;
+
     margin-bottom:8px;
 }
 
 .subtitle{
+
     color:#222;
 
     font-size:
@@ -98,6 +111,7 @@ body{
 }
 
 .college{
+
     color:#104d2b;
 
     font-size:
@@ -107,37 +121,56 @@ body{
 }
 
 .location{
+
     color:#193b25;
+
     font-size:16px;
 }
 
 .theme-box{
+
     text-align:center;
 }
 
 .theme-box small{
+
     display:block;
+
     color:#176b3a;
+
     font-weight:bold;
+
     letter-spacing:1px;
 }
 
 .theme-box strong{
+
+    display:block;
+
     color:#0c572d;
+
     font-size:40px;
 }
 
 
-/* ================= NAV ================= */
+/* ==================================================
+   NAVIGATION
+================================================== */
 
 nav{
+
     background:#005425;
 
     display:flex;
+
     justify-content:center;
+
+    align-items:center;
+
     flex-wrap:wrap;
 
     position:sticky;
+
     top:0;
 
     z-index:1000;
@@ -147,71 +180,89 @@ nav{
 }
 
 nav a{
+
     color:white;
+
     text-decoration:none;
 
-    padding:14px 15px;
+    padding:13px 14px;
 
     font-size:14px;
+
     font-weight:bold;
 
     transition:.25s;
 }
 
 nav a:hover{
+
     background:#247b3d;
 }
 
 nav i{
+
     margin-right:5px;
 }
 
 
-/* ================= HERO ================= */
+/* ==================================================
+   HERO
+================================================== */
 
 .hero{
-    min-height:510px;
+
+    min-height:500px;
 
     display:flex;
+
     align-items:center;
 
     padding:60px 5%;
 
     background:
+
     linear-gradient(
         90deg,
-        rgba(0,45,22,.85),
+        rgba(0,45,22,.86),
         rgba(0,45,22,.48),
         rgba(0,45,22,.10)
     );
 }
 
 .hero-content{
+
     max-width:700px;
+
     color:white;
 }
 
 .welcome{
+
     font-family:Georgia,serif;
 
-    font-size:32px;
+    font-size:31px;
+
     font-style:italic;
 
     color:#a3ce88;
 }
 
 .hero h2{
+
     font-size:
     clamp(34px,5vw,56px);
 
     line-height:1.1;
+
     margin:10px 0 20px;
 
     font-weight:900;
 }
 
 .hero-line{
+
     width:430px;
+
     max-width:100%;
 
     height:3px;
@@ -222,21 +273,26 @@ nav i{
 }
 
 .hero p{
+
     font-size:18px;
+
     max-width:650px;
 }
 
 .explore{
+
     display:inline-flex;
 
-    gap:10px;
     align-items:center;
+
+    gap:10px;
 
     margin-top:25px;
 
     padding:12px 22px;
 
     background:#238b3e;
+
     color:white;
 
     text-decoration:none;
@@ -247,28 +303,36 @@ nav i{
 }
 
 .explore:hover{
+
     background:#2fa94e;
 }
 
 
-/* ================= SECTION ================= */
+/* ==================================================
+   SECTIONS
+================================================== */
 
 .section{
+
     padding:55px 5%;
-    background:rgba(255,255,255,.48);
+
+    background:
+    rgba(255,255,255,.48);
 }
 
 .section-heading{
+
     text-align:center;
 
     color:#075128;
 
     font-size:30px;
 
-    margin-bottom:25px;
+    margin-bottom:28px;
 }
 
 .content-box{
+
     max-width:1000px;
 
     margin:auto;
@@ -276,7 +340,7 @@ nav i{
     padding:28px;
 
     background:
-    rgba(255,255,255,.95);
+    rgba(255,255,255,.96);
 
     border-radius:13px;
 
@@ -285,9 +349,12 @@ nav i{
 }
 
 
-/* ================= TEAM ================= */
+/* ==================================================
+   TEAM ORGANIZATION
+================================================== */
 
 .team-grid{
+
     max-width:1100px;
 
     margin:auto;
@@ -301,6 +368,7 @@ nav i{
 }
 
 .team-card{
+
     background:white;
 
     padding:25px 15px;
@@ -311,20 +379,29 @@ nav i{
 
     box-shadow:
     0 4px 15px rgba(0,0,0,.14);
+
+    transition:.25s;
+}
+
+.team-card:hover{
+
+    transform:translateY(-4px);
 }
 
 .team-icon{
+
     width:80px;
+
     height:80px;
 
     border-radius:50%;
 
-    margin:auto;
-    margin-bottom:12px;
+    margin:0 auto 12px;
 
     display:flex;
 
     align-items:center;
+
     justify-content:center;
 
     background:#eaf6ed;
@@ -335,63 +412,86 @@ nav i{
 }
 
 .team-card h3{
+
     color:#0d4d28;
+
     margin-bottom:7px;
+
+    font-size:18px;
 }
 
 .role{
+
     color:#a31313;
 
     font-weight:bold;
 
     margin-bottom:8px;
+
+    font-size:14px;
 }
 
 .team-card p{
+
     font-size:14px;
 }
 
 
-/* ================= RAWE PROGRAMME ================= */
+/* ==================================================
+   RAWE PROGRAMME
+   2 TOP + 2 BOTTOM
+================================================== */
 
 .programme-grid{
-    max-width:1200px;
+
+    max-width:850px;
 
     margin:auto;
 
     display:grid;
 
     grid-template-columns:
-    repeat(3,1fr);
+    repeat(2,1fr);
 
-    gap:20px;
+    gap:22px;
 }
 
 .programme-card{
+
     background:white;
 
-    padding:25px 18px;
+    padding:25px 20px;
 
-    min-height:210px;
+    min-height:205px;
 
     text-align:center;
 
     border-radius:12px;
 
     box-shadow:
-    0 3px 12px rgba(0,0,0,.12);
+    0 4px 15px rgba(0,0,0,.13);
 
     transition:.25s;
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    justify-content:center;
 }
 
 .programme-card:hover{
+
     transform:translateY(-5px);
 
     box-shadow:
-    0 7px 20px rgba(0,0,0,.18);
+    0 8px 22px rgba(0,0,0,.18);
 }
 
 .programme-card i{
+
     font-size:32px;
 
     color:#24783b;
@@ -400,29 +500,34 @@ nav i{
 }
 
 .programme-card h3{
+
     color:#0b4d27;
 
-    font-size:18px;
+    font-size:19px;
 
     margin-bottom:8px;
 }
 
 .programme-card p{
+
     font-size:14px;
 
     margin-bottom:15px;
+
+    max-width:300px;
 }
 
 .card-button{
+
     display:inline-block;
 
     background:#16753a;
 
     color:white;
 
-    padding:9px 15px;
+    padding:9px 16px;
 
-    border-radius:5px;
+    border-radius:6px;
 
     text-decoration:none;
 
@@ -432,39 +537,30 @@ nav i{
 }
 
 .card-button:hover{
+
     background:#0c572b;
 }
 
 
-/* ================= ATTENDANCE ================= */
+/* ATTENDANCE */
 
 .attendance-card{
+
     border-top:4px solid #16753a;
 }
 
 .attendance-card i{
+
     color:#16753a;
 }
 
-.attendance-card .card-button{
-    background:#075128;
-}
 
-
-/* ================= GALLERY CARD ================= */
-
-.gallery-card{
-    border-top:4px solid #2d7d3e;
-}
-
-.gallery-card i{
-    color:#2d7d3e;
-}
-
-
-/* ================= GALLERY SECTION ================= */
+/* ==================================================
+   GALLERY
+================================================== */
 
 .gallery-section{
+
     padding:55px 5%;
 
     background:
@@ -472,7 +568,8 @@ nav i{
 }
 
 .gallery-grid{
-    max-width:1200px;
+
+    max-width:1100px;
 
     margin:auto;
 
@@ -485,6 +582,7 @@ nav i{
 }
 
 .gallery-item{
+
     background:white;
 
     border-radius:10px;
@@ -498,6 +596,7 @@ nav i{
 }
 
 .gallery-item:hover{
+
     transform:translateY(-5px);
 
     box-shadow:
@@ -505,12 +604,18 @@ nav i{
 }
 
 .gallery-item a{
+
     display:block;
+
+    color:inherit;
+
     text-decoration:none;
 }
 
 .gallery-item img{
+
     width:100%;
+
     height:180px;
 
     object-fit:cover;
@@ -519,6 +624,7 @@ nav i{
 }
 
 .gallery-caption{
+
     padding:10px;
 
     text-align:center;
@@ -531,13 +637,17 @@ nav i{
 }
 
 
-/* ================= VILLAGE ================= */
+/* ==================================================
+   VILLAGE
+================================================== */
 
 .village-preview{
+
     text-align:center;
 }
 
 .village-preview h3{
+
     color:#075128;
 
     font-size:26px;
@@ -546,18 +656,24 @@ nav i{
 }
 
 .village-preview p{
+
     max-width:800px;
+
     margin:auto;
 }
 
 
-/* ================= CONTACT ================= */
+/* ==================================================
+   CONTACT
+================================================== */
 
 .contact p{
+
     margin-bottom:12px;
 }
 
 .contact a{
+
     color:#075128;
 
     font-weight:bold;
@@ -566,27 +682,37 @@ nav i{
 }
 
 
-/* ================= BOTTOM IMAGE ================= */
+/* ==================================================
+   BOTTOM CAMPUS
+================================================== */
 
 .bottom-campus{
+
     width:100%;
+
     height:450px;
 
     background:
+
     linear-gradient(
         rgba(0,45,22,.10),
         rgba(0,45,22,.10)
     ),
+
     url("vvnr-entrance.jpg");
 
     background-size:cover;
+
     background-position:center;
 }
 
 
-/* ================= FOOTER ================= */
+/* ==================================================
+   FOOTER
+================================================== */
 
 footer{
+
     background:#063f20;
 
     color:white;
@@ -597,6 +723,7 @@ footer{
 }
 
 .footer-title{
+
     color:#c9e6b9;
 
     font-size:25px;
@@ -605,6 +732,7 @@ footer{
 }
 
 .footer-motto{
+
     color:#d6edc9;
 
     font-size:19px;
@@ -613,6 +741,7 @@ footer{
 }
 
 .footer-quote{
+
     font-family:Georgia,serif;
 
     font-style:italic;
@@ -621,7 +750,9 @@ footer{
 }
 
 .footer-line{
+
     width:100px;
+
     height:2px;
 
     background:#8cc46f;
@@ -630,106 +761,138 @@ footer{
 }
 
 
-/* ================= RESPONSIVE ================= */
+/* ==================================================
+   TABLET
+================================================== */
 
 @media(max-width:1000px){
 
     .team-grid{
-        grid-template-columns:
-        repeat(2,1fr);
-    }
 
-    .programme-grid{
         grid-template-columns:
         repeat(2,1fr);
     }
 
     .gallery-grid{
+
         grid-template-columns:
         repeat(3,1fr);
     }
+
 }
 
+
+/* ==================================================
+   MOBILE
+================================================== */
 
 @media(max-width:700px){
 
     .top-header{
+
         flex-direction:column;
+
         text-align:center;
 
         padding:20px 15px;
     }
 
     .logo{
+
         width:90px;
+
         height:90px;
     }
 
     .theme-box strong{
+
         font-size:30px;
     }
 
     nav{
+
         position:relative;
     }
 
     nav a{
+
         font-size:12px;
-        padding:10px 8px;
+
+        padding:9px 7px;
     }
 
     .hero{
-        min-height:470px;
+
+        min-height:450px;
+
         padding:40px 20px;
     }
 
     .welcome{
+
         font-size:25px;
     }
 
     .hero h2{
+
         font-size:34px;
     }
 
     .hero p{
+
         font-size:15px;
     }
 
     .section,
     .gallery-section{
+
         padding:40px 15px;
     }
 
     .team-grid{
+
         grid-template-columns:1fr;
     }
 
     .programme-grid{
+
         grid-template-columns:1fr;
+
+        max-width:450px;
     }
 
     .gallery-grid{
+
         grid-template-columns:
         repeat(2,1fr);
     }
 
     .content-box{
+
         padding:20px;
     }
 
     .bottom-campus{
+
         height:280px;
     }
+
 }
 
+
+/* ==================================================
+   SMALL MOBILE
+================================================== */
 
 @media(max-width:420px){
 
     .gallery-grid{
+
         grid-template-columns:1fr;
     }
 
     .hero h2{
+
         font-size:29px;
     }
 
@@ -743,9 +906,9 @@ footer{
 <body>
 
 
-<!-- =====================================================
+<!-- ==================================================
      HEADER
-===================================================== -->
+================================================== -->
 
 <header class="top-header">
 
@@ -813,90 +976,125 @@ footer{
 </header>
 
 
-<!-- =====================================================
+<!-- ==================================================
      NAVIGATION
-===================================================== -->
+================================================== -->
 
 <nav>
 
     <a href="index.html">
+
         <i class="fa-solid fa-house"></i>
+
         Home
+
     </a>
 
 
     <a href="#about">
+
         <i class="fa-solid fa-circle-info"></i>
+
         About RAWE
+
     </a>
 
 
     <a href="#team">
+
         <i class="fa-solid fa-users"></i>
+
         Team Organization
+
     </a>
 
 
     <a href="village.html">
+
         <i class="fa-solid fa-location-dot"></i>
+
         Village Profile
+
     </a>
 
 
     <a href="activities.html">
+
         <i class="fa-solid fa-calendar-day"></i>
+
         Daily Activities
+
     </a>
 
 
     <a href="attendance.html">
+
         <i class="fa-solid fa-clipboard-check"></i>
-        Students Attendance
+
+        Attendance
+
     </a>
 
 
     <a href="#gallery">
+
         <i class="fa-solid fa-images"></i>
+
         Gallery
+
     </a>
 
 
     <a href="#reports">
+
         <i class="fa-solid fa-file-lines"></i>
+
         Reports
+
     </a>
 
 
     <a href="students.html">
+
         <i class="fa-solid fa-graduation-cap"></i>
+
         Students
+
     </a>
 
 
     <a href="#contact">
+
         <i class="fa-solid fa-phone"></i>
+
         Contact
+
     </a>
 
 </nav>
 
 
-<!-- =====================================================
+<!-- ==================================================
      HERO
-===================================================== -->
+================================================== -->
 
 <section class="hero">
 
     <div class="hero-content">
 
         <div class="welcome">
+
             Welcome to
+
         </div>
 
 
         <h2>
+
             TNAU RAWE<br>
+
             PROGRAMME 2026
+
         </h2>
 
 
@@ -928,9 +1126,9 @@ footer{
 </section>
 
 
-<!-- =====================================================
+<!-- ==================================================
      TEAM ORGANIZATION
-===================================================== -->
+================================================== -->
 
 <section
     class="section"
@@ -946,6 +1144,8 @@ footer{
     <div class="team-grid">
 
 
+        <!-- TEAM INCHARGE -->
+
         <div class="team-card">
 
             <div class="team-icon">
@@ -956,26 +1156,36 @@ footer{
 
 
             <h3>
+
                 Dr. M. Sankar, Ph.D
+
             </h3>
 
 
             <div class="role">
+
                 Team In-charge
+
             </div>
 
 
             <p>
+
                 Librarian
+
             </p>
 
 
             <p>
+
                 AC&amp;RI, VVNR
+
             </p>
 
         </div>
 
+
+        <!-- STAFF -->
 
         <div class="team-card">
 
@@ -987,31 +1197,43 @@ footer{
 
 
             <h3>
+
                 Dr. P. Senthil Kumar
+
             </h3>
 
 
             <div class="role">
+
                 Staff In-charge
+
             </div>
 
 
             <p>
+
                 Associate Professor
+
             </p>
 
 
             <p>
+
                 Plant Nematology
+
             </p>
 
 
             <p>
+
                 RRS, Paiyur
+
             </p>
 
         </div>
 
+
+        <!-- TEAM LEADER -->
 
         <div class="team-card">
 
@@ -1023,27 +1245,37 @@ footer{
 
 
             <h3>
+
                 Gokula Balaji R
+
             </h3>
 
 
             <div class="role">
+
                 Team Leader &amp;
                 Students In-charge
+
             </div>
 
 
             <p>
+
                 Final-Year B.Sc Agri
+
             </p>
 
 
             <p>
+
                 TNAU (AC&amp;RI, VVNR)
+
             </p>
 
         </div>
 
+
+        <!-- WEB ADMIN -->
 
         <div class="team-card">
 
@@ -1055,27 +1287,37 @@ footer{
 
 
             <h3>
+
                 Kowshik S
+
             </h3>
 
 
             <div class="role">
+
                 Web Admin &amp; CEO
+
             </div>
 
 
             <p>
+
                 Final-Year B.Sc Agri
+
             </p>
 
 
             <p>
+
                 TNAU (AC&amp;RI, VVNR)
+
             </p>
 
 
             <p>
+
                 Cyber-Security
+
             </p>
 
         </div>
@@ -1085,9 +1327,11 @@ footer{
 </section>
 
 
-<!-- =====================================================
+<!-- ==================================================
      RAWE PROGRAMME
-===================================================== -->
+     1 2
+     3 4
+================================================== -->
 
 <section
     class="section"
@@ -1103,20 +1347,27 @@ footer{
     <div class="programme-grid">
 
 
-        <!-- STUDENTS -->
+        <!-- 1 -->
 
         <div class="programme-card">
 
             <i class="fa-solid fa-users"></i>
 
+
             <h3>
+
                 Students
+
             </h3>
 
+
             <p>
+
                 View all Paiyur RAWE
                 team students.
+
             </p>
+
 
             <a
                 href="students.html"
@@ -1129,20 +1380,27 @@ footer{
         </div>
 
 
-        <!-- VILLAGE -->
+        <!-- 2 -->
 
         <div class="programme-card">
 
             <i class="fa-solid fa-location-dot"></i>
 
+
             <h3>
+
                 Village Profile
+
             </h3>
 
+
             <p>
+
                 View detailed village
-                profile.
+                and research station profile.
+
             </p>
+
 
             <a
                 href="village.html"
@@ -1155,20 +1413,27 @@ footer{
         </div>
 
 
-        <!-- DAILY ACTIVITIES -->
+        <!-- 3 -->
 
         <div class="programme-card">
 
             <i class="fa-solid fa-calendar-day"></i>
 
+
             <h3>
+
                 Daily Activities
+
             </h3>
 
+
             <p>
+
                 Record and view daily
                 RAWE field activities.
+
             </p>
+
 
             <a
                 href="activities.html"
@@ -1181,21 +1446,28 @@ footer{
         </div>
 
 
-        <!-- ATTENDANCE -->
+        <!-- 4 -->
 
         <div
             class="programme-card attendance-card">
 
             <i class="fa-solid fa-clipboard-check"></i>
 
+
             <h3>
+
                 Students Attendance
+
             </h3>
 
+
             <p>
+
                 Mark and view daily
                 student attendance.
+
             </p>
+
 
             <a
                 href="attendance.html"
@@ -1208,66 +1480,14 @@ footer{
         </div>
 
 
-        <!-- GALLERY -->
-
-        <div
-            class="programme-card gallery-card">
-
-            <i class="fa-solid fa-images"></i>
-
-            <h3>
-                Gallery
-            </h3>
-
-            <p>
-                View RAWE programme
-                photographs and memories.
-            </p>
-
-            <a
-                href="#gallery"
-                class="card-button">
-
-                View Gallery
-
-            </a>
-
-        </div>
-
-
-        <!-- REPORTS -->
-
-        <div class="programme-card">
-
-            <i class="fa-solid fa-file-lines"></i>
-
-            <h3>
-                Reports
-            </h3>
-
-            <p>
-                RAWE reports and
-                programme documents.
-            </p>
-
-            <a
-                href="#reports"
-                class="card-button">
-
-                View Reports
-
-            </a>
-
-        </div>
-
     </div>
 
 </section>
 
 
-<!-- =====================================================
-     GALLERY - FIVE IMAGES
-===================================================== -->
+<!-- ==================================================
+     GALLERY
+================================================== -->
 
 <section
     class="gallery-section"
@@ -1283,7 +1503,7 @@ footer{
     <div class="gallery-grid">
 
 
-        <!-- IMAGE 1 -->
+        <!-- PHOTO 1 -->
 
         <div class="gallery-item">
 
@@ -1306,7 +1526,7 @@ footer{
         </div>
 
 
-        <!-- IMAGE 2 -->
+        <!-- PHOTO 2 -->
 
         <div class="gallery-item">
 
@@ -1329,7 +1549,7 @@ footer{
         </div>
 
 
-        <!-- IMAGE 3 -->
+        <!-- PHOTO 3 -->
 
         <div class="gallery-item">
 
@@ -1352,7 +1572,7 @@ footer{
         </div>
 
 
-        <!-- IMAGE 4 -->
+        <!-- PHOTO 4 -->
 
         <div class="gallery-item">
 
@@ -1375,7 +1595,7 @@ footer{
         </div>
 
 
-        <!-- IMAGE 5 -->
+        <!-- PHOTO 5 -->
 
         <div class="gallery-item">
 
@@ -1397,14 +1617,15 @@ footer{
 
         </div>
 
+
     </div>
 
 </section>
 
 
-<!-- =====================================================
+<!-- ==================================================
      ABOUT
-===================================================== -->
+================================================== -->
 
 <section
     class="section"
@@ -1457,9 +1678,9 @@ footer{
 </section>
 
 
-<!-- =====================================================
-     VILLAGE
-===================================================== -->
+<!-- ==================================================
+     VILLAGE PREVIEW
+================================================== -->
 
 <section class="section">
 
@@ -1498,9 +1719,9 @@ footer{
 </section>
 
 
-<!-- =====================================================
+<!-- ==================================================
      REPORTS
-===================================================== -->
+================================================== -->
 
 <section
     class="section"
@@ -1547,9 +1768,9 @@ footer{
 </section>
 
 
-<!-- =====================================================
+<!-- ==================================================
      CONTACT
-===================================================== -->
+================================================== -->
 
 <section
     class="section"
@@ -1593,7 +1814,8 @@ footer{
                 Mail:
             </strong>
 
-            <a href="mailto:librarytvmalai@tnau.ac.in">
+            <a
+                href="mailto:librarytvmalai@tnau.ac.in">
 
                 librarytvmalai@tnau.ac.in
 
@@ -1622,7 +1844,8 @@ footer{
                 Mail:
             </strong>
 
-            <a href="mailto:senthilkumarp@tnau.ac.in">
+            <a
+                href="mailto:senthilkumarp@tnau.ac.in">
 
                 senthilkumarp@tnau.ac.in
 
@@ -1681,7 +1904,8 @@ footer{
                 Mail:
             </strong>
 
-            <a href="mailto:kowshik.in@outlook.com">
+            <a
+                href="mailto:kowshik.in@outlook.com">
 
                 kowshik.in@outlook.com
 
@@ -1694,16 +1918,16 @@ footer{
 </section>
 
 
-<!-- =====================================================
-     BOTTOM CAMPUS IMAGE
-===================================================== -->
+<!-- ==================================================
+     BOTTOM ENTRANCE IMAGE
+================================================== -->
 
 <section class="bottom-campus"></section>
 
 
-<!-- =====================================================
+<!-- ==================================================
      FOOTER
-===================================================== -->
+================================================== -->
 
 <footer>
 
