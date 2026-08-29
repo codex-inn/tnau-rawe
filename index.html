@@ -6,11 +6,12 @@
 
 <title>TNAU RAWE Programme 2026 | Paiyur</title>
 
-<!-- Icons -->
 <link rel="stylesheet"
 href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
 <style>
+
+/* ================= BASIC ================= */
 
 * {
     margin: 0;
@@ -29,20 +30,21 @@ body {
 }
 
 
-/* ================= HEADER ================= */
+/* ================= TOP HEADER ================= */
 
 .top-header {
-    min-height: 185px;
+
+    min-height: 190px;
 
     background:
         linear-gradient(
             90deg,
             rgba(255,255,255,.97) 0%,
-            rgba(255,255,255,.93) 45%,
+            rgba(255,255,255,.94) 40%,
             rgba(255,255,255,.65) 65%,
-            rgba(255,255,255,.20) 100%
+            rgba(255,255,255,.18) 100%
         ),
-        url("college-bg.jpg");
+        url("tnau-coimbatore.jpg");
 
     background-size: cover;
     background-position: center;
@@ -50,9 +52,9 @@ body {
     display: flex;
     align-items: center;
 
-    padding: 18px 4%;
+    padding: 18px 5%;
 
-    position: relative;
+    gap: 25px;
 }
 
 
@@ -64,42 +66,42 @@ body {
 
     object-fit: contain;
 
-    margin-right: 30px;
+    flex-shrink: 0;
 }
 
 
 /* HEADER TEXT */
 
+.header-text {
+    flex: 1;
+}
+
 .header-text h1 {
     color: #104d2b;
 
-    font-size: 34px;
+    font-size: clamp(24px, 3vw, 36px);
 
     font-weight: 800;
 
-    letter-spacing: .5px;
-
-    margin-bottom: 4px;
+    margin-bottom: 5px;
 }
 
-.header-text .subtitle {
-    font-size: 19px;
-
-    color: #202820;
+.subtitle {
+    font-size: clamp(15px, 1.5vw, 20px);
 
     margin-bottom: 12px;
 }
 
-.header-text .college {
-    font-size: 19px;
+.college {
+    font-size: clamp(15px, 1.5vw, 20px);
 
     font-weight: bold;
 
     color: #124d2b;
 }
 
-.header-text .location {
-    font-size: 18px;
+.location {
+    font-size: clamp(14px, 1.4vw, 19px);
 
     color: #193b25;
 }
@@ -108,11 +110,11 @@ body {
 /* THEME */
 
 .theme-box {
-    margin-left: auto;
-
     text-align: center;
 
-    padding-right: 35px;
+    padding: 10px 25px;
+
+    flex-shrink: 0;
 }
 
 .theme-box small {
@@ -120,11 +122,9 @@ body {
 
     color: #176b3a;
 
-    font-size: 18px;
+    font-size: 17px;
 
     font-weight: bold;
-
-    letter-spacing: 1px;
 }
 
 .theme-box strong {
@@ -132,7 +132,7 @@ body {
 
     color: #176b3a;
 
-    font-size: 37px;
+    font-size: clamp(28px, 3vw, 40px);
 
     font-weight: 900;
 }
@@ -141,9 +141,9 @@ body {
 /* ================= NAVIGATION ================= */
 
 nav {
-    height: 55px;
-
     background: #005425;
+
+    min-height: 55px;
 
     display: flex;
 
@@ -151,7 +151,7 @@ nav {
 
     align-items: center;
 
-    gap: 4px;
+    gap: 3px;
 
     position: sticky;
 
@@ -159,7 +159,7 @@ nav {
 
     z-index: 1000;
 
-    box-shadow: 0 2px 8px rgba(0,0,0,.2);
+    box-shadow: 0 2px 8px rgba(0,0,0,.25);
 }
 
 nav a {
@@ -167,17 +167,19 @@ nav a {
 
     text-decoration: none;
 
-    padding: 12px 17px;
+    padding: 12px 14px;
 
-    font-size: 16px;
+    font-size: 15px;
 
     border-radius: 6px;
+
+    white-space: nowrap;
 
     transition: .25s;
 }
 
 nav a i {
-    margin-right: 7px;
+    margin-right: 6px;
 }
 
 nav a:hover,
@@ -186,50 +188,75 @@ nav a.active {
 }
 
 
+/* MOBILE MENU BUTTON */
+
+.menu-btn {
+    display: none;
+
+    background: #005425;
+
+    color: white;
+
+    border: none;
+
+    font-size: 24px;
+
+    padding: 12px;
+
+    width: 100%;
+
+    text-align: right;
+
+    cursor: pointer;
+}
+
+
 /* ================= HERO ================= */
 
 .hero {
-    min-height: 520px;
+
+    min-height: 530px;
 
     background-image:
+
         linear-gradient(
             90deg,
-            rgba(0,40,20,.82) 0%,
-            rgba(0,40,20,.55) 32%,
-            rgba(0,40,20,.05) 70%
+            rgba(0,35,18,.86) 0%,
+            rgba(0,45,22,.62) 30%,
+            rgba(0,40,20,.12) 72%,
+            rgba(0,40,20,.05) 100%
         ),
-        url("college-bg.jpg");
+
+        url("vvnr-campus.jpg");
 
     background-size: cover;
 
     background-position: center;
 
-    position: relative;
-
     display: flex;
 
     align-items: center;
 
-    padding: 55px 5%;
+    padding: 50px 5%;
+
+    position: relative;
 }
 
-
-/* HERO TEXT */
 
 .hero-content {
+
+    max-width: 540px;
+
     color: white;
-
-    max-width: 520px;
-
-    margin-top: -40px;
 }
 
-.hero-content .welcome {
+.welcome {
+
     font-family: Georgia, serif;
 
-    font-style: italic;
+    font-size: clamp(25px, 3vw, 34px);
 
-    font-size: 31px;
+    font-style: italic;
 
     color: #91bd78;
 
@@ -237,7 +264,8 @@ nav a.active {
 }
 
 .hero-content h2 {
-    font-size: 49px;
+
+    font-size: clamp(34px, 5vw, 55px);
 
     line-height: 1.08;
 
@@ -247,6 +275,7 @@ nav a.active {
 }
 
 .hero-line {
+
     width: 430px;
 
     max-width: 100%;
@@ -259,14 +288,14 @@ nav a.active {
 }
 
 .hero-content p {
-    font-size: 18px;
+
+    font-size: clamp(16px, 1.5vw, 19px);
 
     line-height: 1.65;
-
-    color: #fff;
 }
 
 .explore {
+
     display: inline-flex;
 
     align-items: center;
@@ -275,7 +304,7 @@ nav a.active {
 
     margin-top: 25px;
 
-    padding: 12px 22px;
+    padding: 12px 23px;
 
     background: #238b3e;
 
@@ -286,8 +315,6 @@ nav a.active {
     border-radius: 8px;
 
     font-weight: bold;
-
-    font-size: 16px;
 }
 
 .explore:hover {
@@ -298,42 +325,46 @@ nav a.active {
 /* ================= TEAM ================= */
 
 .team-wrapper {
+
     position: relative;
 
     margin-top: -90px;
 
     z-index: 10;
 
-    padding: 0 7%;
+    padding: 0 5%;
 }
 
 .section-heading {
+
     text-align: center;
 
     color: #064e27;
 
-    font-size: 25px;
+    font-size: clamp(21px, 2.2vw, 27px);
 
     font-weight: 800;
 
-    margin-bottom: 10px;
+    margin-bottom: 12px;
 }
 
 .section-heading::before,
 .section-heading::after {
+
     content: "────";
 
-    margin: 0 14px;
-
     color: #4e9c56;
+
+    margin: 0 12px;
 }
 
 
 .team-grid {
+
     display: grid;
 
     grid-template-columns:
-        repeat(3, 1fr);
+        repeat(3, minmax(0, 1fr));
 
     gap: 18px;
 
@@ -343,18 +374,17 @@ nav a.active {
 }
 
 .team-card {
-    background: rgba(255,255,255,.96);
 
-    border-radius: 10px;
+    background: rgba(255,255,255,.97);
 
-    padding: 14px 15px 18px;
+    border-radius: 12px;
+
+    padding: 18px;
 
     text-align: center;
 
     box-shadow:
         0 5px 18px rgba(0,0,0,.18);
-
-    min-height: 220px;
 
     transition: .3s;
 }
@@ -364,8 +394,8 @@ nav a.active {
 }
 
 .team-photo {
-    width: 105px;
 
+    width: 105px;
     height: 105px;
 
     border-radius: 50%;
@@ -378,94 +408,104 @@ nav a.active {
 }
 
 .team-icon {
+
     font-size: 40px;
 
     color: #23763b;
 
-    margin-bottom: 7px;
+    margin-bottom: 8px;
 }
 
 .team-card h3 {
+
     font-size: 18px;
 
     color: #0d4d28;
 
-    margin-bottom: 3px;
+    margin-bottom: 4px;
 }
 
 .role {
+
     color: #a31313;
 
     font-weight: bold;
 
-    margin-bottom: 6px;
+    margin-bottom: 7px;
 }
 
 .team-card p {
+
     font-size: 15px;
 
-    line-height: 1.4;
+    line-height: 1.45;
 }
 
 
 /* ================= PROGRAMME ================= */
 
 .programme {
-    padding: 18px 6% 55px;
+
+    padding: 20px 5% 55px;
 
     background:
         linear-gradient(
-            rgba(255,255,255,.83),
-            rgba(255,255,255,.83)
+            rgba(255,255,255,.90),
+            rgba(255,255,255,.90)
         );
 }
 
 .programme-grid {
+
     display: grid;
 
     grid-template-columns:
-        repeat(6, 1fr);
+        repeat(6, minmax(0, 1fr));
 
-    gap: 8px;
+    gap: 10px;
 
-    max-width: 1320px;
+    max-width: 1350px;
 
     margin: auto;
 }
 
 .programme-card {
-    background: rgba(255,255,255,.94);
+
+    background: rgba(255,255,255,.96);
 
     border: 1px solid #e2e2e2;
 
-    border-radius: 8px;
+    border-radius: 10px;
 
-    padding: 17px 10px;
+    padding: 18px 10px;
 
-    min-height: 145px;
+    min-height: 150px;
 
     text-align: center;
 
-    box-shadow: 0 2px 7px rgba(0,0,0,.07);
+    box-shadow: 0 2px 7px rgba(0,0,0,.08);
 
     transition: .25s;
 }
 
 .programme-card:hover {
+
     transform: translateY(-4px);
 
-    box-shadow: 0 7px 16px rgba(0,0,0,.13);
+    box-shadow: 0 7px 16px rgba(0,0,0,.14);
 }
 
 .programme-card i {
+
     font-size: 31px;
 
     color: #24783b;
 
-    margin-bottom: 8px;
+    margin-bottom: 9px;
 }
 
 .programme-card h3 {
+
     color: #0b4d27;
 
     font-size: 17px;
@@ -474,21 +514,24 @@ nav a.active {
 }
 
 .programme-card p {
+
     font-size: 14px;
 
-    line-height: 1.4;
+    line-height: 1.45;
 }
 
 
-/* ================= OTHER SECTIONS ================= */
+/* ================= CONTENT ================= */
 
 .content-section {
-    padding: 70px 8%;
 
-    background: rgba(255,255,255,.94);
+    padding: 65px 7%;
+
+    background: rgba(255,255,255,.95);
 }
 
 .content-section h2 {
+
     text-align: center;
 
     color: #0d542c;
@@ -499,19 +542,65 @@ nav a.active {
 }
 
 .content-box {
+
     max-width: 950px;
 
     margin: auto;
 
-    line-height: 1.8;
-
     font-size: 17px;
+
+    line-height: 1.8;
+}
+
+
+/* ================= BOTTOM CAMPUS IMAGE ================= */
+
+.bottom-campus {
+
+    width: 100%;
+
+    height: 330px;
+
+    background-image:
+        linear-gradient(
+            rgba(0,40,20,.12),
+            rgba(0,40,20,.12)
+        ),
+        url("vvnr-campus.jpg");
+
+    background-size: cover;
+
+    background-position: center;
+
+    display: flex;
+
+    align-items: end;
+
+    justify-content: center;
+}
+
+.bottom-campus-text {
+
+    width: 100%;
+
+    background: rgba(0,55,28,.82);
+
+    color: white;
+
+    text-align: center;
+
+    padding: 18px;
+
+    font-size: 18px;
+
+    font-weight: bold;
 }
 
 
 /* ================= FOOTER ================= */
 
 footer {
+
     background: #063d20;
 
     color: white;
@@ -524,111 +613,343 @@ footer {
 }
 
 
-/* ================= MOBILE ================= */
+/* =================================================
+   TABLET
+   ================================================= */
 
-@media(max-width: 900px) {
+@media (max-width: 1100px) {
+
+    nav a {
+        font-size: 13px;
+
+        padding: 11px 9px;
+    }
+
+    .programme-grid {
+
+        grid-template-columns:
+            repeat(3, 1fr);
+    }
+
+}
+
+
+/* =================================================
+   MOBILE
+   ================================================= */
+
+@media (max-width: 768px) {
+
+
+    /* HEADER */
 
     .top-header {
-        min-height: 160px;
 
-        padding: 15px 20px;
+        min-height: auto;
+
+        padding: 20px 15px;
+
+        display: flex;
+
+        flex-direction: column;
+
+        text-align: center;
+
+        gap: 8px;
+
+        background-position: center;
     }
 
     .logo {
+
         width: 90px;
         height: 90px;
 
-        margin-right: 15px;
+        margin: auto;
     }
 
     .header-text h1 {
-        font-size: 25px;
+
+        font-size: 24px;
+
+        line-height: 1.2;
     }
 
-    .header-text .subtitle,
-    .header-text .college,
-    .header-text .location {
+    .subtitle {
+
+        font-size: 14px;
+
+        margin-bottom: 8px;
+    }
+
+    .college {
+
+        font-size: 14px;
+    }
+
+    .location {
+
         font-size: 14px;
     }
 
     .theme-box {
-        display: none;
-    }
-
-    nav {
-        height: auto;
 
         padding: 5px;
 
-        overflow-x: auto;
+        margin-top: 5px;
+    }
 
-        justify-content: flex-start;
+    .theme-box small {
+
+        font-size: 13px;
+    }
+
+    .theme-box strong {
+
+        font-size: 28px;
+    }
+
+
+    /* MOBILE NAV */
+
+    nav {
+
+        display: none;
+
+        flex-direction: column;
+
+        align-items: stretch;
+
+        width: 100%;
+
+        position: relative;
+
+        gap: 0;
+    }
+
+    nav.show {
+
+        display: flex;
     }
 
     nav a {
-        white-space: nowrap;
 
-        font-size: 13px;
+        width: 100%;
 
-        padding: 10px;
+        padding: 13px 20px;
+
+        border-bottom: 1px solid
+            rgba(255,255,255,.12);
+
+        font-size: 15px;
+
+        border-radius: 0;
     }
 
-    .hero {
-        min-height: 470px;
-
-        padding: 45px 25px;
-    }
-
-    .hero-content h2 {
-        font-size: 38px;
-    }
-
-    .team-wrapper {
-        margin-top: -55px;
-
-        padding: 0 20px;
-    }
-
-    .team-grid {
-        grid-template-columns: 1fr;
-
-        max-width: 380px;
-    }
-
-    .programme-grid {
-        grid-template-columns:
-            repeat(2, 1fr);
-    }
-}
-
-
-@media(max-width: 500px) {
-
-    .top-header {
-        text-align: center;
+    .menu-btn {
 
         display: block;
+
+        position: sticky;
+
+        top: 0;
+
+        z-index: 1001;
     }
 
-    .logo {
-        margin: auto auto 8px;
+
+    /* HERO */
+
+    .hero {
+
+        min-height: 510px;
+
+        padding: 45px 25px;
+
+        align-items: center;
+
+        background-position: center;
     }
 
-    .header-text h1 {
-        font-size: 22px;
+    .hero-content {
+
+        max-width: 100%;
+
+        margin-top: 0;
     }
 
-    .hero-content h2 {
-        font-size: 32px;
-    }
+    .welcome {
 
-    .hero-content .welcome {
         font-size: 25px;
     }
 
+    .hero-content h2 {
+
+        font-size: 36px;
+
+        line-height: 1.12;
+    }
+
+    .hero-content p {
+
+        font-size: 16px;
+
+        line-height: 1.55;
+    }
+
+
+    /* TEAM */
+
+    .team-wrapper {
+
+        margin-top: -45px;
+
+        padding: 0 18px;
+    }
+
+    .section-heading {
+
+        font-size: 22px;
+    }
+
+    .section-heading::before,
+    .section-heading::after {
+
+        content: "";
+
+        margin: 0;
+    }
+
+    .team-grid {
+
+        grid-template-columns: 1fr;
+
+        max-width: 390px;
+
+        gap: 15px;
+    }
+
+    .team-card {
+
+        padding: 20px;
+
+        min-height: auto;
+    }
+
+
+    /* PROGRAMME */
+
+    .programme {
+
+        padding: 20px 15px 45px;
+    }
+
     .programme-grid {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+
+        gap: 10px;
+    }
+
+    .programme-card {
+
+        min-height: 145px;
+
+        padding: 16px 8px;
+    }
+
+    .programme-card i {
+
+        font-size: 27px;
+    }
+
+    .programme-card h3 {
+
+        font-size: 16px;
+    }
+
+    .programme-card p {
+
+        font-size: 13px;
+    }
+
+
+    /* CONTENT */
+
+    .content-section {
+
+        padding: 45px 20px;
+    }
+
+    .content-section h2 {
+
+        font-size: 26px;
+    }
+
+    .content-box {
+
+        font-size: 15px;
+
+        line-height: 1.7;
+    }
+
+
+    /* BOTTOM IMAGE */
+
+    .bottom-campus {
+
+        height: 240px;
+    }
+
+    .bottom-campus-text {
+
+        font-size: 14px;
+
+        padding: 13px;
+    }
+
+}
+
+
+/* =================================================
+   SMALL PHONE
+   ================================================= */
+
+@media (max-width: 420px) {
+
+    .header-text h1 {
+
+        font-size: 21px;
+    }
+
+    .hero {
+
+        min-height: 480px;
+
+        padding: 35px 20px;
+    }
+
+    .hero-content h2 {
+
+        font-size: 31px;
+    }
+
+    .hero-content p {
+
+        font-size: 15px;
+    }
+
+    .programme-grid {
+
         grid-template-columns: 1fr;
     }
+
+    .programme-card {
+
+        min-height: 125px;
+    }
+
 }
 
 </style>
@@ -638,13 +959,15 @@ footer {
 <body>
 
 
-<!-- ================= HEADER ================= -->
+<!-- =================================================
+     TOP HEADER
+     ================================================= -->
 
 <header class="top-header">
 
     <img
         src="tnau-logo.png"
-        alt="TNAU Logo"
+        alt="Tamil Nadu Agricultural University Logo"
         class="logo"
     >
 
@@ -668,7 +991,6 @@ footer {
 
     </div>
 
-
     <div class="theme-box">
 
         <small>
@@ -684,11 +1006,26 @@ footer {
 </header>
 
 
-<!-- ================= NAVIGATION ================= -->
+<!-- =================================================
+     MOBILE MENU BUTTON
+     ================================================= -->
 
-<nav>
+<button class="menu-btn" onclick="toggleMenu()">
 
-    <a href="#home" class="active">
+    <i class="fa-solid fa-bars"></i>
+
+    MENU
+
+</button>
+
+
+<!-- =================================================
+     NAVIGATION
+     ================================================= -->
+
+<nav id="mainNav">
+
+    <a href="#home">
         <i class="fa-solid fa-house"></i>
         Home
     </a>
@@ -741,7 +1078,9 @@ footer {
 </nav>
 
 
-<!-- ================= HERO ================= -->
+<!-- =================================================
+     HERO
+     ================================================= -->
 
 <section class="hero" id="home">
 
@@ -767,8 +1106,11 @@ footer {
         </p>
 
         <a href="#about" class="explore">
+
             Explore More
+
             <i class="fa-solid fa-arrow-right"></i>
+
         </a>
 
     </div>
@@ -776,35 +1118,28 @@ footer {
 </section>
 
 
-<!-- ================= TEAM ================= -->
+<!-- =================================================
+     PAIYUR TEAM
+     ================================================= -->
 
 <section class="team-wrapper" id="team">
 
     <h2 class="section-heading">
-        PAIYUR RAWE TEAM
+        🌿 PAIYUR RAWE TEAM 🌿
     </h2>
 
 
     <div class="team-grid">
 
 
-        <!-- SANKAR -->
+        <!-- TEAM MEMBER 1 -->
 
         <div class="team-card">
 
-            <!--
-            Upload sankar.jpg to GitHub
-            and remove the comments below.
-            -->
-
-            <!--
-            <img src="sankar.jpg"
-                 class="team-photo"
-                 alt="Dr. M. Sankar">
-            -->
-
             <div class="team-icon">
+
                 <i class="fa-solid fa-user-tie"></i>
+
             </div>
 
             <h3>
@@ -823,30 +1158,17 @@ footer {
                 AC&RI, Vazhavachanur
             </p>
 
-            <p>
-                librarytvmalai@tnau.ac.in
-            </p>
-
         </div>
 
 
-        <!-- SENTHIL KUMAR -->
+        <!-- TEAM MEMBER 2 -->
 
         <div class="team-card">
 
-            <!--
-            Upload senthil.jpg to GitHub
-            and remove the comments below.
-            -->
-
-            <!--
-            <img src="senthil.jpg"
-                 class="team-photo"
-                 alt="Dr. P. Senthil Kumar">
-            -->
-
             <div class="team-icon">
+
                 <i class="fa-solid fa-user-tie"></i>
+
             </div>
 
             <h3>
@@ -872,23 +1194,14 @@ footer {
         </div>
 
 
-        <!-- KOWSHIK -->
+        <!-- TEAM MEMBER 3 -->
 
         <div class="team-card">
 
-            <!--
-            Upload kowshik.jpg to GitHub
-            and remove the comments below.
-            -->
-
-            <!--
-            <img src="kowshik.jpg"
-                 class="team-photo"
-                 alt="Kowshik S">
-            -->
-
             <div class="team-icon">
+
                 <i class="fa-solid fa-graduation-cap"></i>
+
             </div>
 
             <h3>
@@ -915,20 +1228,21 @@ footer {
 </section>
 
 
-<!-- ================= PROGRAMME ================= -->
+<!-- =================================================
+     PROGRAMME
+     ================================================= -->
 
 <section class="programme">
 
     <h2 class="section-heading">
-        RAWE PROGRAMME
+        🌿 RAWE PROGRAMME 🌿
     </h2>
 
 
     <div class="programme-grid">
 
 
-        <div class="programme-card"
-             id="students">
+        <div class="programme-card" id="students">
 
             <i class="fa-solid fa-users"></i>
 
@@ -944,8 +1258,7 @@ footer {
         </div>
 
 
-        <div class="programme-card"
-             id="village">
+        <div class="programme-card" id="village">
 
             <i class="fa-solid fa-house"></i>
 
@@ -961,8 +1274,7 @@ footer {
         </div>
 
 
-        <div class="programme-card"
-             id="activities">
+        <div class="programme-card" id="activities">
 
             <i class="fa-solid fa-leaf"></i>
 
@@ -979,8 +1291,7 @@ footer {
         </div>
 
 
-        <div class="programme-card"
-             id="gallery">
+        <div class="programme-card" id="gallery">
 
             <i class="fa-solid fa-camera"></i>
 
@@ -996,8 +1307,7 @@ footer {
         </div>
 
 
-        <div class="programme-card"
-             id="reports">
+        <div class="programme-card" id="reports">
 
             <i class="fa-solid fa-file-lines"></i>
 
@@ -1013,8 +1323,7 @@ footer {
         </div>
 
 
-        <div class="programme-card"
-             id="schedule">
+        <div class="programme-card" id="schedule">
 
             <i class="fa-regular fa-calendar-days"></i>
 
@@ -1029,15 +1338,17 @@ footer {
 
         </div>
 
+
     </div>
 
 </section>
 
 
-<!-- ================= ABOUT ================= -->
+<!-- =================================================
+     ABOUT
+     ================================================= -->
 
-<section class="content-section"
-         id="about">
+<section class="content-section" id="about">
 
     <h2>
         About RAWE
@@ -1066,10 +1377,11 @@ footer {
 </section>
 
 
-<!-- ================= ANNOUNCEMENTS ================= -->
+<!-- =================================================
+     ANNOUNCEMENTS
+     ================================================= -->
 
-<section class="content-section"
-         id="announcements">
+<section class="content-section" id="announcements">
 
     <h2>
         Announcements
@@ -1090,10 +1402,11 @@ footer {
 </section>
 
 
-<!-- ================= CONTACT ================= -->
+<!-- =================================================
+     CONTACT
+     ================================================= -->
 
-<section class="content-section"
-         id="contact">
+<section class="content-section" id="contact">
 
     <h2>
         Contact
@@ -1124,7 +1437,7 @@ footer {
 
         <p>
             <strong>
-                Paiyur Team In-charge:
+                Team In-charge:
             </strong>
             Dr. M. Sankar
         </p>
@@ -1148,7 +1461,27 @@ footer {
 </section>
 
 
-<!-- ================= FOOTER ================= -->
+<!-- =================================================
+     BOTTOM VVNR CAMPUS PHOTO
+     ================================================= -->
+
+<section class="bottom-campus">
+
+    <div class="bottom-campus-text">
+
+        Agricultural College & Research Institute (AC&RI)
+        <br>
+
+        Vazhavachanur, Tiruvannamalai
+
+    </div>
+
+</section>
+
+
+<!-- =================================================
+     FOOTER
+     ================================================= -->
 
 <footer>
 
@@ -1174,6 +1507,38 @@ footer {
     </p>
 
 </footer>
+
+
+<!-- =================================================
+     MOBILE MENU SCRIPT
+     ================================================= -->
+
+<script>
+
+function toggleMenu() {
+
+    const nav = document.getElementById("mainNav");
+
+    nav.classList.toggle("show");
+
+}
+
+
+/* Close mobile menu after clicking */
+
+document.querySelectorAll("#mainNav a").forEach(function(link) {
+
+    link.addEventListener("click", function() {
+
+        document
+            .getElementById("mainNav")
+            .classList.remove("show");
+
+    });
+
+});
+
+</script>
 
 
 </body>
