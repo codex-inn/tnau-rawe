@@ -1,0 +1,2796 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
+
+<title>Daily Activities | TNAU RAWE PAIYUR</title>
+
+
+<!-- PDF LIBRARIES -->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.8.2/jspdf.plugin.autotable.min.js"></script>
+
+
+<style>
+
+/* =====================================================
+   BASIC
+===================================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+
+    font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
+
+    color:#17301f;
+
+    min-height:100vh;
+
+    background:
+
+    linear-gradient(
+        rgba(255,255,255,.76),
+        rgba(255,255,255,.76)
+    ),
+
+    url("vvnr-campus.jpg");
+
+    background-size:cover;
+
+    background-position:center;
+
+    background-attachment:fixed;
+
+}
+
+
+/* =====================================================
+   HEADER
+===================================================== */
+
+header{
+
+    background:
+
+    linear-gradient(
+        rgba(0,70,32,.96),
+        rgba(0,95,45,.94)
+    );
+
+    color:white;
+
+    text-align:center;
+
+    padding:28px 15px;
+
+}
+
+header h1{
+
+    font-size:
+    clamp(25px,4vw,40px);
+
+    margin-bottom:8px;
+
+}
+
+header p{
+
+    color:#d9efd1;
+
+    margin:4px;
+
+    font-size:15px;
+
+}
+
+
+/* =====================================================
+   NAVIGATION
+===================================================== */
+
+nav{
+
+    background:#063f20;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    flex-wrap:wrap;
+
+    padding:10px;
+
+    box-shadow:
+    0 2px 8px rgba(0,0,0,.25);
+
+}
+
+nav a{
+
+    color:white;
+
+    text-decoration:none;
+
+    font-weight:bold;
+
+    font-size:14px;
+
+    padding:9px 13px;
+
+    border-radius:6px;
+
+    margin:2px 4px;
+
+}
+
+nav a:hover{
+
+    background:#247b3d;
+
+}
+
+
+/* =====================================================
+   CONTAINER
+===================================================== */
+
+.container{
+
+    width:94%;
+
+    max-width:1100px;
+
+    margin:35px auto;
+
+}
+
+
+/* =====================================================
+   PAGE TITLE
+===================================================== */
+
+.page-title{
+
+    text-align:center;
+
+    margin-bottom:25px;
+
+}
+
+.page-title h2{
+
+    color:#075128;
+
+    font-size:
+    clamp(28px,4vw,42px);
+
+}
+
+.page-title p{
+
+    color:#59675e;
+
+    margin-top:6px;
+
+}
+
+
+/* =====================================================
+   PERIOD
+===================================================== */
+
+.period{
+
+    background:#e8f5eb;
+
+    border:
+    1px solid #b9dabc;
+
+    color:#075128;
+
+    padding:14px;
+
+    text-align:center;
+
+    border-radius:10px;
+
+    font-weight:bold;
+
+    margin-bottom:20px;
+
+}
+
+
+/* =====================================================
+   FORM CARD
+===================================================== */
+
+.form-card{
+
+    background:
+    rgba(255,255,255,.97);
+
+    padding:25px;
+
+    border-radius:14px;
+
+    box-shadow:
+    0 4px 17px rgba(0,0,0,.14);
+
+}
+
+
+/* =====================================================
+   FORM GRID
+===================================================== */
+
+.form-grid{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(2,1fr);
+
+    gap:18px;
+
+}
+
+.form-group{
+
+    display:flex;
+
+    flex-direction:column;
+
+}
+
+.form-group.full{
+
+    grid-column:
+    1 / -1;
+
+}
+
+.form-group label{
+
+    color:#075128;
+
+    font-weight:bold;
+
+    margin-bottom:7px;
+
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea{
+
+    width:100%;
+
+    padding:11px;
+
+    border:
+    1px solid #bcc8bf;
+
+    border-radius:7px;
+
+    font-family:Arial;
+
+    font-size:15px;
+
+    background:white;
+
+}
+
+.form-group textarea{
+
+    min-height:120px;
+
+    resize:vertical;
+
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus{
+
+    outline:none;
+
+    border-color:#16753a;
+
+    box-shadow:
+    0 0 0 2px rgba(22,117,58,.12);
+
+}
+
+
+/* =====================================================
+   DATE
+===================================================== */
+
+#activityDate{
+
+    font-weight:bold;
+
+}
+
+
+/* =====================================================
+   PHOTO
+===================================================== */
+
+.photo-box{
+
+    border:
+    2px dashed #a9c7ae;
+
+    padding:20px;
+
+    border-radius:10px;
+
+    text-align:center;
+
+    background:#f7fbf7;
+
+}
+
+.photo-box input{
+
+    margin-top:10px;
+
+}
+
+.photo-preview{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(4,1fr);
+
+    gap:10px;
+
+    margin-top:15px;
+
+}
+
+.photo-preview img{
+
+    width:100%;
+
+    height:120px;
+
+    object-fit:cover;
+
+    border-radius:8px;
+
+    border:
+    1px solid #c9d8cc;
+
+}
+
+
+/* =====================================================
+   BUTTONS
+===================================================== */
+
+.buttons{
+
+    display:flex;
+
+    justify-content:center;
+
+    flex-wrap:wrap;
+
+    gap:10px;
+
+    margin-top:22px;
+
+}
+
+.btn{
+
+    border:0;
+
+    padding:12px 18px;
+
+    border-radius:7px;
+
+    color:white;
+
+    cursor:pointer;
+
+    font-weight:bold;
+
+    font-size:14px;
+
+}
+
+.save{
+
+    background:#075128;
+
+}
+
+.clear{
+
+    background:#777;
+
+}
+
+.pdf{
+
+    background:#b3261e;
+
+}
+
+.excel{
+
+    background:#176b3a;
+
+}
+
+.btn:hover{
+
+    opacity:.88;
+
+}
+
+.btn:disabled{
+
+    opacity:.4;
+
+    cursor:not-allowed;
+
+}
+
+
+/* =====================================================
+   STATUS
+===================================================== */
+
+.status{
+
+    margin-top:18px;
+
+    padding:13px;
+
+    border-radius:8px;
+
+    text-align:center;
+
+    font-weight:bold;
+
+    display:none;
+
+}
+
+.status.show{
+
+    display:block;
+
+}
+
+.status.success{
+
+    background:#e3f5e8;
+
+    color:#176b35;
+
+}
+
+.status.locked{
+
+    background:#f8e1e1;
+
+    color:#a51d1d;
+
+}
+
+.status.warning{
+
+    background:#fff2d8;
+
+    color:#8a5a00;
+
+}
+
+
+/* =====================================================
+   SAVED ACTIVITIES
+===================================================== */
+
+.saved-section{
+
+    margin-top:30px;
+
+}
+
+.section-title{
+
+    text-align:center;
+
+    color:#075128;
+
+    font-size:28px;
+
+    margin-bottom:18px;
+
+}
+
+.saved-list{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(2,1fr);
+
+    gap:15px;
+
+}
+
+.saved-card{
+
+    background:white;
+
+    padding:20px;
+
+    border-radius:11px;
+
+    box-shadow:
+    0 3px 13px rgba(0,0,0,.12);
+
+    border-left:
+    5px solid #16753a;
+
+}
+
+.saved-card h3{
+
+    color:#075128;
+
+    margin-bottom:8px;
+
+}
+
+.saved-card p{
+
+    font-size:14px;
+
+    margin:5px 0;
+
+    color:#4f5d53;
+
+}
+
+.saved-card strong{
+
+    color:#173f24;
+
+}
+
+.saved-actions{
+
+    display:flex;
+
+    gap:7px;
+
+    flex-wrap:wrap;
+
+    margin-top:13px;
+
+}
+
+.small-btn{
+
+    border:0;
+
+    padding:8px 12px;
+
+    border-radius:6px;
+
+    color:white;
+
+    cursor:pointer;
+
+    font-weight:bold;
+
+    font-size:12px;
+
+}
+
+.view-btn{
+
+    background:#176b3a;
+
+}
+
+.pdf-small{
+
+    background:#b3261e;
+
+}
+
+
+/* =====================================================
+   EMPTY
+===================================================== */
+
+.empty{
+
+    background:white;
+
+    padding:30px;
+
+    text-align:center;
+
+    border-radius:11px;
+
+    color:#667269;
+
+    box-shadow:
+    0 3px 13px rgba(0,0,0,.1);
+
+}
+
+
+/* =====================================================
+   BACK
+===================================================== */
+
+.back{
+
+    display:block;
+
+    width:max-content;
+
+    margin:35px auto;
+
+    padding:11px 22px;
+
+    background:#16753a;
+
+    color:white;
+
+    text-decoration:none;
+
+    border-radius:7px;
+
+    font-weight:bold;
+
+}
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+footer{
+
+    background:#063f20;
+
+    color:white;
+
+    text-align:center;
+
+    padding:30px 15px;
+
+    margin-top:50px;
+
+}
+
+.footer-title{
+
+    color:#c9e6b9;
+
+    font-size:23px;
+
+    font-weight:bold;
+
+}
+
+.footer-text{
+
+    color:#d6edc9;
+
+    margin-top:5px;
+
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media(max-width:750px){
+
+    .form-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .form-group.full{
+
+        grid-column:auto;
+
+    }
+
+    .saved-list{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .photo-preview{
+
+        grid-template-columns:
+        repeat(2,1fr);
+
+    }
+
+}
+
+
+@media(max-width:500px){
+
+    nav a{
+
+        font-size:12px;
+
+        padding:7px 8px;
+
+    }
+
+    .container{
+
+        width:96%;
+
+    }
+
+    .form-card{
+
+        padding:18px;
+
+    }
+
+    .photo-preview img{
+
+        height:100px;
+
+    }
+
+    .btn{
+
+        width:100%;
+
+    }
+
+    .buttons{
+
+        flex-direction:column;
+
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     HEADER
+===================================================== -->
+
+<header>
+
+    <h1>
+        🌾 Daily RAWE Activities
+    </h1>
+
+    <p>
+        TNAU RAWE PROGRAMME 2026
+        (2023 Batch AC&amp;RI VVNR)
+    </p>
+
+    <p>
+        👨‍🌾 TEAM : PAIYUR
+    </p>
+
+</header>
+
+
+<!-- =====================================================
+     NAVIGATION
+===================================================== -->
+
+<nav>
+
+    <a href="index.html">
+        🏠 Home
+    </a>
+
+    <a href="students.html">
+        👨‍🎓 Students
+    </a>
+
+    <a href="village.html">
+        📍 Village Profile
+    </a>
+
+    <a href="activities.html">
+        🌾 Daily Activities
+    </a>
+
+    <a href="attendance.html">
+        📋 Attendance
+    </a>
+
+</nav>
+
+
+<!-- =====================================================
+     MAIN
+===================================================== -->
+
+<main class="container">
+
+
+<div class="page-title">
+
+    <h2>
+        Daily Activities
+    </h2>
+
+    <p>
+        Record the day-to-day RAWE field experience
+        of the Paiyur Team.
+    </p>
+
+</div>
+
+
+<div class="period">
+
+    📅 Activity Period :
+    <strong>02 October 2026</strong>
+    →
+    <strong>15 December 2026</strong>
+
+</div>
+
+
+<!-- =====================================================
+     ACTIVITY FORM
+===================================================== -->
+
+<div class="form-card">
+
+
+<div class="form-grid">
+
+
+<!-- DATE -->
+
+<div class="form-group">
+
+    <label>
+        📅 Activity Date
+    </label>
+
+    <input
+        type="date"
+        id="activityDate"
+        min="2026-10-02"
+        max="2026-12-15">
+
+</div>
+
+
+<!-- CATEGORY -->
+
+<div class="form-group">
+
+    <label>
+        🌾 Activity Type
+    </label>
+
+    <select id="activityType">
+
+        <option value="">
+            Select Activity
+        </option>
+
+        <option>
+            Field Visit
+        </option>
+
+        <option>
+            Farmer Interaction
+        </option>
+
+        <option>
+            Agricultural Survey
+        </option>
+
+        <option>
+            Crop Observation
+        </option>
+
+        <option>
+            Farm Visit
+        </option>
+
+        <option>
+            Farmer Meeting
+        </option>
+
+        <option>
+            Agricultural Training
+        </option>
+
+        <option>
+            Demonstration
+        </option>
+
+        <option>
+            Soil / Crop Study
+        </option>
+
+        <option>
+            Other
+        </option>
+
+    </select>
+
+</div>
+
+
+<!-- LOCATION -->
+
+<div class="form-group">
+
+    <label>
+        📍 Village / Location
+    </label>
+
+    <input
+        type="text"
+        id="location"
+        placeholder="Enter village or field location">
+
+</div>
+
+
+<!-- CROP -->
+
+<div class="form-group">
+
+    <label>
+        🌱 Crop / Farm Details
+    </label>
+
+    <input
+        type="text"
+        id="crop"
+        placeholder="Example: Paddy, Groundnut, Tomato">
+
+</div>
+
+
+<!-- FARMER -->
+
+<div class="form-group">
+
+    <label>
+        👨‍🌾 Farmer Name
+    </label>
+
+    <input
+        type="text"
+        id="farmer"
+        placeholder="Enter farmer name">
+
+</div>
+
+
+<!-- STUDENTS -->
+
+<div class="form-group">
+
+    <label>
+        👨‍🎓 Students Participated
+    </label>
+
+    <input
+        type="text"
+        id="students"
+        placeholder="Example: All team members">
+
+</div>
+
+
+<!-- DESCRIPTION -->
+
+<div class="form-group full">
+
+    <label>
+        📝 Activity Description
+    </label>
+
+    <textarea
+        id="description"
+        placeholder="Write detailed information about today's RAWE activity..."></textarea>
+
+</div>
+
+
+<!-- LEARNING -->
+
+<div class="form-group full">
+
+    <label>
+        🎓 Learning / Outcome
+    </label>
+
+    <textarea
+        id="learning"
+        placeholder="What did the students learn or observe?"></textarea>
+
+</div>
+
+
+<!-- PHOTO -->
+
+<div class="form-group full">
+
+    <label>
+        📸 Activity Photos
+    </label>
+
+    <div class="photo-box">
+
+        <p>
+            Select photographs from your device
+        </p>
+
+        <input
+            type="file"
+            id="photos"
+            accept="image/*"
+            multiple>
+
+        <div
+            id="photoPreview"
+            class="photo-preview">
+        </div>
+
+    </div>
+
+</div>
+
+
+</div>
+
+
+<!-- STATUS -->
+
+<div
+    id="status"
+    class="status">
+</div>
+
+
+<!-- BUTTONS -->
+
+<div class="buttons">
+
+    <button
+        class="btn save"
+        id="saveBtn"
+        onclick="saveActivity()">
+
+        💾 SAVE &amp; LOCK DAY
+
+    </button>
+
+
+    <button
+        class="btn clear"
+        onclick="clearForm()">
+
+        ↻ CLEAR
+
+    </button>
+
+</div>
+
+
+</div>
+
+
+<!-- =====================================================
+     EXPORT
+===================================================== -->
+
+<div class="export-section">
+
+    <h2 class="section-title"
+        style="margin-top:35px;">
+
+        📥 Activity Reports
+
+    </h2>
+
+
+    <div class="form-card">
+
+        <div class="buttons">
+
+            <button
+                class="btn pdf"
+                onclick="downloadSelectedPDF()">
+
+                📄 Selected Day PDF
+
+            </button>
+
+
+            <button
+                class="btn excel"
+                onclick="downloadCSV()">
+
+                📊 Excel / CSV
+
+            </button>
+
+
+            <button
+                class="btn pdf"
+                onclick="downloadFullPDF()">
+
+                📚 Full Activity PDF
+
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     SAVED ACTIVITIES
+===================================================== -->
+
+<section class="saved-section">
+
+    <h2 class="section-title">
+
+        📋 Saved Daily Activities
+
+    </h2>
+
+
+    <div
+        id="savedList"
+        class="saved-list">
+    </div>
+
+</section>
+
+
+<a
+    href="index.html"
+    class="back">
+
+    ← Back to Home
+
+</a>
+
+
+</main>
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer>
+
+    <div class="footer-title">
+        👨‍🌾 TEAM : PAIYUR
+    </div>
+
+    <div class="footer-text">
+        TNAU RAWE Programme 2026
+    </div>
+
+    <div class="footer-text">
+        AC&amp;RI VVNR · Tiruvannamalai District
+    </div>
+
+</footer>
+
+
+<script>
+
+/* =====================================================
+   SETTINGS
+===================================================== */
+
+const START_DATE =
+    "2026-10-02";
+
+const END_DATE =
+    "2026-12-15";
+
+
+const STORAGE_KEY =
+    "PAIYUR_RAWE_DAILY_ACTIVITIES";
+
+
+/* =====================================================
+   ELEMENTS
+===================================================== */
+
+const activityDate =
+    document.getElementById(
+        "activityDate"
+    );
+
+const activityType =
+    document.getElementById(
+        "activityType"
+    );
+
+const locationInput =
+    document.getElementById(
+        "location"
+    );
+
+const cropInput =
+    document.getElementById(
+        "crop"
+    );
+
+const farmerInput =
+    document.getElementById(
+        "farmer"
+    );
+
+const studentsInput =
+    document.getElementById(
+        "students"
+    );
+
+const descriptionInput =
+    document.getElementById(
+        "description"
+    );
+
+const learningInput =
+    document.getElementById(
+        "learning"
+    );
+
+const photosInput =
+    document.getElementById(
+        "photos"
+    );
+
+const photoPreview =
+    document.getElementById(
+        "photoPreview"
+    );
+
+const statusBox =
+    document.getElementById(
+        "status"
+    );
+
+const saveBtn =
+    document.getElementById(
+        "saveBtn"
+    );
+
+
+/* =====================================================
+   INITIAL DATE
+===================================================== */
+
+activityDate.value =
+    START_DATE;
+
+
+/* =====================================================
+   GET RECORDS
+===================================================== */
+
+function getRecords(){
+
+    return JSON.parse(
+
+        localStorage.getItem(
+            STORAGE_KEY
+        )
+
+    ) || {};
+
+}
+
+
+/* =====================================================
+   SAVE RECORDS
+===================================================== */
+
+function saveRecords(records){
+
+    localStorage.setItem(
+
+        STORAGE_KEY,
+
+        JSON.stringify(records)
+
+    );
+
+}
+
+
+/* =====================================================
+   DATE CHECK
+===================================================== */
+
+function validDate(date){
+
+    return (
+        date >= START_DATE &&
+        date <= END_DATE
+    );
+
+}
+
+
+/* =====================================================
+   DATE FORMAT
+===================================================== */
+
+function formatDate(date){
+
+    const parts =
+        date.split("-");
+
+    if(parts.length !== 3){
+
+        return date;
+
+    }
+
+    return (
+        parts[2] +
+        "-" +
+        parts[1] +
+        "-" +
+        parts[0]
+    );
+
+}
+
+
+/* =====================================================
+   DATE CHANGE
+===================================================== */
+
+activityDate.addEventListener(
+    "change",
+    checkSelectedDate
+);
+
+
+/* =====================================================
+   CHECK SELECTED DATE
+===================================================== */
+
+function checkSelectedDate(){
+
+    const date =
+        activityDate.value;
+
+
+    clearStatus();
+
+
+    if(!validDate(date)){
+
+        lockForm(true);
+
+        showStatus(
+            "🚫 Select a date between 02 October 2026 and 15 December 2026.",
+            "warning"
+        );
+
+        return;
+
+    }
+
+
+    const records =
+        getRecords();
+
+
+    if(records[date]){
+
+        loadRecord(
+            records[date]
+        );
+
+        lockForm(true);
+
+        showStatus(
+            "🔒 This day's activity is already saved and locked.",
+            "locked"
+        );
+
+    }
+
+    else{
+
+        clearFormFields();
+
+        lockForm(false);
+
+        showStatus(
+            "🟢 This day is available for a new activity.",
+            "success"
+        );
+
+    }
+
+}
+
+
+/* =====================================================
+   LOCK FORM
+===================================================== */
+
+function lockForm(
+    locked
+){
+
+    activityType.disabled =
+        locked;
+
+    locationInput.disabled =
+        locked;
+
+    cropInput.disabled =
+        locked;
+
+    farmerInput.disabled =
+        locked;
+
+    studentsInput.disabled =
+        locked;
+
+    descriptionInput.disabled =
+        locked;
+
+    learningInput.disabled =
+        locked;
+
+    photosInput.disabled =
+        locked;
+
+    saveBtn.disabled =
+        locked;
+
+}
+
+
+/* =====================================================
+   SHOW STATUS
+===================================================== */
+
+function showStatus(
+    text,
+    type
+){
+
+    statusBox.textContent =
+        text;
+
+    statusBox.className =
+        "status show " +
+        type;
+
+}
+
+
+/* =====================================================
+   CLEAR STATUS
+===================================================== */
+
+function clearStatus(){
+
+    statusBox.className =
+        "status";
+
+    statusBox.textContent =
+        "";
+
+}
+
+
+/* =====================================================
+   PHOTO PREVIEW
+===================================================== */
+
+photosInput.addEventListener(
+    "change",
+    previewPhotos
+);
+
+
+function previewPhotos(){
+
+    photoPreview.innerHTML =
+        "";
+
+    const files =
+        Array.from(
+            photosInput.files
+        );
+
+
+    files.forEach(
+        function(file){
+
+            const reader =
+                new FileReader();
+
+
+            reader.onload =
+                function(event){
+
+                    const img =
+                        document.createElement(
+                            "img"
+                        );
+
+                    img.src =
+                        event.target.result;
+
+                    photoPreview.appendChild(
+                        img
+                    );
+
+                };
+
+
+            reader.readAsDataURL(
+                file
+            );
+
+        }
+    );
+
+}
+
+
+/* =====================================================
+   READ PHOTOS
+===================================================== */
+
+function readPhotos(){
+
+    const files =
+        Array.from(
+            photosInput.files
+        );
+
+
+    return Promise.all(
+
+        files.map(
+            function(file){
+
+                return new Promise(
+                    function(resolve){
+
+                        const reader =
+                            new FileReader();
+
+
+                        reader.onload =
+                            function(e){
+
+                                resolve(
+                                    e.target.result
+                                );
+
+                            };
+
+
+                        reader.readAsDataURL(
+                            file
+                        );
+
+                    }
+                );
+
+            }
+        )
+
+    );
+
+}
+
+
+/* =====================================================
+   SAVE ACTIVITY
+===================================================== */
+
+async function saveActivity(){
+
+    const date =
+        activityDate.value;
+
+
+    if(!validDate(date)){
+
+        alert(
+            "Select a date between 02 October 2026 and 15 December 2026."
+        );
+
+        return;
+
+    }
+
+
+    const records =
+        getRecords();
+
+
+    if(records[date]){
+
+        alert(
+            "🔒 This date is already locked."
+        );
+
+        checkSelectedDate();
+
+        return;
+
+    }
+
+
+    if(!activityType.value){
+
+        alert(
+            "Please select an activity type."
+        );
+
+        return;
+
+    }
+
+
+    if(!descriptionInput.value.trim()){
+
+        alert(
+            "Please enter the activity description."
+        );
+
+        return;
+
+    }
+
+
+    saveBtn.disabled =
+        true;
+
+
+    saveBtn.textContent =
+        "⏳ Saving...";
+
+
+    try{
+
+        const photoData =
+            await readPhotos();
+
+
+        records[date] = {
+
+            date:date,
+
+            type:
+                activityType.value,
+
+            location:
+                locationInput.value.trim(),
+
+            crop:
+                cropInput.value.trim(),
+
+            farmer:
+                farmerInput.value.trim(),
+
+            students:
+                studentsInput.value.trim(),
+
+            description:
+                descriptionInput.value.trim(),
+
+            learning:
+                learningInput.value.trim(),
+
+            photos:
+                photoData,
+
+            savedAt:
+                new Date().toISOString()
+
+        };
+
+
+        saveRecords(
+            records
+        );
+
+
+        lockForm(true);
+
+
+        showStatus(
+
+            "✅ Activity saved successfully. This day is now locked.",
+
+            "locked"
+
+        );
+
+
+        saveBtn.textContent =
+            "🔒 DAY LOCKED";
+
+
+        renderSavedActivities();
+
+
+    }
+
+    catch(error){
+
+        console.error(error);
+
+        alert(
+            "Could not save the activity."
+        );
+
+
+        saveBtn.disabled =
+            false;
+
+        saveBtn.textContent =
+            "💾 SAVE & LOCK DAY";
+
+    }
+
+}
+
+
+/* =====================================================
+   CLEAR FORM
+===================================================== */
+
+function clearForm(){
+
+    if(
+        confirm(
+            "Clear the current activity form?"
+        )
+    ){
+
+        clearFormFields();
+
+        lockForm(false);
+
+        clearStatus();
+
+        checkSelectedDate();
+
+    }
+
+}
+
+
+/* =====================================================
+   CLEAR FIELDS
+===================================================== */
+
+function clearFormFields(){
+
+    activityType.value =
+        "";
+
+    locationInput.value =
+        "";
+
+    cropInput.value =
+        "";
+
+    farmerInput.value =
+        "";
+
+    studentsInput.value =
+        "";
+
+    descriptionInput.value =
+        "";
+
+    learningInput.value =
+        "";
+
+    photosInput.value =
+        "";
+
+    photoPreview.innerHTML =
+        "";
+
+    saveBtn.disabled =
+        false;
+
+    saveBtn.textContent =
+        "💾 SAVE & LOCK DAY";
+
+}
+
+
+/* =====================================================
+   LOAD RECORD
+===================================================== */
+
+function loadRecord(
+    record
+){
+
+    activityType.value =
+        record.type || "";
+
+    locationInput.value =
+        record.location || "";
+
+    cropInput.value =
+        record.crop || "";
+
+    farmerInput.value =
+        record.farmer || "";
+
+    studentsInput.value =
+        record.students || "";
+
+    descriptionInput.value =
+        record.description || "";
+
+    learningInput.value =
+        record.learning || "";
+
+
+    photoPreview.innerHTML =
+        "";
+
+
+    if(record.photos){
+
+        record.photos.forEach(
+            function(photo){
+
+                const img =
+                    document.createElement(
+                        "img"
+                    );
+
+                img.src =
+                    photo;
+
+                photoPreview.appendChild(
+                    img
+                );
+
+            }
+        );
+
+    }
+
+}
+
+
+/* =====================================================
+   RENDER SAVED ACTIVITIES
+===================================================== */
+
+function renderSavedActivities(){
+
+    const list =
+        document.getElementById(
+            "savedList"
+        );
+
+
+    const records =
+        getRecords();
+
+
+    const dates =
+        Object.keys(records)
+        .sort();
+
+
+    list.innerHTML =
+        "";
+
+
+    if(dates.length === 0){
+
+        list.innerHTML =
+
+            '<div class="empty" style="grid-column:1/-1;">' +
+
+            '📋 No daily activities saved yet.' +
+
+            '</div>';
+
+        return;
+
+    }
+
+
+    dates.forEach(
+        function(date){
+
+            const record =
+                records[date];
+
+
+            const card =
+                document.createElement(
+                    "div"
+                );
+
+
+            card.className =
+                "saved-card";
+
+
+            card.innerHTML = `
+
+                <h3>
+                    📅 ${formatDate(date)}
+                </h3>
+
+                <p>
+                    <strong>Activity:</strong>
+                    ${escapeHTML(record.type || "-")}
+                </p>
+
+                <p>
+                    <strong>Location:</strong>
+                    ${escapeHTML(record.location || "-")}
+                </p>
+
+                <p>
+                    <strong>Crop:</strong>
+                    ${escapeHTML(record.crop || "-")}
+                </p>
+
+                <p>
+                    <strong>Farmer:</strong>
+                    ${escapeHTML(record.farmer || "-")}
+                </p>
+
+                <p>
+                    <strong>Status:</strong>
+                    🔒 Saved & Locked
+                </p>
+
+                <div class="saved-actions">
+
+                    <button
+                        class="small-btn view-btn"
+                        onclick="openSavedDate('${date}')">
+
+                        👁 View
+
+                    </button>
+
+                    <button
+                        class="small-btn pdf-small"
+                        onclick="downloadPDF('${date}')">
+
+                        📄 PDF
+
+                    </button>
+
+                </div>
+
+            `;
+
+
+            list.appendChild(
+                card
+            );
+
+        }
+    );
+
+}
+
+
+/* =====================================================
+   ESCAPE HTML
+===================================================== */
+
+function escapeHTML(
+    text
+){
+
+    return String(text)
+        .replace(
+            /&/g,
+            "&amp;"
+        )
+        .replace(
+            /</g,
+            "&lt;"
+        )
+        .replace(
+            />/g,
+            "&gt;"
+        )
+        .replace(
+            /"/g,
+            "&quot;"
+        )
+        .replace(
+            /'/g,
+            "&#039;"
+        );
+
+}
+
+
+/* =====================================================
+   OPEN SAVED DATE
+===================================================== */
+
+function openSavedDate(
+    date
+){
+
+    activityDate.value =
+        date;
+
+    checkSelectedDate();
+
+    window.scrollTo({
+
+        top:0,
+
+        behavior:"smooth"
+
+    });
+
+}
+
+
+/* =====================================================
+   DAILY PDF
+===================================================== */
+
+function downloadSelectedPDF(){
+
+    const date =
+        activityDate.value;
+
+
+    if(!validDate(date)){
+
+        alert(
+            "Select a valid activity date."
+        );
+
+        return;
+
+    }
+
+
+    downloadPDF(
+        date
+    );
+
+}
+
+
+/* =====================================================
+   CREATE PDF
+===================================================== */
+
+function downloadPDF(
+    date
+){
+
+    const records =
+        getRecords();
+
+
+    if(!records[date]){
+
+        alert(
+            "No saved activity for this date."
+        );
+
+        return;
+
+    }
+
+
+    const record =
+        records[date];
+
+
+    const {
+        jsPDF
+    } =
+        window.jspdf;
+
+
+    const doc =
+        new jsPDF();
+
+
+    doc.setFontSize(18);
+
+    doc.text(
+
+        "TNAU RAWE PROGRAMME 2026",
+
+        105,
+
+        18,
+
+        {
+            align:"center"
+        }
+
+    );
+
+
+    doc.setFontSize(13);
+
+    doc.text(
+
+        "TEAM : PAIYUR",
+
+        105,
+
+        27,
+
+        {
+            align:"center"
+        }
+
+    );
+
+
+    doc.setFontSize(11);
+
+    doc.text(
+
+        "Daily RAWE Activity Report",
+
+        105,
+
+        36,
+
+        {
+            align:"center"
+        }
+
+    );
+
+
+    doc.autoTable({
+
+        startY:45,
+
+        head:[
+            [
+                "Particular",
+                "Details"
+            ]
+        ],
+
+        body:[
+
+            [
+                "Date",
+                formatDate(date)
+            ],
+
+            [
+                "Activity",
+                record.type || "-"
+            ],
+
+            [
+                "Location",
+                record.location || "-"
+            ],
+
+            [
+                "Crop / Farm",
+                record.crop || "-"
+            ],
+
+            [
+                "Farmer",
+                record.farmer || "-"
+            ],
+
+            [
+                "Students",
+                record.students || "-"
+            ]
+
+        ],
+
+        theme:"grid",
+
+        styles:{
+            fontSize:10
+        },
+
+        columnStyles:{
+            0:{
+                fontStyle:"bold",
+                cellWidth:45
+            },
+
+            1:{
+                cellWidth:135
+            }
+
+        }
+
+    });
+
+
+    let y =
+        doc.lastAutoTable.finalY + 12;
+
+
+    doc.setFontSize(12);
+
+    doc.text(
+        "Activity Description",
+        14,
+        y
+    );
+
+
+    y += 7;
+
+
+    const description =
+        doc.splitTextToSize(
+
+            record.description || "-",
+
+            180
+
+        );
+
+
+    doc.setFontSize(10);
+
+    doc.text(
+        description,
+        14,
+        y
+    );
+
+
+    y +=
+        description.length *
+        5 + 8;
+
+
+    doc.setFontSize(12);
+
+    doc.text(
+        "Learning / Outcome",
+        14,
+        y
+    );
+
+
+    y += 7;
+
+
+    const learning =
+        doc.splitTextToSize(
+
+            record.learning || "-",
+
+            180
+
+        );
+
+
+    doc.setFontSize(10);
+
+    doc.text(
+        learning,
+        14,
+        y
+    );
+
+
+    y +=
+        learning.length *
+        5 + 10;
+
+
+    doc.setFontSize(9);
+
+    doc.text(
+        "TNAU RAWE Programme · AC&RI VVNR · Tiruvannamalai District",
+        105,
+        285,
+        {
+            align:"center"
+        }
+    );
+
+
+    doc.save(
+
+        "Paiyur_RAWE_Activity_" +
+        date +
+        ".pdf"
+
+    );
+
+}
+
+
+/* =====================================================
+   CSV
+===================================================== */
+
+function downloadCSV(){
+
+    const records =
+        getRecords();
+
+
+    const dates =
+        Object.keys(records)
+        .sort();
+
+
+    if(dates.length === 0){
+
+        alert(
+            "No activities saved yet."
+        );
+
+        return;
+
+    }
+
+
+    let csv =
+
+        "Date,Activity Type,Location,Crop/Farm,Farmer,Students,Description,Learning\n";
+
+
+    dates.forEach(
+        function(date){
+
+            const r =
+                records[date];
+
+
+            const row = [
+
+                date,
+
+                r.type || "",
+
+                r.location || "",
+
+                r.crop || "",
+
+                r.farmer || "",
+
+                r.students || "",
+
+                r.description || "",
+
+                r.learning || ""
+
+            ];
+
+
+            csv +=
+
+                row.map(
+                    function(value){
+
+                        return '"' +
+
+                        String(value)
+                        .replace(
+                            /"/g,
+                            '""'
+                        ) +
+
+                        '"';
+
+                    }
+                ).join(",") +
+
+                "\n";
+
+        }
+    );
+
+
+    const blob =
+        new Blob(
+
+            [csv],
+
+            {
+                type:
+                "text/csv;charset=utf-8;"
+            }
+
+        );
+
+
+    const url =
+        URL.createObjectURL(
+            blob
+        );
+
+
+    const link =
+        document.createElement(
+            "a"
+        );
+
+
+    link.href =
+        url;
+
+
+    link.download =
+        "Paiyur_RAWE_Daily_Activities_2026.csv";
+
+
+    document.body.appendChild(
+        link
+    );
+
+
+    link.click();
+
+
+    document.body.removeChild(
+        link
+    );
+
+
+    URL.revokeObjectURL(
+        url
+    );
+
+}
+
+
+/* =====================================================
+   FULL PDF
+===================================================== */
+
+function downloadFullPDF(){
+
+    const records =
+        getRecords();
+
+
+    const dates =
+        Object.keys(records)
+        .sort();
+
+
+    if(dates.length === 0){
+
+        alert(
+            "No activities saved yet."
+        );
+
+        return;
+
+    }
+
+
+    const {
+        jsPDF
+    } =
+        window.jspdf;
+
+
+    const doc =
+        new jsPDF();
+
+
+    dates.forEach(
+        function(date,index){
+
+            if(index > 0){
+
+                doc.addPage();
+
+            }
+
+
+            const r =
+                records[date];
+
+
+            doc.setFontSize(17);
+
+            doc.text(
+
+                "TNAU RAWE PROGRAMME 2026",
+
+                105,
+
+                18,
+
+                {
+                    align:"center"
+                }
+
+            );
+
+
+            doc.setFontSize(12);
+
+            doc.text(
+
+                "TEAM : PAIYUR",
+
+                105,
+
+                27,
+
+                {
+                    align:"center"
+                }
+
+            );
+
+
+            doc.setFontSize(11);
+
+            doc.text(
+
+                "Daily Activity Report",
+
+                105,
+
+                35,
+
+                {
+                    align:"center"
+                }
+
+            );
+
+
+            doc.autoTable({
+
+                startY:44,
+
+                head:[
+                    [
+                        "Particular",
+                        "Details"
+                    ]
+                ],
+
+                body:[
+
+                    [
+                        "Date",
+                        formatDate(date)
+                    ],
+
+                    [
+                        "Activity",
+                        r.type || "-"
+                    ],
+
+                    [
+                        "Location",
+                        r.location || "-"
+                    ],
+
+                    [
+                        "Crop / Farm",
+                        r.crop || "-"
+                    ],
+
+                    [
+                        "Farmer",
+                        r.farmer || "-"
+                    ],
+
+                    [
+                        "Students",
+                        r.students || "-"
+                    ]
+
+                ],
+
+                theme:"grid",
+
+                styles:{
+                    fontSize:9
+                }
+
+            });
+
+
+            let y =
+                doc.lastAutoTable.finalY + 10;
+
+
+            doc.setFontSize(11);
+
+            doc.text(
+                "Description:",
+                14,
+                y
+            );
+
+
+            y += 6;
+
+
+            doc.setFontSize(9);
+
+
+            const description =
+                doc.splitTextToSize(
+
+                    r.description || "-",
+
+                    180
+
+                );
+
+
+            doc.text(
+                description,
+                14,
+                y
+            );
+
+
+            y +=
+                description.length *
+                4.5 + 8;
+
+
+            doc.setFontSize(11);
+
+            doc.text(
+                "Learning / Outcome:",
+                14,
+                y
+            );
+
+
+            y += 6;
+
+
+            doc.setFontSize(9);
+
+
+            const learning =
+                doc.splitTextToSize(
+
+                    r.learning || "-",
+
+                    180
+
+                );
+
+
+            doc.text(
+                learning,
+                14,
+                y
+            );
+
+
+            doc.setFontSize(8);
+
+            doc.text(
+
+                "AC&RI VVNR · Tiruvannamalai District",
+
+                105,
+
+                285,
+
+                {
+                    align:"center"
+                }
+
+            );
+
+        }
+    );
+
+
+    doc.save(
+        "Paiyur_RAWE_Full_Activities_2026.pdf"
+    );
+
+}
+
+
+/* =====================================================
+   START
+===================================================== */
+
+renderSavedActivities();
+
+checkSelectedDate();
+
+</script>
+
+</body>
+
+</html>
