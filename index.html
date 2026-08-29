@@ -326,7 +326,7 @@ nav i{
 }
 
 
-/* ================= TEAM ORGANIZATION ================= */
+/* ================= TEAM ================= */
 
 .team-grid{
 
@@ -359,19 +359,16 @@ nav i{
 .team-icon{
 
     width:80px;
-
     height:80px;
 
     border-radius:50%;
 
     margin:auto;
-
     margin-bottom:12px;
 
     display:flex;
 
     align-items:center;
-
     justify-content:center;
 
     background:#eaf6ed;
@@ -424,7 +421,7 @@ nav i{
 
     padding:22px 12px;
 
-    min-height:180px;
+    min-height:190px;
 
     text-align:center;
 
@@ -432,6 +429,16 @@ nav i{
 
     box-shadow:
     0 3px 12px rgba(0,0,0,.12);
+
+    transition:.25s;
+}
+
+.programme-card:hover{
+
+    transform:translateY(-5px);
+
+    box-shadow:
+    0 7px 20px rgba(0,0,0,.18);
 }
 
 .programme-card i{
@@ -484,7 +491,25 @@ nav i{
 }
 
 
-/* ================= VILLAGE PREVIEW ================= */
+/* ================= ATTENDANCE CARD SPECIAL ================= */
+
+.attendance-card{
+
+    border-top:4px solid #16753a;
+}
+
+.attendance-card i{
+
+    color:#16753a;
+}
+
+.attendance-card .card-button{
+
+    background:#075128;
+}
+
+
+/* ================= VILLAGE ================= */
 
 .village-preview{
     text-align:center;
@@ -596,16 +621,18 @@ footer{
 }
 
 
-/* ================= MOBILE ================= */
+/* ================= RESPONSIVE ================= */
 
 @media(max-width:1000px){
 
     .team-grid{
+
         grid-template-columns:
         repeat(2,1fr);
     }
 
     .programme-grid{
+
         grid-template-columns:
         repeat(3,1fr);
     }
@@ -672,6 +699,7 @@ footer{
     }
 
     .programme-grid{
+
         grid-template-columns:
         repeat(2,1fr);
     }
@@ -799,7 +827,9 @@ footer{
         Daily Activities
     </a>
 
-    <a href="#attendance">
+    <!-- ATTENDANCE -->
+
+    <a href="attendance.html">
         <i class="fa-solid fa-clipboard-check"></i>
         Students Attendance
     </a>
@@ -808,8 +838,6 @@ footer{
         <i class="fa-solid fa-file-lines"></i>
         Reports
     </a>
-
-    <!-- NEW STUDENTS PAGE -->
 
     <a href="students.html">
         <i class="fa-solid fa-graduation-cap"></i>
@@ -826,7 +854,7 @@ footer{
 
 <!-- ================= HERO ================= -->
 
-<section class="hero" id="home">
+<section class="hero">
 
     <div class="hero-content">
 
@@ -852,7 +880,7 @@ footer{
 
         </p>
 
-        <a href="#about" class="explore">
+        <a href="#programme" class="explore">
 
             Explore More
 
@@ -994,15 +1022,14 @@ footer{
 
         </div>
 
-
     </div>
 
 </section>
 
 
-<!-- ================= PROGRAMME ================= -->
+<!-- ================= PROGRAMME CARDS ================= -->
 
-<section class="section">
+<section class="section" id="programme">
 
     <h2 class="section-heading">
         RAWE PROGRAMME
@@ -1064,7 +1091,7 @@ footer{
         </div>
 
 
-        <!-- ACTIVITIES -->
+        <!-- DAILY ACTIVITIES -->
 
         <div class="programme-card">
 
@@ -1090,9 +1117,11 @@ footer{
         </div>
 
 
-        <!-- ATTENDANCE -->
+        <!-- =========================
+             STUDENTS ATTENDANCE
+        ========================= -->
 
-        <div class="programme-card">
+        <div class="programme-card attendance-card">
 
             <i class="fa-solid fa-clipboard-check"></i>
 
@@ -1101,15 +1130,15 @@ footer{
             </h3>
 
             <p>
-                Student attendance
-                records.
+                Mark and view daily
+                student attendance.
             </p>
 
             <a
-                href="#attendance"
+                href="attendance.html"
                 class="card-button">
 
-                View
+                Open Attendance
 
             </a>
 
@@ -1128,14 +1157,14 @@ footer{
 
             <p>
                 RAWE reports and
-                documents.
+                programme documents.
             </p>
 
             <a
                 href="#reports"
                 class="card-button">
 
-                View
+                View Reports
 
             </a>
 
@@ -1264,31 +1293,34 @@ footer{
 </section>
 
 
-<!-- ================= ATTENDANCE ================= -->
+<!-- ================= ATTENDANCE INFO ================= -->
 
-<section class="section" id="attendance">
+<section class="section">
 
     <h2 class="section-heading">
         Students Attendance
     </h2>
 
-    <div class="content-box">
+    <div class="content-box"
+         style="text-align:center;">
 
         <p>
 
-            Student attendance records for the
-            RAWE programme will be maintained
-            and updated here.
+            📋 Maintain daily attendance
+            records for all Paiyur RAWE
+            team students.
 
         </p>
 
-        <br>
+        <a
+            href="attendance.html"
+            class="explore">
 
-        <strong>
-            Attendance Status:
-        </strong>
+            Open Attendance Page
 
-        To be updated
+            <i class="fa-solid fa-arrow-right"></i>
+
+        </a>
 
     </div>
 
@@ -1421,7 +1453,9 @@ footer{
             </strong>
 
             <a href="tel:9597135679">
+
                 9597135679
+
             </a>
 
         </p>
@@ -1457,7 +1491,7 @@ footer{
 </section>
 
 
-<!-- ================= BOTTOM IMAGE ================= -->
+<!-- ================= BOTTOM CAMPUS IMAGE ================= -->
 
 <section class="bottom-campus"></section>
 
