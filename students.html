@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>Students | TNAU RAWE Programme 2026</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+
+    font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
+
+    color:#17231a;
+
+    min-height:100vh;
+
+    line-height:1.6;
+
+    background:
+
+    linear-gradient(
+        rgba(255,255,255,.76),
+        rgba(255,255,255,.76)
+    ),
+
+    url("vvnr-campus.jpg");
+
+    background-size:cover;
+
+    background-position:center;
+
+    background-attachment:fixed;
+}
+
+
+/* ================= HEADER ================= */
+
+header{
+
+    min-height:190px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:25px;
+
+    padding:25px;
+
+    color:white;
+
+    text-align:center;
+
+    background:
+
+    linear-gradient(
+        rgba(0,70,32,.90),
+        rgba(0,90,42,.88)
+    );
+}
+
+.logo{
+
+    width:105px;
+
+    height:105px;
+
+    object-fit:contain;
+}
+
+.header-text h1{
+
+    font-size:
+    clamp(26px,4vw,42px);
+
+    line-height:1.2;
+
+    margin-bottom:8px;
+}
+
+.header-text p{
+
+    font-size:17px;
+
+    color:#d9efd1;
+}
+
+
+/* ================= NAVIGATION ================= */
+
+nav{
+
+    background:#063f20;
+
+    text-align:center;
+
+    padding:13px;
+
+    box-shadow:
+    0 2px 8px rgba(0,0,0,.25);
+}
+
+nav a{
+
+    display:inline-block;
+
+    color:white;
+
+    text-decoration:none;
+
+    margin:0 10px;
+
+    padding:5px;
+
+    font-weight:bold;
+
+    font-size:14px;
+}
+
+nav a:hover{
+
+    color:#a9df8d;
+}
+
+
+/* ================= MAIN ================= */
+
+.container{
+
+    max-width:1100px;
+
+    margin:45px auto;
+
+    padding:0 20px;
+}
+
+.page-title{
+
+    text-align:center;
+
+    color:#075128;
+
+    font-size:
+    clamp(28px,4vw,42px);
+
+    margin-bottom:10px;
+}
+
+.page-subtitle{
+
+    text-align:center;
+
+    margin-bottom:35px;
+
+    color:#35553d;
+}
+
+
+/* ================= STUDENT GRID ================= */
+
+.students-grid{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(3,1fr);
+
+    gap:20px;
+}
+
+.student-card{
+
+    background:
+    rgba(255,255,255,.96);
+
+    border-radius:13px;
+
+    padding:25px 18px;
+
+    text-align:center;
+
+    box-shadow:
+    0 4px 16px
+    rgba(0,0,0,.14);
+
+    border-top:
+    5px solid #24783b;
+
+    transition:.25s;
+}
+
+.student-card:hover{
+
+    transform:
+    translateY(-5px);
+
+    box-shadow:
+    0 8px 22px
+    rgba(0,0,0,.18);
+}
+
+.number{
+
+    width:45px;
+
+    height:45px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    margin:0 auto 14px;
+
+    border-radius:50%;
+
+    background:#eaf6ed;
+
+    color:#176b3a;
+
+    font-weight:bold;
+
+    font-size:15px;
+}
+
+.student-card h2{
+
+    color:#0b4d27;
+
+    font-size:20px;
+
+    margin-bottom:5px;
+}
+
+.student-card p{
+
+    color:#59685d;
+
+    font-size:14px;
+}
+
+
+/* ================= TEAM INFO ================= */
+
+.team-info{
+
+    margin-top:35px;
+
+    padding:28px;
+
+    background:
+    rgba(255,255,255,.96);
+
+    border-radius:13px;
+
+    text-align:center;
+
+    box-shadow:
+    0 4px 16px
+    rgba(0,0,0,.13);
+}
+
+.team-info h2{
+
+    color:#075128;
+
+    margin-bottom:8px;
+}
+
+.team-info p{
+
+    margin-bottom:5px;
+}
+
+
+/* ================= BACK BUTTON ================= */
+
+.back-button{
+
+    display:block;
+
+    width:max-content;
+
+    margin:35px auto;
+
+    padding:12px 25px;
+
+    background:#16753a;
+
+    color:white;
+
+    text-decoration:none;
+
+    border-radius:7px;
+
+    font-weight:bold;
+}
+
+.back-button:hover{
+
+    background:#0b5729;
+}
+
+
+/* ================= FOOTER ================= */
+
+footer{
+
+    background:#063f20;
+
+    color:white;
+
+    text-align:center;
+
+    padding:35px 20px;
+
+    margin-top:50px;
+}
+
+.footer-title{
+
+    color:#c9e6b9;
+
+    font-size:24px;
+
+    font-weight:bold;
+}
+
+.footer-motto{
+
+    color:#d6edc9;
+
+    font-size:18px;
+
+    margin-top:7px;
+}
+
+
+/* ================= MOBILE ================= */
+
+@media(max-width:800px){
+
+    .students-grid{
+
+        grid-template-columns:
+        repeat(2,1fr);
+    }
+
+}
+
+
+@media(max-width:600px){
+
+    header{
+
+        flex-direction:column;
+
+        padding:22px 15px;
+    }
+
+    .logo{
+
+        width:80px;
+
+        height:80px;
+    }
+
+    nav a{
+
+        margin:4px 6px;
+
+        font-size:13px;
+    }
+
+    .container{
+
+        margin:30px auto;
+
+        padding:0 15px;
+    }
+
+    .students-grid{
+
+        grid-template-columns:1fr;
+
+        gap:15px;
+    }
+
+    .student-card{
+
+        padding:22px 15px;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- ================= HEADER ================= -->
+
+<header>
+
+    <img
+        src="tnau-logo.png"
+        alt="TNAU Logo"
+        class="logo"
+    >
+
+    <div class="header-text">
+
+        <h1>
+            🌾 TNAU RAWE PROGRAMME 2026
+        </h1>
+
+        <p>
+            (2023 Batch AC&amp;RI VVNR)
+        </p>
+
+        <p>
+            TEAM : PAIYUR
+        </p>
+
+    </div>
+
+</header>
+
+
+<!-- ================= NAVIGATION ================= -->
+
+<nav>
+
+    <a href="index.html">
+        🏠 Home
+    </a>
+
+    <a href="village.html">
+        📍 Village Profile
+    </a>
+
+    <a href="students.html">
+        👨‍🎓 Students
+    </a>
+
+</nav>
+
+
+<!-- ================= MAIN ================= -->
+
+<main class="container">
+
+
+    <h1 class="page-title">
+
+        👨‍🎓 Students
+
+    </h1>
+
+    <p class="page-subtitle">
+
+        TNAU RAWE Programme 2026 ·
+        Paiyur Team
+
+    </p>
+
+
+    <!-- ================= STUDENTS ================= -->
+
+    <div class="students-grid">
+
+
+        <div class="student-card">
+
+            <div class="number">01</div>
+
+            <h2>
+                Dinesh M
+            </h2>
+
+            <p>
+                RAWE Student
+            </p>
+
+        </div>
+
+
+        <div class="student-card">
+
+            <div class="number">02</div>
+
+            <h2>
+                Gokul Raj R
+            </h2>
+
+            <p>
+                RAWE Student
+            </p>
+
+        </div>
+
+
+        <div class="student-card">
+
+            <div class="number">03</div>
+
+            <h2>
+                GokulaBalaji R
+            </h2>
+
+            <p>
+                Team Leader &amp;
+                Students In-charge
+            </p>
+
+        </div>
+
+
+        <div class="student-card">
+
+            <div class="number">04</div>
+
+            <h2>
+                GopiBalaji M
+            </h2>
+
+            <p>
+                RAWE Student
+            </p>
+
+        </div>
+
+
+        <div class="student-card">
+
+            <div class="number">05</div>
+
+            <h2>
+                Gowsikan P
+            </h2>
+
+            <p>
+                RAWE Student
+            </p>
+
+        </div>
+
+
+        <div class="student-card">
+
+            <div class="number">06</div>
+
+            <h2>
+                Jana P
+            </h2>
+
+            <p>
+                RAWE Student
+            </p>
+
+        </div>
+
+
+        <div class="student-card">
+
+            <div class="number">07</div>
+
+            <h2>
+                Jayasurya J
+            </h2>
+
+            <p>
+                RAWE Student
+            </p>
+
+        </div>
+
+
+        <div class="student-card">
+
+            <div class="number">08</div>
+
+            <h2>
+                Joshan P
+            </h2>
+
+            <p>
+                RAWE Student
+            </p>
+
+        </div>
+
+
+        <div class="student-card">
+
+            <div class="number">09</div>
+
+            <h2>
+                Jothishkumar K
+            </h2>
+
+            <p>
+                RAWE Student
+            </p>
+
+        </div>
+
+
+        <div class="student-card">
+
+            <div class="number">10</div>
+
+            <h2>
+                Kishor S
+            </h2>
+
+            <p>
+                RAWE Student
+            </p>
+
+        </div>
+
+
+        <div class="student-card">
+
+            <div class="number">11</div>
+
+            <h2>
+                Kowshik S
+            </h2>
+
+            <p>
+                Web Admin &amp; CEO
+            </p>
+
+        </div>
+
+
+        <div class="student-card">
+
+            <div class="number">12</div>
+
+            <h2>
+                Akshaya K
+            </h2>
+
+            <p>
+                RAWE Student
+            </p>
+
+        </div>
+
+
+        <div class="student-card">
+
+            <div class="number">13</div>
+
+            <h2>
+                Swapanjit Behera
+            </h2>
+
+            <p>
+                RAWE Student
+            </p>
+
+        </div>
+
+
+    </div>
+
+
+    <!-- ================= TEAM INFO ================= -->
+
+    <div class="team-info">
+
+        <h2>
+            🌾 TEAM : PAIYUR
+        </h2>
+
+        <p>
+            TNAU RAWE Programme 2026
+        </p>
+
+        <p>
+            AC&amp;RI VVNR ·
+            Tiruvannamalai District
+        </p>
+
+    </div>
+
+
+    <a
+        href="index.html"
+        class="back-button">
+
+        ← Back to Home
+
+    </a>
+
+
+</main>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+    <div class="footer-title">
+        👨‍🌾 TEAM : PAIYUR
+    </div>
+
+    <div class="footer-motto">
+        Learn × Experience × Serve × Grow
+    </div>
+
+    <br>
+
+    <div>
+        © 2026 TNAU RAWE Programme
+    </div>
+
+</footer>
+
+
+</body>
+
+</html>
