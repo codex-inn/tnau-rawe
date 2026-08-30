@@ -8,7 +8,7 @@
 <meta name="viewport"
 content="width=device-width, initial-scale=1.0">
 
-<title>TNAU RAWE Programme 2026 | Paiyur Team</title>
+<title>TNAU RAWE Programme 2026 | Team Paiyur</title>
 
 <link rel="stylesheet"
 href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
@@ -30,7 +30,7 @@ html{
 }
 
 body{
-    font-family:Arial,Helvetica,sans-serif;
+    font-family:Arial, Helvetica, sans-serif;
     color:#17231a;
     line-height:1.6;
     min-height:100vh;
@@ -49,95 +49,195 @@ body{
 
 
 /* =====================================================
-   HEADER
+   HOME PAGE TOP HEADER
 ===================================================== */
 
 .top-header{
-    min-height:190px;
+
+    min-height:225px;
 
     display:flex;
     align-items:center;
-    gap:25px;
 
-    padding:18px 5%;
+    gap:30px;
+
+    padding:25px 5%;
 
     background:
     linear-gradient(
         90deg,
-        rgba(255,255,255,.97),
-        rgba(255,255,255,.86),
-        rgba(255,255,255,.48)
+        rgba(255,255,255,.98),
+        rgba(255,255,255,.90),
+        rgba(255,255,255,.60)
     ),
     url("tnau-coimbatore.jpg");
 
     background-size:cover;
     background-position:center;
+
+    border-bottom:4px solid #176b3a;
 }
+
+
+/* TNAU LOGO */
 
 .logo{
-    width:125px;
-    height:125px;
+
+    width:130px;
+    height:130px;
+
     object-fit:contain;
 
-    filter:contrast(1.3) brightness(.86);
+    flex-shrink:0;
+
+    filter:
+    contrast(1.2)
+    brightness(.90);
 }
+
+
+/* HEADER CONTENT */
 
 .header-text{
+
     flex:1;
+
+    text-align:left;
 }
 
-.header-text h1{
-    color:#104d2b;
+
+/* UNIVERSITY NAME */
+
+.university-name{
+
+    color:#075128;
 
     font-size:
-    clamp(22px,3vw,36px);
+    clamp(22px,3vw,38px);
+
+    font-weight:900;
+
+    line-height:1.15;
+
+    letter-spacing:.3px;
+
+    margin-bottom:7px;
+
+    text-transform:uppercase;
+}
+
+
+/* COLLEGE NAME */
+
+.college-name{
+
+    color:#1d3d28;
+
+    font-size:
+    clamp(16px,2vw,23px);
+
+    font-weight:700;
+
+    line-height:1.3;
+
+    margin-bottom:4px;
+}
+
+
+/* LOCATION */
+
+.header-location{
+
+    color:#405248;
+
+    font-size:
+    clamp(14px,1.5vw,18px);
+
+    font-weight:600;
+
+    margin-bottom:14px;
+}
+
+
+/* RAWE TITLE */
+
+.rawe-title{
+
+    color:#a31313;
+
+    font-size:
+    clamp(20px,2.5vw,30px);
+
+    font-weight:900;
 
     line-height:1.2;
 
-    margin-bottom:8px;
+    letter-spacing:.5px;
 }
 
-.subtitle{
-    color:#222;
 
-    font-size:
-    clamp(14px,1.5vw,19px);
-}
+/* BATCH */
 
-.college{
-    color:#104d2b;
-
-    font-size:
-    clamp(14px,1.5vw,19px);
-
-    font-weight:bold;
-}
-
-.location{
-    color:#193b25;
-    font-size:16px;
-}
-
-.theme-box{
-    text-align:center;
-}
-
-.theme-box small{
-    display:block;
+.batch{
 
     color:#176b3a;
 
+    font-size:
+    clamp(14px,1.5vw,18px);
+
     font-weight:bold;
 
-    letter-spacing:1px;
+    margin-top:3px;
+}
+
+
+/* TEAM BOX */
+
+.theme-box{
+
+    min-width:170px;
+
+    padding:20px 18px;
+
+    text-align:center;
+
+    background:
+    rgba(6,63,32,.94);
+
+    border-radius:14px;
+
+    box-shadow:
+    0 6px 18px rgba(0,0,0,.20);
+
+    border:2px solid #8cc46f;
+}
+
+.theme-box small{
+
+    display:block;
+
+    color:#c9e6b9;
+
+    font-size:12px;
+
+    font-weight:bold;
+
+    letter-spacing:2px;
+
+    margin-bottom:4px;
 }
 
 .theme-box strong{
+
     display:block;
 
-    color:#0c572d;
+    color:white;
 
-    font-size:40px;
+    font-size:30px;
+
+    line-height:1.1;
+
+    letter-spacing:1px;
 }
 
 
@@ -146,6 +246,7 @@ body{
 ===================================================== */
 
 nav{
+
     background:#005425;
 
     display:flex;
@@ -167,6 +268,7 @@ nav{
 }
 
 nav a{
+
     color:white;
 
     text-decoration:none;
@@ -181,10 +283,12 @@ nav a{
 }
 
 nav a:hover{
+
     background:#247b3d;
 }
 
 nav i{
+
     margin-right:5px;
 }
 
@@ -194,6 +298,7 @@ nav i{
 ===================================================== */
 
 .hero{
+
     min-height:500px;
 
     display:flex;
@@ -203,21 +308,24 @@ nav i{
     padding:60px 5%;
 
     background:
+
     linear-gradient(
         90deg,
-        rgba(0,45,22,.87),
-        rgba(0,45,22,.50),
+        rgba(0,45,22,.88),
+        rgba(0,45,22,.53),
         rgba(0,45,22,.12)
     );
 }
 
 .hero-content{
+
     max-width:700px;
 
     color:white;
 }
 
 .welcome{
+
     font-family:Georgia,serif;
 
     font-size:31px;
@@ -228,6 +336,7 @@ nav i{
 }
 
 .hero h2{
+
     font-size:
     clamp(34px,5vw,56px);
 
@@ -239,6 +348,7 @@ nav i{
 }
 
 .hero-line{
+
     width:430px;
 
     max-width:100%;
@@ -251,12 +361,14 @@ nav i{
 }
 
 .hero p{
+
     font-size:18px;
 
     max-width:650px;
 }
 
 .explore{
+
     display:inline-flex;
 
     align-items:center;
@@ -279,6 +391,7 @@ nav i{
 }
 
 .explore:hover{
+
     background:#2fa94e;
 }
 
@@ -288,6 +401,7 @@ nav i{
 ===================================================== */
 
 .section{
+
     padding:55px 5%;
 
     background:
@@ -295,6 +409,7 @@ nav i{
 }
 
 .section-heading{
+
     text-align:center;
 
     color:#075128;
@@ -305,6 +420,7 @@ nav i{
 }
 
 .content-box{
+
     max-width:1000px;
 
     margin:auto;
@@ -326,6 +442,7 @@ nav i{
 ===================================================== */
 
 .team-grid{
+
     width:100%;
 
     max-width:900px;
@@ -341,6 +458,7 @@ nav i{
 }
 
 .team-card{
+
     background:white;
 
     min-height:235px;
@@ -366,6 +484,7 @@ nav i{
 }
 
 .team-card:hover{
+
     transform:translateY(-5px);
 
     box-shadow:
@@ -373,6 +492,7 @@ nav i{
 }
 
 .team-photo{
+
     width:82px;
 
     height:82px;
@@ -392,6 +512,7 @@ nav i{
 }
 
 .team-card h3{
+
     color:#0d4d28;
 
     margin-bottom:7px;
@@ -400,6 +521,7 @@ nav i{
 }
 
 .role{
+
     color:#a31313;
 
     font-weight:bold;
@@ -410,6 +532,7 @@ nav i{
 }
 
 .team-card p{
+
     font-size:14px;
 }
 
@@ -419,6 +542,7 @@ nav i{
 ===================================================== */
 
 .programme-grid{
+
     width:100%;
 
     max-width:850px;
@@ -434,6 +558,7 @@ nav i{
 }
 
 .programme-card{
+
     width:100%;
 
     min-height:205px;
@@ -462,6 +587,7 @@ nav i{
 }
 
 .programme-card:hover{
+
     transform:translateY(-4px);
 
     box-shadow:
@@ -469,6 +595,7 @@ nav i{
 }
 
 .programme-card i{
+
     font-size:30px;
 
     color:#24783b;
@@ -477,6 +604,7 @@ nav i{
 }
 
 .programme-card h3{
+
     color:#0b4d27;
 
     font-size:18px;
@@ -485,6 +613,7 @@ nav i{
 }
 
 .programme-card p{
+
     color:#4e5b52;
 
     font-size:13px;
@@ -497,6 +626,7 @@ nav i{
 }
 
 .card-button{
+
     display:inline-block;
 
     padding:8px 14px;
@@ -515,22 +645,22 @@ nav i{
 }
 
 .card-button:hover{
+
     background:#0c572b;
 }
 
 .attendance-card{
+
     border-top:4px solid #16753a;
 }
 
 
 /* =====================================================
    RAWE GALLERY
-   ONLY 5 IMAGES
-   PC = 4
-   MOBILE = 2
 ===================================================== */
 
 .gallery-section{
+
     padding:55px 5%;
 
     background:
@@ -538,6 +668,7 @@ nav i{
 }
 
 .gallery-grid{
+
     width:100%;
 
     max-width:1000px;
@@ -553,6 +684,7 @@ nav i{
 }
 
 .gallery-item{
+
     background:white;
 
     border-radius:12px;
@@ -566,6 +698,7 @@ nav i{
 }
 
 .gallery-item:hover{
+
     transform:translateY(-5px);
 
     box-shadow:
@@ -573,6 +706,7 @@ nav i{
 }
 
 .gallery-item a{
+
     display:block;
 
     line-height:0;
@@ -581,6 +715,7 @@ nav i{
 }
 
 .gallery-item img{
+
     width:100%;
 
     height:185px;
@@ -593,10 +728,12 @@ nav i{
 }
 
 .gallery-item:hover img{
+
     transform:scale(1.05);
 }
 
 .gallery-caption{
+
     padding:10px;
 
     text-align:center;
@@ -610,42 +747,66 @@ nav i{
 
 
 /* =====================================================
-   VILLAGE
+   HIGHLIGHTS
 ===================================================== */
 
-.village-preview{
-    text-align:center;
+.highlights{
+
+    max-width:1000px;
+
+    margin:30px auto 0;
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(4,1fr);
+
+    gap:14px;
 }
 
-.village-preview h3{
+.highlight-card{
+
+    background:
+    rgba(255,255,255,.96);
+
+    padding:18px 12px;
+
+    border-radius:11px;
+
+    text-align:center;
+
+    box-shadow:
+    0 4px 13px rgba(0,0,0,.12);
+
+    transition:.25s;
+}
+
+.highlight-card:hover{
+
+    transform:translateY(-4px);
+}
+
+.highlight-card .emoji{
+
+    font-size:28px;
+
+    margin-bottom:5px;
+}
+
+.highlight-card h4{
+
     color:#075128;
 
-    font-size:26px;
-
-    margin-bottom:12px;
-}
-
-.village-preview p{
-    max-width:800px;
-
-    margin:auto;
-}
-
-
-/* =====================================================
-   REPORTS
-===================================================== */
-
-.report-list{
-    max-width:800px;
-
-    margin:auto;
-}
-
-.report-list p{
-    margin:10px 0;
-
     font-size:15px;
+
+    margin-bottom:3px;
+}
+
+.highlight-card p{
+
+    font-size:12px;
+
+    color:#566158;
 }
 
 
@@ -654,6 +815,7 @@ nav i{
 ===================================================== */
 
 .contact-grid{
+
     width:100%;
 
     max-width:900px;
@@ -669,6 +831,7 @@ nav i{
 }
 
 .contact-card{
+
     min-height:190px;
 
     padding:22px 18px;
@@ -695,6 +858,7 @@ nav i{
 }
 
 .contact-card:hover{
+
     transform:translateY(-4px);
 
     box-shadow:
@@ -702,12 +866,14 @@ nav i{
 }
 
 .contact-icon{
+
     font-size:30px;
 
     margin-bottom:8px;
 }
 
 .contact-card h3{
+
     color:#075128;
 
     font-size:17px;
@@ -716,6 +882,7 @@ nav i{
 }
 
 .contact-card strong{
+
     color:#17231a;
 
     font-size:14px;
@@ -724,6 +891,7 @@ nav i{
 }
 
 .contact-card a{
+
     color:#075128;
 
     font-size:13px;
@@ -734,73 +902,17 @@ nav i{
 }
 
 .contact-card a:hover{
+
     text-decoration:underline;
 }
 
 
 /* =====================================================
-   IMPORTANCE HIGHLIGHTS
-===================================================== */
-
-.highlights{
-    max-width:1000px;
-
-    margin:30px auto 0;
-
-    display:grid;
-
-    grid-template-columns:
-    repeat(4,1fr);
-
-    gap:14px;
-}
-
-.highlight-card{
-    background:
-    rgba(255,255,255,.96);
-
-    padding:18px 12px;
-
-    border-radius:11px;
-
-    text-align:center;
-
-    box-shadow:
-    0 4px 13px rgba(0,0,0,.12);
-
-    transition:.25s;
-}
-
-.highlight-card:hover{
-    transform:translateY(-4px);
-}
-
-.highlight-card .emoji{
-    font-size:28px;
-
-    margin-bottom:5px;
-}
-
-.highlight-card h4{
-    color:#075128;
-
-    font-size:15px;
-
-    margin-bottom:3px;
-}
-
-.highlight-card p{
-    font-size:12px;
-
-    color:#566158;
-}
-
-
-/* =====================================================
-   BOTTOM IMAGE
+   BOTTOM CAMPUS
 ===================================================== */
 
 .bottom-campus{
+
     width:100%;
 
     height:450px;
@@ -825,6 +937,7 @@ nav i{
 ===================================================== */
 
 footer{
+
     background:#063f20;
 
     color:white;
@@ -835,6 +948,7 @@ footer{
 }
 
 .footer-title{
+
     color:#c9e6b9;
 
     font-size:25px;
@@ -843,6 +957,7 @@ footer{
 }
 
 .footer-motto{
+
     color:#d6edc9;
 
     font-size:19px;
@@ -851,6 +966,7 @@ footer{
 }
 
 .footer-quote{
+
     font-family:Georgia,serif;
 
     font-style:italic;
@@ -859,6 +975,7 @@ footer{
 }
 
 .footer-line{
+
     width:100px;
 
     height:2px;
@@ -875,16 +992,35 @@ footer{
 
 @media(max-width:1000px){
 
+    .top-header{
+        gap:20px;
+    }
+
+    .logo{
+        width:105px;
+        height:105px;
+    }
+
+    .theme-box{
+        min-width:145px;
+        padding:16px 12px;
+    }
+
+    .theme-box strong{
+        font-size:26px;
+    }
+
     .gallery-grid{
+
         grid-template-columns:
         repeat(3,1fr);
     }
 
     .highlights{
+
         grid-template-columns:
         repeat(2,1fr);
     }
-
 }
 
 
@@ -894,61 +1030,169 @@ footer{
 
 @media(max-width:600px){
 
+    /* HEADER */
+
     .top-header{
+
+        min-height:auto;
+
         flex-direction:column;
 
         text-align:center;
 
-        padding:20px 15px;
+        gap:12px;
+
+        padding:22px 15px;
+
+        background:
+
+        linear-gradient(
+            rgba(255,255,255,.94),
+            rgba(255,255,255,.88)
+        ),
+        url("tnau-coimbatore.jpg");
+
+        background-size:cover;
+
+        background-position:center;
     }
 
     .logo{
-        width:90px;
 
-        height:90px;
+        width:82px;
+
+        height:82px;
+    }
+
+    .header-text{
+
+        width:100%;
+
+        text-align:center;
+    }
+
+    .university-name{
+
+        font-size:21px;
+
+        line-height:1.2;
+
+        margin-bottom:7px;
+    }
+
+    .college-name{
+
+        font-size:15px;
+
+        line-height:1.3;
+    }
+
+    .header-location{
+
+        font-size:13px;
+
+        margin-bottom:9px;
+    }
+
+    .rawe-title{
+
+        font-size:22px;
+
+        line-height:1.2;
+    }
+
+    .batch{
+
+        font-size:14px;
+    }
+
+    .theme-box{
+
+        min-width:145px;
+
+        padding:11px 18px;
+
+        border-radius:10px;
+    }
+
+    .theme-box small{
+
+        font-size:10px;
+
+        letter-spacing:1.5px;
     }
 
     .theme-box strong{
-        font-size:30px;
+
+        font-size:25px;
     }
 
+
+    /* NAV */
+
     nav{
+
         position:relative;
+
+        padding:3px;
     }
 
     nav a{
-        font-size:12px;
 
-        padding:9px 7px;
+        font-size:11px;
+
+        padding:8px 6px;
     }
 
+    nav i{
+
+        margin-right:3px;
+    }
+
+
+    /* HERO */
+
     .hero{
-        min-height:450px;
+
+        min-height:430px;
 
         padding:40px 20px;
     }
 
     .welcome{
-        font-size:25px;
+
+        font-size:24px;
     }
 
     .hero h2{
-        font-size:34px;
+
+        font-size:33px;
     }
 
     .hero p{
-        font-size:15px;
+
+        font-size:14px;
     }
+
+
+    /* SECTIONS */
 
     .section,
     .gallery-section{
+
         padding:40px 15px;
+    }
+
+    .section-heading{
+
+        font-size:25px;
     }
 
 
     /* TEAM */
 
     .team-grid{
+
         grid-template-columns:
         repeat(2,minmax(0,1fr));
 
@@ -956,12 +1200,14 @@ footer{
     }
 
     .team-card{
+
         min-height:205px;
 
         padding:15px 8px;
     }
 
     .team-photo{
+
         width:62px;
 
         height:62px;
@@ -970,18 +1216,21 @@ footer{
     }
 
     .team-card h3{
+
         font-size:14px;
 
         line-height:1.3;
     }
 
     .team-card p{
+
         font-size:11px;
 
         line-height:1.4;
     }
 
     .role{
+
         font-size:11px;
 
         line-height:1.35;
@@ -991,6 +1240,7 @@ footer{
     /* PROGRAMME */
 
     .programme-grid{
+
         grid-template-columns:
         repeat(2,minmax(0,1fr));
 
@@ -998,44 +1248,39 @@ footer{
     }
 
     .programme-card{
+
         min-height:185px;
 
         padding:17px 9px;
     }
 
     .programme-card i{
-        font-size:25px;
 
-        margin-bottom:7px;
+        font-size:25px;
     }
 
     .programme-card h3{
-        font-size:15px;
 
-        line-height:1.25;
+        font-size:15px;
     }
 
     .programme-card p{
+
         font-size:11px;
-
-        line-height:1.4;
-
-        margin-bottom:10px;
     }
 
     .programme-card .card-button{
+
         padding:7px 9px;
 
         font-size:10px;
     }
 
 
-    /* =================================================
-       GALLERY MOBILE
-       2 COLUMNS
-    ================================================= */
+    /* GALLERY */
 
     .gallery-grid{
+
         grid-template-columns:
         repeat(2,minmax(0,1fr));
 
@@ -1043,52 +1288,22 @@ footer{
     }
 
     .gallery-item img{
+
         height:145px;
     }
 
     .gallery-caption{
+
         font-size:11px;
 
         padding:8px 5px;
     }
 
 
-    /* CONTACT */
-
-    .contact-grid{
-        grid-template-columns:
-        repeat(2,minmax(0,1fr));
-
-        gap:12px;
-    }
-
-    .contact-card{
-        min-height:170px;
-
-        padding:16px 9px;
-    }
-
-    .contact-icon{
-        font-size:25px;
-    }
-
-    .contact-card h3{
-        font-size:13px;
-
-        line-height:1.3;
-    }
-
-    .contact-card strong,
-    .contact-card a{
-        font-size:11px;
-
-        line-height:1.4;
-    }
-
-
     /* HIGHLIGHTS */
 
     .highlights{
+
         grid-template-columns:
         repeat(2,1fr);
 
@@ -1096,26 +1311,64 @@ footer{
     }
 
     .highlight-card{
+
         padding:15px 8px;
     }
 
     .highlight-card .emoji{
+
         font-size:25px;
     }
 
     .highlight-card h4{
+
         font-size:13px;
     }
 
     .highlight-card p{
+
         font-size:10px;
     }
 
-    .content-box{
-        padding:20px;
+
+    /* CONTACT */
+
+    .contact-grid{
+
+        grid-template-columns:
+        repeat(2,minmax(0,1fr));
+
+        gap:12px;
     }
 
+    .contact-card{
+
+        min-height:170px;
+
+        padding:16px 9px;
+    }
+
+    .contact-icon{
+
+        font-size:25px;
+    }
+
+    .contact-card h3{
+
+        font-size:13px;
+    }
+
+    .contact-card strong,
+    .contact-card a{
+
+        font-size:11px;
+    }
+
+
+    /* BOTTOM */
+
     .bottom-campus{
+
         height:280px;
     }
 
@@ -1128,82 +1381,97 @@ footer{
 
 @media(max-width:380px){
 
-    .team-grid,
-    .programme-grid,
-    .contact-grid{
-        gap:9px;
+    .university-name{
+
+        font-size:18px;
     }
 
-    .team-card{
-        min-height:185px;
+    .college-name{
 
-        padding:12px 6px;
-    }
-
-    .team-photo{
-        width:52px;
-
-        height:52px;
-    }
-
-    .team-card h3{
-        font-size:12px;
-    }
-
-    .team-card p,
-    .role{
-        font-size:10px;
-    }
-
-    .programme-card{
-        min-height:175px;
-
-        padding:13px 6px;
-    }
-
-    .programme-card h3{
         font-size:13px;
     }
 
-    .programme-card p{
-        font-size:10px;
+    .header-location{
+
+        font-size:11px;
     }
 
-    .programme-card .card-button{
-        font-size:9px;
+    .rawe-title{
 
-        padding:6px 8px;
+        font-size:19px;
+    }
+
+    .batch{
+
+        font-size:12px;
+    }
+
+    .theme-box{
+
+        min-width:125px;
+    }
+
+    .theme-box strong{
+
+        font-size:22px;
+    }
+
+    nav a{
+
+        font-size:10px;
+
+        padding:7px 5px;
+    }
+
+    .team-grid,
+    .programme-grid,
+    .contact-grid{
+
+        gap:9px;
     }
 
     .gallery-grid{
+
         gap:9px;
     }
 
     .gallery-item img{
+
         height:115px;
     }
 
-    .gallery-caption{
-        font-size:9px;
+}
+
+
+/* =====================================================
+   VERY SMALL SCREEN
+===================================================== */
+
+@media(max-width:320px){
+
+    .university-name{
+
+        font-size:16px;
     }
 
-    .contact-card{
-        min-height:155px;
+    .college-name{
 
-        padding:12px 6px;
+        font-size:12px;
     }
 
-    .contact-card h3{
-        font-size:11px;
+    .header-location{
+
+        font-size:10px;
     }
 
-    .contact-card strong,
-    .contact-card a{
-        font-size:9px;
+    .rawe-title{
+
+        font-size:17px;
     }
 
-    .highlights{
-        gap:8px;
+    .theme-box strong{
+
+        font-size:20px;
     }
 
 }
@@ -1217,44 +1485,64 @@ footer{
 
 
 <!-- =====================================================
-     HEADER
+     NEW HOME PAGE TOP
 ===================================================== -->
 
 <header class="top-header">
 
+
+    <!-- TNAU LOGO -->
+
     <img
         src="tnau-logo.png"
-        alt="TNAU Logo"
+        alt="Tamil Nadu Agricultural University Logo"
         class="logo">
+
+
+    <!-- MAIN TITLE -->
 
     <div class="header-text">
 
-        <h1>
 
-            TNAU RAWE PROGRAMME 2026
+        <div class="university-name">
 
-            <br>
+            TAMIL NADU AGRICULTURAL UNIVERSITY
 
-            <span style="font-size:.72em;">
-                (2023 Batch AC&amp;RI VVNR)
-            </span>
-
-        </h1>
-
-        <div class="subtitle">
-            Rural Agricultural Work Experience Programme
         </div>
 
-        <div class="college">
-            AGRICULTURAL COLLEGE &amp; RESEARCH INSTITUTE
+
+        <div class="college-name">
+
+            Agricultural College and Research Institute
+
         </div>
 
-        <div class="location">
-            Vazhavachanur · Tiruvannamalai District
+
+        <div class="header-location">
+
+            Vazhavachanur, Tiruvannamalai
+
         </div>
+
+
+        <div class="rawe-title">
+
+            RAWE PROGRAMME 2026
+
+        </div>
+
+
+        <div class="batch">
+
+            (2023 Batch)
+
+        </div>
+
 
     </div>
 
+
+    <!-- TEAM -->
 
     <div class="theme-box">
 
@@ -1268,6 +1556,7 @@ footer{
 
     </div>
 
+
 </header>
 
 
@@ -1277,55 +1566,87 @@ footer{
 
 <nav>
 
+
     <a href="index.html">
+
         <i class="fa-solid fa-house"></i>
+
         Home
+
     </a>
+
 
     <a href="#about">
+
         <i class="fa-solid fa-circle-info"></i>
+
         About RAWE
+
     </a>
+
 
     <a href="#team">
+
         <i class="fa-solid fa-users"></i>
-        Team Organization
+
+        Team
+
     </a>
+
 
     <a href="village.html">
+
         <i class="fa-solid fa-location-dot"></i>
+
         Village Profile
+
     </a>
+
 
     <a href="activities.html">
+
         <i class="fa-solid fa-calendar-day"></i>
-        Daily Activities
+
+        Activities
+
     </a>
+
 
     <a href="attendance.html">
+
         <i class="fa-solid fa-clipboard-check"></i>
+
         Attendance
+
     </a>
+
 
     <a href="#gallery">
+
         <i class="fa-solid fa-images"></i>
+
         Gallery
+
     </a>
 
-    <a href="#reports">
-        <i class="fa-solid fa-file-lines"></i>
-        Reports
-    </a>
 
     <a href="students.html">
+
         <i class="fa-solid fa-graduation-cap"></i>
+
         Students
+
     </a>
 
+
     <a href="#contact">
+
         <i class="fa-solid fa-phone"></i>
+
         Contact
+
     </a>
+
 
 </nav>
 
@@ -1338,23 +1659,35 @@ footer{
 
     <div class="hero-content">
 
+
         <div class="welcome">
+
             Welcome to
+
         </div>
 
+
         <h2>
+
             TNAU RAWE<br>
+
             PROGRAMME 2026
+
         </h2>
+
 
         <div class="hero-line"></div>
 
+
         <p>
+
             Practical agricultural learning through
             farmer interaction, field visits,
             agricultural surveys and field-level
             agricultural activities.
+
         </p>
+
 
         <a
             href="#programme"
@@ -1365,6 +1698,7 @@ footer{
             <i class="fa-solid fa-arrow-right"></i>
 
         </a>
+
 
     </div>
 
@@ -1379,15 +1713,16 @@ footer{
     class="section"
     id="team">
 
+
     <h2 class="section-heading">
+
         👥 TEAM ORGANIZATION
+
     </h2>
 
 
     <div class="team-grid">
 
-
-        <!-- TEAM 1 -->
 
         <div class="team-card">
 
@@ -1410,8 +1745,6 @@ footer{
 
         </div>
 
-
-        <!-- TEAM 2 -->
 
         <div class="team-card">
 
@@ -1439,8 +1772,6 @@ footer{
         </div>
 
 
-        <!-- TEAM 3 -->
-
         <div class="team-card">
 
             <img
@@ -1467,8 +1798,6 @@ footer{
 
         </div>
 
-
-        <!-- TEAM 4 -->
 
         <div class="team-card">
 
@@ -1513,8 +1842,11 @@ footer{
     class="section"
     id="programme">
 
+
     <h2 class="section-heading">
+
         🌾 RAWE PROGRAMME
+
     </h2>
 
 
@@ -1623,22 +1955,23 @@ footer{
 
 
 <!-- =====================================================
-     RAWE GALLERY - ONLY 5 IMAGES
+     GALLERY - ONLY 5 IMAGES
 ===================================================== -->
 
 <section
     class="gallery-section"
     id="gallery">
 
+
     <h2 class="section-heading">
+
         📸 RAWE GALLERY
+
     </h2>
 
 
     <div class="gallery-grid">
 
-
-        <!-- IMAGE 1 -->
 
         <div class="gallery-item">
 
@@ -1659,8 +1992,6 @@ footer{
         </div>
 
 
-        <!-- IMAGE 2 -->
-
         <div class="gallery-item">
 
             <a
@@ -1679,8 +2010,6 @@ footer{
 
         </div>
 
-
-        <!-- IMAGE 3 -->
 
         <div class="gallery-item">
 
@@ -1701,8 +2030,6 @@ footer{
         </div>
 
 
-        <!-- IMAGE 4 -->
-
         <div class="gallery-item">
 
             <a
@@ -1721,8 +2048,6 @@ footer{
 
         </div>
 
-
-        <!-- IMAGE 5 -->
 
         <div class="gallery-item">
 
@@ -1756,34 +2081,49 @@ footer{
     class="section"
     id="about">
 
+
     <h2 class="section-heading">
+
         🌱 ABOUT RAWE
+
     </h2>
 
 
     <div class="content-box">
 
+
         <p>
+
             The Rural Agricultural Work Experience
             Programme provides students with practical
             exposure to rural life, farming systems
             and agricultural practices.
+
         </p>
+
 
         <br>
 
+
         <p>
+
             Students interact with farmers,
             understand agricultural practices and
             gain practical experience through
             field-level activities.
+
         </p>
+
 
         <br>
 
+
         <strong>
+
             Learn × Experience × Serve × Grow
+
         </strong>
+
 
     </div>
 
@@ -1791,13 +2131,16 @@ footer{
 
 
 <!-- =====================================================
-     IMPORTANCE HIGHLIGHTS
+     HIGHLIGHTS
 ===================================================== -->
 
 <section class="section">
 
+
     <h2 class="section-heading">
+
         ⭐ IMPORTANCE HIGHLIGHTS
+
     </h2>
 
 
@@ -1885,8 +2228,11 @@ footer{
     class="section"
     id="contact">
 
+
     <h2 class="section-heading">
+
         📞 CONTACT
+
     </h2>
 
 
@@ -1996,7 +2342,7 @@ footer{
 
 
 <!-- =====================================================
-     BOTTOM CAMPUS IMAGE
+     BOTTOM IMAGE
 ===================================================== -->
 
 <section class="bottom-campus"></section>
@@ -2008,24 +2354,38 @@ footer{
 
 <footer>
 
+
     <div class="footer-title">
+
         👨‍🌾 TEAM : PAIYUR
+
     </div>
+
 
     <div class="footer-motto">
+
         Learn × Experience × Serve × Grow
+
     </div>
 
+
     <div class="footer-quote">
+
         “Together in the field,
         growing through experience.”
+
     </div>
+
 
     <div class="footer-line"></div>
 
+
     <div>
+
         © 2026 TNAU RAWE Programme
+
     </div>
+
 
 </footer>
 
