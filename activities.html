@@ -1,28 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 
 <meta charset="UTF-8">
-
-<meta name="viewport"
-      content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Daily RAWE field activity log — TNAU RAWE Programme 2026, Team Paiyur.">
 
 <title>Daily Activities | TNAU RAWE PAIYUR</title>
 
-
 <!-- PDF LIBRARIES -->
-
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.8.2/jspdf.plugin.autotable.min.js"></script>
 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
 <style>
 
-/* =====================================================
-   BASIC
-===================================================== */
+:root{
+    --forest-950:#04170d;
+    --forest-900:#06341c;
+    --forest-800:#0a4726;
+    --forest-700:#0e5c2e;
+    --forest-600:#147a3a;
+    --forest-500:#1c9a49;
+    --mint-50:#f3faf4;
+    --mint-100:#e4f5e8;
+    --gold-400:#f0b93d;
+    --gold-500:#e0a020;
+    --gold-600:#b97e12;
+    --ink-900:#12201a;
+    --ink-700:#33463b;
+    --ink-500:#5f7268;
+    --line:#e3ece4;
+    --white:#ffffff;
+    --shadow-sm:0 2px 10px rgba(6,40,20,.07);
+    --shadow-md:0 12px 30px rgba(6,40,20,.10);
+    --shadow-lg:0 22px 55px rgba(6,40,20,.18);
+    --radius-lg:22px;
+    --radius-md:16px;
+    --radius-sm:10px;
+}
 
 *{
     margin:0;
@@ -35,688 +55,482 @@ html{
 }
 
 body{
-
-    font-family:
-    Arial,
-    Helvetica,
-    sans-serif;
-
-    color:#17301f;
-
+    font-family:'Inter',Arial,Helvetica,sans-serif;
+    color:var(--ink-900);
     min-height:100vh;
-
-    background:
-
-    linear-gradient(
-        rgba(255,255,255,.76),
-        rgba(255,255,255,.76)
-    ),
-
-    url("vvnr-campus.jpg");
-
-    background-size:cover;
-
-    background-position:center;
-
-    background-attachment:fixed;
-
+    line-height:1.7;
+    background:var(--mint-50);
+    -webkit-font-smoothing:antialiased;
 }
 
+h1,h2,h3{
+    font-family:'Poppins',Arial,sans-serif;
+}
+
+::selection{ background:var(--gold-400); color:var(--forest-950); }
+::-webkit-scrollbar{ width:10px; }
+::-webkit-scrollbar-track{ background:var(--mint-50); }
+::-webkit-scrollbar-thumb{ background:var(--forest-600); border-radius:10px; }
 
 /* =====================================================
    HEADER
 ===================================================== */
 
 header{
-
+    position:relative;
     background:
-
-    linear-gradient(
-        rgba(0,70,32,.96),
-        rgba(0,95,45,.94)
-    );
-
+    linear-gradient(120deg,rgba(4,23,13,.95),rgba(10,71,38,.92)),
+    url("vvnr-campus.jpg");
+    background-size:cover;
+    background-position:center;
     color:white;
-
     text-align:center;
+    padding:34px 15px;
+    overflow:hidden;
+}
 
-    padding:28px 15px;
-
+header::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:radial-gradient(circle at 85% 15%, rgba(224,160,32,.16), transparent 50%);
+    pointer-events:none;
 }
 
 header h1{
-
-    font-size:
-    clamp(25px,4vw,40px);
-
-    margin-bottom:8px;
-
+    position:relative;
+    z-index:1;
+    font-size:clamp(24px,4vw,38px);
+    margin-bottom:9px;
+    font-weight:800;
 }
 
 header p{
-
-    color:#d9efd1;
-
+    position:relative;
+    z-index:1;
+    color:var(--mint-100);
     margin:4px;
-
-    font-size:15px;
-
+    font-size:14.5px;
+    font-weight:500;
 }
-
 
 /* =====================================================
    NAVIGATION
 ===================================================== */
 
 nav{
-
-    background:#063f20;
-
+    background:linear-gradient(90deg,var(--forest-900),var(--forest-800));
     display:flex;
-
     justify-content:center;
-
     align-items:center;
-
-    flex-wrap:wrap;
-
-    padding:10px;
-
-    box-shadow:
-    0 2px 8px rgba(0,0,0,.25);
-
+    flex-wrap:nowrap;
+    overflow-x:auto;
+    padding:0;
+    position:sticky;
+    top:0;
+    z-index:1000;
+    box-shadow:0 4px 16px rgba(0,0,0,.18);
+    scrollbar-width:none;
 }
 
+nav::-webkit-scrollbar{ display:none; }
+
 nav a{
-
-    color:white;
-
+    color:rgba(255,255,255,.88);
     text-decoration:none;
-
-    font-weight:bold;
-
-    font-size:14px;
-
-    padding:9px 13px;
-
-    border-radius:6px;
-
-    margin:2px 4px;
-
+    font-weight:600;
+    font-size:13.5px;
+    padding:15px 16px;
+    white-space:nowrap;
+    transition:.2s;
 }
 
 nav a:hover{
-
-    background:#247b3d;
-
+    color:var(--gold-400);
+    background:rgba(255,255,255,.06);
 }
-
 
 /* =====================================================
    CONTAINER
 ===================================================== */
 
 .container{
-
     width:94%;
-
     max-width:1100px;
-
-    margin:35px auto;
-
+    margin:44px auto;
 }
-
 
 /* =====================================================
    PAGE TITLE
 ===================================================== */
 
 .page-title{
-
     text-align:center;
-
-    margin-bottom:25px;
-
+    margin-bottom:28px;
 }
 
 .page-title h2{
-
-    color:#075128;
-
-    font-size:
-    clamp(28px,4vw,42px);
-
+    color:var(--forest-900);
+    font-size:clamp(27px,4vw,40px);
+    font-weight:800;
 }
 
 .page-title p{
-
-    color:#59675e;
-
-    margin-top:6px;
-
+    color:var(--ink-500);
+    margin-top:8px;
+    font-size:15px;
 }
-
 
 /* =====================================================
    PERIOD
 ===================================================== */
 
 .period{
-
-    background:#e8f5eb;
-
-    border:
-    1px solid #b9dabc;
-
-    color:#075128;
-
-    padding:14px;
-
+    background:var(--mint-100);
+    border:1px solid #cdeacf;
+    color:var(--forest-800);
+    padding:16px;
     text-align:center;
-
-    border-radius:10px;
-
-    font-weight:bold;
-
-    margin-bottom:20px;
-
+    border-radius:var(--radius-md);
+    font-weight:700;
+    margin-bottom:24px;
 }
-
 
 /* =====================================================
    FORM CARD
 ===================================================== */
 
 .form-card{
-
-    background:
-    rgba(255,255,255,.97);
-
-    padding:25px;
-
-    border-radius:14px;
-
-    box-shadow:
-    0 4px 17px rgba(0,0,0,.14);
-
+    background:var(--white);
+    padding:30px;
+    border-radius:var(--radius-lg);
+    box-shadow:var(--shadow-md);
+    border:1px solid var(--line);
 }
-
 
 /* =====================================================
    FORM GRID
 ===================================================== */
 
 .form-grid{
-
     display:grid;
-
-    grid-template-columns:
-    repeat(2,1fr);
-
-    gap:18px;
-
+    grid-template-columns:repeat(2,1fr);
+    gap:20px;
 }
 
 .form-group{
-
     display:flex;
-
     flex-direction:column;
-
 }
 
 .form-group.full{
-
-    grid-column:
-    1 / -1;
-
+    grid-column:1 / -1;
 }
 
 .form-group label{
-
-    color:#075128;
-
-    font-weight:bold;
-
-    margin-bottom:7px;
-
+    color:var(--forest-800);
+    font-weight:700;
+    margin-bottom:8px;
+    font-size:14px;
 }
 
 .form-group input,
 .form-group select,
 .form-group textarea{
-
     width:100%;
-
-    padding:11px;
-
-    border:
-    1px solid #bcc8bf;
-
-    border-radius:7px;
-
-    font-family:Arial;
-
-    font-size:15px;
-
-    background:white;
-
+    padding:12px 14px;
+    border:1.5px solid var(--line);
+    border-radius:var(--radius-sm);
+    font-family:'Inter',Arial;
+    font-size:14.5px;
+    background:var(--mint-50);
+    transition:.2s;
+    color:var(--ink-900);
 }
 
 .form-group textarea{
-
     min-height:120px;
-
     resize:vertical;
-
 }
 
 .form-group input:focus,
 .form-group select:focus,
 .form-group textarea:focus{
-
     outline:none;
-
-    border-color:#16753a;
-
-    box-shadow:
-    0 0 0 2px rgba(22,117,58,.12);
-
+    border-color:var(--forest-500);
+    background:var(--white);
+    box-shadow:0 0 0 3px rgba(28,154,73,.14);
 }
-
 
 /* =====================================================
    DATE
 ===================================================== */
 
 #activityDate{
-
-    font-weight:bold;
-
+    font-weight:700;
 }
-
 
 /* =====================================================
    PHOTO
 ===================================================== */
 
 .photo-box{
-
-    border:
-    2px dashed #a9c7ae;
-
-    padding:20px;
-
-    border-radius:10px;
-
+    border:2px dashed #b9d6bd;
+    padding:22px;
+    border-radius:var(--radius-md);
     text-align:center;
-
-    background:#f7fbf7;
-
+    background:var(--mint-50);
 }
 
 .photo-box input{
-
     margin-top:10px;
-
 }
 
 .photo-preview{
-
     display:grid;
-
-    grid-template-columns:
-    repeat(4,1fr);
-
-    gap:10px;
-
-    margin-top:15px;
-
+    grid-template-columns:repeat(4,1fr);
+    gap:11px;
+    margin-top:16px;
 }
 
 .photo-preview img{
-
     width:100%;
-
     height:120px;
-
     object-fit:cover;
-
-    border-radius:8px;
-
-    border:
-    1px solid #c9d8cc;
-
+    border-radius:var(--radius-sm);
+    border:1px solid var(--line);
+    box-shadow:var(--shadow-sm);
 }
-
 
 /* =====================================================
    BUTTONS
 ===================================================== */
 
 .buttons{
-
     display:flex;
-
     justify-content:center;
-
     flex-wrap:wrap;
-
-    gap:10px;
-
-    margin-top:22px;
-
+    gap:12px;
+    margin-top:26px;
 }
 
 .btn{
-
     border:0;
-
-    padding:12px 18px;
-
-    border-radius:7px;
-
+    padding:13px 22px;
+    border-radius:50px;
     color:white;
-
     cursor:pointer;
-
-    font-weight:bold;
-
+    font-weight:700;
     font-size:14px;
-
+    transition:.25s;
+    box-shadow:var(--shadow-sm);
 }
 
 .save{
-
-    background:#075128;
-
+    background:linear-gradient(120deg,var(--forest-600),var(--forest-800));
 }
 
 .clear{
-
-    background:#777;
-
+    background:linear-gradient(120deg,#7b8b81,#59685f);
 }
 
 .pdf{
-
-    background:#b3261e;
-
+    background:linear-gradient(120deg,#c23b3b,#8f1f1f);
 }
 
 .excel{
-
-    background:#176b3a;
-
+    background:linear-gradient(120deg,var(--forest-500),var(--forest-700));
 }
 
 .btn:hover{
-
-    opacity:.88;
-
+    transform:translateY(-3px);
+    box-shadow:var(--shadow-md);
 }
 
 .btn:disabled{
-
-    opacity:.4;
-
+    opacity:.45;
     cursor:not-allowed;
-
+    transform:none;
 }
-
 
 /* =====================================================
    STATUS
 ===================================================== */
 
 .status{
-
-    margin-top:18px;
-
-    padding:13px;
-
-    border-radius:8px;
-
+    margin-top:20px;
+    padding:14px;
+    border-radius:var(--radius-sm);
     text-align:center;
-
-    font-weight:bold;
-
+    font-weight:700;
     display:none;
-
 }
 
 .status.show{
-
     display:block;
-
 }
 
 .status.success{
-
-    background:#e3f5e8;
-
-    color:#176b35;
-
+    background:#e1f6e6;
+    color:#136b34;
 }
 
 .status.locked{
-
-    background:#f8e1e1;
-
+    background:#fbe4e4;
     color:#a51d1d;
-
 }
 
 .status.warning{
-
-    background:#fff2d8;
-
+    background:#fff3d9;
     color:#8a5a00;
-
 }
-
 
 /* =====================================================
    SAVED ACTIVITIES
 ===================================================== */
 
 .saved-section{
-
-    margin-top:30px;
-
+    margin-top:36px;
 }
 
 .section-title{
-
     text-align:center;
-
-    color:#075128;
-
+    color:var(--forest-900);
     font-size:28px;
-
-    margin-bottom:18px;
-
+    margin-bottom:20px;
+    font-weight:800;
 }
 
 .saved-list{
-
     display:grid;
-
-    grid-template-columns:
-    repeat(2,1fr);
-
-    gap:15px;
-
+    grid-template-columns:repeat(2,1fr);
+    gap:17px;
 }
 
 .saved-card{
+    background:var(--white);
+    padding:22px;
+    border-radius:var(--radius-md);
+    box-shadow:var(--shadow-sm);
+    border-left:5px solid var(--forest-500);
+    transition:.25s;
+}
 
-    background:white;
-
-    padding:20px;
-
-    border-radius:11px;
-
-    box-shadow:
-    0 3px 13px rgba(0,0,0,.12);
-
-    border-left:
-    5px solid #16753a;
-
+.saved-card:hover{
+    transform:translateY(-4px);
+    box-shadow:var(--shadow-md);
 }
 
 .saved-card h3{
-
-    color:#075128;
-
-    margin-bottom:8px;
-
+    color:var(--forest-900);
+    margin-bottom:9px;
+    font-weight:700;
 }
 
 .saved-card p{
-
     font-size:14px;
-
     margin:5px 0;
-
-    color:#4f5d53;
-
+    color:var(--ink-700);
 }
 
 .saved-card strong{
-
-    color:#173f24;
-
+    color:var(--forest-800);
 }
 
 .saved-actions{
-
     display:flex;
-
-    gap:7px;
-
+    gap:8px;
     flex-wrap:wrap;
-
-    margin-top:13px;
-
+    margin-top:15px;
 }
 
 .small-btn{
-
     border:0;
-
-    padding:8px 12px;
-
-    border-radius:6px;
-
+    padding:9px 14px;
+    border-radius:30px;
     color:white;
-
     cursor:pointer;
-
-    font-weight:bold;
-
+    font-weight:700;
     font-size:12px;
-
+    transition:.2s;
 }
 
 .view-btn{
-
-    background:#176b3a;
-
+    background:linear-gradient(120deg,var(--forest-600),var(--forest-800));
 }
 
 .pdf-small{
-
-    background:#b3261e;
-
+    background:linear-gradient(120deg,#c23b3b,#8f1f1f);
 }
 
+.small-btn:hover{
+    transform:translateY(-2px);
+    box-shadow:var(--shadow-sm);
+}
 
 /* =====================================================
    EMPTY
 ===================================================== */
 
 .empty{
-
-    background:white;
-
-    padding:30px;
-
+    background:var(--white);
+    padding:34px;
     text-align:center;
-
-    border-radius:11px;
-
-    color:#667269;
-
-    box-shadow:
-    0 3px 13px rgba(0,0,0,.1);
-
+    border-radius:var(--radius-md);
+    color:var(--ink-500);
+    box-shadow:var(--shadow-sm);
+    border:1px dashed var(--line);
 }
-
 
 /* =====================================================
    BACK
 ===================================================== */
 
 .back{
-
-    display:block;
-
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
     width:max-content;
-
-    margin:35px auto;
-
-    padding:11px 22px;
-
-    background:#16753a;
-
+    margin:36px auto;
+    padding:14px 26px;
+    background:linear-gradient(120deg,var(--forest-600),var(--forest-800));
     color:white;
-
     text-decoration:none;
-
-    border-radius:7px;
-
-    font-weight:bold;
-
+    border-radius:50px;
+    font-weight:700;
+    box-shadow:var(--shadow-sm);
+    transition:.25s;
 }
 
+.back:hover{
+    transform:translateY(-2px);
+    box-shadow:var(--shadow-md);
+}
 
 /* =====================================================
    FOOTER
 ===================================================== */
 
 footer{
-
-    background:#063f20;
-
+    background:linear-gradient(160deg,var(--forest-950),var(--forest-900));
     color:white;
-
     text-align:center;
-
-    padding:30px 15px;
-
+    padding:38px 15px;
     margin-top:50px;
-
 }
 
 .footer-title{
-
-    color:#c9e6b9;
-
+    color:var(--gold-400);
     font-size:23px;
-
-    font-weight:bold;
-
+    font-weight:800;
+    font-family:'Poppins',sans-serif;
 }
 
 .footer-text{
-
-    color:#d6edc9;
-
-    margin-top:5px;
-
+    color:var(--mint-100);
+    margin-top:6px;
+    font-size:14px;
 }
-
 
 /* =====================================================
    MOBILE
@@ -725,71 +539,48 @@ footer{
 @media(max-width:750px){
 
     .form-grid{
-
         grid-template-columns:1fr;
-
     }
 
     .form-group.full{
-
         grid-column:auto;
-
     }
 
     .saved-list{
-
         grid-template-columns:1fr;
-
     }
 
     .photo-preview{
-
-        grid-template-columns:
-        repeat(2,1fr);
-
+        grid-template-columns:repeat(2,1fr);
     }
 
 }
 
-
 @media(max-width:500px){
 
     nav a{
-
         font-size:12px;
-
-        padding:7px 8px;
-
+        padding:12px 10px;
     }
 
     .container{
-
         width:96%;
-
     }
 
     .form-card{
-
-        padding:18px;
-
+        padding:20px;
     }
 
     .photo-preview img{
-
         height:100px;
-
     }
 
     .btn{
-
         width:100%;
-
     }
 
     .buttons{
-
         flex-direction:column;
-
     }
 
 }
@@ -797,8 +588,6 @@ footer{
 </style>
 
 </head>
-
-
 <body>
 
 
