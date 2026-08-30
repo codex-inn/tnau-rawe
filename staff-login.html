@@ -12,11 +12,24 @@
 
 <style>
 
+/* =====================================================
+   RESET
+===================================================== */
+
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
 }
+
+html{
+    scroll-behavior:smooth;
+}
+
+
+/* =====================================================
+   BODY
+===================================================== */
 
 body{
 
@@ -25,6 +38,7 @@ body{
     display:flex;
 
     justify-content:center;
+
     align-items:center;
 
     padding:15px;
@@ -32,13 +46,14 @@ body{
     font-family:
     "Segoe UI",
     Arial,
+    Helvetica,
     sans-serif;
 
     background:
 
     linear-gradient(
-        rgba(70,0,0,.70),
-        rgba(70,0,0,.70)
+        rgba(255,255,255,.48),
+        rgba(255,255,255,.48)
     ),
 
     url("vvnr-campus.jpg");
@@ -46,10 +61,15 @@ body{
     background-size:cover;
 
     background-position:center;
+
+    background-repeat:no-repeat;
+
 }
 
 
-/* LOGIN CARD */
+/* =====================================================
+   LOGIN CARD
+===================================================== */
 
 .login-box{
 
@@ -57,7 +77,8 @@ body{
 
     max-width:400px;
 
-    background:white;
+    background:
+    rgba(255,255,255,.97);
 
     padding:30px;
 
@@ -68,26 +89,34 @@ body{
 
     box-shadow:
     0 15px 40px
-    rgba(0,0,0,.25);
+    rgba(0,0,0,.20);
+
 }
 
 
-/* LOGO */
+/* =====================================================
+   LOGO
+===================================================== */
 
 .logo{
 
     width:72px;
+
     height:72px;
 
     display:block;
 
     object-fit:contain;
 
-    margin:0 auto 12px;
+    margin:
+    0 auto 12px;
+
 }
 
 
-/* TITLE */
+/* =====================================================
+   TITLE
+===================================================== */
 
 h1{
 
@@ -96,7 +125,11 @@ h1{
     color:#8b0000;
 
     font-size:24px;
+
+    font-weight:800;
+
 }
+
 
 .subtitle{
 
@@ -109,10 +142,13 @@ h1{
     margin-top:5px;
 
     margin-bottom:23px;
+
 }
 
 
-/* LABEL */
+/* =====================================================
+   LABEL
+===================================================== */
 
 label{
 
@@ -126,10 +162,13 @@ label{
 
     margin:
     13px 0 6px;
+
 }
 
 
-/* INPUT */
+/* =====================================================
+   INPUT
+===================================================== */
 
 input{
 
@@ -145,7 +184,15 @@ input{
     font-size:14px;
 
     outline:none;
+
+    background:#ffffff;
+
+    color:#241818;
+
+    transition:.2s;
+
 }
+
 
 input:focus{
 
@@ -154,10 +201,13 @@ input:focus{
     box-shadow:
     0 0 0 3px
     rgba(139,0,0,.10);
+
 }
 
 
-/* BUTTON */
+/* =====================================================
+   LOGIN BUTTON
+===================================================== */
 
 .login-btn{
 
@@ -180,15 +230,25 @@ input:focus{
     font-weight:800;
 
     cursor:pointer;
+
+    transition:.2s;
+
 }
+
 
 .login-btn:hover{
 
     background:#a50000;
+
+    transform:
+    translateY(-1px);
+
 }
 
 
-/* ERROR */
+/* =====================================================
+   ERROR MESSAGE
+===================================================== */
 
 .error{
 
@@ -207,70 +267,138 @@ input:focus{
     text-align:center;
 
     font-size:11px;
+
+    border:
+    1px solid #f0cccc;
+
 }
 
 
-/* INFORMATION */
-
-.info{
-
-    margin-top:18px;
-
-    padding:11px;
-
-    background:#fff6f6;
-
-    border-left:
-    4px solid #8b0000;
-
-    color:#625454;
-
-    font-size:11px;
-
-    line-height:1.7;
-}
-
-
-/* BACK */
-
-.back{
-
-    display:block;
-
-    margin-top:17px;
-
-    text-align:center;
-
-    text-decoration:none;
-
-    color:#8b0000;
-
-    font-size:12px;
-
-    font-weight:700;
-}
-
-
-/* MOBILE */
+/* =====================================================
+   MOBILE
+===================================================== */
 
 @media(max-width:500px){
 
-    .login-box{
+    body{
 
-        padding:23px 18px;
+        padding:12px;
+
+        background:
+
+        linear-gradient(
+            rgba(255,255,255,.52),
+            rgba(255,255,255,.52)
+        ),
+
+        url("vvnr-campus.jpg");
+
+        background-size:cover;
+
+        background-position:center;
 
     }
+
+
+    .login-box{
+
+        max-width:360px;
+
+        padding:
+        24px 18px;
+
+        border-radius:11px;
+
+    }
+
 
     .logo{
 
         width:62px;
+
         height:62px;
 
+        margin-bottom:10px;
+
     }
+
 
     h1{
 
         font-size:21px;
+
+    }
+
+
+    .subtitle{
+
+        font-size:11px;
+
+        margin-bottom:20px;
+
+    }
+
+
+    label{
+
+        font-size:12px;
+
+    }
+
+
+    input{
+
+        padding:11px;
+
+        font-size:13px;
+
+    }
+
+
+    .login-btn{
+
+        padding:11px;
+
+        font-size:13px;
+
+    }
+
+}
+
+
+/* =====================================================
+   SMALL MOBILE
+===================================================== */
+
+@media(max-width:360px){
+
+    .login-box{
+
+        padding:
+        21px 15px;
+
+    }
+
+
+    .logo{
+
+        width:57px;
+
+        height:57px;
+
+    }
+
+
+    h1{
+
+        font-size:20px;
+
+    }
+
+
+    .subtitle{
+
+        font-size:10px;
 
     }
 
@@ -284,8 +412,14 @@ input:focus{
 <body>
 
 
+<!-- =====================================================
+     STAFF LOGIN
+===================================================== -->
+
 <div class="login-box">
 
+
+    <!-- TNAU LOGO -->
 
     <img
         src="tnau-logo.png"
@@ -293,10 +427,10 @@ input:focus{
         class="logo">
 
 
+    <!-- TITLE -->
+
     <h1>
-
         Staff Login
-
     </h1>
 
 
@@ -308,10 +442,14 @@ input:focus{
     </div>
 
 
+    <!-- LOGIN FORM -->
+
     <form id="staffLogin">
 
 
-        <label>
+        <!-- USERNAME -->
+
+        <label for="username">
 
             Username
 
@@ -321,11 +459,14 @@ input:focus{
         <input
             type="text"
             id="username"
-            placeholder="Enter staff name"
+            placeholder="Enter username"
+            autocomplete="username"
             required>
 
 
-        <label>
+        <!-- PASSWORD -->
+
+        <label for="password">
 
             Password
 
@@ -336,8 +477,11 @@ input:focus{
             type="password"
             id="password"
             placeholder="Enter password"
+            autocomplete="current-password"
             required>
 
+
+        <!-- LOGIN BUTTON -->
 
         <button
             type="submit"
@@ -348,11 +492,13 @@ input:focus{
         </button>
 
 
+        <!-- ERROR -->
+
         <div
             id="error"
             class="error">
 
-            Invalid staff username or password.
+            Invalid username or password.
 
         </div>
 
@@ -360,52 +506,34 @@ input:focus{
     </form>
 
 
-    <div class="info">
-
-        <b>Username:</b>
-        Team In-charge / Staff In-charge
-
-        <br>
-
-        <b>Password:</b>
-        paiyur2023
-
-    </div>
-
-
-    <a
-        href="index.html"
-        class="back">
-
-        ← Back to Home
-
-    </a>
-
-
 </div>
 
+
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
 
 <script>
 
 
-/* STAFF LOGIN DATA */
+/* =====================================================
+   STAFF LOGIN ACCOUNTS
+===================================================== */
 
 const staff = {
 
-    "team incharge":
+    "sankar":
     "paiyur2023",
 
-    "staff incharge":
-    "paiyur2023",
-
-    "dr. m. sankar":
-    "paiyur2023",
-
-    "dr. p. senthil kumar":
+    "senthilkumar":
     "paiyur2023"
 
 };
 
+
+/* =====================================================
+   STAFF LOGIN
+===================================================== */
 
 document
 .getElementById("staffLogin")
@@ -416,6 +544,8 @@ function(e){
     e.preventDefault();
 
 
+    /* GET USERNAME */
+
     const username =
 
         document
@@ -425,6 +555,8 @@ function(e){
         .toLowerCase();
 
 
+    /* GET PASSWORD */
+
     const password =
 
         document
@@ -433,6 +565,10 @@ function(e){
         .trim();
 
 
+    /* =================================================
+       CHECK LOGIN
+    ================================================= */
+
     if(
 
         staff[username] &&
@@ -440,16 +576,23 @@ function(e){
 
     ){
 
+        /* SAVE LOGIN STATUS */
+
         localStorage.setItem(
             "staffLoggedIn",
             "true"
         );
+
+
+        /* SAVE STAFF USERNAME */
 
         localStorage.setItem(
             "staffName",
             username
         );
 
+
+        /* OPEN DASHBOARD */
 
         window.location.href =
         "staff-dashboard.html";
@@ -458,9 +601,12 @@ function(e){
 
     else{
 
+        /* SHOW ERROR */
+
         document
         .getElementById("error")
-        .style.display="block";
+        .style.display =
+        "block";
 
     }
 
