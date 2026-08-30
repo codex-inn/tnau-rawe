@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
+
+<title>Staff Login | TNAU RAWE</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+
+    min-height:100vh;
+
+    display:flex;
+
+    justify-content:center;
+    align-items:center;
+
+    padding:15px;
+
+    font-family:
+    "Segoe UI",
+    Arial,
+    sans-serif;
+
+    background:
+
+    linear-gradient(
+        rgba(70,0,0,.70),
+        rgba(70,0,0,.70)
+    ),
+
+    url("vvnr-campus.jpg");
+
+    background-size:cover;
+
+    background-position:center;
+}
+
+
+/* LOGIN CARD */
+
+.login-box{
+
+    width:100%;
+
+    max-width:400px;
+
+    background:white;
+
+    padding:30px;
+
+    border-radius:12px;
+
+    border-top:
+    5px solid #8b0000;
+
+    box-shadow:
+    0 15px 40px
+    rgba(0,0,0,.25);
+}
+
+
+/* LOGO */
+
+.logo{
+
+    width:72px;
+    height:72px;
+
+    display:block;
+
+    object-fit:contain;
+
+    margin:0 auto 12px;
+}
+
+
+/* TITLE */
+
+h1{
+
+    text-align:center;
+
+    color:#8b0000;
+
+    font-size:24px;
+}
+
+.subtitle{
+
+    text-align:center;
+
+    color:#6b756e;
+
+    font-size:12px;
+
+    margin-top:5px;
+
+    margin-bottom:23px;
+}
+
+
+/* LABEL */
+
+label{
+
+    display:block;
+
+    color:#4a2828;
+
+    font-size:13px;
+
+    font-weight:700;
+
+    margin:
+    13px 0 6px;
+}
+
+
+/* INPUT */
+
+input{
+
+    width:100%;
+
+    padding:12px;
+
+    border:
+    1px solid #dccfcf;
+
+    border-radius:7px;
+
+    font-size:14px;
+
+    outline:none;
+}
+
+input:focus{
+
+    border-color:#8b0000;
+
+    box-shadow:
+    0 0 0 3px
+    rgba(139,0,0,.10);
+}
+
+
+/* BUTTON */
+
+.login-btn{
+
+    width:100%;
+
+    margin-top:20px;
+
+    padding:12px;
+
+    border:0;
+
+    border-radius:7px;
+
+    background:#8b0000;
+
+    color:white;
+
+    font-size:14px;
+
+    font-weight:800;
+
+    cursor:pointer;
+}
+
+.login-btn:hover{
+
+    background:#a50000;
+}
+
+
+/* ERROR */
+
+.error{
+
+    display:none;
+
+    margin-top:12px;
+
+    padding:9px;
+
+    background:#fff0f0;
+
+    color:#8b0000;
+
+    border-radius:6px;
+
+    text-align:center;
+
+    font-size:11px;
+}
+
+
+/* INFORMATION */
+
+.info{
+
+    margin-top:18px;
+
+    padding:11px;
+
+    background:#fff6f6;
+
+    border-left:
+    4px solid #8b0000;
+
+    color:#625454;
+
+    font-size:11px;
+
+    line-height:1.7;
+}
+
+
+/* BACK */
+
+.back{
+
+    display:block;
+
+    margin-top:17px;
+
+    text-align:center;
+
+    text-decoration:none;
+
+    color:#8b0000;
+
+    font-size:12px;
+
+    font-weight:700;
+}
+
+
+/* MOBILE */
+
+@media(max-width:500px){
+
+    .login-box{
+
+        padding:23px 18px;
+
+    }
+
+    .logo{
+
+        width:62px;
+        height:62px;
+
+    }
+
+    h1{
+
+        font-size:21px;
+
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<div class="login-box">
+
+
+    <img
+        src="tnau-logo.png"
+        alt="TNAU Logo"
+        class="logo">
+
+
+    <h1>
+
+        Staff Login
+
+    </h1>
+
+
+    <div class="subtitle">
+
+        TNAU RAWE Programme 2026 ·
+        Team Paiyur
+
+    </div>
+
+
+    <form id="staffLogin">
+
+
+        <label>
+
+            Username
+
+        </label>
+
+
+        <input
+            type="text"
+            id="username"
+            placeholder="Enter staff name"
+            required>
+
+
+        <label>
+
+            Password
+
+        </label>
+
+
+        <input
+            type="password"
+            id="password"
+            placeholder="Enter password"
+            required>
+
+
+        <button
+            type="submit"
+            class="login-btn">
+
+            Staff Login
+
+        </button>
+
+
+        <div
+            id="error"
+            class="error">
+
+            Invalid staff username or password.
+
+        </div>
+
+
+    </form>
+
+
+    <div class="info">
+
+        <b>Username:</b>
+        Team In-charge / Staff In-charge
+
+        <br>
+
+        <b>Password:</b>
+        paiyur2023
+
+    </div>
+
+
+    <a
+        href="index.html"
+        class="back">
+
+        ← Back to Home
+
+    </a>
+
+
+</div>
+
+
+<script>
+
+
+/* STAFF LOGIN DATA */
+
+const staff = {
+
+    "team incharge":
+    "paiyur2023",
+
+    "staff incharge":
+    "paiyur2023",
+
+    "dr. m. sankar":
+    "paiyur2023",
+
+    "dr. p. senthil kumar":
+    "paiyur2023"
+
+};
+
+
+document
+.getElementById("staffLogin")
+.addEventListener(
+"submit",
+function(e){
+
+    e.preventDefault();
+
+
+    const username =
+
+        document
+        .getElementById("username")
+        .value
+        .trim()
+        .toLowerCase();
+
+
+    const password =
+
+        document
+        .getElementById("password")
+        .value
+        .trim();
+
+
+    if(
+
+        staff[username] &&
+        staff[username] === password
+
+    ){
+
+        localStorage.setItem(
+            "staffLoggedIn",
+            "true"
+        );
+
+        localStorage.setItem(
+            "staffName",
+            username
+        );
+
+
+        window.location.href =
+        "staff-dashboard.html";
+
+    }
+
+    else{
+
+        document
+        .getElementById("error")
+        .style.display="block";
+
+    }
+
+});
+
+</script>
+
+
+</body>
+
+</html>
