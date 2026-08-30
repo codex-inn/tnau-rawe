@@ -1,0 +1,908 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
+
+<title>Staff Dashboard | TNAU RAWE</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+
+    font-family:
+    "Segoe UI",
+    Arial,
+    sans-serif;
+
+    background:#f5f6f5;
+
+    color:#17231a;
+}
+
+
+/* ================= HEADER ================= */
+
+header{
+
+    background:#033b20;
+
+    color:white;
+
+    min-height:78px;
+
+    padding:13px 5%;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    gap:15px;
+
+    border-bottom:
+    4px solid #c59a22;
+
+}
+
+
+.header-left{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    min-width:0;
+
+}
+
+
+.logo{
+
+    width:48px;
+
+    height:48px;
+
+    object-fit:contain;
+
+    background:white;
+
+    border-radius:50%;
+
+    padding:4px;
+
+    flex-shrink:0;
+
+}
+
+
+.header-text h1{
+
+    font-size:20px;
+
+    line-height:1.2;
+
+}
+
+
+.header-text p{
+
+    color:#d8e6dc;
+
+    font-size:11px;
+
+}
+
+
+.logout{
+
+    padding:8px 14px;
+
+    border:0;
+
+    border-radius:5px;
+
+    background:#8b0000;
+
+    color:white;
+
+    font-size:11px;
+
+    font-weight:800;
+
+    cursor:pointer;
+
+}
+
+.logout:hover{
+
+    background:#a50000;
+
+}
+
+
+/* ================= CONTAINER ================= */
+
+.container{
+
+    max-width:1100px;
+
+    margin:30px auto;
+
+    padding:0 18px;
+
+}
+
+
+/* ================= WELCOME ================= */
+
+.welcome{
+
+    background:white;
+
+    padding:22px;
+
+    border-radius:10px;
+
+    border-left:
+    5px solid #8b0000;
+
+    box-shadow:
+    0 5px 18px
+    rgba(0,0,0,.08);
+
+    margin-bottom:24px;
+
+}
+
+
+.welcome h2{
+
+    color:#07552f;
+
+    font-size:24px;
+
+}
+
+
+.welcome p{
+
+    color:#68746d;
+
+    font-size:12px;
+
+    margin-top:4px;
+
+}
+
+
+/* ================= GRID ================= */
+
+.dashboard-grid{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(2,minmax(0,1fr));
+
+    gap:17px;
+
+}
+
+
+/* ================= CARD ================= */
+
+.card{
+
+    background:white;
+
+    min-height:185px;
+
+    padding:21px;
+
+    border-radius:10px;
+
+    border:
+    1px solid #dfe6e1;
+
+    border-top:
+    4px solid #8b0000;
+
+    box-shadow:
+    0 5px 17px
+    rgba(0,0,0,.07);
+
+    transition:.25s;
+
+}
+
+
+.card:hover{
+
+    transform:
+    translateY(-4px);
+
+    box-shadow:
+    0 10px 25px
+    rgba(0,0,0,.12);
+
+}
+
+
+.card-icon{
+
+    width:45px;
+
+    height:45px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    border-radius:50%;
+
+    background:#fff3f3;
+
+    font-size:23px;
+
+    margin-bottom:10px;
+
+}
+
+
+.card h3{
+
+    color:#07552f;
+
+    font-size:17px;
+
+    margin-bottom:5px;
+
+}
+
+
+.card p{
+
+    color:#68746d;
+
+    font-size:12px;
+
+    line-height:1.5;
+
+    margin-bottom:14px;
+
+}
+
+
+.card-btn{
+
+    display:inline-block;
+
+    padding:8px 13px;
+
+    background:#07552f;
+
+    color:white;
+
+    border-radius:5px;
+
+    text-decoration:none;
+
+    border:0;
+
+    font-size:10px;
+
+    font-weight:800;
+
+    cursor:pointer;
+
+}
+
+
+.card-btn:hover{
+
+    background:#197447;
+
+}
+
+
+/* ================= FOOTER ================= */
+
+footer{
+
+    margin-top:45px;
+
+    background:#033b20;
+
+    color:white;
+
+    text-align:center;
+
+    padding:28px 15px;
+
+    border-top:
+    4px solid #c59a22;
+
+}
+
+
+footer strong{
+
+    color:#e0c85e;
+
+}
+
+
+footer p{
+
+    color:#d5e1d9;
+
+    font-size:11px;
+
+    margin-top:5px;
+
+}
+
+
+/* ================= MOBILE ================= */
+
+@media(max-width:600px){
+
+    header{
+
+        padding:10px;
+
+        min-height:65px;
+
+    }
+
+
+    .logo{
+
+        width:40px;
+
+        height:40px;
+
+    }
+
+
+    .header-text h1{
+
+        font-size:14px;
+
+    }
+
+
+    .header-text p{
+
+        font-size:8px;
+
+    }
+
+
+    .logout{
+
+        padding:7px 9px;
+
+        font-size:9px;
+
+    }
+
+
+    .container{
+
+        margin:22px auto;
+
+        padding:0 10px;
+
+    }
+
+
+    .welcome{
+
+        padding:17px 14px;
+
+        margin-bottom:15px;
+
+    }
+
+
+    .welcome h2{
+
+        font-size:18px;
+
+    }
+
+
+    .welcome p{
+
+        font-size:9px;
+
+    }
+
+
+    .dashboard-grid{
+
+        grid-template-columns:
+        repeat(2,minmax(0,1fr));
+
+        gap:10px;
+
+    }
+
+
+    .card{
+
+        min-height:185px;
+
+        padding:13px 9px;
+
+        border-top-width:3px;
+
+    }
+
+
+    .card-icon{
+
+        width:37px;
+
+        height:37px;
+
+        font-size:19px;
+
+        margin-bottom:8px;
+
+    }
+
+
+    .card h3{
+
+        font-size:12px;
+
+        line-height:1.25;
+
+    }
+
+
+    .card p{
+
+        font-size:9px;
+
+        line-height:1.4;
+
+        margin-bottom:10px;
+
+    }
+
+
+    .card-btn{
+
+        padding:7px 8px;
+
+        font-size:8px;
+
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- ================= HEADER ================= -->
+
+<header>
+
+
+    <div class="header-left">
+
+
+        <img
+            src="tnau-logo.png"
+            alt="TNAU Logo"
+            class="logo">
+
+
+        <div class="header-text">
+
+            <h1>
+                Staff Dashboard
+            </h1>
+
+            <p>
+                TNAU RAWE Programme 2026 ·
+                Team Paiyur
+            </p>
+
+        </div>
+
+
+    </div>
+
+
+    <button
+        class="logout"
+        onclick="logout()">
+
+        Logout
+
+    </button>
+
+
+</header>
+
+
+
+<!-- ================= MAIN ================= -->
+
+<main class="container">
+
+
+    <div class="welcome">
+
+
+        <h2>
+
+            Welcome,
+            <span id="staffName">
+                Staff
+            </span>
+
+        </h2>
+
+
+        <p>
+
+            Staff Management Portal ·
+            Team Paiyur
+
+        </p>
+
+
+    </div>
+
+
+
+    <div class="dashboard-grid">
+
+
+        <!-- NOTICE -->
+
+        <div class="card">
+
+            <div class="card-icon">
+                📢
+            </div>
+
+            <h3>
+                Post Notices
+            </h3>
+
+            <p>
+                Publish announcements and
+                important updates for students.
+            </p>
+
+            <button
+                class="card-btn"
+                onclick="showMessage('Post Notices')">
+
+                Post Notice
+
+            </button>
+
+        </div>
+
+
+        <!-- ACTIVITIES -->
+
+        <div class="card">
+
+            <div class="card-icon">
+                📅
+            </div>
+
+            <h3>
+                Create Activities
+            </h3>
+
+            <p>
+                Create and manage daily
+                RAWE programme activities.
+            </p>
+
+            <a
+                href="activities.html"
+                class="card-btn">
+
+                Manage Activities
+
+            </a>
+
+        </div>
+
+
+        <!-- STUDENTS -->
+
+        <div class="card">
+
+            <div class="card-icon">
+                👥
+            </div>
+
+            <h3>
+                View Students
+            </h3>
+
+            <p>
+                View Team Paiyur student
+                details and ID numbers.
+            </p>
+
+            <a
+                href="students.html"
+                class="card-btn">
+
+                View Students
+
+            </a>
+
+        </div>
+
+
+        <!-- DIARY -->
+
+        <div class="card">
+
+            <div class="card-icon">
+                📝
+            </div>
+
+            <h3>
+                Review Field Diaries
+            </h3>
+
+            <p>
+                Review daily field diary
+                entries submitted by students.
+            </p>
+
+            <button
+                class="card-btn"
+                onclick="showMessage('Review Field Diaries')">
+
+                Review Diaries
+
+            </button>
+
+        </div>
+
+
+        <!-- PHOTOS -->
+
+        <div class="card">
+
+            <div class="card-icon">
+                📸
+            </div>
+
+            <h3>
+                Review Photos
+            </h3>
+
+            <p>
+                Review field photographs
+                submitted by students.
+            </p>
+
+            <button
+                class="card-btn"
+                onclick="showMessage('Review Photos')">
+
+                Review Photos
+
+            </button>
+
+        </div>
+
+
+        <!-- PROGRESS -->
+
+        <div class="card">
+
+            <div class="card-icon">
+                📊
+            </div>
+
+            <h3>
+                Team Progress
+            </h3>
+
+            <p>
+                Monitor attendance,
+                activities and team progress.
+            </p>
+
+            <a
+                href="attendance.html"
+                class="card-btn">
+
+                View Progress
+
+            </a>
+
+        </div>
+
+
+        <!-- QUESTIONS -->
+
+        <div class="card">
+
+            <div class="card-icon">
+                💬
+            </div>
+
+            <h3>
+                Student Questions
+            </h3>
+
+            <p>
+                View questions and messages
+                sent by students.
+            </p>
+
+            <button
+                class="card-btn"
+                onclick="showMessage('Student Questions')">
+
+                View Questions
+
+            </button>
+
+        </div>
+
+
+        <!-- SUBMISSIONS -->
+
+        <div class="card">
+
+            <div class="card-icon">
+                ✅
+            </div>
+
+            <h3>
+                Approve / Reject Submissions
+            </h3>
+
+            <p>
+                Review student work and
+                update submission status.
+            </p>
+
+            <button
+                class="card-btn"
+                onclick="showMessage('Submissions')">
+
+                Review Submissions
+
+            </button>
+
+        </div>
+
+
+    </div>
+
+
+</main>
+
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+    <strong>
+        TEAM : PAIYUR
+    </strong>
+
+    <p>
+        Staff Management Portal ·
+        TNAU RAWE Programme 2026
+    </p>
+
+</footer>
+
+
+
+<script>
+
+/* =========================
+   LOGIN PROTECTION
+========================= */
+
+if(
+    localStorage.getItem(
+        "staffLoggedIn"
+    ) !== "true"
+){
+
+    window.location.href =
+    "staff-login.html";
+
+}
+
+
+/* =========================
+   STAFF NAME
+========================= */
+
+document
+.getElementById("staffName")
+.textContent =
+localStorage.getItem(
+    "staffName"
+) || "Staff";
+
+
+/* =========================
+   MESSAGE
+========================= */
+
+function showMessage(name){
+
+    alert(
+        name +
+        " section is ready for integration."
+    );
+
+}
+
+
+/* =========================
+   LOGOUT
+========================= */
+
+function logout(){
+
+    localStorage.removeItem(
+        "staffLoggedIn"
+    );
+
+    localStorage.removeItem(
+        "staffName"
+    );
+
+    window.location.href =
+    "staff-login.html";
+
+}
+
+</script>
+
+
+</body>
+
+</html>
