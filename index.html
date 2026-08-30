@@ -49,68 +49,125 @@ body{
 
 
 /* =====================================================
-   HOME PAGE TOP HEADER
+   TOP BANNER
 ===================================================== */
 
 .top-header{
 
-    min-height:225px;
+    position:relative;
+
+    min-height:230px;
 
     display:flex;
+
     align-items:center;
 
-    gap:30px;
+    gap:28px;
 
-    padding:25px 5%;
+    padding:28px 5%;
 
-    background:
+    color:white;
+
+    overflow:hidden;
+
+    /*
+       MEDIUM VISIBILITY BACKGROUND IMAGE
+    */
+
+    background-image:
     linear-gradient(
-        90deg,
-        rgba(255,255,255,.98),
-        rgba(255,255,255,.90),
-        rgba(255,255,255,.60)
+        rgba(0,55,28,.52),
+        rgba(0,55,28,.52)
     ),
     url("tnau-coimbatore.jpg");
 
     background-size:cover;
-    background-position:center;
+
+    background-position:center center;
+
+    background-repeat:no-repeat;
 
     border-bottom:4px solid #176b3a;
 }
 
 
-/* TNAU LOGO */
+/* subtle banner overlay */
+
+.top-header::after{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+    linear-gradient(
+        90deg,
+        rgba(0,45,22,.40),
+        rgba(0,45,22,.16),
+        rgba(0,45,22,.38)
+    );
+
+    pointer-events:none;
+}
+
+
+/* Keep header contents above overlay */
+
+.top-header > *{
+
+    position:relative;
+
+    z-index:2;
+}
+
+
+/* =====================================================
+   LOGO
+===================================================== */
 
 .logo{
 
-    width:130px;
-    height:130px;
+    width:125px;
+
+    height:125px;
 
     object-fit:contain;
 
     flex-shrink:0;
 
-    filter:
-    contrast(1.2)
-    brightness(.90);
+    background:rgba(255,255,255,.92);
+
+    border-radius:50%;
+
+    padding:8px;
+
+    box-shadow:
+    0 5px 18px rgba(0,0,0,.28);
 }
 
 
-/* HEADER CONTENT */
+/* =====================================================
+   HEADER TEXT
+===================================================== */
 
 .header-text{
 
     flex:1;
 
     text-align:left;
+
+    text-shadow:
+    0 2px 5px rgba(0,0,0,.65);
 }
 
 
-/* UNIVERSITY NAME */
+/* UNIVERSITY */
 
 .university-name{
 
-    color:#075128;
+    color:#ffffff;
 
     font-size:
     clamp(22px,3vw,38px);
@@ -119,7 +176,7 @@ body{
 
     line-height:1.15;
 
-    letter-spacing:.3px;
+    letter-spacing:.4px;
 
     margin-bottom:7px;
 
@@ -127,11 +184,11 @@ body{
 }
 
 
-/* COLLEGE NAME */
+/* COLLEGE */
 
 .college-name{
 
-    color:#1d3d28;
+    color:#f4ffe9;
 
     font-size:
     clamp(16px,2vw,23px);
@@ -148,7 +205,7 @@ body{
 
 .header-location{
 
-    color:#405248;
+    color:#eef9e9;
 
     font-size:
     clamp(14px,1.5vw,18px);
@@ -163,7 +220,7 @@ body{
 
 .rawe-title{
 
-    color:#a31313;
+    color:#fff5a8;
 
     font-size:
     clamp(20px,2.5vw,30px);
@@ -172,7 +229,7 @@ body{
 
     line-height:1.2;
 
-    letter-spacing:.5px;
+    letter-spacing:.6px;
 }
 
 
@@ -180,7 +237,7 @@ body{
 
 .batch{
 
-    color:#176b3a;
+    color:#ffffff;
 
     font-size:
     clamp(14px,1.5vw,18px);
@@ -191,7 +248,9 @@ body{
 }
 
 
-/* TEAM BOX */
+/* =====================================================
+   TEAM BOX
+===================================================== */
 
 .theme-box{
 
@@ -202,21 +261,24 @@ body{
     text-align:center;
 
     background:
-    rgba(6,63,32,.94);
+    rgba(0,63,32,.88);
 
     border-radius:14px;
 
     box-shadow:
-    0 6px 18px rgba(0,0,0,.20);
+    0 6px 18px rgba(0,0,0,.30);
 
-    border:2px solid #8cc46f;
+    border:2px solid rgba(175,224,148,.85);
+
+    text-shadow:
+    0 2px 4px rgba(0,0,0,.5);
 }
 
 .theme-box small{
 
     display:block;
 
-    color:#c9e6b9;
+    color:#d9f0ca;
 
     font-size:12px;
 
@@ -311,9 +373,9 @@ nav i{
 
     linear-gradient(
         90deg,
-        rgba(0,45,22,.88),
-        rgba(0,45,22,.53),
-        rgba(0,45,22,.12)
+        rgba(0,45,22,.87),
+        rgba(0,45,22,.50),
+        rgba(0,45,22,.15)
     );
 }
 
@@ -656,7 +718,7 @@ nav i{
 
 
 /* =====================================================
-   RAWE GALLERY
+   GALLERY
 ===================================================== */
 
 .gallery-section{
@@ -908,7 +970,7 @@ nav i{
 
 
 /* =====================================================
-   BOTTOM CAMPUS
+   BOTTOM IMAGE
 ===================================================== */
 
 .bottom-campus{
@@ -993,20 +1055,28 @@ footer{
 @media(max-width:1000px){
 
     .top-header{
+
+        padding:24px 4%;
+
         gap:20px;
     }
 
     .logo{
+
         width:105px;
+
         height:105px;
     }
 
     .theme-box{
+
         min-width:145px;
+
         padding:16px 12px;
     }
 
     .theme-box strong{
+
         font-size:26px;
     }
 
@@ -1030,7 +1100,9 @@ footer{
 
 @media(max-width:600px){
 
-    /* HEADER */
+    /* ---------------------------------
+       TOP BANNER MOBILE
+    --------------------------------- */
 
     .top-header{
 
@@ -1044,11 +1116,14 @@ footer{
 
         padding:22px 15px;
 
-        background:
+        /*
+          Medium visible mobile banner
+        */
 
+        background-image:
         linear-gradient(
-            rgba(255,255,255,.94),
-            rgba(255,255,255,.88)
+            rgba(0,55,28,.48),
+            rgba(0,55,28,.48)
         ),
         url("tnau-coimbatore.jpg");
 
@@ -1062,6 +1137,8 @@ footer{
         width:82px;
 
         height:82px;
+
+        padding:6px;
     }
 
     .header-text{
@@ -1073,7 +1150,7 @@ footer{
 
     .university-name{
 
-        font-size:21px;
+        font-size:20px;
 
         line-height:1.2;
 
@@ -1082,33 +1159,33 @@ footer{
 
     .college-name{
 
-        font-size:15px;
+        font-size:14px;
 
         line-height:1.3;
     }
 
     .header-location{
 
-        font-size:13px;
+        font-size:12px;
 
         margin-bottom:9px;
     }
 
     .rawe-title{
 
-        font-size:22px;
+        font-size:21px;
 
         line-height:1.2;
     }
 
     .batch{
 
-        font-size:14px;
+        font-size:13px;
     }
 
     .theme-box{
 
-        min-width:145px;
+        min-width:140px;
 
         padding:11px 18px;
 
@@ -1124,11 +1201,13 @@ footer{
 
     .theme-box strong{
 
-        font-size:25px;
+        font-size:24px;
     }
 
 
-    /* NAV */
+    /* ---------------------------------
+       NAVIGATION
+    --------------------------------- */
 
     nav{
 
@@ -1150,7 +1229,9 @@ footer{
     }
 
 
-    /* HERO */
+    /* ---------------------------------
+       HERO
+    --------------------------------- */
 
     .hero{
 
@@ -1175,7 +1256,9 @@ footer{
     }
 
 
-    /* SECTIONS */
+    /* ---------------------------------
+       SECTIONS
+    --------------------------------- */
 
     .section,
     .gallery-section{
@@ -1189,7 +1272,9 @@ footer{
     }
 
 
-    /* TEAM */
+    /* ---------------------------------
+       TEAM
+    --------------------------------- */
 
     .team-grid{
 
@@ -1237,7 +1322,9 @@ footer{
     }
 
 
-    /* PROGRAMME */
+    /* ---------------------------------
+       PROGRAMME
+    --------------------------------- */
 
     .programme-grid{
 
@@ -1277,7 +1364,9 @@ footer{
     }
 
 
-    /* GALLERY */
+    /* ---------------------------------
+       GALLERY
+    --------------------------------- */
 
     .gallery-grid{
 
@@ -1300,7 +1389,9 @@ footer{
     }
 
 
-    /* HIGHLIGHTS */
+    /* ---------------------------------
+       HIGHLIGHTS
+    --------------------------------- */
 
     .highlights{
 
@@ -1331,7 +1422,9 @@ footer{
     }
 
 
-    /* CONTACT */
+    /* ---------------------------------
+       CONTACT
+    --------------------------------- */
 
     .contact-grid{
 
@@ -1365,7 +1458,9 @@ footer{
     }
 
 
-    /* BOTTOM */
+    /* ---------------------------------
+       BOTTOM IMAGE
+    --------------------------------- */
 
     .bottom-campus{
 
@@ -1383,37 +1478,37 @@ footer{
 
     .university-name{
 
-        font-size:18px;
+        font-size:17px;
     }
 
     .college-name{
 
-        font-size:13px;
+        font-size:12px;
     }
 
     .header-location{
 
-        font-size:11px;
+        font-size:10px;
     }
 
     .rawe-title{
 
-        font-size:19px;
+        font-size:18px;
     }
 
     .batch{
 
-        font-size:12px;
+        font-size:11px;
     }
 
     .theme-box{
 
-        min-width:125px;
+        min-width:120px;
     }
 
     .theme-box strong{
 
-        font-size:22px;
+        font-size:21px;
     }
 
     nav a{
@@ -1421,13 +1516,6 @@ footer{
         font-size:10px;
 
         padding:7px 5px;
-    }
-
-    .team-grid,
-    .programme-grid,
-    .contact-grid{
-
-        gap:9px;
     }
 
     .gallery-grid{
@@ -1451,27 +1539,27 @@ footer{
 
     .university-name{
 
-        font-size:16px;
+        font-size:15px;
     }
 
     .college-name{
 
-        font-size:12px;
+        font-size:11px;
     }
 
     .header-location{
 
-        font-size:10px;
+        font-size:9px;
     }
 
     .rawe-title{
 
-        font-size:17px;
+        font-size:16px;
     }
 
     .theme-box strong{
 
-        font-size:20px;
+        font-size:19px;
     }
 
 }
@@ -1485,21 +1573,17 @@ footer{
 
 
 <!-- =====================================================
-     NEW HOME PAGE TOP
+     TOP BANNER
 ===================================================== -->
 
 <header class="top-header">
 
-
-    <!-- TNAU LOGO -->
 
     <img
         src="tnau-logo.png"
         alt="Tamil Nadu Agricultural University Logo"
         class="logo">
 
-
-    <!-- MAIN TITLE -->
 
     <div class="header-text">
 
@@ -1542,8 +1626,6 @@ footer{
     </div>
 
 
-    <!-- TEAM -->
-
     <div class="theme-box">
 
         <small>
@@ -1570,7 +1652,6 @@ footer{
     <a href="index.html">
 
         <i class="fa-solid fa-house"></i>
-
         Home
 
     </a>
@@ -1579,7 +1660,6 @@ footer{
     <a href="#about">
 
         <i class="fa-solid fa-circle-info"></i>
-
         About RAWE
 
     </a>
@@ -1588,7 +1668,6 @@ footer{
     <a href="#team">
 
         <i class="fa-solid fa-users"></i>
-
         Team
 
     </a>
@@ -1597,7 +1676,6 @@ footer{
     <a href="village.html">
 
         <i class="fa-solid fa-location-dot"></i>
-
         Village Profile
 
     </a>
@@ -1606,7 +1684,6 @@ footer{
     <a href="activities.html">
 
         <i class="fa-solid fa-calendar-day"></i>
-
         Activities
 
     </a>
@@ -1615,7 +1692,6 @@ footer{
     <a href="attendance.html">
 
         <i class="fa-solid fa-clipboard-check"></i>
-
         Attendance
 
     </a>
@@ -1624,7 +1700,6 @@ footer{
     <a href="#gallery">
 
         <i class="fa-solid fa-images"></i>
-
         Gallery
 
     </a>
@@ -1633,7 +1708,6 @@ footer{
     <a href="students.html">
 
         <i class="fa-solid fa-graduation-cap"></i>
-
         Students
 
     </a>
@@ -1642,7 +1716,6 @@ footer{
     <a href="#contact">
 
         <i class="fa-solid fa-phone"></i>
-
         Contact
 
     </a>
@@ -1670,7 +1743,6 @@ footer{
         <h2>
 
             TNAU RAWE<br>
-
             PROGRAMME 2026
 
         </h2>
@@ -1835,7 +1907,7 @@ footer{
 
 
 <!-- =====================================================
-     RAWE PROGRAMME
+     PROGRAMME
 ===================================================== -->
 
 <section
@@ -1955,7 +2027,7 @@ footer{
 
 
 <!-- =====================================================
-     GALLERY - ONLY 5 IMAGES
+     GALLERY
 ===================================================== -->
 
 <section
@@ -1975,18 +2047,18 @@ footer{
 
         <div class="gallery-item">
 
-            <a
-                href="gallery1.jpg"
-                target="_blank">
+            <a href="gallery1.jpg" target="_blank">
 
                 <img
                     src="gallery1.jpg"
-                    alt="RAWE Programme Activity 1">
+                    alt="RAWE Programme Activity">
 
             </a>
 
             <div class="gallery-caption">
+
                 🌱 RAWE Programme Activity
+
             </div>
 
         </div>
@@ -1994,9 +2066,7 @@ footer{
 
         <div class="gallery-item">
 
-            <a
-                href="gallery2.jpg"
-                target="_blank">
+            <a href="gallery2.jpg" target="_blank">
 
                 <img
                     src="gallery2.jpg"
@@ -2005,7 +2075,9 @@ footer{
             </a>
 
             <div class="gallery-caption">
+
                 👨‍🌾 Farmer Interaction
+
             </div>
 
         </div>
@@ -2013,9 +2085,7 @@ footer{
 
         <div class="gallery-item">
 
-            <a
-                href="gallery3.jpg"
-                target="_blank">
+            <a href="gallery3.jpg" target="_blank">
 
                 <img
                     src="gallery3.jpg"
@@ -2024,7 +2094,9 @@ footer{
             </a>
 
             <div class="gallery-caption">
+
                 🌾 Agricultural Activity
+
             </div>
 
         </div>
@@ -2032,9 +2104,7 @@ footer{
 
         <div class="gallery-item">
 
-            <a
-                href="gallery4.jpg"
-                target="_blank">
+            <a href="gallery4.jpg" target="_blank">
 
                 <img
                     src="gallery4.jpg"
@@ -2043,7 +2113,9 @@ footer{
             </a>
 
             <div class="gallery-caption">
+
                 🚜 Field Visit
+
             </div>
 
         </div>
@@ -2051,9 +2123,7 @@ footer{
 
         <div class="gallery-item">
 
-            <a
-                href="gallery5.jpg"
-                target="_blank">
+            <a href="gallery5.jpg" target="_blank">
 
                 <img
                     src="gallery5.jpg"
@@ -2062,7 +2132,9 @@ footer{
             </a>
 
             <div class="gallery-caption">
+
                 📚 RAWE Field Activity
+
             </div>
 
         </div>
@@ -2090,7 +2162,6 @@ footer{
 
 
     <div class="content-box">
-
 
         <p>
 
@@ -2123,7 +2194,6 @@ footer{
             Learn × Experience × Serve × Grow
 
         </strong>
-
 
     </div>
 
@@ -2253,8 +2323,7 @@ footer{
                 Dr. M. Sankar, Ph.D
             </strong>
 
-            <a
-                href="mailto:librarytvmalai@tnau.ac.in">
+            <a href="mailto:librarytvmalai@tnau.ac.in">
 
                 ✉️ librarytvmalai@tnau.ac.in
 
@@ -2277,8 +2346,7 @@ footer{
                 Dr. P. Senthil Kumar
             </strong>
 
-            <a
-                href="mailto:senthilkumarp@tnau.ac.in">
+            <a href="mailto:senthilkumarp@tnau.ac.in">
 
                 ✉️ senthilkumarp@tnau.ac.in
 
@@ -2302,8 +2370,7 @@ footer{
                 Gokula Balaji R
             </strong>
 
-            <a
-                href="tel:9597135679">
+            <a href="tel:9597135679">
 
                 📱 9597135679
 
@@ -2326,8 +2393,7 @@ footer{
                 Kowshik S
             </strong>
 
-            <a
-                href="mailto:kowshik.in@outlook.com">
+            <a href="mailto:kowshik.in@outlook.com">
 
                 ✉️ kowshik.in@outlook.com
 
@@ -2353,7 +2419,6 @@ footer{
 ===================================================== -->
 
 <footer>
-
 
     <div class="footer-title">
 
@@ -2385,7 +2450,6 @@ footer{
         © 2026 TNAU RAWE Programme
 
     </div>
-
 
 </footer>
 
