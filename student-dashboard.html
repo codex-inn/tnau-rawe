@@ -1,0 +1,967 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
+
+<title>Student Dashboard | TNAU RAWE</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+
+    font-family:
+    "Segoe UI",
+    Arial,
+    sans-serif;
+
+    background:#f4f7f4;
+
+    color:#17231a;
+}
+
+
+/* ================= HEADER ================= */
+
+header{
+
+    background:#033b20;
+
+    color:white;
+
+    min-height:78px;
+
+    padding:13px 5%;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    gap:15px;
+
+    border-bottom:
+    4px solid #c59a22;
+
+}
+
+.header-left{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    min-width:0;
+
+}
+
+.logo{
+
+    width:48px;
+
+    height:48px;
+
+    object-fit:contain;
+
+    background:white;
+
+    border-radius:50%;
+
+    padding:4px;
+
+    flex-shrink:0;
+
+}
+
+.header-text h1{
+
+    font-size:20px;
+
+    line-height:1.2;
+
+}
+
+.header-text p{
+
+    color:#d8e6dc;
+
+    font-size:11px;
+
+}
+
+
+/* LOGOUT */
+
+.logout{
+
+    padding:8px 14px;
+
+    border:0;
+
+    border-radius:5px;
+
+    background:#8b0000;
+
+    color:white;
+
+    font-size:11px;
+
+    font-weight:800;
+
+    cursor:pointer;
+
+    flex-shrink:0;
+
+}
+
+.logout:hover{
+
+    background:#a50000;
+
+}
+
+
+/* ================= CONTAINER ================= */
+
+.container{
+
+    max-width:1100px;
+
+    margin:30px auto;
+
+    padding:0 18px;
+
+}
+
+
+/* ================= WELCOME ================= */
+
+.welcome{
+
+    background:white;
+
+    padding:22px;
+
+    border-radius:10px;
+
+    border-left:
+    5px solid #07552f;
+
+    box-shadow:
+    0 5px 18px
+    rgba(0,0,0,.08);
+
+    margin-bottom:24px;
+
+}
+
+.welcome h2{
+
+    color:#07552f;
+
+    font-size:24px;
+
+}
+
+.welcome p{
+
+    color:#68746d;
+
+    font-size:12px;
+
+    margin-top:4px;
+
+}
+
+
+/* ================= DASHBOARD GRID ================= */
+
+.dashboard-grid{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(2,minmax(0,1fr));
+
+    gap:17px;
+
+}
+
+
+/* ================= CARD ================= */
+
+.card{
+
+    background:white;
+
+    min-height:185px;
+
+    padding:21px;
+
+    border-radius:10px;
+
+    border:
+    1px solid #dfe6e1;
+
+    border-top:
+    4px solid #197447;
+
+    box-shadow:
+    0 5px 17px
+    rgba(0,0,0,.07);
+
+    transition:.25s;
+
+}
+
+.card:hover{
+
+    transform:
+    translateY(-4px);
+
+    box-shadow:
+    0 10px 25px
+    rgba(0,0,0,.12);
+
+}
+
+
+.card-icon{
+
+    width:45px;
+
+    height:45px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    border-radius:50%;
+
+    background:#edf5ef;
+
+    font-size:23px;
+
+    margin-bottom:10px;
+
+}
+
+
+.card h3{
+
+    color:#07552f;
+
+    font-size:17px;
+
+    margin-bottom:5px;
+
+}
+
+
+.card p{
+
+    color:#68746d;
+
+    font-size:12px;
+
+    line-height:1.5;
+
+    margin-bottom:14px;
+
+}
+
+
+.card-btn{
+
+    display:inline-block;
+
+    padding:8px 13px;
+
+    background:#07552f;
+
+    color:white;
+
+    border-radius:5px;
+
+    text-decoration:none;
+
+    border:0;
+
+    font-size:10px;
+
+    font-weight:800;
+
+    cursor:pointer;
+
+}
+
+.card-btn:hover{
+
+    background:#197447;
+
+}
+
+
+/* ================= STATUS ================= */
+
+.status{
+
+    display:inline-block;
+
+    padding:4px 8px;
+
+    border-radius:20px;
+
+    background:#e8f4eb;
+
+    color:#176b3a;
+
+    font-size:9px;
+
+    font-weight:800;
+
+}
+
+
+/* ================= FOOTER ================= */
+
+footer{
+
+    margin-top:45px;
+
+    background:#033b20;
+
+    color:white;
+
+    text-align:center;
+
+    padding:28px 15px;
+
+    border-top:
+    4px solid #c59a22;
+
+}
+
+footer strong{
+
+    color:#e0c85e;
+
+}
+
+footer p{
+
+    color:#d5e1d9;
+
+    font-size:11px;
+
+    margin-top:5px;
+
+}
+
+
+/* ================= MOBILE ================= */
+
+@media(max-width:600px){
+
+    header{
+
+        padding:10px;
+
+        min-height:65px;
+
+    }
+
+    .logo{
+
+        width:40px;
+
+        height:40px;
+
+    }
+
+    .header-text h1{
+
+        font-size:14px;
+
+    }
+
+    .header-text p{
+
+        font-size:8px;
+
+    }
+
+    .logout{
+
+        padding:7px 9px;
+
+        font-size:9px;
+
+    }
+
+
+    .container{
+
+        margin:22px auto;
+
+        padding:0 10px;
+
+    }
+
+
+    .welcome{
+
+        padding:17px 14px;
+
+        margin-bottom:15px;
+
+    }
+
+    .welcome h2{
+
+        font-size:18px;
+
+    }
+
+    .welcome p{
+
+        font-size:9px;
+
+    }
+
+
+    .dashboard-grid{
+
+        grid-template-columns:
+        repeat(2,minmax(0,1fr));
+
+        gap:10px;
+
+    }
+
+
+    .card{
+
+        min-height:185px;
+
+        padding:13px 9px;
+
+        border-top-width:3px;
+
+    }
+
+
+    .card-icon{
+
+        width:37px;
+
+        height:37px;
+
+        font-size:19px;
+
+        margin-bottom:8px;
+
+    }
+
+
+    .card h3{
+
+        font-size:12px;
+
+        line-height:1.25;
+
+    }
+
+
+    .card p{
+
+        font-size:9px;
+
+        line-height:1.4;
+
+        margin-bottom:10px;
+
+    }
+
+
+    .card-btn{
+
+        padding:7px 8px;
+
+        font-size:8px;
+
+    }
+
+
+    .status{
+
+        font-size:7px;
+
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- ================= HEADER ================= -->
+
+<header>
+
+
+    <div class="header-left">
+
+
+        <img
+            src="tnau-logo.png"
+            alt="TNAU Logo"
+            class="logo">
+
+
+        <div class="header-text">
+
+            <h1>
+                Student Dashboard
+            </h1>
+
+            <p>
+                TNAU RAWE Programme 2026 ·
+                Team Paiyur
+            </p>
+
+        </div>
+
+
+    </div>
+
+
+    <button
+        class="logout"
+        onclick="logout()">
+
+        Logout
+
+    </button>
+
+
+</header>
+
+
+
+<!-- ================= MAIN ================= -->
+
+<main class="container">
+
+
+    <!-- WELCOME -->
+
+    <div class="welcome">
+
+
+        <h2>
+
+            Welcome,
+            <span id="studentName">
+                Student
+            </span>
+
+        </h2>
+
+
+        <p>
+
+            Student ID:
+            <strong id="studentId">
+            </strong>
+
+            &nbsp; · &nbsp;
+
+            <span class="status">
+                Active
+            </span>
+
+        </p>
+
+
+    </div>
+
+
+
+    <!-- DASHBOARD -->
+
+    <div class="dashboard-grid">
+
+
+        <!-- NOTICES -->
+
+        <div class="card">
+
+            <div class="card-icon">
+                📢
+            </div>
+
+            <h3>
+                Notices
+            </h3>
+
+            <p>
+                View important announcements
+                and updates from the RAWE team.
+            </p>
+
+            <button
+                class="card-btn"
+                onclick="showMessage('Notices')">
+
+                View Notices
+
+            </button>
+
+        </div>
+
+
+
+        <!-- ACTIVITIES -->
+
+        <div class="card">
+
+            <div class="card-icon">
+                📅
+            </div>
+
+            <h3>
+                Today's Activities
+            </h3>
+
+            <p>
+                Check today's assigned
+                RAWE programme activities.
+            </p>
+
+            <a
+                href="activities.html"
+                class="card-btn">
+
+                Open Activities
+
+            </a>
+
+        </div>
+
+
+
+        <!-- FIELD DIARY -->
+
+        <div class="card">
+
+            <div class="card-icon">
+                📝
+            </div>
+
+            <h3>
+                Daily Field Diary
+            </h3>
+
+            <p>
+                Record your daily field
+                observations and experiences.
+            </p>
+
+            <button
+                class="card-btn"
+                onclick="showMessage('Daily Field Diary')">
+
+                Open Diary
+
+            </button>
+
+        </div>
+
+
+
+        <!-- PHOTOS -->
+
+        <div class="card">
+
+            <div class="card-icon">
+                📸
+            </div>
+
+            <h3>
+                Upload Field Photos
+            </h3>
+
+            <p>
+                Select and upload photographs
+                from RAWE activities.
+            </p>
+
+            <button
+                class="card-btn"
+                onclick="uploadPhoto()">
+
+                Upload Photos
+
+            </button>
+
+        </div>
+
+
+
+        <!-- PROGRESS -->
+
+        <div class="card">
+
+            <div class="card-icon">
+                📊
+            </div>
+
+            <h3>
+                My RAWE Progress
+            </h3>
+
+            <p>
+                View attendance, activities
+                and overall RAWE progress.
+            </p>
+
+            <button
+                class="card-btn"
+                onclick="showMessage('RAWE Progress')">
+
+                View Progress
+
+            </button>
+
+        </div>
+
+
+
+        <!-- VILLAGE -->
+
+        <div class="card">
+
+            <div class="card-icon">
+                📍
+            </div>
+
+            <h3>
+                Assigned Village / Field
+            </h3>
+
+            <p>
+                View your assigned village
+                and agricultural field.
+            </p>
+
+            <a
+                href="village.html"
+                class="card-btn">
+
+                View Location
+
+            </a>
+
+        </div>
+
+
+
+        <!-- ASK STAFF -->
+
+        <div class="card">
+
+            <div class="card-icon">
+                💬
+            </div>
+
+            <h3>
+                Ask Staff
+            </h3>
+
+            <p>
+                Send questions or messages
+                to the RAWE staff.
+            </p>
+
+            <button
+                class="card-btn"
+                onclick="showMessage('Ask Staff')">
+
+                Ask Staff
+
+            </button>
+
+        </div>
+
+
+
+        <!-- SUBMISSIONS -->
+
+        <div class="card">
+
+            <div class="card-icon">
+                📄
+            </div>
+
+            <h3>
+                My Submissions
+            </h3>
+
+            <p>
+                Check your submitted work
+                and approval status.
+            </p>
+
+            <button
+                class="card-btn"
+                onclick="showMessage('My Submissions')">
+
+                View Submissions
+
+            </button>
+
+        </div>
+
+
+    </div>
+
+
+</main>
+
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+    <strong>
+        TEAM : PAIYUR
+    </strong>
+
+    <p>
+        TNAU RAWE Programme 2026 ·
+        Learn × Experience × Serve × Grow
+    </p>
+
+</footer>
+
+
+
+<script>
+
+/* =========================
+   LOGIN PROTECTION
+========================= */
+
+if(
+    localStorage.getItem(
+        "studentLoggedIn"
+    ) !== "true"
+){
+
+    window.location.href =
+    "student-login.html";
+
+}
+
+
+/* =========================
+   STUDENT DETAILS
+========================= */
+
+document
+.getElementById("studentName")
+.textContent =
+localStorage.getItem(
+    "studentName"
+) || "Student";
+
+
+document
+.getElementById("studentId")
+.textContent =
+localStorage.getItem(
+    "studentId"
+) || "";
+
+
+/* =========================
+   MESSAGE
+========================= */
+
+function showMessage(name){
+
+    alert(
+        name +
+        " section is ready for integration."
+    );
+
+}
+
+
+/* =========================
+   PHOTO UPLOAD
+========================= */
+
+function uploadPhoto(){
+
+    alert(
+        "Photo upload section can be connected to your storage/backend."
+    );
+
+}
+
+
+/* =========================
+   LOGOUT
+========================= */
+
+function logout(){
+
+    localStorage.removeItem(
+        "studentLoggedIn"
+    );
+
+    localStorage.removeItem(
+        "studentName"
+    );
+
+    localStorage.removeItem(
+        "studentId"
+    );
+
+    window.location.href =
+    "student-login.html";
+
+}
+
+</script>
+
+
+</body>
+
+</html>
