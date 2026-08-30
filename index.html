@@ -6,9 +6,12 @@
 <meta charset="UTF-8">
 
 <meta name="viewport"
-content="width=device-width, initial-scale=1.0">
+      content="width=device-width, initial-scale=1.0">
 
-<title>TNAU RAWE Programme 2026 | Team Paiyur</title>
+<title>
+TNAU RAWE Programme 2026 | Team Paiyur
+</title>
+
 
 <style>
 
@@ -43,14 +46,19 @@ content="width=device-width, initial-scale=1.0">
 ===================================================== */
 
 *{
+
     margin:0;
     padding:0;
+
     box-sizing:border-box;
+
 }
 
 
 html{
+
     scroll-behavior:smooth;
+
 }
 
 
@@ -94,8 +102,8 @@ body{
     background-image:
 
     linear-gradient(
-        rgba(255,255,255,.70),
-        rgba(255,255,255,.70)
+        rgba(255,255,255,.38),
+        rgba(255,255,255,.38)
     ),
 
     url("tnau-coimbatore.jpg");
@@ -127,9 +135,9 @@ body{
 
     linear-gradient(
         90deg,
-        rgba(255,255,255,.82),
-        rgba(255,255,255,.60),
-        rgba(255,255,255,.76)
+        rgba(255,255,255,.48),
+        rgba(255,255,255,.28),
+        rgba(255,255,255,.42)
     );
 
     z-index:0;
@@ -202,6 +210,9 @@ body{
     line-height:1.15;
 
     letter-spacing:.3px;
+
+    text-shadow:
+    0 1px 1px rgba(255,255,255,.8);
 
 }
 
@@ -603,8 +614,6 @@ nav a:hover{
 }
 
 
-/* ANNOUNCEMENT TITLE */
-
 .announcement-title{
 
     display:inline-block;
@@ -625,8 +634,6 @@ nav a:hover{
 }
 
 
-/* MOVING AREA */
-
 .announcement-track{
 
     width:100%;
@@ -640,8 +647,6 @@ nav a:hover{
 
 }
 
-
-/* MOVING TEXT */
 
 .announcement-text{
 
@@ -663,8 +668,6 @@ nav a:hover{
 
 }
 
-
-/* CONTINUOUS MOVEMENT */
 
 @keyframes announcementMove{
 
@@ -754,10 +757,6 @@ nav a:hover{
 }
 
 
-/* =====================================================
-   TEAM PHOTO
-===================================================== */
-
 .team-photo{
 
     width:82px;
@@ -776,10 +775,6 @@ nav a:hover{
 }
 
 
-/* =====================================================
-   TEAM NAME
-===================================================== */
-
 .team-card h3{
 
     color:var(--dark-green);
@@ -790,10 +785,6 @@ nav a:hover{
 
 }
 
-
-/* =====================================================
-   DARK RED ROLE
-===================================================== */
 
 .role-red{
 
@@ -807,10 +798,6 @@ nav a:hover{
 
 }
 
-
-/* =====================================================
-   TEAM DETAILS
-===================================================== */
 
 .team-card p{
 
@@ -1057,6 +1044,50 @@ nav a:hover{
 
 
 /* =====================================================
+   ABOUT
+===================================================== */
+
+.content-box{
+
+    max-width:850px;
+
+    margin:auto;
+
+    padding:25px;
+
+    background:white;
+
+    border:
+    1px solid var(--border);
+
+    border-left:
+    5px solid var(--green);
+
+    border-radius:9px;
+
+    box-shadow:
+    0 5px 18px rgba(0,0,0,.07);
+
+}
+
+
+.content-box p{
+
+    color:#44534a;
+
+    font-size:14px;
+
+}
+
+
+.content-box strong{
+
+    color:var(--green);
+
+}
+
+
+/* =====================================================
    HIGHLIGHTS
 ===================================================== */
 
@@ -1116,6 +1147,137 @@ nav a:hover{
     color:var(--muted);
 
     font-size:11px;
+
+}
+
+
+/* =====================================================
+   SMALL LOGIN PORTAL
+===================================================== */
+
+.login-portal{
+
+    padding:34px 5%;
+
+    background:#f1f4f1;
+
+}
+
+
+.login-banner{
+
+    max-width:850px;
+
+    margin:auto;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    gap:20px;
+
+    padding:17px 22px;
+
+    background:white;
+
+    border:
+    1px solid var(--border);
+
+    border-left:
+    5px solid var(--green);
+
+    border-radius:9px;
+
+    box-shadow:
+    0 4px 14px rgba(0,0,0,.08);
+
+}
+
+
+.login-banner-text{
+
+    min-width:0;
+
+}
+
+
+.login-banner-text h3{
+
+    color:var(--dark-green);
+
+    font-size:17px;
+
+    font-weight:800;
+
+    margin-bottom:2px;
+
+}
+
+
+.login-banner-text p{
+
+    color:var(--muted);
+
+    font-size:11px;
+
+}
+
+
+.login-buttons{
+
+    display:flex;
+
+    gap:8px;
+
+    flex-shrink:0;
+
+}
+
+
+.login-small-btn{
+
+    display:inline-block;
+
+    padding:8px 13px;
+
+    border-radius:5px;
+
+    text-decoration:none;
+
+    background:var(--green);
+
+    color:white;
+
+    font-size:10px;
+
+    font-weight:800;
+
+    transition:.2s;
+
+}
+
+
+.login-small-btn:hover{
+
+    background:var(--green-light);
+
+    transform:translateY(-2px);
+
+}
+
+
+.login-small-btn.staff{
+
+    background:var(--dark-red);
+
+}
+
+
+.login-small-btn.staff:hover{
+
+    background:#a50000;
 
 }
 
@@ -1229,8 +1391,8 @@ nav a:hover{
     background:
 
     linear-gradient(
-        rgba(2,48,27,.12),
-        rgba(2,48,27,.12)
+        rgba(2,48,27,.05),
+        rgba(2,48,27,.05)
     ),
 
     url("vvnr-entrance.jpg");
@@ -1744,6 +1906,22 @@ footer{
     }
 
 
+    /* ABOUT */
+
+    .content-box{
+
+        padding:18px;
+
+    }
+
+
+    .content-box p{
+
+        font-size:12px;
+
+    }
+
+
     /* HIGHLIGHTS */
 
     .highlights{
@@ -1781,6 +1959,78 @@ footer{
     .highlight-card p{
 
         font-size:9px;
+
+    }
+
+
+    /* LOGIN PORTAL */
+
+    .login-portal{
+
+        padding:
+        25px 14px;
+
+    }
+
+
+    .login-banner{
+
+        padding:
+        14px 11px;
+
+        gap:9px;
+
+        align-items:center;
+
+    }
+
+
+    .login-banner-text{
+
+        min-width:0;
+
+        flex:1;
+
+    }
+
+
+    .login-banner-text h3{
+
+        font-size:12px;
+
+    }
+
+
+    .login-banner-text p{
+
+        font-size:8px;
+
+        line-height:1.3;
+
+    }
+
+
+    .login-buttons{
+
+        flex-direction:column;
+
+        gap:5px;
+
+        width:85px;
+
+    }
+
+
+    .login-small-btn{
+
+        width:100%;
+
+        text-align:center;
+
+        padding:
+        7px 4px;
+
+        font-size:8px;
 
     }
 
@@ -1937,6 +2187,27 @@ footer{
     .announcement-text{
 
         font-size:10px;
+
+    }
+
+
+    .login-banner-text h3{
+
+        font-size:11px;
+
+    }
+
+
+    .login-banner-text p{
+
+        font-size:7px;
+
+    }
+
+
+    .login-buttons{
+
+        width:76px;
 
     }
 
@@ -2144,7 +2415,6 @@ footer{
 
 <section class="hero">
 
-
     <div class="hero-content">
 
 
@@ -2187,7 +2457,6 @@ footer{
 
     </div>
 
-
 </section>
 
 
@@ -2200,7 +2469,7 @@ footer{
     id="team">
 
 
-    <!-- ANNOUNCEMENT AT TOP -->
+    <!-- ANNOUNCEMENT -->
 
     <div class="team-announcement">
 
@@ -2432,7 +2701,9 @@ footer{
 
 
             <h3>
+
                 Students
+
             </h3>
 
 
@@ -2465,7 +2736,9 @@ footer{
 
 
             <h3>
+
                 Village Profile
+
             </h3>
 
 
@@ -2498,7 +2771,9 @@ footer{
 
 
             <h3>
+
                 Daily Activities
+
             </h3>
 
 
@@ -2531,7 +2806,9 @@ footer{
 
 
             <h3>
+
                 Student Attendance
+
             </h3>
 
 
@@ -2772,6 +3049,64 @@ footer{
 
 
 <!-- =====================================================
+     SMALL LOGIN PORTAL
+===================================================== -->
+
+<section class="login-portal">
+
+
+    <div class="login-banner">
+
+
+        <div class="login-banner-text">
+
+            <h3>
+
+                Login Portal
+
+            </h3>
+
+            <p>
+
+                Student &amp; Staff access ·
+                RAWE Programme 2026
+
+            </p>
+
+        </div>
+
+
+        <div class="login-buttons">
+
+
+            <a
+                href="student-login.html"
+                class="login-small-btn">
+
+                Student Login
+
+            </a>
+
+
+            <a
+                href="staff-login.html"
+                class="login-small-btn staff">
+
+                Staff Login
+
+            </a>
+
+
+        </div>
+
+
+    </div>
+
+
+</section>
+
+
+<!-- =====================================================
      CONTACT
 ===================================================== -->
 
@@ -2799,16 +3134,21 @@ footer{
 
 
             <h3>
+
                 Team In-charge
+
             </h3>
 
 
             <strong>
+
                 Dr. M. Sankar, Ph.D
+
             </strong>
 
 
-            <a href="mailto:librarytvmalai@tnau.ac.in">
+            <a
+                href="mailto:librarytvmalai@tnau.ac.in">
 
                 librarytvmalai@tnau.ac.in
 
@@ -2827,16 +3167,21 @@ footer{
 
 
             <h3>
+
                 Staff In-charge
+
             </h3>
 
 
             <strong>
+
                 Dr. P. Senthil Kumar
+
             </strong>
 
 
-            <a href="mailto:senthilkumarp@tnau.ac.in">
+            <a
+                href="mailto:senthilkumarp@tnau.ac.in">
 
                 senthilkumarp@tnau.ac.in
 
@@ -2855,12 +3200,16 @@ footer{
 
 
             <h3>
+
                 Team Leader
+
             </h3>
 
 
             <strong>
+
                 Gokula Balaji R
+
             </strong>
 
 
@@ -2883,26 +3232,35 @@ footer{
 
 
             <h3>
+
                 Web Admin &amp; CEO
+
             </h3>
 
 
             <strong>
+
                 Kowshik S
+
             </strong>
 
 
             <p>
+
                 Final-Year B.Sc Agri · AC&amp;RI, VVNR
+
             </p>
 
 
             <p>
+
                 Cyber-Security
+
             </p>
 
 
-            <a href="mailto:kowshik.in@outlook.com">
+            <a
+                href="mailto:kowshik.in@outlook.com">
 
                 kowshik.in@outlook.com
 
