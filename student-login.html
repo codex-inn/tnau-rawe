@@ -12,11 +12,24 @@
 
 <style>
 
+/* =====================================================
+   RESET
+===================================================== */
+
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
 }
+
+html{
+    scroll-behavior:smooth;
+}
+
+
+/* =====================================================
+   BODY
+===================================================== */
 
 body{
 
@@ -25,6 +38,7 @@ body{
     display:flex;
 
     justify-content:center;
+
     align-items:center;
 
     padding:15px;
@@ -32,30 +46,39 @@ body{
     font-family:
     "Segoe UI",
     Arial,
+    Helvetica,
     sans-serif;
 
     background:
 
     linear-gradient(
-        rgba(3,59,32,.72),
-        rgba(3,59,32,.72)
+        rgba(255,255,255,.42),
+        rgba(255,255,255,.42)
     ),
 
     url("vvnr-campus.jpg");
 
     background-size:cover;
+
     background-position:center;
+
+    background-repeat:no-repeat;
+
 }
 
 
-/* LOGIN CARD */
+/* =====================================================
+   LOGIN BOX
+===================================================== */
 
 .login-box{
 
     width:100%;
+
     max-width:400px;
 
-    background:white;
+    background:
+    rgba(255,255,255,.97);
 
     padding:30px;
 
@@ -66,26 +89,34 @@ body{
 
     box-shadow:
     0 15px 40px
-    rgba(0,0,0,.25);
+    rgba(0,0,0,.20);
+
 }
 
 
-/* LOGO */
+/* =====================================================
+   LOGO
+===================================================== */
 
 .logo{
 
     width:72px;
+
     height:72px;
 
     display:block;
 
     object-fit:contain;
 
-    margin:0 auto 12px;
+    margin:
+    0 auto 12px;
+
 }
 
 
-/* TITLE */
+/* =====================================================
+   TITLE
+===================================================== */
 
 h1{
 
@@ -94,7 +125,11 @@ h1{
     color:#07552f;
 
     font-size:24px;
+
+    font-weight:800;
+
 }
+
 
 .subtitle{
 
@@ -107,10 +142,13 @@ h1{
     margin-top:5px;
 
     margin-bottom:23px;
+
 }
 
 
-/* LABEL */
+/* =====================================================
+   LABEL
+===================================================== */
 
 label{
 
@@ -124,10 +162,13 @@ label{
 
     margin:
     13px 0 6px;
+
 }
 
 
-/* INPUT */
+/* =====================================================
+   INPUT
+===================================================== */
 
 input{
 
@@ -143,7 +184,13 @@ input{
     font-size:14px;
 
     outline:none;
+
+    background:#ffffff;
+
+    color:#17231a;
+
 }
+
 
 input:focus{
 
@@ -152,10 +199,13 @@ input:focus{
     box-shadow:
     0 0 0 3px
     rgba(25,116,71,.10);
+
 }
 
 
-/* BUTTON */
+/* =====================================================
+   LOGIN BUTTON
+===================================================== */
 
 .login-btn{
 
@@ -178,15 +228,25 @@ input:focus{
     font-weight:800;
 
     cursor:pointer;
+
+    transition:.2s;
+
 }
+
 
 .login-btn:hover{
 
     background:#197447;
+
+    transform:
+    translateY(-1px);
+
 }
 
 
-/* ERROR */
+/* =====================================================
+   ERROR
+===================================================== */
 
 .error{
 
@@ -205,37 +265,22 @@ input:focus{
     text-align:center;
 
     font-size:11px;
+
+    border:
+    1px solid #f0cccc;
+
 }
 
 
-/* INFORMATION */
-
-.info{
-
-    margin-top:18px;
-
-    padding:11px;
-
-    background:#f1f7f2;
-
-    border-left:
-    4px solid #197447;
-
-    color:#56635b;
-
-    font-size:11px;
-
-    line-height:1.7;
-}
-
-
-/* BACK */
+/* =====================================================
+   BACK BUTTON
+===================================================== */
 
 .back{
 
     display:block;
 
-    margin-top:17px;
+    margin-top:20px;
 
     text-align:center;
 
@@ -246,29 +291,142 @@ input:focus{
     font-size:12px;
 
     font-weight:700;
+
 }
 
 
-/* MOBILE */
+.back:hover{
+
+    color:#197447;
+
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
 
 @media(max-width:500px){
 
-    .login-box{
+    body{
 
-        padding:23px 18px;
+        padding:12px;
+
+        background:
+
+        linear-gradient(
+            rgba(255,255,255,.48),
+            rgba(255,255,255,.48)
+        ),
+
+        url("vvnr-campus.jpg");
+
+        background-size:cover;
+
+        background-position:center;
 
     }
+
+
+    .login-box{
+
+        max-width:360px;
+
+        padding:
+        24px 18px;
+
+        border-radius:11px;
+
+    }
+
 
     .logo{
 
         width:62px;
+
         height:62px;
 
+        margin-bottom:10px;
+
     }
+
 
     h1{
 
         font-size:21px;
+
+    }
+
+
+    .subtitle{
+
+        font-size:11px;
+
+        margin-bottom:20px;
+
+    }
+
+
+    label{
+
+        font-size:12px;
+
+    }
+
+
+    input{
+
+        padding:11px;
+
+        font-size:13px;
+
+    }
+
+
+    .login-btn{
+
+        padding:11px;
+
+        font-size:13px;
+
+    }
+
+}
+
+
+/* =====================================================
+   SMALL MOBILE
+===================================================== */
+
+@media(max-width:360px){
+
+    .login-box{
+
+        padding:
+        21px 15px;
+
+    }
+
+
+    .logo{
+
+        width:57px;
+
+        height:57px;
+
+    }
+
+
+    h1{
+
+        font-size:20px;
+
+    }
+
+
+    .subtitle{
+
+        font-size:10px;
 
     }
 
@@ -282,14 +440,22 @@ input:focus{
 <body>
 
 
+<!-- =====================================================
+     STUDENT LOGIN
+===================================================== -->
+
 <div class="login-box">
 
+
+    <!-- TNAU LOGO -->
 
     <img
         src="tnau-logo.png"
         alt="TNAU Logo"
         class="logo">
 
+
+    <!-- TITLE -->
 
     <h1>
 
@@ -306,10 +472,14 @@ input:focus{
     </div>
 
 
+    <!-- LOGIN FORM -->
+
     <form id="studentLogin">
 
 
-        <label>
+        <!-- USERNAME -->
+
+        <label for="username">
 
             Username
 
@@ -324,7 +494,9 @@ input:focus{
             required>
 
 
-        <label>
+        <!-- PASSWORD -->
+
+        <label for="password">
 
             Password
 
@@ -339,6 +511,8 @@ input:focus{
             required>
 
 
+        <!-- LOGIN -->
+
         <button
             type="submit"
             class="login-btn">
@@ -347,6 +521,8 @@ input:focus{
 
         </button>
 
+
+        <!-- ERROR -->
 
         <div
             id="error"
@@ -360,18 +536,7 @@ input:focus{
     </form>
 
 
-    <div class="info">
-
-        <b>Username:</b>
-        Student name
-
-        <br>
-
-        <b>Password:</b>
-        Student ID number
-
-    </div>
-
+    <!-- BACK -->
 
     <a
         href="index.html"
@@ -385,10 +550,16 @@ input:focus{
 </div>
 
 
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
+
 <script>
 
 
-/* STUDENT LOGIN DATA */
+/* =====================================================
+   STUDENT LOGIN DATA
+===================================================== */
 
 const students = {
 
@@ -434,6 +605,10 @@ const students = {
 };
 
 
+/* =====================================================
+   LOGIN FUNCTION
+===================================================== */
+
 document
 .getElementById("studentLogin")
 .addEventListener(
@@ -460,6 +635,8 @@ function(e){
         .trim();
 
 
+    /* CHECK LOGIN */
+
     if(
 
         students[username] &&
@@ -467,21 +644,27 @@ function(e){
 
     ){
 
+        /* SAVE LOGIN */
+
         localStorage.setItem(
             "studentLoggedIn",
             "true"
         );
+
 
         localStorage.setItem(
             "studentName",
             username
         );
 
+
         localStorage.setItem(
             "studentId",
             password
         );
 
+
+        /* OPEN DASHBOARD */
 
         window.location.href =
         "student-dashboard.html";
@@ -492,7 +675,8 @@ function(e){
 
         document
         .getElementById("error")
-        .style.display="block";
+        .style.display =
+        "block";
 
     }
 
