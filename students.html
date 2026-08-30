@@ -12,6 +12,10 @@ content="width=device-width, initial-scale=1.0">
 
 <style>
 
+/* =========================
+   RESET
+========================= */
+
 *{
     margin:0;
     padding:0;
@@ -52,7 +56,9 @@ body{
 }
 
 
-/* ================= HEADER ================= */
+/* =========================
+   HEADER
+========================= */
 
 header{
 
@@ -107,7 +113,9 @@ header{
 }
 
 
-/* ================= NAVIGATION ================= */
+/* =========================
+   NAVIGATION
+========================= */
 
 nav{
 
@@ -144,7 +152,9 @@ nav a:hover{
 }
 
 
-/* ================= MAIN ================= */
+/* =========================
+   MAIN
+========================= */
 
 .container{
 
@@ -177,7 +187,12 @@ nav a:hover{
 }
 
 
-/* ================= STUDENT GRID ================= */
+/* =========================
+   STUDENT GRID
+   PC = 3
+   TABLET = 2
+   MOBILE = 2
+========================= */
 
 .students-grid{
 
@@ -192,11 +207,11 @@ nav a:hover{
 .student-card{
 
     background:
-    rgba(255,255,255,.96);
+    rgba(255,255,255,.97);
 
     border-radius:13px;
 
-    padding:25px 18px;
+    padding:22px 18px;
 
     text-align:center;
 
@@ -208,6 +223,16 @@ nav a:hover{
     5px solid #24783b;
 
     transition:.25s;
+
+    min-height:250px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    justify-content:center;
 }
 
 .student-card:hover{
@@ -220,49 +245,103 @@ nav a:hover{
     rgba(0,0,0,.18);
 }
 
-.number{
 
-    width:45px;
+/* =========================
+   STUDENT PHOTO
+========================= */
 
-    height:45px;
+.student-photo{
 
-    display:flex;
+    width:100px;
 
-    align-items:center;
-
-    justify-content:center;
-
-    margin:0 auto 14px;
+    height:100px;
 
     border-radius:50%;
+
+    object-fit:cover;
+
+    border:
+    3px solid #d8eadb;
+
+    box-shadow:
+    0 3px 10px
+    rgba(0,0,0,.16);
+
+    margin-bottom:13px;
+
+    background:#eaf6ed;
+}
+
+
+/* =========================
+   ID NUMBER
+========================= */
+
+.id-number{
+
+    display:inline-block;
 
     background:#eaf6ed;
 
     color:#176b3a;
 
+    padding:4px 10px;
+
+    border-radius:20px;
+
+    font-size:12px;
+
     font-weight:bold;
 
-    font-size:15px;
+    margin-bottom:7px;
 }
+
+
+/* =========================
+   STUDENT NAME
+========================= */
 
 .student-card h2{
 
     color:#0b4d27;
 
-    font-size:20px;
+    font-size:19px;
 
-    margin-bottom:5px;
-}
-
-.student-card p{
-
-    color:#59685d;
-
-    font-size:14px;
+    margin-bottom:4px;
 }
 
 
-/* ================= TEAM INFO ================= */
+/* =========================
+   CONTACT
+========================= */
+
+.student-contact{
+
+    color:#536158;
+
+    font-size:13px;
+
+    margin-top:4px;
+
+    font-weight:bold;
+}
+
+.student-contact a{
+
+    color:#16753a;
+
+    text-decoration:none;
+}
+
+.student-contact a:hover{
+
+    text-decoration:underline;
+}
+
+
+/* =========================
+   TEAM INFO
+========================= */
 
 .team-info{
 
@@ -295,7 +374,9 @@ nav a:hover{
 }
 
 
-/* ================= BACK BUTTON ================= */
+/* =========================
+   BACK BUTTON
+========================= */
 
 .back-button{
 
@@ -324,7 +405,9 @@ nav a:hover{
 }
 
 
-/* ================= FOOTER ================= */
+/* =========================
+   FOOTER
+========================= */
 
 footer{
 
@@ -358,9 +441,11 @@ footer{
 }
 
 
-/* ================= MOBILE ================= */
+/* =========================
+   TABLET
+========================= */
 
-@media(max-width:800px){
+@media(max-width:900px){
 
     .students-grid{
 
@@ -370,6 +455,11 @@ footer{
 
 }
 
+
+/* =========================
+   MOBILE
+   2 CARDS PER ROW
+========================= */
 
 @media(max-width:600px){
 
@@ -398,19 +488,115 @@ footer{
 
         margin:30px auto;
 
-        padding:0 15px;
+        padding:0 12px;
     }
+
+    .page-title{
+
+        font-size:30px;
+    }
+
+    .page-subtitle{
+
+        font-size:13px;
+
+        margin-bottom:25px;
+    }
+
 
     .students-grid{
 
-        grid-template-columns:1fr;
+        grid-template-columns:
+        repeat(2,minmax(0,1fr));
 
-        gap:15px;
+        gap:12px;
     }
 
     .student-card{
 
-        padding:22px 15px;
+        min-height:215px;
+
+        padding:15px 8px;
+    }
+
+    .student-photo{
+
+        width:68px;
+
+        height:68px;
+
+        margin-bottom:8px;
+    }
+
+    .id-number{
+
+        font-size:10px;
+
+        padding:3px 7px;
+
+        margin-bottom:5px;
+    }
+
+    .student-card h2{
+
+        font-size:14px;
+
+        line-height:1.3;
+    }
+
+    .student-contact{
+
+        font-size:10px;
+
+        line-height:1.35;
+    }
+
+    .team-info{
+
+        padding:20px 12px;
+    }
+
+    .team-info h2{
+
+        font-size:21px;
+    }
+
+}
+
+
+/* =========================
+   SMALL MOBILE
+========================= */
+
+@media(max-width:380px){
+
+    .students-grid{
+
+        gap:9px;
+    }
+
+    .student-card{
+
+        min-height:200px;
+
+        padding:12px 6px;
+    }
+
+    .student-photo{
+
+        width:58px;
+
+        height:58px;
+    }
+
+    .student-card h2{
+
+        font-size:12px;
+    }
+
+    .student-contact{
+
+        font-size:9px;
     }
 
 }
@@ -423,15 +609,17 @@ footer{
 <body>
 
 
-<!-- ================= HEADER ================= -->
+<!-- =========================
+     HEADER
+========================= -->
 
 <header>
 
     <img
         src="tnau-logo.png"
         alt="TNAU Logo"
-        class="logo"
-    >
+        class="logo">
+
 
     <div class="header-text">
 
@@ -452,7 +640,9 @@ footer{
 </header>
 
 
-<!-- ================= NAVIGATION ================= -->
+<!-- =========================
+     NAVIGATION
+========================= -->
 
 <nav>
 
@@ -468,19 +658,30 @@ footer{
         👨‍🎓 Students
     </a>
 
+    <a href="activities.html">
+        📅 Daily Activities
+    </a>
+
+    <a href="attendance.html">
+        ✅ Attendance
+    </a>
+
 </nav>
 
 
-<!-- ================= MAIN ================= -->
+<!-- =========================
+     MAIN
+========================= -->
 
 <main class="container">
 
 
     <h1 class="page-title">
 
-        👨‍🎓 Students
+        👨‍🎓 STUDENTS
 
     </h1>
+
 
     <p class="page-subtitle">
 
@@ -490,203 +691,360 @@ footer{
     </p>
 
 
-    <!-- ================= STUDENTS ================= -->
+    <!-- =========================
+         STUDENT CARDS
+    ========================= -->
 
     <div class="students-grid">
 
 
+        <!-- 01 -->
+
         <div class="student-card">
 
-            <div class="number">01</div>
+            <img
+                src="student1.jpg"
+                alt="Dinesh M"
+                class="student-photo">
+
+            <div class="id-number">
+                ID NO: 2023031038
+            </div>
 
             <h2>
                 Dinesh M
             </h2>
 
-            <p>
-                RAWE Student
-            </p>
+            <div class="student-contact">
+                📞 Contact:
+                <a href="tel:">
+                    Add Number
+                </a>
+            </div>
 
         </div>
 
 
+        <!-- 02 -->
+
         <div class="student-card">
 
-            <div class="number">02</div>
+            <img
+                src="student2.jpg"
+                alt="Gokul Raj R"
+                class="student-photo">
+
+            <div class="id-number">
+                ID NO: 2023031045
+            </div>
 
             <h2>
                 Gokul Raj R
             </h2>
 
-            <p>
-                RAWE Student
-            </p>
+            <div class="student-contact">
+                📞 Contact:
+                <a href="tel:">
+                    Add Number
+                </a>
+            </div>
 
         </div>
 
 
+        <!-- 03 -->
+
         <div class="student-card">
 
-            <div class="number">03</div>
+            <img
+                src="student3.jpg"
+                alt="GokulaBalaji R"
+                class="student-photo">
+
+            <div class="id-number">
+                ID NO: 2023031046
+            </div>
 
             <h2>
                 GokulaBalaji R
             </h2>
 
-            <p>
-                Team Leader &amp;
-                Students In-charge
-            </p>
+            <div class="student-contact">
+                📞 Contact:
+                <a href="tel:">
+                    Add Number
+                </a>
+            </div>
 
         </div>
 
 
+        <!-- 04 -->
+
         <div class="student-card">
 
-            <div class="number">04</div>
+            <img
+                src="student4.jpg"
+                alt="GopiBalaji M"
+                class="student-photo">
+
+            <div class="id-number">
+                ID NO: 2023031047
+            </div>
 
             <h2>
                 GopiBalaji M
             </h2>
 
-            <p>
-                RAWE Student
-            </p>
+            <div class="student-contact">
+                📞 Contact:
+                <a href="tel:">
+                    Add Number
+                </a>
+            </div>
 
         </div>
 
 
+        <!-- 05 -->
+
         <div class="student-card">
 
-            <div class="number">05</div>
+            <img
+                src="student5.jpg"
+                alt="Gowsikan P"
+                class="student-photo">
+
+            <div class="id-number">
+                ID NO: 2023031048
+            </div>
 
             <h2>
                 Gowsikan P
             </h2>
 
-            <p>
-                RAWE Student
-            </p>
+            <div class="student-contact">
+                📞 Contact:
+                <a href="tel:">
+                    Add Number
+                </a>
+            </div>
 
         </div>
 
 
+        <!-- 06 -->
+
         <div class="student-card">
 
-            <div class="number">06</div>
+            <img
+                src="student6.jpg"
+                alt="Jana P"
+                class="student-photo">
+
+            <div class="id-number">
+                ID NO: 2023031055
+            </div>
 
             <h2>
                 Jana P
             </h2>
 
-            <p>
-                RAWE Student
-            </p>
+            <div class="student-contact">
+                📞 Contact:
+                <a href="tel:">
+                    Add Number
+                </a>
+            </div>
 
         </div>
 
 
+        <!-- 07 -->
+
         <div class="student-card">
 
-            <div class="number">07</div>
+            <img
+                src="student7.jpg"
+                alt="Jayasurya J"
+                class="student-photo">
+
+            <div class="id-number">
+                ID NO: 2023031060
+            </div>
 
             <h2>
                 Jayasurya J
             </h2>
 
-            <p>
-                RAWE Student
-            </p>
+            <div class="student-contact">
+                📞 Contact:
+                <a href="tel:">
+                    Add Number
+                </a>
+            </div>
 
         </div>
 
 
+        <!-- 08 -->
+
         <div class="student-card">
 
-            <div class="number">08</div>
+            <img
+                src="student8.jpg"
+                alt="Joshan P"
+                class="student-photo">
+
+            <div class="id-number">
+                ID NO: 2023031066
+            </div>
 
             <h2>
                 Joshan P
             </h2>
 
-            <p>
-                RAWE Student
-            </p>
+            <div class="student-contact">
+                📞 Contact:
+                <a href="tel:">
+                    Add Number
+                </a>
+            </div>
 
         </div>
 
 
+        <!-- 09 -->
+
         <div class="student-card">
 
-            <div class="number">09</div>
+            <img
+                src="student9.jpg"
+                alt="Jothishkumar K"
+                class="student-photo">
+
+            <div class="id-number">
+                ID NO: 2023031067
+            </div>
 
             <h2>
                 Jothishkumar K
             </h2>
 
-            <p>
-                RAWE Student
-            </p>
+            <div class="student-contact">
+                📞 Contact:
+                <a href="tel:">
+                    Add Number
+                </a>
+            </div>
 
         </div>
 
 
+        <!-- 10 -->
+
         <div class="student-card">
 
-            <div class="number">10</div>
+            <img
+                src="student10.jpg"
+                alt="Kishor S"
+                class="student-photo">
+
+            <div class="id-number">
+                ID NO: 2023031078
+            </div>
 
             <h2>
                 Kishor S
             </h2>
 
-            <p>
-                RAWE Student
-            </p>
+            <div class="student-contact">
+                📞 Contact:
+                <a href="tel:">
+                    Add Number
+                </a>
+            </div>
 
         </div>
 
 
+        <!-- 11 -->
+
         <div class="student-card">
 
-            <div class="number">11</div>
+            <img
+                src="student11.jpg"
+                alt="Kowshik S"
+                class="student-photo">
+
+            <div class="id-number">
+                ID NO: 2023031080
+            </div>
 
             <h2>
                 Kowshik S
             </h2>
 
-            <p>
-                Web Admin &amp; CEO
-            </p>
+            <div class="student-contact">
+                📞 Contact:
+                <a href="tel:">
+                    Add Number
+                </a>
+            </div>
 
         </div>
 
 
+        <!-- 12 -->
+
         <div class="student-card">
 
-            <div class="number">12</div>
+            <img
+                src="student12.jpg"
+                alt="Akshaya K"
+                class="student-photo">
+
+            <div class="id-number">
+                ID NO: 2023031178
+            </div>
 
             <h2>
                 Akshaya K
             </h2>
 
-            <p>
-                RAWE Student
-            </p>
+            <div class="student-contact">
+                📞 Contact:
+                <a href="tel:">
+                    Add Number
+                </a>
+            </div>
 
         </div>
 
 
+        <!-- 13 -->
+
         <div class="student-card">
 
-            <div class="number">13</div>
+            <img
+                src="student13.jpg"
+                alt="Swapanjit Behera"
+                class="student-photo">
+
+            <div class="id-number">
+                ID NO: 2023031186
+            </div>
 
             <h2>
                 Swapanjit Behera
             </h2>
 
-            <p>
-                RAWE Student
-            </p>
+            <div class="student-contact">
+                📞 Contact:
+                <a href="tel:">
+                    Add Number
+                </a>
+            </div>
 
         </div>
 
@@ -694,7 +1052,9 @@ footer{
     </div>
 
 
-    <!-- ================= TEAM INFO ================= -->
+    <!-- =========================
+         TEAM INFO
+    ========================= -->
 
     <div class="team-info">
 
@@ -714,6 +1074,10 @@ footer{
     </div>
 
 
+    <!-- =========================
+         BACK BUTTON
+    ========================= -->
+
     <a
         href="index.html"
         class="back-button">
@@ -726,7 +1090,9 @@ footer{
 </main>
 
 
-<!-- ================= FOOTER ================= -->
+<!-- =========================
+     FOOTER
+========================= -->
 
 <footer>
 
