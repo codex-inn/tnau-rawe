@@ -42,8 +42,8 @@ body{
     background:
 
     linear-gradient(
-        rgba(255,255,255,.76),
-        rgba(255,255,255,.76)
+        rgba(255,255,255,.78),
+        rgba(255,255,255,.78)
     ),
 
     url("vvnr-campus.jpg");
@@ -79,26 +79,23 @@ header{
     text-align:center;
 
     background:
-
     linear-gradient(
-        rgba(0,70,32,.90),
-        rgba(0,90,42,.88)
+        rgba(0,70,32,.92),
+        rgba(0,90,42,.90)
     );
 }
 
 .logo{
 
     width:105px;
-
     height:105px;
-
     object-fit:contain;
 }
 
 .header-text h1{
 
     font-size:
-    clamp(26px,4vw,42px);
+    clamp(25px,4vw,42px);
 
     line-height:1.2;
 
@@ -137,7 +134,7 @@ nav a{
 
     text-decoration:none;
 
-    margin:0 10px;
+    margin:0 9px;
 
     padding:5px;
 
@@ -181,17 +178,110 @@ nav a:hover{
 
     text-align:center;
 
-    margin-bottom:35px;
+    margin-bottom:30px;
 
     color:#35553d;
 }
 
 
 /* =========================
+   EXPORT CARD
+========================= */
+
+.export-box{
+
+    max-width:900px;
+
+    margin:
+    0 auto 30px;
+
+    padding:20px;
+
+    background:
+    rgba(255,255,255,.97);
+
+    border-radius:13px;
+
+    box-shadow:
+    0 4px 16px
+    rgba(0,0,0,.13);
+
+    text-align:center;
+}
+
+.export-box h2{
+
+    color:#075128;
+
+    font-size:21px;
+
+    margin-bottom:5px;
+}
+
+.export-box p{
+
+    color:#59685d;
+
+    font-size:13px;
+
+    margin-bottom:14px;
+}
+
+.export-buttons{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:10px;
+
+    flex-wrap:wrap;
+}
+
+.export-btn{
+
+    border:0;
+
+    cursor:pointer;
+
+    padding:10px 18px;
+
+    border-radius:7px;
+
+    color:white;
+
+    font-weight:bold;
+
+    font-size:13px;
+}
+
+.pdf-btn{
+
+    background:#b52b2b;
+}
+
+.excel-btn{
+
+    background:#16753a;
+}
+
+.print-btn{
+
+    background:#315c92;
+}
+
+.export-btn:hover{
+
+    opacity:.85;
+
+    transform:translateY(-1px);
+}
+
+
+/* =========================
    STUDENT GRID
-   PC = 3
-   TABLET = 2
-   MOBILE = 2
 ========================= */
 
 .students-grid{
@@ -274,7 +364,7 @@ nav a:hover{
 
 
 /* =========================
-   ID NUMBER
+   ID
 ========================= */
 
 .id-number{
@@ -298,7 +388,7 @@ nav a:hover{
 
 
 /* =========================
-   STUDENT NAME
+   NAME
 ========================= */
 
 .student-card h2{
@@ -307,7 +397,7 @@ nav a:hover{
 
     font-size:19px;
 
-    margin-bottom:4px;
+    margin-bottom:5px;
 }
 
 
@@ -458,7 +548,6 @@ footer{
 
 /* =========================
    MOBILE
-   2 CARDS PER ROW
 ========================= */
 
 @media(max-width:600px){
@@ -479,9 +568,9 @@ footer{
 
     nav a{
 
-        margin:4px 6px;
+        margin:4px 5px;
 
-        font-size:13px;
+        font-size:12px;
     }
 
     .container{
@@ -500,9 +589,35 @@ footer{
 
         font-size:13px;
 
-        margin-bottom:25px;
+        margin-bottom:23px;
     }
 
+    .export-box{
+
+        padding:15px;
+
+        margin-bottom:22px;
+    }
+
+    .export-box h2{
+
+        font-size:17px;
+    }
+
+    .export-box p{
+
+        font-size:11px;
+    }
+
+    .export-btn{
+
+        font-size:11px;
+
+        padding:9px 11px;
+    }
+
+
+    /* 2 CARDS PER ROW */
 
     .students-grid{
 
@@ -514,7 +629,7 @@ footer{
 
     .student-card{
 
-        min-height:215px;
+        min-height:220px;
 
         padding:15px 8px;
     }
@@ -530,9 +645,9 @@ footer{
 
     .id-number{
 
-        font-size:10px;
+        font-size:9px;
 
-        padding:3px 7px;
+        padding:3px 6px;
 
         margin-bottom:5px;
     }
@@ -546,7 +661,7 @@ footer{
 
     .student-contact{
 
-        font-size:10px;
+        font-size:9px;
 
         line-height:1.35;
     }
@@ -577,9 +692,9 @@ footer{
 
     .student-card{
 
-        min-height:200px;
+        min-height:205px;
 
-        padding:12px 6px;
+        padding:12px 5px;
     }
 
     .student-photo{
@@ -596,7 +711,106 @@ footer{
 
     .student-contact{
 
+        font-size:8px;
+    }
+
+    .id-number{
+
+        font-size:8px;
+    }
+
+}
+
+
+/* =========================
+   PRINT / PDF
+========================= */
+
+@media print{
+
+    body{
+
+        background:white;
+    }
+
+    header,
+    nav,
+    .export-box,
+    .back-button,
+    footer{
+
+        display:none !important;
+    }
+
+    .container{
+
+        max-width:none;
+
+        margin:10px;
+
+        padding:0;
+    }
+
+    .page-title{
+
+        font-size:28px;
+
+        color:#000;
+    }
+
+    .page-subtitle{
+
+        margin-bottom:15px;
+    }
+
+    .students-grid{
+
+        grid-template-columns:
+        repeat(3,1fr);
+
+        gap:10px;
+    }
+
+    .student-card{
+
+        min-height:180px;
+
+        box-shadow:none;
+
+        border:
+        1px solid #aaa;
+
+        break-inside:avoid;
+    }
+
+    .student-photo{
+
+        width:65px;
+
+        height:65px;
+    }
+
+    .student-card h2{
+
+        font-size:14px;
+    }
+
+    .student-contact{
+
+        font-size:10px;
+    }
+
+    .id-number{
+
         font-size:9px;
+    }
+
+    .team-info{
+
+        box-shadow:none;
+
+        border:
+        1px solid #aaa;
     }
 
 }
@@ -677,9 +891,7 @@ footer{
 
 
     <h1 class="page-title">
-
         👨‍🎓 STUDENTS
-
     </h1>
 
 
@@ -692,13 +904,62 @@ footer{
 
 
     <!-- =========================
+         EXPORT OPTIONS
+    ========================= -->
+
+    <div class="export-box">
+
+        <h2>
+            📥 Student Details Export
+        </h2>
+
+        <p>
+            Export the complete student details
+            as PDF or Excel.
+        </p>
+
+
+        <div class="export-buttons">
+
+
+            <button
+                class="export-btn pdf-btn"
+                onclick="downloadPDF()">
+
+                📄 Export PDF
+
+            </button>
+
+
+            <button
+                class="export-btn excel-btn"
+                onclick="downloadExcel()">
+
+                📊 Export Excel
+
+            </button>
+
+
+            <button
+                class="export-btn print-btn"
+                onclick="window.print()">
+
+                🖨️ Print
+
+            </button>
+
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================
          STUDENT CARDS
     ========================= -->
 
     <div class="students-grid">
 
-
-        <!-- 01 -->
 
         <div class="student-card">
 
@@ -725,8 +986,6 @@ footer{
         </div>
 
 
-        <!-- 02 -->
-
         <div class="student-card">
 
             <img
@@ -751,8 +1010,6 @@ footer{
 
         </div>
 
-
-        <!-- 03 -->
 
         <div class="student-card">
 
@@ -779,8 +1036,6 @@ footer{
         </div>
 
 
-        <!-- 04 -->
-
         <div class="student-card">
 
             <img
@@ -805,8 +1060,6 @@ footer{
 
         </div>
 
-
-        <!-- 05 -->
 
         <div class="student-card">
 
@@ -833,8 +1086,6 @@ footer{
         </div>
 
 
-        <!-- 06 -->
-
         <div class="student-card">
 
             <img
@@ -859,8 +1110,6 @@ footer{
 
         </div>
 
-
-        <!-- 07 -->
 
         <div class="student-card">
 
@@ -887,8 +1136,6 @@ footer{
         </div>
 
 
-        <!-- 08 -->
-
         <div class="student-card">
 
             <img
@@ -913,8 +1160,6 @@ footer{
 
         </div>
 
-
-        <!-- 09 -->
 
         <div class="student-card">
 
@@ -941,8 +1186,6 @@ footer{
         </div>
 
 
-        <!-- 10 -->
-
         <div class="student-card">
 
             <img
@@ -967,8 +1210,6 @@ footer{
 
         </div>
 
-
-        <!-- 11 -->
 
         <div class="student-card">
 
@@ -995,8 +1236,6 @@ footer{
         </div>
 
 
-        <!-- 12 -->
-
         <div class="student-card">
 
             <img
@@ -1021,8 +1260,6 @@ footer{
 
         </div>
 
-
-        <!-- 13 -->
 
         <div class="student-card">
 
@@ -1074,10 +1311,6 @@ footer{
     </div>
 
 
-    <!-- =========================
-         BACK BUTTON
-    ========================= -->
-
     <a
         href="index.html"
         class="back-button">
@@ -1111,6 +1344,176 @@ footer{
     </div>
 
 </footer>
+
+
+<script>
+
+/* =========================
+   STUDENT DATA
+========================= */
+
+const students = [
+
+    {
+        id:"2023031038",
+        name:"Dinesh M"
+    },
+
+    {
+        id:"2023031045",
+        name:"Gokul Raj R"
+    },
+
+    {
+        id:"2023031046",
+        name:"GokulaBalaji R"
+    },
+
+    {
+        id:"2023031047",
+        name:"GopiBalaji M"
+    },
+
+    {
+        id:"2023031048",
+        name:"Gowsikan P"
+    },
+
+    {
+        id:"2023031055",
+        name:"Jana P"
+    },
+
+    {
+        id:"2023031060",
+        name:"Jayasurya J"
+    },
+
+    {
+        id:"2023031066",
+        name:"Joshan P"
+    },
+
+    {
+        id:"2023031067",
+        name:"Jothishkumar K"
+    },
+
+    {
+        id:"2023031078",
+        name:"Kishor S"
+    },
+
+    {
+        id:"2023031080",
+        name:"Kowshik S"
+    },
+
+    {
+        id:"2023031178",
+        name:"Akshaya K"
+    },
+
+    {
+        id:"2023031186",
+        name:"Swapanjit Behera"
+    }
+
+];
+
+
+/* =========================
+   EXCEL EXPORT
+   CSV FORMAT
+========================= */
+
+function downloadExcel(){
+
+    let csv =
+    "TNAU RAWE PROGRAMME 2026\n";
+
+    csv +=
+    "TEAM : PAIYUR\n";
+
+    csv +=
+    "AC&RI VVNR, Tiruvannamalai District\n\n";
+
+    csv +=
+    "S.No,ID Number,Student Name,Contact\n";
+
+
+    students.forEach(
+        function(student,index){
+
+            csv +=
+
+            (index + 1) + "," +
+
+            student.id + "," +
+
+            '"' +
+            student.name +
+            '",' +
+
+            '"Add Number"\n';
+
+        }
+    );
+
+
+    const blob =
+    new Blob(
+
+        ["\ufeff" + csv],
+
+        {
+            type:
+            "text/csv;charset=utf-8;"
+        }
+
+    );
+
+
+    const url =
+    URL.createObjectURL(blob);
+
+
+    const link =
+    document.createElement("a");
+
+
+    link.href = url;
+
+
+    link.download =
+    "TNAU_RAWE_Paiyur_Students_2026.csv";
+
+
+    document.body.appendChild(link);
+
+
+    link.click();
+
+
+    document.body.removeChild(link);
+
+
+    URL.revokeObjectURL(url);
+
+}
+
+
+/* =========================
+   PDF EXPORT
+========================= */
+
+function downloadPDF(){
+
+    window.print();
+
+}
+
+</script>
 
 
 </body>
