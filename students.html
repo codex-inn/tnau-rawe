@@ -1,23 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Student directory — TNAU RAWE Programme 2026, Team Paiyur.">
 
-<meta name="viewport"
-content="width=device-width, initial-scale=1.0">
+<title>Students | TNAU RAWE Programme 2026</title>
 
-<title>TNAU RAWE Programme 2026 | Paiyur Team</title>
-
-<link rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
 <style>
 
-/* =====================================================
-   RESET
-===================================================== */
+:root{
+    --forest-950:#04170d;
+    --forest-900:#06341c;
+    --forest-800:#0a4726;
+    --forest-700:#0e5c2e;
+    --forest-600:#147a3a;
+    --forest-500:#1c9a49;
+    --mint-50:#f3faf4;
+    --mint-100:#e4f5e8;
+    --gold-400:#f0b93d;
+    --gold-500:#e0a020;
+    --gold-600:#b97e12;
+    --ink-900:#12201a;
+    --ink-700:#33463b;
+    --ink-500:#5f7268;
+    --line:#e3ece4;
+    --white:#ffffff;
+    --shadow-sm:0 2px 10px rgba(6,40,20,.07);
+    --shadow-md:0 12px 30px rgba(6,40,20,.10);
+    --shadow-lg:0 22px 55px rgba(6,40,20,.18);
+    --radius-lg:22px;
+    --radius-md:16px;
+    --radius-sm:10px;
+}
 
 *{
     margin:0;
@@ -30,1180 +51,602 @@ html{
 }
 
 body{
-    font-family:Arial,Helvetica,sans-serif;
-    color:#17231a;
-    line-height:1.6;
+    font-family:'Inter',Arial,Helvetica,sans-serif;
+    color:var(--ink-900);
     min-height:100vh;
-
-    background:
-    linear-gradient(
-        rgba(255,255,255,.78),
-        rgba(255,255,255,.78)
-    ),
-    url("vvnr-campus.jpg");
-
-    background-size:cover;
-    background-position:center;
-    background-attachment:fixed;
+    line-height:1.7;
+    background:var(--mint-50);
+    -webkit-font-smoothing:antialiased;
 }
 
+h1,h2,h3{
+    font-family:'Poppins',Arial,sans-serif;
+}
 
-/* =====================================================
+::selection{ background:var(--gold-400); color:var(--forest-950); }
+::-webkit-scrollbar{ width:10px; }
+::-webkit-scrollbar-track{ background:var(--mint-50); }
+::-webkit-scrollbar-thumb{ background:var(--forest-600); border-radius:10px; }
+
+/* =========================
    HEADER
-===================================================== */
+========================= */
 
-.top-header{
-    min-height:190px;
-
+header{
+    position:relative;
+    min-height:210px;
     display:flex;
     align-items:center;
-    gap:25px;
-
-    padding:18px 5%;
+    justify-content:center;
+    gap:26px;
+    padding:32px 20px;
+    color:white;
+    text-align:center;
+    overflow:hidden;
 
     background:
-    linear-gradient(
-        90deg,
-        rgba(255,255,255,.97),
-        rgba(255,255,255,.86),
-        rgba(255,255,255,.48)
-    ),
-    url("tnau-coimbatore.jpg");
-
+    linear-gradient(120deg,rgba(4,23,13,.95),rgba(10,71,38,.92)),
+    url("vvnr-campus.jpg");
     background-size:cover;
     background-position:center;
+}
+
+header::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:radial-gradient(circle at 85% 15%, rgba(224,160,32,.16), transparent 50%);
+    pointer-events:none;
 }
 
 .logo{
-    width:125px;
-    height:125px;
+    width:100px;
+    height:100px;
     object-fit:contain;
-
-    filter:contrast(1.3) brightness(.86);
+    position:relative;
+    z-index:1;
+    filter:drop-shadow(0 4px 10px rgba(0,0,0,.3));
 }
 
 .header-text{
-    flex:1;
+    position:relative;
+    z-index:1;
 }
 
 .header-text h1{
-    color:#104d2b;
-
-    font-size:
-    clamp(22px,3vw,36px);
-
-    line-height:1.2;
-
+    font-size:clamp(23px,4vw,38px);
+    line-height:1.25;
     margin-bottom:8px;
+    font-weight:800;
 }
 
-.subtitle{
-    color:#222;
-
-    font-size:
-    clamp(14px,1.5vw,19px);
+.header-text p{
+    font-size:15.5px;
+    color:var(--mint-100);
+    font-weight:500;
 }
 
-.college{
-    color:#104d2b;
-
-    font-size:
-    clamp(14px,1.5vw,19px);
-
-    font-weight:bold;
-}
-
-.location{
-    color:#193b25;
-    font-size:16px;
-}
-
-.theme-box{
-    text-align:center;
-}
-
-.theme-box small{
-    display:block;
-
-    color:#176b3a;
-
-    font-weight:bold;
-
-    letter-spacing:1px;
-}
-
-.theme-box strong{
-    display:block;
-
-    color:#0c572d;
-
-    font-size:40px;
-}
-
-
-/* =====================================================
+/* =========================
    NAVIGATION
-===================================================== */
+========================= */
 
 nav{
-    background:#005425;
-
+    background:linear-gradient(90deg,var(--forest-900),var(--forest-800));
+    text-align:center;
     display:flex;
-
     justify-content:center;
-
-    align-items:center;
-
-    flex-wrap:wrap;
-
+    overflow-x:auto;
     position:sticky;
-
     top:0;
-
     z-index:1000;
-
-    box-shadow:
-    0 2px 8px rgba(0,0,0,.25);
+    box-shadow:0 4px 16px rgba(0,0,0,.18);
+    scrollbar-width:none;
 }
 
+nav::-webkit-scrollbar{ display:none; }
+
 nav a{
-    color:white;
-
+    display:inline-block;
+    color:rgba(255,255,255,.88);
     text-decoration:none;
-
-    padding:13px 14px;
-
-    font-size:14px;
-
-    font-weight:bold;
-
-    transition:.25s;
+    padding:15px 16px;
+    font-weight:600;
+    font-size:13.5px;
+    white-space:nowrap;
+    transition:.2s;
 }
 
 nav a:hover{
-    background:#247b3d;
+    color:var(--gold-400);
+    background:rgba(255,255,255,.06);
 }
 
-nav i{
-    margin-right:5px;
+/* =========================
+   MAIN
+========================= */
+
+.container{
+    max-width:1120px;
+    margin:50px auto;
+    padding:0 20px;
 }
 
-
-/* =====================================================
-   HERO
-===================================================== */
-
-.hero{
-    min-height:500px;
-
-    display:flex;
-
-    align-items:center;
-
-    padding:60px 5%;
-
-    background:
-    linear-gradient(
-        90deg,
-        rgba(0,45,22,.87),
-        rgba(0,45,22,.50),
-        rgba(0,45,22,.12)
-    );
-}
-
-.hero-content{
-    max-width:700px;
-
-    color:white;
-}
-
-.welcome{
-    font-family:Georgia,serif;
-
-    font-size:31px;
-
-    font-style:italic;
-
-    color:#a3ce88;
-}
-
-.hero h2{
-    font-size:
-    clamp(34px,5vw,56px);
-
-    line-height:1.1;
-
-    margin:10px 0 20px;
-
-    font-weight:900;
-}
-
-.hero-line{
-    width:430px;
-
-    max-width:100%;
-
-    height:3px;
-
-    background:#70b258;
-
-    margin-bottom:22px;
-}
-
-.hero p{
-    font-size:18px;
-
-    max-width:650px;
-}
-
-.explore{
-    display:inline-flex;
-
-    align-items:center;
-
-    gap:10px;
-
-    margin-top:25px;
-
-    padding:12px 22px;
-
-    background:#238b3e;
-
-    color:white;
-
-    text-decoration:none;
-
-    border-radius:7px;
-
-    font-weight:bold;
-}
-
-.explore:hover{
-    background:#2fa94e;
-}
-
-
-/* =====================================================
-   GENERAL SECTIONS
-===================================================== */
-
-.section{
-    padding:55px 5%;
-
-    background:
-    rgba(255,255,255,.50);
-}
-
-.section-heading{
+.page-title{
     text-align:center;
-
-    color:#075128;
-
-    font-size:30px;
-
-    margin-bottom:28px;
+    color:var(--forest-900);
+    font-size:clamp(27px,4vw,40px);
+    margin-bottom:10px;
+    font-weight:800;
 }
 
-.content-box{
-    max-width:1000px;
-
-    margin:auto;
-
-    padding:28px;
-
-    background:
-    rgba(255,255,255,.97);
-
-    border-radius:13px;
-
-    box-shadow:
-    0 5px 18px rgba(0,0,0,.13);
-}
-
-
-/* =====================================================
-   TEAM ORGANIZATION
-===================================================== */
-
-.team-grid{
-    width:100%;
-
-    max-width:900px;
-
-    margin:auto;
-
-    display:grid;
-
-    grid-template-columns:
-    repeat(2,minmax(0,1fr));
-
-    gap:18px;
-}
-
-.team-card{
-    background:white;
-
-    min-height:235px;
-
-    padding:20px 16px;
-
+.page-subtitle{
     text-align:center;
-
-    border-radius:12px;
-
-    box-shadow:
-    0 4px 15px rgba(0,0,0,.14);
-
-    transition:.25s;
-
-    display:flex;
-
-    flex-direction:column;
-
-    align-items:center;
-
-    justify-content:center;
-}
-
-.team-card:hover{
-    transform:translateY(-5px);
-
-    box-shadow:
-    0 8px 22px rgba(0,0,0,.18);
-}
-
-.team-photo{
-    width:82px;
-
-    height:82px;
-
-    border-radius:50%;
-
-    object-fit:cover;
-
-    display:block;
-
-    margin:0 auto 12px;
-
-    border:3px solid #d8eadb;
-
-    box-shadow:
-    0 3px 10px rgba(0,0,0,.16);
-}
-
-.team-card h3{
-    color:#0d4d28;
-
-    margin-bottom:7px;
-
-    font-size:18px;
-}
-
-.role{
-    color:#a31313;
-
-    font-weight:bold;
-
-    margin-bottom:8px;
-
-    font-size:14px;
-}
-
-.team-card p{
-    font-size:14px;
-}
-
-
-/* =====================================================
-   RAWE PROGRAMME
-===================================================== */
-
-.programme-grid{
-    width:100%;
-
-    max-width:850px;
-
-    margin:0 auto;
-
-    display:grid;
-
-    grid-template-columns:
-    repeat(2,minmax(0,1fr));
-
-    gap:20px;
-}
-
-.programme-card{
-    width:100%;
-
-    min-height:205px;
-
-    padding:22px 18px;
-
-    background:
-    rgba(255,255,255,.98);
-
-    border-radius:12px;
-
-    display:flex;
-
-    flex-direction:column;
-
-    align-items:center;
-
-    justify-content:center;
-
-    text-align:center;
-
-    box-shadow:
-    0 4px 15px rgba(0,0,0,.13);
-
-    transition:.25s;
-}
-
-.programme-card:hover{
-    transform:translateY(-4px);
-
-    box-shadow:
-    0 8px 22px rgba(0,0,0,.18);
-}
-
-.programme-card i{
-    font-size:30px;
-
-    color:#24783b;
-
-    margin-bottom:9px;
-}
-
-.programme-card h3{
-    color:#0b4d27;
-
-    font-size:18px;
-
-    margin-bottom:7px;
-}
-
-.programme-card p{
-    color:#4e5b52;
-
-    font-size:13px;
-
-    line-height:1.5;
-
-    margin-bottom:13px;
-
-    max-width:280px;
-}
-
-.card-button{
-    display:inline-block;
-
-    padding:8px 14px;
-
-    background:#16753a;
-
-    color:white;
-
-    border-radius:6px;
-
-    text-decoration:none;
-
-    font-size:12px;
-
-    font-weight:bold;
-}
-
-.card-button:hover{
-    background:#0c572b;
-}
-
-.attendance-card{
-    border-top:4px solid #16753a;
-}
-
-
-/* =====================================================
-   RAWE GALLERY
-   ONLY 5 IMAGES
-   PC = 4
-   MOBILE = 2
-===================================================== */
-
-.gallery-section{
-    padding:55px 5%;
-
-    background:
-    rgba(255,255,255,.56);
-}
-
-.gallery-grid{
-    width:100%;
-
-    max-width:1000px;
-
-    margin:auto;
-
-    display:grid;
-
-    grid-template-columns:
-    repeat(4,minmax(0,1fr));
-
-    gap:18px;
-}
-
-.gallery-item{
-    background:white;
-
-    border-radius:12px;
-
-    overflow:hidden;
-
-    box-shadow:
-    0 4px 15px rgba(0,0,0,.14);
-
-    transition:.25s;
-}
-
-.gallery-item:hover{
-    transform:translateY(-5px);
-
-    box-shadow:
-    0 8px 22px rgba(0,0,0,.20);
-}
-
-.gallery-item a{
-    display:block;
-
-    line-height:0;
-
-    overflow:hidden;
-}
-
-.gallery-item img{
-    width:100%;
-
-    height:185px;
-
-    object-fit:cover;
-
-    display:block;
-
-    transition:.3s;
-}
-
-.gallery-item:hover img{
-    transform:scale(1.05);
-}
-
-.gallery-caption{
-    padding:10px;
-
-    text-align:center;
-
-    color:#075128;
-
-    font-size:13px;
-
-    font-weight:bold;
-}
-
-
-/* =====================================================
-   VILLAGE
-===================================================== */
-
-.village-preview{
-    text-align:center;
-}
-
-.village-preview h3{
-    color:#075128;
-
-    font-size:26px;
-
-    margin-bottom:12px;
-}
-
-.village-preview p{
-    max-width:800px;
-
-    margin:auto;
-}
-
-
-/* =====================================================
-   REPORTS
-===================================================== */
-
-.report-list{
-    max-width:800px;
-
-    margin:auto;
-}
-
-.report-list p{
-    margin:10px 0;
-
+    margin-bottom:36px;
+    color:var(--ink-500);
     font-size:15px;
 }
 
+/* =========================
+   EXPORT CARD
+========================= */
 
-/* =====================================================
-   CONTACT
-===================================================== */
-
-.contact-grid{
-    width:100%;
-
-    max-width:900px;
-
-    margin:auto;
-
-    display:grid;
-
-    grid-template-columns:
-    repeat(2,minmax(0,1fr));
-
-    gap:18px;
-}
-
-.contact-card{
-    min-height:190px;
-
-    padding:22px 18px;
-
-    background:
-    rgba(255,255,255,.97);
-
-    border-radius:12px;
-
-    box-shadow:
-    0 4px 15px rgba(0,0,0,.13);
-
+.export-box{
+    max-width:920px;
+    margin:0 auto 36px;
+    padding:26px;
+    background:var(--white);
+    border-radius:var(--radius-lg);
+    box-shadow:var(--shadow-md);
+    border-top:4px solid var(--gold-400);
     text-align:center;
+}
 
+.export-box h2{
+    color:var(--forest-900);
+    font-size:21px;
+    margin-bottom:6px;
+    font-weight:700;
+}
+
+.export-box p{
+    color:var(--ink-500);
+    font-size:13.5px;
+    margin-bottom:18px;
+}
+
+.export-buttons{
     display:flex;
-
-    flex-direction:column;
-
-    align-items:center;
-
     justify-content:center;
-
-    transition:.25s;
+    align-items:center;
+    gap:12px;
+    flex-wrap:wrap;
 }
 
-.contact-card:hover{
-    transform:translateY(-4px);
-
-    box-shadow:
-    0 8px 20px rgba(0,0,0,.18);
-}
-
-.contact-icon{
-    font-size:30px;
-
-    margin-bottom:8px;
-}
-
-.contact-card h3{
-    color:#075128;
-
-    font-size:17px;
-
-    margin-bottom:7px;
-}
-
-.contact-card strong{
-    color:#17231a;
-
-    font-size:14px;
-
-    margin-bottom:7px;
-}
-
-.contact-card a{
-    color:#075128;
-
+.export-btn{
+    border:0;
+    cursor:pointer;
+    padding:12px 22px;
+    border-radius:50px;
+    color:white;
+    font-weight:700;
     font-size:13px;
+    transition:.25s;
+    box-shadow:var(--shadow-sm);
+}
 
-    word-break:break-word;
+.pdf-btn{
+    background:linear-gradient(120deg,#c23b3b,#8f1f1f);
+}
 
+.excel-btn{
+    background:linear-gradient(120deg,var(--forest-600),var(--forest-800));
+}
+
+.print-btn{
+    background:linear-gradient(120deg,#3567a8,#1f4271);
+}
+
+.export-btn:hover{
+    transform:translateY(-3px);
+    box-shadow:var(--shadow-md);
+}
+
+/* =========================
+   STUDENT GRID
+========================= */
+
+.students-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:22px;
+}
+
+.student-card{
+    background:var(--white);
+    border-radius:var(--radius-lg);
+    padding:26px 18px;
+    text-align:center;
+    box-shadow:var(--shadow-sm);
+    border:1px solid var(--line);
+    transition:.3s;
+    min-height:250px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    position:relative;
+    overflow:hidden;
+}
+
+.student-card::before{
+    content:"";
+    position:absolute;
+    top:0; left:0; right:0;
+    height:5px;
+    background:linear-gradient(90deg,var(--forest-500),var(--gold-400));
+    transform:scaleX(0);
+    transition:transform .3s;
+    transform-origin:left;
+}
+
+.student-card:hover{
+    transform:translateY(-7px);
+    box-shadow:var(--shadow-lg);
+    border-color:transparent;
+}
+
+.student-card:hover::before{
+    transform:scaleX(1);
+}
+
+/* =========================
+   STUDENT PHOTO
+========================= */
+
+.student-photo{
+    width:96px;
+    height:96px;
+    border-radius:50%;
+    object-fit:cover;
+    padding:3px;
+    background:linear-gradient(140deg,var(--forest-500),var(--gold-400));
+    box-shadow:var(--shadow-sm);
+    margin-bottom:14px;
+}
+
+/* =========================
+   ID
+========================= */
+
+.id-number{
+    display:inline-block;
+    background:var(--mint-100);
+    color:var(--forest-700);
+    padding:4px 12px;
+    border-radius:30px;
+    font-size:11.5px;
+    font-weight:700;
+    margin-bottom:8px;
+    letter-spacing:.2px;
+}
+
+/* =========================
+   NAME
+========================= */
+
+.student-card h2{
+    color:var(--forest-900);
+    font-size:18.5px;
+    margin-bottom:6px;
+    font-weight:700;
+}
+
+/* =========================
+   CONTACT
+========================= */
+
+.student-contact{
+    color:var(--ink-500);
+    font-size:13px;
+    margin-top:4px;
+    font-weight:600;
+}
+
+.student-contact a{
+    color:var(--forest-700);
     text-decoration:none;
 }
 
-.contact-card a:hover{
+.student-contact a:hover{
     text-decoration:underline;
 }
 
+/* =========================
+   TEAM INFO
+========================= */
 
-/* =====================================================
-   IMPORTANCE HIGHLIGHTS
-===================================================== */
-
-.highlights{
-    max-width:1000px;
-
-    margin:30px auto 0;
-
-    display:grid;
-
-    grid-template-columns:
-    repeat(4,1fr);
-
-    gap:14px;
+.team-info{
+    margin-top:38px;
+    padding:30px;
+    background:var(--white);
+    border-radius:var(--radius-lg);
+    text-align:center;
+    box-shadow:var(--shadow-md);
+    border-top:4px solid var(--forest-500);
 }
 
-.highlight-card{
-    background:
-    rgba(255,255,255,.96);
+.team-info h2{
+    color:var(--forest-900);
+    margin-bottom:8px;
+    font-weight:700;
+}
 
-    padding:18px 12px;
+.team-info p{
+    margin-bottom:5px;
+    color:var(--ink-500);
+}
 
-    border-radius:11px;
+/* =========================
+   BACK BUTTON
+========================= */
 
-    text-align:center;
-
-    box-shadow:
-    0 4px 13px rgba(0,0,0,.12);
-
+.back-button{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    width:max-content;
+    margin:38px auto;
+    padding:14px 28px;
+    background:linear-gradient(120deg,var(--forest-600),var(--forest-800));
+    color:white;
+    text-decoration:none;
+    border-radius:50px;
+    font-weight:700;
+    box-shadow:var(--shadow-sm);
     transition:.25s;
 }
 
-.highlight-card:hover{
-    transform:translateY(-4px);
+.back-button:hover{
+    transform:translateY(-2px);
+    box-shadow:var(--shadow-md);
 }
 
-.highlight-card .emoji{
-    font-size:28px;
-
-    margin-bottom:5px;
-}
-
-.highlight-card h4{
-    color:#075128;
-
-    font-size:15px;
-
-    margin-bottom:3px;
-}
-
-.highlight-card p{
-    font-size:12px;
-
-    color:#566158;
-}
-
-
-/* =====================================================
-   BOTTOM IMAGE
-===================================================== */
-
-.bottom-campus{
-    width:100%;
-
-    height:450px;
-
-    background:
-
-    linear-gradient(
-        rgba(0,45,22,.10),
-        rgba(0,45,22,.10)
-    ),
-
-    url("vvnr-entrance.jpg");
-
-    background-size:cover;
-
-    background-position:center;
-}
-
-
-/* =====================================================
+/* =========================
    FOOTER
-===================================================== */
+========================= */
 
 footer{
-    background:#063f20;
-
+    background:linear-gradient(160deg,var(--forest-950),var(--forest-900));
     color:white;
-
     text-align:center;
-
-    padding:35px 20px;
+    padding:40px 20px;
+    margin-top:20px;
 }
 
 .footer-title{
-    color:#c9e6b9;
-
-    font-size:25px;
-
-    font-weight:bold;
+    color:var(--gold-400);
+    font-size:24px;
+    font-weight:800;
+    font-family:'Poppins',sans-serif;
 }
 
 .footer-motto{
-    color:#d6edc9;
-
-    font-size:19px;
-
+    color:var(--mint-100);
+    font-size:17px;
     margin-top:8px;
 }
 
-.footer-quote{
-    font-family:Georgia,serif;
-
-    font-style:italic;
-
-    margin-top:5px;
+footer > div:last-child{
+    color:rgba(255,255,255,.55);
+    font-size:12.5px;
 }
 
-.footer-line{
-    width:100px;
-
-    height:2px;
-
-    background:#8cc46f;
-
-    margin:20px auto;
-}
-
-
-/* =====================================================
+/* =========================
    TABLET
-===================================================== */
+========================= */
 
-@media(max-width:1000px){
+@media(max-width:900px){
 
-    .gallery-grid{
-        grid-template-columns:
-        repeat(3,1fr);
-    }
-
-    .highlights{
-        grid-template-columns:
-        repeat(2,1fr);
+    .students-grid{
+        grid-template-columns:repeat(2,1fr);
     }
 
 }
 
-
-/* =====================================================
+/* =========================
    MOBILE
-===================================================== */
+========================= */
 
 @media(max-width:600px){
 
-    .top-header{
+    header{
         flex-direction:column;
-
-        text-align:center;
-
-        padding:20px 15px;
+        padding:26px 16px;
     }
 
     .logo{
-        width:90px;
-
-        height:90px;
-    }
-
-    .theme-box strong{
-        font-size:30px;
-    }
-
-    nav{
-        position:relative;
+        width:80px;
+        height:80px;
     }
 
     nav a{
+        padding:12px 12px;
         font-size:12px;
-
-        padding:9px 7px;
     }
 
-    .hero{
-        min-height:450px;
-
-        padding:40px 20px;
+    .container{
+        margin:32px auto;
+        padding:0 12px;
     }
 
-    .welcome{
-        font-size:25px;
+    .page-title{
+        font-size:28px;
     }
 
-    .hero h2{
-        font-size:34px;
+    .page-subtitle{
+        font-size:13px;
+        margin-bottom:24px;
     }
 
-    .hero p{
-        font-size:15px;
+    .export-box{
+        padding:18px;
+        margin-bottom:24px;
     }
 
-    .section,
-    .gallery-section{
-        padding:40px 15px;
+    .export-box h2{
+        font-size:17px;
     }
 
-
-    /* TEAM */
-
-    .team-grid{
-        grid-template-columns:
-        repeat(2,minmax(0,1fr));
-
-        gap:12px;
+    .export-box p{
+        font-size:11.5px;
     }
 
-    .team-card{
-        min-height:205px;
-
-        padding:15px 8px;
+    .export-btn{
+        font-size:11.5px;
+        padding:10px 14px;
     }
 
-    .team-photo{
-        width:62px;
-
-        height:62px;
-
-        margin-bottom:8px;
+    .students-grid{
+        grid-template-columns:repeat(2,minmax(0,1fr));
+        gap:13px;
     }
 
-    .team-card h3{
-        font-size:14px;
-
-        line-height:1.3;
-    }
-
-    .team-card p{
-        font-size:11px;
-
-        line-height:1.4;
-    }
-
-    .role{
-        font-size:11px;
-
-        line-height:1.35;
-    }
-
-
-    /* PROGRAMME */
-
-    .programme-grid{
-        grid-template-columns:
-        repeat(2,minmax(0,1fr));
-
-        gap:12px;
-    }
-
-    .programme-card{
-        min-height:185px;
-
+    .student-card{
+        min-height:220px;
         padding:17px 9px;
     }
 
-    .programme-card i{
-        font-size:25px;
-
-        margin-bottom:7px;
+    .student-photo{
+        width:70px;
+        height:70px;
+        margin-bottom:9px;
     }
 
-    .programme-card h3{
-        font-size:15px;
-
-        line-height:1.25;
+    .id-number{
+        font-size:9.5px;
+        padding:3px 8px;
+        margin-bottom:6px;
     }
 
-    .programme-card p{
-        font-size:11px;
-
-        line-height:1.4;
-
-        margin-bottom:10px;
-    }
-
-    .programme-card .card-button{
-        padding:7px 9px;
-
-        font-size:10px;
-    }
-
-
-    /* =================================================
-       GALLERY MOBILE
-       2 COLUMNS
-    ================================================= */
-
-    .gallery-grid{
-        grid-template-columns:
-        repeat(2,minmax(0,1fr));
-
-        gap:12px;
-    }
-
-    .gallery-item img{
-        height:145px;
-    }
-
-    .gallery-caption{
-        font-size:11px;
-
-        padding:8px 5px;
-    }
-
-
-    /* CONTACT */
-
-    .contact-grid{
-        grid-template-columns:
-        repeat(2,minmax(0,1fr));
-
-        gap:12px;
-    }
-
-    .contact-card{
-        min-height:170px;
-
-        padding:16px 9px;
-    }
-
-    .contact-icon{
-        font-size:25px;
-    }
-
-    .contact-card h3{
-        font-size:13px;
-
+    .student-card h2{
+        font-size:14px;
         line-height:1.3;
     }
 
-    .contact-card strong,
-    .contact-card a{
-        font-size:11px;
-
-        line-height:1.4;
+    .student-contact{
+        font-size:9.5px;
+        line-height:1.35;
     }
 
-
-    /* HIGHLIGHTS */
-
-    .highlights{
-        grid-template-columns:
-        repeat(2,1fr);
-
-        gap:10px;
+    .team-info{
+        padding:22px 14px;
     }
 
-    .highlight-card{
-        padding:15px 8px;
-    }
-
-    .highlight-card .emoji{
-        font-size:25px;
-    }
-
-    .highlight-card h4{
-        font-size:13px;
-    }
-
-    .highlight-card p{
-        font-size:10px;
-    }
-
-    .content-box{
-        padding:20px;
-    }
-
-    .bottom-campus{
-        height:280px;
+    .team-info h2{
+        font-size:21px;
     }
 
 }
 
-
-/* =====================================================
+/* =========================
    SMALL MOBILE
-===================================================== */
+========================= */
 
 @media(max-width:380px){
 
-    .team-grid,
-    .programme-grid,
-    .contact-grid{
+    .students-grid{
         gap:9px;
     }
 
-    .team-card{
-        min-height:185px;
-
-        padding:12px 6px;
+    .student-card{
+        min-height:205px;
+        padding:14px 6px;
     }
 
-    .team-photo{
-        width:52px;
-
-        height:52px;
+    .student-photo{
+        width:60px;
+        height:60px;
     }
 
-    .team-card h3{
-        font-size:12px;
+    .student-card h2{
+        font-size:12.5px;
     }
 
-    .team-card p,
-    .role{
+    .student-contact{
+        font-size:8.5px;
+    }
+
+    .id-number{
+        font-size:8.5px;
+    }
+
+}
+
+/* =========================
+   PRINT / PDF
+========================= */
+
+@media print{
+
+    body{
+        background:white;
+    }
+
+    header,
+    nav,
+    .export-box,
+    .back-button,
+    footer{
+        display:none !important;
+    }
+
+    .container{
+        max-width:none;
+        margin:10px;
+        padding:0;
+    }
+
+    .page-title{
+        font-size:28px;
+        color:#000;
+    }
+
+    .page-subtitle{
+        margin-bottom:15px;
+    }
+
+    .students-grid{
+        grid-template-columns:repeat(3,1fr);
+        gap:10px;
+    }
+
+    .student-card{
+        min-height:180px;
+        box-shadow:none;
+        border:1px solid #aaa;
+        break-inside:avoid;
+    }
+
+    .student-photo{
+        width:65px;
+        height:65px;
+    }
+
+    .student-card h2{
+        font-size:14px;
+    }
+
+    .student-contact{
         font-size:10px;
     }
 
-    .programme-card{
-        min-height:175px;
-
-        padding:13px 6px;
-    }
-
-    .programme-card h3{
-        font-size:13px;
-    }
-
-    .programme-card p{
-        font-size:10px;
-    }
-
-    .programme-card .card-button{
-        font-size:9px;
-
-        padding:6px 8px;
-    }
-
-    .gallery-grid{
-        gap:9px;
-    }
-
-    .gallery-item img{
-        height:115px;
-    }
-
-    .gallery-caption{
+    .id-number{
         font-size:9px;
     }
 
-    .contact-card{
-        min-height:155px;
-
-        padding:12px 6px;
-    }
-
-    .contact-card h3{
-        font-size:11px;
-    }
-
-    .contact-card strong,
-    .contact-card a{
-        font-size:9px;
-    }
-
-    .highlights{
-        gap:8px;
+    .team-info{
+        box-shadow:none;
+        border:1px solid #aaa;
     }
 
 }
@@ -1211,533 +654,467 @@ footer{
 </style>
 
 </head>
-
-
 <body>
 
 
-<!-- =====================================================
+<!-- =========================
      HEADER
-===================================================== -->
+========================= -->
 
-<header class="top-header">
+<header>
 
     <img
         src="tnau-logo.png"
         alt="TNAU Logo"
         class="logo">
 
+
     <div class="header-text">
 
         <h1>
-
-            TNAU RAWE PROGRAMME 2026
-
-            <br>
-
-            <span style="font-size:.72em;">
-                (2023 Batch AC&amp;RI VVNR)
-            </span>
-
+            🌾 TNAU RAWE PROGRAMME 2026
         </h1>
 
-        <div class="subtitle">
-            Rural Agricultural Work Experience Programme
-        </div>
+        <p>
+            (2023 Batch AC&amp;RI VVNR)
+        </p>
 
-        <div class="college">
-            AGRICULTURAL COLLEGE &amp; RESEARCH INSTITUTE
-        </div>
-
-        <div class="location">
-            Vazhavachanur · Tiruvannamalai District
-        </div>
-
-    </div>
-
-
-    <div class="theme-box">
-
-        <small>
-            RAWE TEAM
-        </small>
-
-        <strong>
-            PAIYUR
-        </strong>
+        <p>
+            TEAM : PAIYUR
+        </p>
 
     </div>
 
 </header>
 
 
-<!-- =====================================================
+<!-- =========================
      NAVIGATION
-===================================================== -->
+========================= -->
 
 <nav>
 
     <a href="index.html">
-        <i class="fa-solid fa-house"></i>
-        Home
-    </a>
-
-    <a href="#about">
-        <i class="fa-solid fa-circle-info"></i>
-        About RAWE
-    </a>
-
-    <a href="#team">
-        <i class="fa-solid fa-users"></i>
-        Team Organization
+        🏠 Home
     </a>
 
     <a href="village.html">
-        <i class="fa-solid fa-location-dot"></i>
-        Village Profile
-    </a>
-
-    <a href="activities.html">
-        <i class="fa-solid fa-calendar-day"></i>
-        Daily Activities
-    </a>
-
-    <a href="attendance.html">
-        <i class="fa-solid fa-clipboard-check"></i>
-        Attendance
-    </a>
-
-    <a href="#gallery">
-        <i class="fa-solid fa-images"></i>
-        Gallery
-    </a>
-
-    <a href="#reports">
-        <i class="fa-solid fa-file-lines"></i>
-        Reports
+        📍 Village Profile
     </a>
 
     <a href="students.html">
-        <i class="fa-solid fa-graduation-cap"></i>
-        Students
+        👨‍🎓 Students
     </a>
 
-    <a href="#contact">
-        <i class="fa-solid fa-phone"></i>
-        Contact
+    <a href="activities.html">
+        📅 Daily Activities
+    </a>
+
+    <a href="attendance.html">
+        ✅ Attendance
     </a>
 
 </nav>
 
 
-<!-- =====================================================
-     HERO
-===================================================== -->
+<!-- =========================
+     MAIN
+========================= -->
 
-<section class="hero">
+<main class="container">
 
-    <div class="hero-content">
 
-        <div class="welcome">
-            Welcome to
-        </div>
+    <h1 class="page-title">
+        👨‍🎓 STUDENTS
+    </h1>
+
+
+    <p class="page-subtitle">
+
+        TNAU RAWE Programme 2026 ·
+        Paiyur Team
+
+    </p>
+
+
+    <!-- =========================
+         EXPORT OPTIONS
+    ========================= -->
+
+    <div class="export-box">
 
         <h2>
-            TNAU RAWE<br>
-            PROGRAMME 2026
+            📥 Student Details Export
         </h2>
 
-        <div class="hero-line"></div>
-
         <p>
-            Practical agricultural learning through
-            farmer interaction, field visits,
-            agricultural surveys and field-level
-            agricultural activities.
+            Export the complete student details
+            as PDF or Excel.
         </p>
 
-        <a
-            href="#programme"
-            class="explore">
 
-            Explore More
+        <div class="export-buttons">
 
-            <i class="fa-solid fa-arrow-right"></i>
 
-        </a>
+            <button
+                class="export-btn pdf-btn"
+                onclick="downloadPDF()">
+
+                📄 Export PDF
+
+            </button>
+
+
+            <button
+                class="export-btn excel-btn"
+                onclick="downloadExcel()">
+
+                📊 Export Excel
+
+            </button>
+
+
+            <button
+                class="export-btn print-btn"
+                onclick="window.print()">
+
+                🖨️ Print
+
+            </button>
+
+
+        </div>
 
     </div>
 
-</section>
+
+    <!-- =========================
+         STUDENT CARDS
+    ========================= -->
+
+    <div class="students-grid">
 
 
-<!-- =====================================================
-     TEAM ORGANIZATION
-===================================================== -->
-
-<section
-    class="section"
-    id="team">
-
-    <h2 class="section-heading">
-        👥 TEAM ORGANIZATION
-    </h2>
-
-
-    <div class="team-grid">
-
-
-        <!-- TEAM 1 -->
-
-        <div class="team-card">
+        <div class="student-card">
 
             <img
-                src="team1.jpg"
-                alt="Dr. M. Sankar"
-                class="team-photo">
+                src="student1.jpg"
+                alt="Dinesh M"
+                class="student-photo">
 
-            <h3>
-                Dr. M. Sankar, Ph.D
-            </h3>
-
-            <div class="role">
-                Team In-charge
+            <div class="id-number">
+                ID NO: 2023031038
             </div>
 
-            <p>
-                Librarian · AC&amp;RI, VVNR
-            </p>
+            <h2>
+                Dinesh M
+            </h2>
+
+            <div class="student-contact">
+                📞 Contact:
+                <a href="tel:">
+                    +918838170369
+                </a>
+            </div>
 
         </div>
 
 
-        <!-- TEAM 2 -->
-
-        <div class="team-card">
+        <div class="student-card">
 
             <img
-                src="team2.jpg"
-                alt="Dr. P. Senthil Kumar"
-                class="team-photo">
+                src="student2.jpg"
+                alt="Gokul Raj R"
+                class="student-photo">
 
-            <h3>
-                Dr. P. Senthil Kumar
-            </h3>
-
-            <div class="role">
-                Staff In-charge
+            <div class="id-number">
+                ID NO: 2023031045
             </div>
 
-            <p>
-                Associate Professor
-            </p>
+            <h2>
+                Gokul Raj R
+            </h2>
 
-            <p>
-                Plant Nematology · RRS, Paiyur
-            </p>
+            <div class="student-contact">
+                📞 Contact:
+                <a href="tel:">
+                    +917603866397
+                </a>
+            </div>
 
         </div>
 
 
-        <!-- TEAM 3 -->
-
-        <div class="team-card">
+        <div class="student-card">
 
             <img
-                src="team3.jpg"
-                alt="Gokula Balaji R"
-                class="team-photo">
+                src="student3.jpg"
+                alt="GokulaBalaji R"
+                class="student-photo">
 
-            <h3>
-                Gokula Balaji R
-            </h3>
-
-            <div class="role">
-                Team Leader &amp;
-                Students In-charge
+            <div class="id-number">
+                ID NO: 2023031046
             </div>
 
-            <p>
-                Final-Year B.Sc Agri
-            </p>
+            <h2>
+                GokulaBalaji R
+            </h2>
 
-            <p>
-                TNAU (AC&amp;RI, VVNR)
-            </p>
+            <div class="student-contact">
+                📞 Contact:
+                <a href="tel:">
+                    +919597135679
+                </a>
+            </div>
 
         </div>
 
 
-        <!-- TEAM 4 -->
-
-        <div class="team-card">
+        <div class="student-card">
 
             <img
-                src="team4.jpg"
+                src="student4.jpg"
+                alt="GopiBalaji M"
+                class="student-photo">
+
+            <div class="id-number">
+                ID NO: 2023031047
+            </div>
+
+            <h2>
+                GopiBalaji M
+            </h2>
+
+            <div class="student-contact">
+                📞 Contact:
+                <a href="tel:">
+                    +919626141082
+                </a>
+            </div>
+
+        </div>
+
+
+        <div class="student-card">
+
+            <img
+                src="student5.jpg"
+                alt="Gowsikan P"
+                class="student-photo">
+
+            <div class="id-number">
+                ID NO: 2023031048
+            </div>
+
+            <h2>
+                Gowsikan P
+            </h2>
+
+            <div class="student-contact">
+                📞 Contact:
+                <a href="tel:">
+                    +919042194036
+                </a>
+            </div>
+
+        </div>
+
+
+        <div class="student-card">
+
+            <img
+                src="student6.jpg"
+                alt="Jana P"
+                class="student-photo">
+
+            <div class="id-number">
+                ID NO: 2023031055
+            </div>
+
+            <h2>
+                Jana P
+            </h2>
+
+            <div class="student-contact">
+                📞 Contact:
+                <a href="tel:">
+                    +919940160611
+                </a>
+            </div>
+
+        </div>
+
+
+        <div class="student-card">
+
+            <img
+                src="student7.jpg"
+                alt="Jayasurya J"
+                class="student-photo">
+
+            <div class="id-number">
+                ID NO: 2023031060
+            </div>
+
+            <h2>
+                Jayasurya J
+            </h2>
+
+            <div class="student-contact">
+                📞 Contact:
+                <a href="tel:">
+                    +917010037763
+                </a>
+            </div>
+
+        </div>
+
+
+        <div class="student-card">
+
+            <img
+                src="student8.jpg"
+                alt="Joshan P"
+                class="student-photo">
+
+            <div class="id-number">
+                ID NO: 2023031066
+            </div>
+
+            <h2>
+                Joshan P
+            </h2>
+
+            <div class="student-contact">
+                📞 Contact:
+                <a href="tel:">
+                    +917397661610
+                </a>
+            </div>
+
+        </div>
+
+
+        <div class="student-card">
+
+            <img
+                src="student9.jpg"
+                alt="Jothishkumar K"
+                class="student-photo">
+
+            <div class="id-number">
+                ID NO: 2023031067
+            </div>
+
+            <h2>
+                Jothishkumar K
+            </h2>
+
+            <div class="student-contact">
+                📞 Contact:
+                <a href="tel:">
+                    +91807274146
+                </a>
+            </div>
+
+        </div>
+
+
+        <div class="student-card">
+
+            <img
+                src="student10.jpg"
+                alt="Kishor S"
+                class="student-photo">
+
+            <div class="id-number">
+                ID NO: 2023031078
+            </div>
+
+            <h2>
+                Kishor S
+            </h2>
+
+            <div class="student-contact">
+                📞 Contact:
+                <a href="tel:">
+                    +918190937705
+                </a>
+            </div>
+
+        </div>
+
+
+        <div class="student-card">
+
+            <img
+                src="student11.jpg"
                 alt="Kowshik S"
-                class="team-photo">
+                class="student-photo">
 
-            <h3>
+            <div class="id-number">
+                ID NO: 2023031080
+            </div>
+
+            <h2>
                 Kowshik S
-            </h3>
-
-            <div class="role">
-                Web Admin &amp; CEO
-            </div>
-
-            <p>
-                Final-Year B.Sc Agri
-            </p>
-
-            <p>
-                TNAU (AC&amp;RI, VVNR)
-            </p>
-
-            <p>
-                Cyber-Security
-            </p>
-
-        </div>
-
-
-    </div>
-
-</section>
-
-
-<!-- =====================================================
-     RAWE PROGRAMME
-===================================================== -->
-
-<section
-    class="section"
-    id="programme">
-
-    <h2 class="section-heading">
-        🌾 RAWE PROGRAMME
-    </h2>
-
-
-    <div class="programme-grid">
-
-
-        <div class="programme-card">
-
-            <i class="fa-solid fa-users"></i>
-
-            <h3>
-                Students
-            </h3>
-
-            <p>
-                View all Paiyur RAWE
-                team students.
-            </p>
-
-            <a
-                href="students.html"
-                class="card-button">
-
-                View Students
-
-            </a>
-
-        </div>
-
-
-        <div class="programme-card">
-
-            <i class="fa-solid fa-location-dot"></i>
-
-            <h3>
-                Village Profile
-            </h3>
-
-            <p>
-                View detailed village
-                and research station profile.
-            </p>
-
-            <a
-                href="village.html"
-                class="card-button">
-
-                View Details
-
-            </a>
-
-        </div>
-
-
-        <div class="programme-card">
-
-            <i class="fa-solid fa-calendar-day"></i>
-
-            <h3>
-                Daily Activities
-            </h3>
-
-            <p>
-                Record and view daily
-                RAWE field activities.
-            </p>
-
-            <a
-                href="activities.html"
-                class="card-button">
-
-                Open Activities
-
-            </a>
-
-        </div>
-
-
-        <div class="programme-card attendance-card">
-
-            <i class="fa-solid fa-clipboard-check"></i>
-
-            <h3>
-                Students Attendance
-            </h3>
-
-            <p>
-                Mark and view daily
-                student attendance.
-            </p>
-
-            <a
-                href="attendance.html"
-                class="card-button">
-
-                Open Attendance
-
-            </a>
-
-        </div>
-
-
-    </div>
-
-</section>
-
-
-<!-- =====================================================
-     RAWE GALLERY - ONLY 5 IMAGES
-===================================================== -->
-
-<section
-    class="gallery-section"
-    id="gallery">
-
-    <h2 class="section-heading">
-        📸 RAWE GALLERY
-    </h2>
-
-
-    <div class="gallery-grid">
-
-
-        <!-- IMAGE 1 -->
-
-        <div class="gallery-item">
-
-            <a
-                href="gallery1.jpg"
-                target="_blank">
-
-                <img
-                    src="gallery1.jpg"
-                    alt="RAWE Programme Activity 1">
-
-            </a>
-
-            <div class="gallery-caption">
-                🌱 RAWE Programme Activity
+            </h2>
+
+            <div class="student-contact">
+                📞 Contact:
+                <a href="tel:">
+                    Mail: kowshik.in@outlook.com
+                </a>
             </div>
 
         </div>
 
 
-        <!-- IMAGE 2 -->
+        <div class="student-card">
 
-        <div class="gallery-item">
+            <img
+                src="student12.jpg"
+                alt="Akshaya K"
+                class="student-photo">
 
-            <a
-                href="gallery2.jpg"
-                target="_blank">
+            <div class="id-number">
+                ID NO: 2023031178
+            </div>
 
-                <img
-                    src="gallery2.jpg"
-                    alt="Farmer Interaction">
+            <h2>
+                Akshaya K
+            </h2>
 
-            </a>
-
-            <div class="gallery-caption">
-                👨‍🌾 Farmer Interaction
+            <div class="student-contact">
+                📞 Contact:
+                <a href="tel:">
+                    +918792596511
+                </a>
             </div>
 
         </div>
 
 
-        <!-- IMAGE 3 -->
+        <div class="student-card">
 
-        <div class="gallery-item">
+            <img
+                src="student13.jpg"
+                alt="Swapanjit Behera"
+                class="student-photo">
 
-            <a
-                href="gallery3.jpg"
-                target="_blank">
-
-                <img
-                    src="gallery3.jpg"
-                    alt="Agricultural Activity">
-
-            </a>
-
-            <div class="gallery-caption">
-                🌾 Agricultural Activity
+            <div class="id-number">
+                ID NO: 2023031186
             </div>
 
-        </div>
+            <h2>
+                Swapanjit Behera
+            </h2>
 
-
-        <!-- IMAGE 4 -->
-
-        <div class="gallery-item">
-
-            <a
-                href="gallery4.jpg"
-                target="_blank">
-
-                <img
-                    src="gallery4.jpg"
-                    alt="Field Visit">
-
-            </a>
-
-            <div class="gallery-caption">
-                🚜 Field Visit
-            </div>
-
-        </div>
-
-
-        <!-- IMAGE 5 -->
-
-        <div class="gallery-item">
-
-            <a
-                href="gallery5.jpg"
-                target="_blank">
-
-                <img
-                    src="gallery5.jpg"
-                    alt="RAWE Field Activity">
-
-            </a>
-
-            <div class="gallery-caption">
-                📚 RAWE Field Activity
+            <div class="student-contact">
+                📞 Contact:
+                <a href="tel:">
+                    +918851709705
+                </a>
             </div>
 
         </div>
@@ -1745,266 +1122,44 @@ footer{
 
     </div>
 
-</section>
 
+    <!-- =========================
+         TEAM INFO
+    ========================= -->
 
-<!-- =====================================================
-     ABOUT RAWE
-===================================================== -->
+    <div class="team-info">
 
-<section
-    class="section"
-    id="about">
-
-    <h2 class="section-heading">
-        🌱 ABOUT RAWE
-    </h2>
-
-
-    <div class="content-box">
+        <h2>
+            🌾 TEAM : PAIYUR
+        </h2>
 
         <p>
-            The Rural Agricultural Work Experience
-            Programme provides students with practical
-            exposure to rural life, farming systems
-            and agricultural practices.
+            TNAU RAWE Programme 2026
         </p>
-
-        <br>
 
         <p>
-            Students interact with farmers,
-            understand agricultural practices and
-            gain practical experience through
-            field-level activities.
+            AC&amp;RI VVNR ·
+            Tiruvannamalai District
         </p>
 
-        <br>
-
-        <strong>
-            Learn × Experience × Serve × Grow
-        </strong>
-
     </div>
 
-</section>
 
+    <a
+        href="index.html"
+        class="back-button">
 
-<!-- =====================================================
-     IMPORTANCE HIGHLIGHTS
-===================================================== -->
+        ← Back to Home
 
-<section class="section">
+    </a>
 
-    <h2 class="section-heading">
-        ⭐ IMPORTANCE HIGHLIGHTS
-    </h2>
 
+</main>
 
-    <div class="highlights">
 
-
-        <div class="highlight-card">
-
-            <div class="emoji">
-                👨‍🌾
-            </div>
-
-            <h4>
-                Farmer Interaction
-            </h4>
-
-            <p>
-                Learn directly from farmers.
-            </p>
-
-        </div>
-
-
-        <div class="highlight-card">
-
-            <div class="emoji">
-                🌱
-            </div>
-
-            <h4>
-                Field Experience
-            </h4>
-
-            <p>
-                Gain practical agricultural skills.
-            </p>
-
-        </div>
-
-
-        <div class="highlight-card">
-
-            <div class="emoji">
-                📊
-            </div>
-
-            <h4>
-                Rural Survey
-            </h4>
-
-            <p>
-                Understand village agriculture.
-            </p>
-
-        </div>
-
-
-        <div class="highlight-card">
-
-            <div class="emoji">
-                🎓
-            </div>
-
-            <h4>
-                Student Learning
-            </h4>
-
-            <p>
-                Connect classroom learning with practice.
-            </p>
-
-        </div>
-
-
-    </div>
-
-</section>
-
-
-<!-- =====================================================
-     CONTACT
-===================================================== -->
-
-<section
-    class="section"
-    id="contact">
-
-    <h2 class="section-heading">
-        📞 CONTACT
-    </h2>
-
-
-    <div class="contact-grid">
-
-
-        <div class="contact-card">
-
-            <div class="contact-icon">
-                👨‍🏫
-            </div>
-
-            <h3>
-                Team In-charge
-            </h3>
-
-            <strong>
-                Dr. M. Sankar, Ph.D
-            </strong>
-
-            <a
-                href="mailto:librarytvmalai@tnau.ac.in">
-
-                ✉️ librarytvmalai@tnau.ac.in
-
-            </a>
-
-        </div>
-
-
-        <div class="contact-card">
-
-            <div class="contact-icon">
-                👨‍🔬
-            </div>
-
-            <h3>
-                Staff In-charge
-            </h3>
-
-            <strong>
-                Dr. P. Senthil Kumar
-            </strong>
-
-            <a
-                href="mailto:senthilkumarp@tnau.ac.in">
-
-                ✉️ senthilkumarp@tnau.ac.in
-
-            </a>
-
-        </div>
-
-
-        <div class="contact-card">
-
-            <div class="contact-icon">
-                👨‍🎓
-            </div>
-
-            <h3>
-                Team Leader &amp;
-                Students In-charge
-            </h3>
-
-            <strong>
-                Gokula Balaji R
-            </strong>
-
-            <a
-                href="tel:9597135679">
-
-                📱 9597135679
-
-            </a>
-
-        </div>
-
-
-        <div class="contact-card">
-
-            <div class="contact-icon">
-                💻
-            </div>
-
-            <h3>
-                Web Admin &amp; CEO
-            </h3>
-
-            <strong>
-                Kowshik S
-            </strong>
-
-            <a
-                href="mailto:kowshik.in@outlook.com">
-
-                ✉️ kowshik.in@outlook.com
-
-            </a>
-
-        </div>
-
-
-    </div>
-
-</section>
-
-
-<!-- =====================================================
-     BOTTOM CAMPUS IMAGE
-===================================================== -->
-
-<section class="bottom-campus"></section>
-
-
-<!-- =====================================================
+<!-- =========================
      FOOTER
-===================================================== -->
+========================= -->
 
 <footer>
 
@@ -2016,18 +1171,183 @@ footer{
         Learn × Experience × Serve × Grow
     </div>
 
-    <div class="footer-quote">
-        “Together in the field,
-        growing through experience.”
-    </div>
-
-    <div class="footer-line"></div>
+    <br>
 
     <div>
         © 2026 TNAU RAWE Programme
     </div>
 
 </footer>
+
+
+<script>
+
+/* =========================
+   STUDENT DATA
+========================= */
+
+const students = [
+
+    {
+        id:"2023031038",
+        name:"Dinesh M"
+    },
+
+    {
+        id:"2023031045",
+        name:"Gokul Raj R"
+    },
+
+    {
+        id:"2023031046",
+        name:"GokulaBalaji R"
+    },
+
+    {
+        id:"2023031047",
+        name:"GopiBalaji M"
+    },
+
+    {
+        id:"2023031048",
+        name:"Gowsikan P"
+    },
+
+    {
+        id:"2023031055",
+        name:"Jana P"
+    },
+
+    {
+        id:"2023031060",
+        name:"Jayasurya J"
+    },
+
+    {
+        id:"2023031066",
+        name:"Joshan P"
+    },
+
+    {
+        id:"2023031067",
+        name:"Jothishkumar K"
+    },
+
+    {
+        id:"2023031078",
+        name:"Kishor S"
+    },
+
+    {
+        id:"2023031080",
+        name:"Kowshik S"
+    },
+
+    {
+        id:"2023031178",
+        name:"Akshaya K"
+    },
+
+    {
+        id:"2023031186",
+        name:"Swapanjit Behera"
+    }
+
+];
+
+
+/* =========================
+   EXCEL EXPORT
+   CSV FORMAT
+========================= */
+
+function downloadExcel(){
+
+    let csv =
+    "TNAU RAWE PROGRAMME 2026\n";
+
+    csv +=
+    "TEAM : PAIYUR\n";
+
+    csv +=
+    "AC&RI VVNR, Tiruvannamalai District\n\n";
+
+    csv +=
+    "S.No,ID Number,Student Name,Contact\n";
+
+
+    students.forEach(
+        function(student,index){
+
+            csv +=
+
+            (index + 1) + "," +
+
+            student.id + "," +
+
+            '"' +
+            student.name +
+            '",' +
+
+            '"Add Number"\n';
+
+        }
+    );
+
+
+    const blob =
+    new Blob(
+
+        ["\ufeff" + csv],
+
+        {
+            type:
+            "text/csv;charset=utf-8;"
+        }
+
+    );
+
+
+    const url =
+    URL.createObjectURL(blob);
+
+
+    const link =
+    document.createElement("a");
+
+
+    link.href = url;
+
+
+    link.download =
+    "TNAU_RAWE_Paiyur_Students_2026.csv";
+
+
+    document.body.appendChild(link);
+
+
+    link.click();
+
+
+    document.body.removeChild(link);
+
+
+    URL.revokeObjectURL(url);
+
+}
+
+
+/* =========================
+   PDF EXPORT
+========================= */
+
+function downloadPDF(){
+
+    window.print();
+
+}
+
+</script>
 
 
 </body>
