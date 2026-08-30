@@ -16,6 +16,33 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
 <style>
 
 /* =====================================================
+   PROFESSIONAL TNAU RAWE WEBSITE
+===================================================== */
+
+:root{
+
+    --green:#07552f;
+    --dark-green:#033b21;
+    --green-2:#0c7040;
+
+    --gold:#d5a928;
+    --gold-light:#f3d477;
+
+    --white:#ffffff;
+    --off-white:#f7f9f7;
+
+    --text:#1b2720;
+    --muted:#657169;
+
+    --border:#dce5df;
+
+    --shadow:
+    0 8px 25px rgba(0,0,0,.10);
+
+}
+
+
+/* =====================================================
    RESET
 ===================================================== */
 
@@ -30,33 +57,30 @@ html{
 }
 
 body{
-    font-family:Arial, Helvetica, sans-serif;
-    color:#17231a;
+
+    font-family:
+    "Segoe UI",
+    Arial,
+    Helvetica,
+    sans-serif;
+
+    color:var(--text);
+
     line-height:1.6;
-    min-height:100vh;
 
-    background:
-    linear-gradient(
-        rgba(255,255,255,.78),
-        rgba(255,255,255,.78)
-    ),
-    url("vvnr-campus.jpg");
-
-    background-size:cover;
-    background-position:center;
-    background-attachment:fixed;
+    background:#f3f6f3;
 }
 
 
 /* =====================================================
-   TOP BANNER
+   TOP HEADER
 ===================================================== */
 
 .top-header{
 
     position:relative;
 
-    min-height:230px;
+    min-height:190px;
 
     display:flex;
 
@@ -64,62 +88,29 @@ body{
 
     gap:28px;
 
-    padding:28px 5%;
+    padding:25px 5%;
 
     color:white;
 
     overflow:hidden;
 
-    /*
-       MEDIUM VISIBILITY BACKGROUND IMAGE
-    */
-
     background-image:
+
     linear-gradient(
-        rgba(0,55,28,.52),
-        rgba(0,55,28,.52)
+        90deg,
+        rgba(3,59,33,.88),
+        rgba(4,79,43,.78),
+        rgba(3,59,33,.88)
     ),
+
     url("tnau-coimbatore.jpg");
 
     background-size:cover;
 
-    background-position:center center;
+    background-position:center;
 
-    background-repeat:no-repeat;
-
-    border-bottom:4px solid #176b3a;
-}
-
-
-/* subtle banner overlay */
-
-.top-header::after{
-
-    content:"";
-
-    position:absolute;
-
-    inset:0;
-
-    background:
-    linear-gradient(
-        90deg,
-        rgba(0,45,22,.40),
-        rgba(0,45,22,.16),
-        rgba(0,45,22,.38)
-    );
-
-    pointer-events:none;
-}
-
-
-/* Keep header contents above overlay */
-
-.top-header > *{
-
-    position:relative;
-
-    z-index:2;
+    border-bottom:
+    4px solid var(--gold);
 }
 
 
@@ -129,22 +120,25 @@ body{
 
 .logo{
 
-    width:125px;
+    width:120px;
 
-    height:125px;
+    height:120px;
 
     object-fit:contain;
 
     flex-shrink:0;
 
-    background:rgba(255,255,255,.92);
+    background:white;
 
     border-radius:50%;
 
     padding:8px;
 
     box-shadow:
-    0 5px 18px rgba(0,0,0,.28);
+    0 5px 20px rgba(0,0,0,.30);
+
+    border:
+    3px solid rgba(255,255,255,.75);
 }
 
 
@@ -156,18 +150,10 @@ body{
 
     flex:1;
 
-    text-align:left;
-
-    text-shadow:
-    0 2px 5px rgba(0,0,0,.65);
+    min-width:0;
 }
 
-
-/* UNIVERSITY */
-
 .university-name{
-
-    color:#ffffff;
 
     font-size:
     clamp(22px,3vw,38px);
@@ -176,117 +162,112 @@ body{
 
     line-height:1.15;
 
-    letter-spacing:.4px;
+    letter-spacing:.3px;
 
-    margin-bottom:7px;
+    color:white;
 
     text-transform:uppercase;
+
+    margin-bottom:6px;
 }
-
-
-/* COLLEGE */
 
 .college-name{
 
-    color:#f4ffe9;
-
     font-size:
-    clamp(16px,2vw,23px);
-
-    font-weight:700;
-
-    line-height:1.3;
-
-    margin-bottom:4px;
-}
-
-
-/* LOCATION */
-
-.header-location{
-
-    color:#eef9e9;
-
-    font-size:
-    clamp(14px,1.5vw,18px);
+    clamp(15px,1.8vw,22px);
 
     font-weight:600;
 
-    margin-bottom:14px;
+    color:#f4f7f4;
+
+    line-height:1.3;
 }
 
+.header-location{
 
-/* RAWE TITLE */
+    font-size:
+    clamp(13px,1.4vw,17px);
+
+    color:#dce9df;
+
+    margin-top:3px;
+
+    margin-bottom:12px;
+}
 
 .rawe-title{
 
-    color:#fff5a8;
+    display:inline-block;
 
     font-size:
-    clamp(20px,2.5vw,30px);
+    clamp(19px,2.4vw,29px);
 
     font-weight:900;
 
-    line-height:1.2;
+    color:#ffffff;
 
-    letter-spacing:.6px;
+    letter-spacing:.5px;
+
+    padding-bottom:3px;
+
+    border-bottom:
+    2px solid var(--gold);
 }
-
-
-/* BATCH */
 
 .batch{
 
-    color:#ffffff;
+    display:block;
 
     font-size:
-    clamp(14px,1.5vw,18px);
+    clamp(13px,1.4vw,17px);
 
-    font-weight:bold;
+    color:var(--gold-light);
+
+    font-weight:700;
 
     margin-top:3px;
 }
 
 
 /* =====================================================
-   TEAM BOX
+   TEAM BADGE
 ===================================================== */
 
 .theme-box{
 
-    min-width:170px;
+    flex-shrink:0;
 
-    padding:20px 18px;
+    min-width:155px;
+
+    padding:17px 18px;
 
     text-align:center;
 
     background:
-    rgba(0,63,32,.88);
+    rgba(255,255,255,.10);
 
-    border-radius:14px;
+    border:
+    1px solid rgba(255,255,255,.40);
+
+    border-radius:10px;
+
+    backdrop-filter:blur(8px);
 
     box-shadow:
-    0 6px 18px rgba(0,0,0,.30);
-
-    border:2px solid rgba(175,224,148,.85);
-
-    text-shadow:
-    0 2px 4px rgba(0,0,0,.5);
+    0 5px 18px rgba(0,0,0,.20);
 }
 
 .theme-box small{
 
     display:block;
 
-    color:#d9f0ca;
+    font-size:10px;
 
-    font-size:12px;
+    color:#dce9df;
 
-    font-weight:bold;
+    font-weight:700;
 
     letter-spacing:2px;
-
-    margin-bottom:4px;
 }
 
 .theme-box strong{
@@ -295,11 +276,11 @@ body{
 
     color:white;
 
-    font-size:30px;
-
-    line-height:1.1;
+    font-size:27px;
 
     letter-spacing:1px;
+
+    margin-top:2px;
 }
 
 
@@ -309,7 +290,8 @@ body{
 
 nav{
 
-    background:#005425;
+    background:
+    var(--dark-green);
 
     display:flex;
 
@@ -325,33 +307,47 @@ nav{
 
     z-index:1000;
 
+    border-bottom:
+    1px solid rgba(255,255,255,.12);
+
     box-shadow:
-    0 2px 8px rgba(0,0,0,.25);
+    0 3px 12px rgba(0,0,0,.18);
 }
 
 nav a{
 
-    color:white;
+    color:#f7faf7;
 
     text-decoration:none;
 
     padding:13px 14px;
 
-    font-size:14px;
+    font-size:13px;
 
-    font-weight:bold;
+    font-weight:600;
 
     transition:.25s;
+
+    border-bottom:
+    3px solid transparent;
 }
 
 nav a:hover{
 
-    background:#247b3d;
+    color:white;
+
+    background:
+    rgba(255,255,255,.07);
+
+    border-bottom-color:
+    var(--gold);
 }
 
 nav i{
 
     margin-right:5px;
+
+    color:var(--gold-light);
 }
 
 
@@ -367,21 +363,27 @@ nav i{
 
     align-items:center;
 
-    padding:60px 5%;
+    padding:70px 5%;
 
     background:
 
     linear-gradient(
         90deg,
-        rgba(0,45,22,.87),
-        rgba(0,45,22,.50),
-        rgba(0,45,22,.15)
-    );
+        rgba(2,45,25,.92),
+        rgba(3,69,37,.66),
+        rgba(3,45,25,.20)
+    ),
+
+    url("vvnr-campus.jpg");
+
+    background-size:cover;
+
+    background-position:center;
 }
 
 .hero-content{
 
-    max-width:700px;
+    max-width:720px;
 
     color:white;
 }
@@ -390,43 +392,45 @@ nav i{
 
     font-family:Georgia,serif;
 
-    font-size:31px;
+    font-size:28px;
 
     font-style:italic;
 
-    color:#a3ce88;
+    color:var(--gold-light);
+
+    margin-bottom:5px;
 }
 
 .hero h2{
 
     font-size:
-    clamp(34px,5vw,56px);
+    clamp(34px,5vw,58px);
 
-    line-height:1.1;
-
-    margin:10px 0 20px;
+    line-height:1.08;
 
     font-weight:900;
+
+    margin-bottom:20px;
 }
 
 .hero-line{
 
-    width:430px;
+    width:100px;
 
-    max-width:100%;
+    height:4px;
 
-    height:3px;
-
-    background:#70b258;
+    background:var(--gold);
 
     margin-bottom:22px;
 }
 
 .hero p{
 
-    font-size:18px;
+    font-size:17px;
 
     max-width:650px;
+
+    color:#f0f5f1;
 }
 
 .explore{
@@ -435,67 +439,94 @@ nav i{
 
     align-items:center;
 
-    gap:10px;
+    gap:9px;
 
-    margin-top:25px;
+    margin-top:26px;
 
     padding:12px 22px;
 
-    background:#238b3e;
+    background:var(--gold);
 
-    color:white;
+    color:#243019;
 
     text-decoration:none;
 
-    border-radius:7px;
+    border-radius:6px;
 
-    font-weight:bold;
+    font-weight:800;
+
+    transition:.25s;
 }
 
 .explore:hover{
 
-    background:#2fa94e;
+    background:var(--gold-light);
+
+    transform:
+    translateY(-2px);
 }
 
 
 /* =====================================================
-   GENERAL SECTIONS
+   SECTIONS
 ===================================================== */
 
 .section{
 
-    padding:55px 5%;
+    padding:60px 5%;
 
-    background:
-    rgba(255,255,255,.50);
+    background:#f7f9f7;
+}
+
+.section:nth-child(even){
+
+    background:#ffffff;
 }
 
 .section-heading{
 
     text-align:center;
 
-    color:#075128;
+    color:var(--dark-green);
 
-    font-size:30px;
+    font-size:29px;
 
-    margin-bottom:28px;
+    font-weight:800;
+
+    margin-bottom:32px;
+}
+
+.section-heading::after{
+
+    content:"";
+
+    display:block;
+
+    width:55px;
+
+    height:3px;
+
+    background:var(--gold);
+
+    margin:10px auto 0;
 }
 
 .content-box{
 
-    max-width:1000px;
+    max-width:950px;
 
     margin:auto;
 
-    padding:28px;
+    padding:30px;
 
-    background:
-    rgba(255,255,255,.97);
+    background:white;
 
-    border-radius:13px;
+    border:
+    1px solid var(--border);
 
-    box-shadow:
-    0 5px 18px rgba(0,0,0,.13);
+    border-radius:10px;
+
+    box-shadow:var(--shadow);
 }
 
 
@@ -516,23 +547,29 @@ nav i{
     grid-template-columns:
     repeat(2,minmax(0,1fr));
 
-    gap:18px;
+    gap:20px;
 }
 
 .team-card{
 
-    background:white;
+    min-height:240px;
 
-    min-height:235px;
-
-    padding:20px 16px;
+    padding:22px 18px;
 
     text-align:center;
 
-    border-radius:12px;
+    background:white;
+
+    border:
+    1px solid var(--border);
+
+    border-top:
+    4px solid var(--green-2);
+
+    border-radius:9px;
 
     box-shadow:
-    0 4px 15px rgba(0,0,0,.14);
+    0 5px 18px rgba(0,0,0,.08);
 
     transition:.25s;
 
@@ -547,10 +584,11 @@ nav i{
 
 .team-card:hover{
 
-    transform:translateY(-5px);
+    transform:
+    translateY(-5px);
 
     box-shadow:
-    0 8px 22px rgba(0,0,0,.18);
+    0 12px 28px rgba(0,0,0,.13);
 }
 
 .team-photo{
@@ -559,48 +597,46 @@ nav i{
 
     height:82px;
 
-    border-radius:50%;
-
     object-fit:cover;
 
-    display:block;
+    border-radius:50%;
 
-    margin:0 auto 12px;
+    border:
+    3px solid #e2e9e4;
 
-    border:3px solid #d8eadb;
-
-    box-shadow:
-    0 3px 10px rgba(0,0,0,.16);
+    margin-bottom:12px;
 }
 
 .team-card h3{
 
-    color:#0d4d28;
-
-    margin-bottom:7px;
+    color:var(--dark-green);
 
     font-size:18px;
+
+    margin-bottom:6px;
 }
 
 .role{
 
-    color:#a31313;
+    color:#8a6410;
 
-    font-weight:bold;
+    font-size:13px;
+
+    font-weight:800;
 
     margin-bottom:8px;
-
-    font-size:14px;
 }
 
 .team-card p{
 
-    font-size:14px;
+    color:var(--muted);
+
+    font-size:13px;
 }
 
 
 /* =====================================================
-   RAWE PROGRAMME
+   PROGRAMME CARDS
 ===================================================== */
 
 .programme-grid{
@@ -609,7 +645,7 @@ nav i{
 
     max-width:850px;
 
-    margin:0 auto;
+    margin:auto;
 
     display:grid;
 
@@ -621,53 +657,54 @@ nav i{
 
 .programme-card{
 
-    width:100%;
-
     min-height:205px;
 
-    padding:22px 18px;
+    padding:22px;
 
-    background:
-    rgba(255,255,255,.98);
+    background:white;
 
-    border-radius:12px;
+    border:
+    1px solid var(--border);
+
+    border-radius:9px;
+
+    text-align:center;
 
     display:flex;
 
     flex-direction:column;
 
-    align-items:center;
-
     justify-content:center;
 
-    text-align:center;
+    align-items:center;
 
     box-shadow:
-    0 4px 15px rgba(0,0,0,.13);
+    0 5px 18px rgba(0,0,0,.07);
 
     transition:.25s;
 }
 
 .programme-card:hover{
 
-    transform:translateY(-4px);
+    transform:
+    translateY(-5px);
 
     box-shadow:
-    0 8px 22px rgba(0,0,0,.18);
+    0 12px 28px rgba(0,0,0,.12);
 }
 
 .programme-card i{
 
-    font-size:30px;
+    font-size:29px;
 
-    color:#24783b;
+    color:var(--green-2);
 
     margin-bottom:9px;
 }
 
 .programme-card h3{
 
-    color:#0b4d27;
+    color:var(--dark-green);
 
     font-size:18px;
 
@@ -676,44 +713,44 @@ nav i{
 
 .programme-card p{
 
-    color:#4e5b52;
+    color:var(--muted);
 
     font-size:13px;
 
-    line-height:1.5;
+    max-width:280px;
 
     margin-bottom:13px;
-
-    max-width:280px;
 }
 
 .card-button{
 
-    display:inline-block;
+    padding:8px 15px;
 
-    padding:8px 14px;
-
-    background:#16753a;
+    background:var(--green);
 
     color:white;
 
-    border-radius:6px;
-
     text-decoration:none;
+
+    border-radius:5px;
 
     font-size:12px;
 
-    font-weight:bold;
+    font-weight:700;
+
+    transition:.25s;
 }
 
 .card-button:hover{
 
-    background:#0c572b;
+    background:
+    var(--green-2);
 }
 
 .attendance-card{
 
-    border-top:4px solid #16753a;
+    border-top:
+    4px solid var(--gold);
 }
 
 
@@ -723,15 +760,12 @@ nav i{
 
 .gallery-section{
 
-    padding:55px 5%;
+    padding:60px 5%;
 
-    background:
-    rgba(255,255,255,.56);
+    background:#eef3ef;
 }
 
 .gallery-grid{
-
-    width:100%;
 
     max-width:1000px;
 
@@ -747,64 +781,76 @@ nav i{
 
 .gallery-item{
 
-    background:white;
-
-    border-radius:12px;
-
     overflow:hidden;
 
+    background:white;
+
+    border-radius:9px;
+
+    border:
+    1px solid var(--border);
+
     box-shadow:
-    0 4px 15px rgba(0,0,0,.14);
+    0 5px 15px rgba(0,0,0,.09);
 
     transition:.25s;
 }
 
 .gallery-item:hover{
 
-    transform:translateY(-5px);
+    transform:
+    translateY(-4px);
 
     box-shadow:
-    0 8px 22px rgba(0,0,0,.20);
+    0 10px 24px rgba(0,0,0,.15);
 }
 
 .gallery-item a{
 
     display:block;
 
-    line-height:0;
-
     overflow:hidden;
+
+    line-height:0;
 }
 
 .gallery-item img{
 
     width:100%;
 
-    height:185px;
+    height:180px;
 
     object-fit:cover;
 
-    display:block;
-
-    transition:.3s;
+    transition:
+    transform .35s;
 }
 
 .gallery-item:hover img{
 
-    transform:scale(1.05);
+    transform:
+    scale(1.05);
 }
 
 .gallery-caption{
 
-    padding:10px;
+    min-height:48px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding:9px;
 
     text-align:center;
 
-    color:#075128;
+    color:var(--dark-green);
 
-    font-size:13px;
+    font-size:12px;
 
-    font-weight:bold;
+    font-weight:700;
 }
 
 
@@ -816,59 +862,65 @@ nav i{
 
     max-width:1000px;
 
-    margin:30px auto 0;
+    margin:auto;
 
     display:grid;
 
     grid-template-columns:
     repeat(4,1fr);
 
-    gap:14px;
+    gap:16px;
 }
 
 .highlight-card{
 
-    background:
-    rgba(255,255,255,.96);
+    background:white;
 
-    padding:18px 12px;
+    border:
+    1px solid var(--border);
 
-    border-radius:11px;
+    border-radius:9px;
+
+    padding:20px 13px;
 
     text-align:center;
 
     box-shadow:
-    0 4px 13px rgba(0,0,0,.12);
+    0 5px 15px rgba(0,0,0,.07);
 
     transition:.25s;
 }
 
 .highlight-card:hover{
 
-    transform:translateY(-4px);
+    transform:
+    translateY(-4px);
+
+    border-top:
+    3px solid var(--gold);
 }
 
 .highlight-card .emoji{
 
-    font-size:28px;
+    font-size:27px;
 
-    margin-bottom:5px;
+    margin-bottom:7px;
 }
 
 .highlight-card h4{
 
-    color:#075128;
+    color:var(--dark-green);
 
-    font-size:15px;
+    font-size:14px;
 
-    margin-bottom:3px;
+    margin-bottom:4px;
 }
 
 .highlight-card p{
 
-    font-size:12px;
+    color:var(--muted);
 
-    color:#566158;
+    font-size:11px;
 }
 
 
@@ -877,8 +929,6 @@ nav i{
 ===================================================== */
 
 .contact-grid{
-
-    width:100%;
 
     max-width:900px;
 
@@ -894,17 +944,16 @@ nav i{
 
 .contact-card{
 
-    min-height:190px;
+    min-height:180px;
 
-    padding:22px 18px;
+    padding:22px;
 
-    background:
-    rgba(255,255,255,.97);
+    background:white;
 
-    border-radius:12px;
+    border:
+    1px solid var(--border);
 
-    box-shadow:
-    0 4px 15px rgba(0,0,0,.13);
+    border-radius:9px;
 
     text-align:center;
 
@@ -916,56 +965,55 @@ nav i{
 
     justify-content:center;
 
+    box-shadow:
+    0 5px 15px rgba(0,0,0,.07);
+
     transition:.25s;
 }
 
 .contact-card:hover{
 
-    transform:translateY(-4px);
+    transform:
+    translateY(-4px);
 
     box-shadow:
-    0 8px 20px rgba(0,0,0,.18);
+    0 10px 24px rgba(0,0,0,.12);
 }
 
 .contact-icon{
 
-    font-size:30px;
+    font-size:28px;
 
-    margin-bottom:8px;
+    color:var(--green-2);
+
+    margin-bottom:7px;
 }
 
 .contact-card h3{
 
-    color:#075128;
+    color:var(--dark-green);
 
-    font-size:17px;
+    font-size:16px;
 
     margin-bottom:7px;
 }
 
 .contact-card strong{
 
-    color:#17231a;
-
-    font-size:14px;
+    font-size:13px;
 
     margin-bottom:7px;
 }
 
 .contact-card a{
 
-    color:#075128;
+    color:var(--green-2);
 
-    font-size:13px;
-
-    word-break:break-word;
+    font-size:12px;
 
     text-decoration:none;
-}
 
-.contact-card a:hover{
-
-    text-decoration:underline;
+    word-break:break-word;
 }
 
 
@@ -977,13 +1025,13 @@ nav i{
 
     width:100%;
 
-    height:450px;
+    height:400px;
 
     background:
 
     linear-gradient(
-        rgba(0,45,22,.10),
-        rgba(0,45,22,.10)
+        rgba(2,48,27,.18),
+        rgba(2,48,27,.18)
     ),
 
     url("vvnr-entrance.jpg");
@@ -1000,34 +1048,40 @@ nav i{
 
 footer{
 
-    background:#063f20;
+    background:
+    var(--dark-green);
 
     color:white;
 
     text-align:center;
 
-    padding:35px 20px;
+    padding:38px 20px;
+
+    border-top:
+    4px solid var(--gold);
 }
 
 .footer-title{
 
-    color:#c9e6b9;
+    color:white;
 
-    font-size:25px;
+    font-size:24px;
 
-    font-weight:bold;
+    font-weight:800;
 }
 
 .footer-motto{
 
-    color:#d6edc9;
+    color:#dce9df;
 
-    font-size:19px;
+    font-size:17px;
 
-    margin-top:8px;
+    margin-top:7px;
 }
 
 .footer-quote{
+
+    color:#bfcfc4;
 
     font-family:Georgia,serif;
 
@@ -1038,13 +1092,13 @@ footer{
 
 .footer-line{
 
-    width:100px;
+    width:70px;
 
     height:2px;
 
-    background:#8cc46f;
+    background:var(--gold);
 
-    margin:20px auto;
+    margin:18px auto;
 }
 
 
@@ -1056,28 +1110,21 @@ footer{
 
     .top-header{
 
-        padding:24px 4%;
+        padding:22px 4%;
 
-        gap:20px;
+        gap:18px;
     }
 
     .logo{
 
-        width:105px;
+        width:100px;
 
-        height:105px;
+        height:100px;
     }
 
     .theme-box{
 
-        min-width:145px;
-
-        padding:16px 12px;
-    }
-
-    .theme-box strong{
-
-        font-size:26px;
+        min-width:135px;
     }
 
     .gallery-grid{
@@ -1091,6 +1138,7 @@ footer{
         grid-template-columns:
         repeat(2,1fr);
     }
+
 }
 
 
@@ -1100,31 +1148,34 @@ footer{
 
 @media(max-width:600px){
 
-    /* ---------------------------------
-       TOP BANNER MOBILE
-    --------------------------------- */
+    /*
+       IMPORTANT:
+       Header stays HORIZONTAL.
+       Logo remains on LEFT.
+    */
 
     .top-header{
 
-        min-height:auto;
+        min-height:125px;
 
-        flex-direction:column;
+        display:flex;
 
-        text-align:center;
+        flex-direction:row;
 
-        gap:12px;
+        align-items:center;
 
-        padding:22px 15px;
+        gap:10px;
 
-        /*
-          Medium visible mobile banner
-        */
+        padding:14px 10px;
 
         background-image:
+
         linear-gradient(
-            rgba(0,55,28,.48),
-            rgba(0,55,28,.48)
+            90deg,
+            rgba(3,59,33,.90),
+            rgba(4,79,43,.78)
         ),
+
         url("tnau-coimbatore.jpg");
 
         background-size:cover;
@@ -1132,122 +1183,149 @@ footer{
         background-position:center;
     }
 
+
+    /* LOGO LEFT */
+
     .logo{
 
-        width:82px;
+        width:68px;
 
-        height:82px;
+        height:68px;
 
-        padding:6px;
+        padding:5px;
+
+        border-width:2px;
     }
+
+
+    /* TEXT BESIDE LOGO */
 
     .header-text{
 
-        width:100%;
+        flex:1;
 
-        text-align:center;
+        min-width:0;
+
+        text-align:left;
     }
 
     .university-name{
 
-        font-size:20px;
+        font-size:
+        clamp(14px,4.2vw,19px);
 
-        line-height:1.2;
+        line-height:1.15;
 
-        margin-bottom:7px;
+        margin-bottom:3px;
     }
 
     .college-name{
 
-        font-size:14px;
-
-        line-height:1.3;
-    }
-
-    .header-location{
-
-        font-size:12px;
-
-        margin-bottom:9px;
-    }
-
-    .rawe-title{
-
-        font-size:21px;
+        font-size:
+        clamp(10px,3vw,14px);
 
         line-height:1.2;
     }
 
+    .header-location{
+
+        font-size:
+        clamp(9px,2.6vw,12px);
+
+        line-height:1.2;
+
+        margin-top:2px;
+
+        margin-bottom:5px;
+    }
+
+    .rawe-title{
+
+        font-size:
+        clamp(12px,3.4vw,17px);
+
+        line-height:1.15;
+
+        padding-bottom:2px;
+    }
+
     .batch{
 
-        font-size:13px;
+        font-size:
+        clamp(9px,2.5vw,12px);
+
+        margin-top:2px;
     }
+
+
+    /*
+       TEAM BOX RIGHT
+    */
 
     .theme-box{
 
-        min-width:140px;
+        min-width:70px;
 
-        padding:11px 18px;
+        padding:8px 6px;
 
-        border-radius:10px;
+        border-radius:7px;
     }
 
     .theme-box small{
 
-        font-size:10px;
+        font-size:7px;
 
-        letter-spacing:1.5px;
+        letter-spacing:1px;
     }
 
     .theme-box strong{
 
-        font-size:24px;
+        font-size:
+        clamp(15px,4.5vw,21px);
     }
 
 
-    /* ---------------------------------
-       NAVIGATION
-    --------------------------------- */
+    /* NAVIGATION */
 
     nav{
 
         position:relative;
+
+        justify-content:center;
 
         padding:3px;
     }
 
     nav a{
 
-        font-size:11px;
+        font-size:10px;
 
         padding:8px 6px;
     }
 
     nav i{
 
-        margin-right:3px;
+        margin-right:2px;
     }
 
 
-    /* ---------------------------------
-       HERO
-    --------------------------------- */
+    /* HERO */
 
     .hero{
 
         min-height:430px;
 
-        padding:40px 20px;
+        padding:45px 20px;
     }
 
     .welcome{
 
-        font-size:24px;
+        font-size:23px;
     }
 
     .hero h2{
 
-        font-size:33px;
+        font-size:34px;
     }
 
     .hero p{
@@ -1256,25 +1334,28 @@ footer{
     }
 
 
-    /* ---------------------------------
-       SECTIONS
-    --------------------------------- */
+    /* SECTIONS */
 
     .section,
     .gallery-section{
 
-        padding:40px 15px;
+        padding:42px 14px;
     }
 
     .section-heading{
 
-        font-size:25px;
+        font-size:24px;
+
+        margin-bottom:25px;
+    }
+
+    .content-box{
+
+        padding:20px;
     }
 
 
-    /* ---------------------------------
-       TEAM
-    --------------------------------- */
+    /* TEAM 2 x 2 */
 
     .team-grid{
 
@@ -1286,45 +1367,43 @@ footer{
 
     .team-card{
 
-        min-height:205px;
+        min-height:200px;
 
-        padding:15px 8px;
+        padding:14px 7px;
     }
 
     .team-photo{
 
-        width:62px;
+        width:60px;
 
-        height:62px;
+        height:60px;
 
         margin-bottom:8px;
     }
 
     .team-card h3{
 
-        font-size:14px;
+        font-size:13px;
+
+        line-height:1.25;
+    }
+
+    .role{
+
+        font-size:10px;
 
         line-height:1.3;
     }
 
     .team-card p{
 
-        font-size:11px;
-
-        line-height:1.4;
-    }
-
-    .role{
-
-        font-size:11px;
+        font-size:10px;
 
         line-height:1.35;
     }
 
 
-    /* ---------------------------------
-       PROGRAMME
-    --------------------------------- */
+    /* PROGRAMME 2 x 2 */
 
     .programme-grid{
 
@@ -1336,27 +1415,29 @@ footer{
 
     .programme-card{
 
-        min-height:185px;
+        min-height:180px;
 
-        padding:17px 9px;
+        padding:14px 7px;
     }
 
     .programme-card i{
 
-        font-size:25px;
+        font-size:23px;
     }
 
     .programme-card h3{
 
-        font-size:15px;
+        font-size:14px;
     }
 
     .programme-card p{
 
-        font-size:11px;
+        font-size:10px;
+
+        line-height:1.35;
     }
 
-    .programme-card .card-button{
+    .card-button{
 
         padding:7px 9px;
 
@@ -1364,34 +1445,32 @@ footer{
     }
 
 
-    /* ---------------------------------
-       GALLERY
-    --------------------------------- */
+    /* GALLERY 2 x 2 */
 
     .gallery-grid{
 
         grid-template-columns:
         repeat(2,minmax(0,1fr));
 
-        gap:12px;
+        gap:10px;
     }
 
     .gallery-item img{
 
-        height:145px;
+        height:135px;
     }
 
     .gallery-caption{
 
-        font-size:11px;
+        min-height:42px;
 
-        padding:8px 5px;
+        font-size:10px;
+
+        padding:7px 4px;
     }
 
 
-    /* ---------------------------------
-       HIGHLIGHTS
-    --------------------------------- */
+    /* HIGHLIGHTS 2 x 2 */
 
     .highlights{
 
@@ -1403,124 +1482,144 @@ footer{
 
     .highlight-card{
 
-        padding:15px 8px;
+        padding:14px 7px;
     }
 
     .highlight-card .emoji{
 
-        font-size:25px;
+        font-size:23px;
     }
 
     .highlight-card h4{
 
-        font-size:13px;
+        font-size:12px;
     }
 
     .highlight-card p{
 
-        font-size:10px;
+        font-size:9px;
     }
 
 
-    /* ---------------------------------
-       CONTACT
-    --------------------------------- */
+    /* CONTACT 2 x 2 */
 
     .contact-grid{
 
         grid-template-columns:
         repeat(2,minmax(0,1fr));
 
-        gap:12px;
+        gap:10px;
     }
 
     .contact-card{
 
-        min-height:170px;
+        min-height:165px;
 
-        padding:16px 9px;
+        padding:13px 7px;
     }
 
     .contact-icon{
 
-        font-size:25px;
+        font-size:23px;
     }
 
     .contact-card h3{
 
-        font-size:13px;
+        font-size:11px;
+
+        line-height:1.3;
     }
 
     .contact-card strong,
     .contact-card a{
 
-        font-size:11px;
+        font-size:9px;
+
+        line-height:1.35;
     }
 
 
-    /* ---------------------------------
-       BOTTOM IMAGE
-    --------------------------------- */
+    /* BOTTOM IMAGE */
 
     .bottom-campus{
 
-        height:280px;
+        height:260px;
     }
 
 }
 
 
 /* =====================================================
-   SMALL MOBILE
+   SMALL PHONES
 ===================================================== */
 
 @media(max-width:380px){
 
+    .top-header{
+
+        padding:11px 7px;
+
+        gap:7px;
+    }
+
+    .logo{
+
+        width:58px;
+
+        height:58px;
+
+        padding:4px;
+    }
+
     .university-name{
 
-        font-size:17px;
+        font-size:13px;
     }
 
     .college-name{
 
-        font-size:12px;
+        font-size:9px;
     }
 
     .header-location{
 
-        font-size:10px;
+        font-size:8px;
+
+        margin-bottom:3px;
     }
 
     .rawe-title{
 
-        font-size:18px;
+        font-size:11px;
     }
 
     .batch{
 
-        font-size:11px;
+        font-size:8px;
     }
 
     .theme-box{
 
-        min-width:120px;
+        min-width:60px;
+
+        padding:6px 4px;
+    }
+
+    .theme-box small{
+
+        font-size:6px;
     }
 
     .theme-box strong{
 
-        font-size:21px;
+        font-size:15px;
     }
 
     nav a{
 
-        font-size:10px;
+        font-size:9px;
 
-        padding:7px 5px;
-    }
-
-    .gallery-grid{
-
-        gap:9px;
+        padding:7px 4px;
     }
 
     .gallery-item img{
@@ -1532,34 +1631,46 @@ footer{
 
 
 /* =====================================================
-   VERY SMALL SCREEN
+   EXTRA SMALL
 ===================================================== */
 
 @media(max-width:320px){
 
-    .university-name{
+    .logo{
 
-        font-size:15px;
+        width:52px;
+
+        height:52px;
     }
 
-    .college-name{
+    .university-name{
 
         font-size:11px;
     }
 
+    .college-name{
+
+        font-size:8px;
+    }
+
     .header-location{
 
-        font-size:9px;
+        font-size:7px;
     }
 
     .rawe-title{
 
-        font-size:16px;
+        font-size:10px;
+    }
+
+    .theme-box{
+
+        min-width:53px;
     }
 
     .theme-box strong{
 
-        font-size:19px;
+        font-size:13px;
     }
 
 }
@@ -1573,17 +1684,21 @@ footer{
 
 
 <!-- =====================================================
-     TOP BANNER
+     PROFESSIONAL TOP BANNER
 ===================================================== -->
 
 <header class="top-header">
 
+
+    <!-- LOGO LEFT -->
 
     <img
         src="tnau-logo.png"
         alt="Tamil Nadu Agricultural University Logo"
         class="logo">
 
+
+    <!-- UNIVERSITY DETAILS -->
 
     <div class="header-text">
 
@@ -1616,15 +1731,17 @@ footer{
         </div>
 
 
-        <div class="batch">
+        <span class="batch">
 
             (2023 Batch)
 
-        </div>
+        </span>
 
 
     </div>
 
+
+    <!-- TEAM -->
 
     <div class="theme-box">
 
@@ -1660,7 +1777,7 @@ footer{
     <a href="#about">
 
         <i class="fa-solid fa-circle-info"></i>
-        About RAWE
+        About
 
     </a>
 
@@ -1676,7 +1793,7 @@ footer{
     <a href="village.html">
 
         <i class="fa-solid fa-location-dot"></i>
-        Village Profile
+        Village
 
     </a>
 
@@ -1730,6 +1847,7 @@ footer{
 
 <section class="hero">
 
+
     <div class="hero-content">
 
 
@@ -1773,6 +1891,7 @@ footer{
 
 
     </div>
+
 
 </section>
 
@@ -1907,7 +2026,7 @@ footer{
 
 
 <!-- =====================================================
-     PROGRAMME
+     RAWE PROGRAMME
 ===================================================== -->
 
 <section
@@ -2027,7 +2146,7 @@ footer{
 
 
 <!-- =====================================================
-     GALLERY
+     GALLERY - ONLY 5 PHOTOS
 ===================================================== -->
 
 <section
@@ -2047,7 +2166,9 @@ footer{
 
         <div class="gallery-item">
 
-            <a href="gallery1.jpg" target="_blank">
+            <a
+                href="gallery1.jpg"
+                target="_blank">
 
                 <img
                     src="gallery1.jpg"
@@ -2066,7 +2187,9 @@ footer{
 
         <div class="gallery-item">
 
-            <a href="gallery2.jpg" target="_blank">
+            <a
+                href="gallery2.jpg"
+                target="_blank">
 
                 <img
                     src="gallery2.jpg"
@@ -2085,7 +2208,9 @@ footer{
 
         <div class="gallery-item">
 
-            <a href="gallery3.jpg" target="_blank">
+            <a
+                href="gallery3.jpg"
+                target="_blank">
 
                 <img
                     src="gallery3.jpg"
@@ -2104,7 +2229,9 @@ footer{
 
         <div class="gallery-item">
 
-            <a href="gallery4.jpg" target="_blank">
+            <a
+                href="gallery4.jpg"
+                target="_blank">
 
                 <img
                     src="gallery4.jpg"
@@ -2123,7 +2250,9 @@ footer{
 
         <div class="gallery-item">
 
-            <a href="gallery5.jpg" target="_blank">
+            <a
+                href="gallery5.jpg"
+                target="_blank">
 
                 <img
                     src="gallery5.jpg"
@@ -2163,6 +2292,7 @@ footer{
 
     <div class="content-box">
 
+
         <p>
 
             The Rural Agricultural Work Experience
@@ -2194,6 +2324,7 @@ footer{
             Learn × Experience × Serve × Grow
 
         </strong>
+
 
     </div>
 
@@ -2312,7 +2443,7 @@ footer{
         <div class="contact-card">
 
             <div class="contact-icon">
-                👨‍🏫
+                <i class="fa-solid fa-user-tie"></i>
             </div>
 
             <h3>
@@ -2335,7 +2466,7 @@ footer{
         <div class="contact-card">
 
             <div class="contact-icon">
-                👨‍🔬
+                <i class="fa-solid fa-user-graduate"></i>
             </div>
 
             <h3>
@@ -2358,7 +2489,7 @@ footer{
         <div class="contact-card">
 
             <div class="contact-icon">
-                👨‍🎓
+                <i class="fa-solid fa-user"></i>
             </div>
 
             <h3>
@@ -2382,7 +2513,7 @@ footer{
         <div class="contact-card">
 
             <div class="contact-icon">
-                💻
+                <i class="fa-solid fa-laptop-code"></i>
             </div>
 
             <h3>
@@ -2408,7 +2539,7 @@ footer{
 
 
 <!-- =====================================================
-     BOTTOM IMAGE
+     CAMPUS IMAGE
 ===================================================== -->
 
 <section class="bottom-campus"></section>
@@ -2419,6 +2550,7 @@ footer{
 ===================================================== -->
 
 <footer>
+
 
     <div class="footer-title">
 
@@ -2450,6 +2582,7 @@ footer{
         © 2026 TNAU RAWE Programme
 
     </div>
+
 
 </footer>
 
