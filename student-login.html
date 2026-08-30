@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
+
+<title>Student Login | TNAU RAWE</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+
+    min-height:100vh;
+
+    display:flex;
+
+    justify-content:center;
+    align-items:center;
+
+    padding:15px;
+
+    font-family:
+    "Segoe UI",
+    Arial,
+    sans-serif;
+
+    background:
+
+    linear-gradient(
+        rgba(3,59,32,.72),
+        rgba(3,59,32,.72)
+    ),
+
+    url("vvnr-campus.jpg");
+
+    background-size:cover;
+    background-position:center;
+}
+
+
+/* LOGIN CARD */
+
+.login-box{
+
+    width:100%;
+    max-width:400px;
+
+    background:white;
+
+    padding:30px;
+
+    border-radius:12px;
+
+    border-top:
+    5px solid #07552f;
+
+    box-shadow:
+    0 15px 40px
+    rgba(0,0,0,.25);
+}
+
+
+/* LOGO */
+
+.logo{
+
+    width:72px;
+    height:72px;
+
+    display:block;
+
+    object-fit:contain;
+
+    margin:0 auto 12px;
+}
+
+
+/* TITLE */
+
+h1{
+
+    text-align:center;
+
+    color:#07552f;
+
+    font-size:24px;
+}
+
+.subtitle{
+
+    text-align:center;
+
+    color:#6b756e;
+
+    font-size:12px;
+
+    margin-top:5px;
+
+    margin-bottom:23px;
+}
+
+
+/* LABEL */
+
+label{
+
+    display:block;
+
+    color:#294b37;
+
+    font-size:13px;
+
+    font-weight:700;
+
+    margin:
+    13px 0 6px;
+}
+
+
+/* INPUT */
+
+input{
+
+    width:100%;
+
+    padding:12px;
+
+    border:
+    1px solid #d2ddd5;
+
+    border-radius:7px;
+
+    font-size:14px;
+
+    outline:none;
+}
+
+input:focus{
+
+    border-color:#197447;
+
+    box-shadow:
+    0 0 0 3px
+    rgba(25,116,71,.10);
+}
+
+
+/* BUTTON */
+
+.login-btn{
+
+    width:100%;
+
+    margin-top:20px;
+
+    padding:12px;
+
+    border:0;
+
+    border-radius:7px;
+
+    background:#07552f;
+
+    color:white;
+
+    font-size:14px;
+
+    font-weight:800;
+
+    cursor:pointer;
+}
+
+.login-btn:hover{
+
+    background:#197447;
+}
+
+
+/* ERROR */
+
+.error{
+
+    display:none;
+
+    margin-top:12px;
+
+    padding:9px;
+
+    background:#fff0f0;
+
+    color:#8b0000;
+
+    border-radius:6px;
+
+    text-align:center;
+
+    font-size:11px;
+}
+
+
+/* INFORMATION */
+
+.info{
+
+    margin-top:18px;
+
+    padding:11px;
+
+    background:#f1f7f2;
+
+    border-left:
+    4px solid #197447;
+
+    color:#56635b;
+
+    font-size:11px;
+
+    line-height:1.7;
+}
+
+
+/* BACK */
+
+.back{
+
+    display:block;
+
+    margin-top:17px;
+
+    text-align:center;
+
+    text-decoration:none;
+
+    color:#07552f;
+
+    font-size:12px;
+
+    font-weight:700;
+}
+
+
+/* MOBILE */
+
+@media(max-width:500px){
+
+    .login-box{
+
+        padding:23px 18px;
+
+    }
+
+    .logo{
+
+        width:62px;
+        height:62px;
+
+    }
+
+    h1{
+
+        font-size:21px;
+
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<div class="login-box">
+
+
+    <img
+        src="tnau-logo.png"
+        alt="TNAU Logo"
+        class="logo">
+
+
+    <h1>
+
+        Student Login
+
+    </h1>
+
+
+    <div class="subtitle">
+
+        TNAU RAWE Programme 2026 ·
+        Team Paiyur
+
+    </div>
+
+
+    <form id="studentLogin">
+
+
+        <label>
+
+            Username
+
+        </label>
+
+
+        <input
+            type="text"
+            id="username"
+            placeholder="Enter student name"
+            autocomplete="username"
+            required>
+
+
+        <label>
+
+            Password
+
+        </label>
+
+
+        <input
+            type="password"
+            id="password"
+            placeholder="Enter ID number"
+            autocomplete="current-password"
+            required>
+
+
+        <button
+            type="submit"
+            class="login-btn">
+
+            Login
+
+        </button>
+
+
+        <div
+            id="error"
+            class="error">
+
+            Invalid student name or ID number.
+
+        </div>
+
+
+    </form>
+
+
+    <div class="info">
+
+        <b>Username:</b>
+        Student name
+
+        <br>
+
+        <b>Password:</b>
+        Student ID number
+
+    </div>
+
+
+    <a
+        href="index.html"
+        class="back">
+
+        ← Back to Home
+
+    </a>
+
+
+</div>
+
+
+<script>
+
+
+/* STUDENT LOGIN DATA */
+
+const students = {
+
+    "dinesh m":
+    "2023031038",
+
+    "gokul raj r":
+    "2023031045",
+
+    "gokulabalaji r":
+    "2023031046",
+
+    "gopibalaji m":
+    "2023031047",
+
+    "gowsikan p":
+    "2023031048",
+
+    "jana p":
+    "2023031055",
+
+    "jayasurya j":
+    "2023031060",
+
+    "joshan p":
+    "2023031066",
+
+    "jothishkumar k":
+    "2023031067",
+
+    "kishor s":
+    "2023031078",
+
+    "kowshik s":
+    "2023031080",
+
+    "akshaya k":
+    "2023031178",
+
+    "swapanjit behera":
+    "2023031186"
+
+};
+
+
+document
+.getElementById("studentLogin")
+.addEventListener(
+"submit",
+function(e){
+
+    e.preventDefault();
+
+
+    const username =
+
+        document
+        .getElementById("username")
+        .value
+        .trim()
+        .toLowerCase();
+
+
+    const password =
+
+        document
+        .getElementById("password")
+        .value
+        .trim();
+
+
+    if(
+
+        students[username] &&
+        students[username] === password
+
+    ){
+
+        localStorage.setItem(
+            "studentLoggedIn",
+            "true"
+        );
+
+        localStorage.setItem(
+            "studentName",
+            username
+        );
+
+        localStorage.setItem(
+            "studentId",
+            password
+        );
+
+
+        window.location.href =
+        "student-dashboard.html";
+
+    }
+
+    else{
+
+        document
+        .getElementById("error")
+        .style.display="block";
+
+    }
+
+});
+
+</script>
+
+
+</body>
+
+</html>
