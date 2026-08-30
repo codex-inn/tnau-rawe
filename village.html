@@ -10,12 +10,11 @@
 
 <title>Village Profile | Paiyur RAWE</title>
 
-
 <style>
 
-/* =========================
+/* =====================================================
    RESET
-========================= */
+===================================================== */
 
 *{
     margin:0;
@@ -30,11 +29,15 @@ html{
 body{
 
     font-family:
-    Arial, Helvetica, sans-serif;
+    Arial,
+    Helvetica,
+    sans-serif;
 
     color:#18301f;
 
     line-height:1.7;
+
+    min-height:100vh;
 
     background:
 
@@ -53,13 +56,13 @@ body{
 }
 
 
-/* =========================
+/* =====================================================
    HEADER
-========================= */
+===================================================== */
 
 header{
 
-    min-height:180px;
+    min-height:190px;
 
     display:flex;
 
@@ -67,7 +70,7 @@ header{
 
     justify-content:center;
 
-    gap:20px;
+    gap:25px;
 
     padding:25px;
 
@@ -78,39 +81,43 @@ header{
     background:
 
     linear-gradient(
-        rgba(0,70,32,.86),
-        rgba(0,90,42,.88)
+        rgba(0,70,32,.92),
+        rgba(0,90,42,.90)
     );
 }
 
 header img{
 
-    width:95px;
+    width:100px;
 
-    height:95px;
+    height:100px;
 
     object-fit:contain;
 }
 
-header h1{
+.header-text h1{
 
     font-size:
-    clamp(25px,4vw,40px);
+    clamp(25px,4vw,42px);
 
     line-height:1.2;
+
+    margin-bottom:8px;
 }
 
-header p{
+.header-text p{
 
     font-size:16px;
 
-    margin-top:5px;
+    color:#d9efd1;
+
+    margin-top:3px;
 }
 
 
-/* =========================
+/* =====================================================
    NAVIGATION
-========================= */
+===================================================== */
 
 nav{
 
@@ -119,6 +126,9 @@ nav{
     padding:13px;
 
     text-align:center;
+
+    box-shadow:
+    0 2px 8px rgba(0,0,0,.25);
 }
 
 nav a{
@@ -127,7 +137,9 @@ nav a{
 
     text-decoration:none;
 
-    margin:0 13px;
+    display:inline-block;
+
+    margin:3px 10px;
 
     font-weight:bold;
 
@@ -140,13 +152,13 @@ nav a:hover{
 }
 
 
-/* =========================
-   CONTAINER
-========================= */
+/* =====================================================
+   MAIN CONTAINER
+===================================================== */
 
 .container{
 
-    max-width:1100px;
+    max-width:1150px;
 
     margin:45px auto;
 
@@ -154,9 +166,9 @@ nav a:hover{
 }
 
 
-/* =========================
+/* =====================================================
    PAGE TITLE
-========================= */
+===================================================== */
 
 .page-title{
 
@@ -165,30 +177,46 @@ nav a:hover{
     color:#075128;
 
     font-size:
-    clamp(27px,4vw,40px);
+    clamp(28px,4vw,43px);
 
-    margin-bottom:30px;
+    line-height:1.25;
+
+    margin-bottom:10px;
+}
+
+.page-subtitle{
+
+    text-align:center;
+
+    color:#49614e;
+
+    margin-bottom:35px;
+
+    font-size:15px;
 }
 
 
-/* =========================
-   CONTENT CARD
-========================= */
+/* =====================================================
+   COMMON CONTENT CARD
+===================================================== */
 
 .content{
 
     background:
-    rgba(255,255,255,.96);
+    rgba(255,255,255,.97);
 
-    border-radius:15px;
+    border-radius:16px;
 
     padding:30px;
 
     margin-bottom:28px;
 
     box-shadow:
-    0 5px 20px
-    rgba(0,0,0,.14);
+    0 5px 22px
+    rgba(0,0,0,.13);
+
+    border:1px solid
+    rgba(25,100,45,.08);
 }
 
 .content h2{
@@ -197,20 +225,101 @@ nav a:hover{
 
     font-size:25px;
 
-    margin-bottom:15px;
+    margin-bottom:14px;
+}
+
+.content h3{
+
+    color:#176b3a;
+
+    font-size:18px;
+
+    margin-bottom:7px;
 }
 
 .content p{
 
-    font-size:16px;
+    font-size:15px;
 
     margin-bottom:13px;
 }
 
 
-/* =========================
+/* =====================================================
+   INTRO HIGHLIGHT
+===================================================== */
+
+.intro-highlight{
+
+    display:grid;
+
+    grid-template-columns:
+    1.4fr .6fr;
+
+    gap:22px;
+
+    align-items:stretch;
+}
+
+.intro-text{
+
+    background:#f3faf4;
+
+    padding:22px;
+
+    border-radius:12px;
+
+    border-left:
+    5px solid #24783b;
+}
+
+.intro-badge{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    text-align:center;
+
+    background:
+
+    linear-gradient(
+        145deg,
+        #075128,
+        #24783b
+    );
+
+    color:white;
+
+    border-radius:12px;
+
+    padding:20px;
+}
+
+.intro-badge strong{
+
+    display:block;
+
+    font-size:31px;
+}
+
+.intro-badge span{
+
+    display:block;
+
+    font-size:13px;
+
+    margin-top:5px;
+
+    color:#d9efd1;
+}
+
+
+/* =====================================================
    DETAILS
-========================= */
+===================================================== */
 
 .details{
 
@@ -228,23 +337,220 @@ nav a:hover{
 
     background:#edf7ef;
 
-    padding:18px;
+    padding:17px;
 
     border-left:
     5px solid #24783b;
 
-    border-radius:8px;
+    border-radius:9px;
+
+    transition:.2s;
+}
+
+.detail:hover{
+
+    transform:translateY(-2px);
+
+    box-shadow:
+    0 4px 12px
+    rgba(0,0,0,.08);
 }
 
 .detail strong{
 
     color:#075128;
+
+    display:block;
+
+    margin-bottom:2px;
 }
 
 
-/* =========================
+/* =====================================================
+   KEY HIGHLIGHTS
+===================================================== */
+
+.highlights{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(3,1fr);
+
+    gap:16px;
+
+    margin-top:20px;
+}
+
+.highlight{
+
+    background:#f5faf6;
+
+    border-radius:12px;
+
+    padding:20px;
+
+    text-align:center;
+
+    border-top:
+    4px solid #24783b;
+}
+
+.highlight .emoji{
+
+    font-size:29px;
+
+    margin-bottom:7px;
+}
+
+.highlight h3{
+
+    font-size:17px;
+
+    margin-bottom:6px;
+}
+
+.highlight p{
+
+    font-size:13px;
+
+    color:#536158;
+
+    margin:0;
+}
+
+
+/* =====================================================
+   RESEARCH FOCUS
+===================================================== */
+
+.research-list{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(2,1fr);
+
+    gap:12px;
+
+    margin-top:18px;
+}
+
+.research-item{
+
+    background:#f3f9f4;
+
+    padding:15px 17px;
+
+    border-radius:9px;
+
+    border-left:
+    4px solid #24783b;
+
+    font-size:14px;
+}
+
+.research-item strong{
+
+    color:#075128;
+}
+
+
+/* =====================================================
+   INFRASTRUCTURE
+===================================================== */
+
+.infrastructure{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(3,1fr);
+
+    gap:14px;
+
+    margin-top:18px;
+}
+
+.infrastructure-item{
+
+    background:#edf7ef;
+
+    padding:16px;
+
+    border-radius:10px;
+
+    text-align:center;
+
+    color:#075128;
+
+    font-weight:bold;
+
+    font-size:14px;
+}
+
+
+/* =====================================================
+   MILESTONES
+===================================================== */
+
+.timeline{
+
+    margin-top:20px;
+
+    display:grid;
+
+    gap:12px;
+}
+
+.milestone{
+
+    display:grid;
+
+    grid-template-columns:90px 1fr;
+
+    gap:15px;
+
+    align-items:start;
+
+    background:#f6faf7;
+
+    padding:14px;
+
+    border-radius:9px;
+
+    border-left:
+    4px solid #24783b;
+}
+
+.year{
+
+    font-weight:bold;
+
+    color:#075128;
+
+    background:#e1f0e4;
+
+    padding:5px;
+
+    border-radius:6px;
+
+    text-align:center;
+
+    font-size:13px;
+}
+
+.milestone-text{
+
+    font-size:14px;
+
+    color:#344d3a;
+}
+
+
+/* =====================================================
    IMAGES
-========================= */
+===================================================== */
 
 .village-images{
 
@@ -253,9 +559,9 @@ nav a:hover{
     grid-template-columns:
     repeat(2,1fr);
 
-    gap:25px;
+    gap:20px;
 
-    margin-top:25px;
+    margin-top:22px;
 }
 
 .image-card{
@@ -264,18 +570,26 @@ nav a:hover{
 
     overflow:hidden;
 
-    border-radius:12px;
+    border-radius:13px;
 
     box-shadow:
-    0 4px 15px
-    rgba(0,0,0,.16);
+    0 4px 16px
+    rgba(0,0,0,.15);
+
+    transition:.25s;
+}
+
+.image-card:hover{
+
+    transform:
+    translateY(-4px);
 }
 
 .image-card img{
 
     width:100%;
 
-    height:300px;
+    height:260px;
 
     object-fit:cover;
 
@@ -291,19 +605,140 @@ nav a:hover{
 
 .caption{
 
-    padding:13px;
+    padding:12px;
 
     text-align:center;
 
     color:#075128;
 
     font-weight:bold;
+
+    font-size:14px;
 }
 
 
-/* =========================
+/* =====================================================
+   LOCATION
+===================================================== */
+
+.location-box{
+
+    display:grid;
+
+    grid-template-columns:
+    1fr 1fr;
+
+    gap:20px;
+
+    align-items:center;
+}
+
+.location-info{
+
+    background:#f1f8f2;
+
+    padding:22px;
+
+    border-radius:12px;
+
+    border-left:
+    5px solid #24783b;
+}
+
+.location-info h3{
+
+    color:#075128;
+
+    margin-bottom:10px;
+}
+
+.location-info p{
+
+    font-size:14px;
+
+    margin-bottom:7px;
+}
+
+.map-button{
+
+    display:inline-block;
+
+    margin-top:10px;
+
+    padding:11px 18px;
+
+    border-radius:7px;
+
+    background:#16753a;
+
+    color:white;
+
+    text-decoration:none;
+
+    font-weight:bold;
+
+    font-size:13px;
+}
+
+.map-button:hover{
+
+    background:#0b5729;
+}
+
+.map-frame{
+
+    width:100%;
+
+    min-height:280px;
+
+    border:0;
+
+    border-radius:12px;
+
+    box-shadow:
+    0 4px 15px
+    rgba(0,0,0,.12);
+}
+
+
+/* =====================================================
+   SOURCE BOX
+===================================================== */
+
+.source-box{
+
+    background:#f7faf7;
+
+    border-left:
+    5px solid #7cae7f;
+
+    padding:18px;
+
+    border-radius:9px;
+
+    font-size:13px;
+
+    color:#4d5e50;
+}
+
+.source-box a{
+
+    color:#075128;
+
+    font-weight:bold;
+
+    text-decoration:none;
+}
+
+.source-box a:hover{
+
+    text-decoration:underline;
+}
+
+
+/* =====================================================
    BACK BUTTON
-========================= */
+===================================================== */
 
 .back{
 
@@ -332,9 +767,9 @@ nav a:hover{
 }
 
 
-/* =========================
+/* =====================================================
    FOOTER
-========================= */
+===================================================== */
 
 footer{
 
@@ -345,6 +780,8 @@ footer{
     text-align:center;
 
     padding:35px 20px;
+
+    margin-top:50px;
 }
 
 footer .title{
@@ -356,10 +793,50 @@ footer .title{
     font-weight:bold;
 }
 
+footer .motto{
 
-/* =========================
+    color:#d6edc9;
+
+    margin-top:6px;
+
+    font-size:16px;
+}
+
+
+/* =====================================================
+   TABLET
+===================================================== */
+
+@media(max-width:900px){
+
+    .intro-highlight{
+
+        grid-template-columns:1fr;
+    }
+
+    .highlights{
+
+        grid-template-columns:
+        repeat(2,1fr);
+    }
+
+    .infrastructure{
+
+        grid-template-columns:
+        repeat(2,1fr);
+    }
+
+    .location-box{
+
+        grid-template-columns:1fr;
+    }
+
+}
+
+
+/* =====================================================
    MOBILE
-========================= */
+===================================================== */
 
 @media(max-width:700px){
 
@@ -377,38 +854,170 @@ footer .title{
         height:75px;
     }
 
+    .header-text h1{
+
+        font-size:27px;
+    }
+
+    .header-text p{
+
+        font-size:13px;
+    }
+
     nav a{
 
-        display:inline-block;
+        margin:4px 6px;
 
-        margin:5px 7px;
+        font-size:12px;
     }
 
     .container{
 
         margin:30px auto;
+
+        padding:0 13px;
+    }
+
+    .page-title{
+
+        font-size:29px;
+    }
+
+    .page-subtitle{
+
+        font-size:13px;
+
+        margin-bottom:25px;
     }
 
     .content{
 
-        padding:21px;
+        padding:20px;
+
+        border-radius:13px;
+    }
+
+    .content h2{
+
+        font-size:21px;
+    }
+
+    .content p{
+
+        font-size:14px;
     }
 
     .details{
 
         grid-template-columns:1fr;
+
+        gap:11px;
+    }
+
+    .highlights{
+
+        grid-template-columns:
+        repeat(2,1fr);
+
+        gap:10px;
+    }
+
+    .highlight{
+
+        padding:14px 8px;
+    }
+
+    .highlight .emoji{
+
+        font-size:24px;
+    }
+
+    .highlight h3{
+
+        font-size:14px;
+    }
+
+    .highlight p{
+
+        font-size:11px;
+    }
+
+    .research-list{
+
+        grid-template-columns:1fr;
+    }
+
+    .infrastructure{
+
+        grid-template-columns:
+        repeat(2,1fr);
+
+        gap:10px;
+    }
+
+    .infrastructure-item{
+
+        padding:13px 7px;
+
+        font-size:11px;
     }
 
     .village-images{
 
         grid-template-columns:1fr;
 
-        gap:18px;
+        gap:16px;
     }
 
     .image-card img{
 
         height:230px;
+    }
+
+    .location-box{
+
+        grid-template-columns:1fr;
+    }
+
+    .map-frame{
+
+        min-height:250px;
+    }
+
+    .milestone{
+
+        grid-template-columns:70px 1fr;
+
+        gap:10px;
+    }
+
+    .milestone-text{
+
+        font-size:12px;
+    }
+
+}
+
+
+/* =====================================================
+   SMALL MOBILE
+===================================================== */
+
+@media(max-width:380px){
+
+    .highlights{
+
+        grid-template-columns:1fr 1fr;
+    }
+
+    .infrastructure{
+
+        grid-template-columns:1fr 1fr;
+    }
+
+    .content{
+
+        padding:16px;
     }
 
 }
@@ -421,26 +1030,28 @@ footer .title{
 <body>
 
 
-<!-- =========================
+<!-- =====================================================
      HEADER
-========================= -->
+===================================================== -->
 
 <header>
 
     <img
         src="tnau-logo.png"
-        alt="TNAU Logo"
-    >
+        alt="TNAU Logo">
 
-    <div>
+    <div class="header-text">
 
         <h1>
-            🌾 Village Profile
+            🌾 Regional Research Station – Paiyur
         </h1>
 
         <p>
-            TNAU RAWE Programme 2026 ·
-            Paiyur Team
+            TNAU RAWE Programme 2026
+        </p>
+
+        <p>
+            TEAM : PAIYUR · Krishnagiri District
         </p>
 
     </div>
@@ -448,74 +1059,122 @@ footer .title{
 </header>
 
 
-<!-- =========================
+<!-- =====================================================
      NAVIGATION
-========================= -->
+===================================================== -->
 
 <nav>
 
     <a href="index.html">
-        ← Home
+        🏠 Home
     </a>
 
     <a href="village.html">
-        Village Profile
+        📍 Village Profile
+    </a>
+
+    <a href="students.html">
+        👨‍🎓 Students
+    </a>
+
+    <a href="activities.html">
+        📅 Daily Activities
+    </a>
+
+    <a href="attendance.html">
+        ✅ Attendance
     </a>
 
 </nav>
 
 
-<!-- =========================
+<!-- =====================================================
      MAIN
-========================= -->
+===================================================== -->
 
 <main class="container">
 
 
     <h1 class="page-title">
 
-        Regional Research Station –
-        Krishnagiri
+        Regional Research Station – Paiyur
 
     </h1>
 
 
-    <!-- ABOUT -->
+    <p class="page-subtitle">
+
+        A research and farmer-support centre of
+        Tamil Nadu Agricultural University
+
+    </p>
+
+
+    <!-- =================================================
+         ABOUT
+    ================================================= -->
 
     <div class="content">
 
-        <h2>
-            🌱 About the Research Station
-        </h2>
+        <div class="intro-highlight">
 
-        <p>
+            <div class="intro-text">
 
-            Established by
-            <strong>TNAU in 1973</strong>
-            to conduct crop research and
-            support farmers.
+                <h2>
+                    🌱 About RRS Paiyur
+                </h2>
 
-        </p>
+                <p>
 
-        <p>
+                    Tamil Nadu Agricultural University
+                    established the Regional Research Station
+                    at Paiyur on <strong>23 May 1973</strong>
+                    in the erstwhile Dharmapuri district,
+                    now Krishnagiri district.
 
-            The Regional Research Station
-            supports agricultural research
-            and provides useful agricultural
-            information for farmers in
-            the region.
+                </p>
 
-        </p>
+                <p>
+
+                    The station was established to undertake
+                    intensive research on important crops of
+                    the region and to support farmers through
+                    appropriate agricultural practices,
+                    improved productivity and better farm
+                    prosperity.
+
+                </p>
+
+            </div>
+
+
+            <div class="intro-badge">
+
+                <div>
+
+                    <strong>1973</strong>
+
+                    <span>
+                        Established by TNAU
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
 
     </div>
 
 
-    <!-- DETAILS -->
+    <!-- =================================================
+         QUICK FACTS
+    ================================================= -->
 
     <div class="content">
 
         <h2>
-            📋 Research Station Details
+            📋 RRS Paiyur – Key Details
         </h2>
 
 
@@ -525,12 +1184,10 @@ footer .title{
             <div class="detail">
 
                 <strong>
-                    Establishment
+                    📅 Establishment
                 </strong>
 
-                <br>
-
-                1973
+                23 May 1973
 
             </div>
 
@@ -538,10 +1195,20 @@ footer .title{
             <div class="detail">
 
                 <strong>
-                    Total Area
+                    📍 Location
                 </strong>
 
-                <br>
+                Paiyur, Krishnagiri District,
+                Tamil Nadu
+
+            </div>
+
+
+            <div class="detail">
+
+                <strong>
+                    📐 Total Area
+                </strong>
 
                 18.51 ha
 
@@ -551,12 +1218,10 @@ footer .title{
             <div class="detail">
 
                 <strong>
-                    Soil Type
+                    🌱 Cultivable Area
                 </strong>
 
-                <br>
-
-                Red loamy sandy soil
+                17.51 ha
 
             </div>
 
@@ -564,10 +1229,63 @@ footer .title{
             <div class="detail">
 
                 <strong>
-                    Average Annual Rainfall
+                    💧 Irrigated Area
                 </strong>
 
-                <br>
+                6.07 ha
+
+            </div>
+
+
+            <div class="detail">
+
+                <strong>
+                    🌾 Rainfed Area
+                </strong>
+
+                11.44 ha
+
+            </div>
+
+
+            <div class="detail">
+
+                <strong>
+                    🏢 Buildings
+                </strong>
+
+                1.00 ha
+
+            </div>
+
+
+            <div class="detail">
+
+                <strong>
+                    🌍 Elevation
+                </strong>
+
+                490 m MSL
+
+            </div>
+
+
+            <div class="detail">
+
+                <strong>
+                    🌐 Coordinates
+                </strong>
+
+                12.21° N, 78.18° E
+
+            </div>
+
+
+            <div class="detail">
+
+                <strong>
+                    🌧️ Average Annual Rainfall
+                </strong>
 
                 917 mm
 
@@ -577,10 +1295,8 @@ footer .title{
             <div class="detail">
 
                 <strong>
-                    Temperature Range
+                    🌡️ Mean Temperature
                 </strong>
-
-                <br>
 
                 21.9°C – 33.9°C
 
@@ -590,12 +1306,10 @@ footer .title{
             <div class="detail">
 
                 <strong>
-                    RAWE Team
+                    🛣️ Accessibility
                 </strong>
 
-                <br>
-
-                Paiyur
+                NH-44 corridor
 
             </div>
 
@@ -605,13 +1319,344 @@ footer .title{
     </div>
 
 
-    <!-- IMAGES -->
+    <!-- =================================================
+         KEY HIGHLIGHTS
+    ================================================= -->
 
     <div class="content">
 
         <h2>
-            📸 Village Profile Images
+            ⭐ Key Highlights
         </h2>
+
+
+        <div class="highlights">
+
+
+            <div class="highlight">
+
+                <div class="emoji">
+                    🌾
+                </div>
+
+                <h3>
+                    Major Crops
+                </h3>
+
+                <p>
+                    Finger millet, horse gram,
+                    mochai and other regional crops.
+                </p>
+
+            </div>
+
+
+            <div class="highlight">
+
+                <div class="emoji">
+                    💧
+                </div>
+
+                <h3>
+                    Farming Systems
+                </h3>
+
+                <p>
+                    Research covering rainfed
+                    and irrigated agriculture.
+                </p>
+
+            </div>
+
+
+            <div class="highlight">
+
+                <div class="emoji">
+                    🥭
+                </div>
+
+                <h3>
+                    Horticulture
+                </h3>
+
+                <p>
+                    Mango and other tropical
+                    fruit crop research.
+                </p>
+
+            </div>
+
+
+            <div class="highlight">
+
+                <div class="emoji">
+                    🧪
+                </div>
+
+                <h3>
+                    Crop Research
+                </h3>
+
+                <p>
+                    Crop improvement, management
+                    and protection activities.
+                </p>
+
+            </div>
+
+
+            <div class="highlight">
+
+                <div class="emoji">
+                    🌱
+                </div>
+
+                <h3>
+                    Soil & Water
+                </h3>
+
+                <p>
+                    Moisture conservation and
+                    problem-soil management.
+                </p>
+
+            </div>
+
+
+            <div class="highlight">
+
+                <div class="emoji">
+                    👨‍🌾
+                </div>
+
+                <h3>
+                    Farmer Support
+                </h3>
+
+                <p>
+                    Research outputs and
+                    agricultural technologies for farmers.
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+
+    <!-- =================================================
+         RESEARCH OBJECTIVES
+    ================================================= -->
+
+    <div class="content">
+
+        <h2>
+            🔬 Research & Development Focus
+        </h2>
+
+        <p>
+
+            The official RRS Paiyur objectives include
+            crop research, technology generation,
+            soil and water management, horticulture,
+            vegetable and flower crops, and pest and
+            disease management.
+
+        </p>
+
+
+        <div class="research-list">
+
+
+            <div class="research-item">
+
+                🌾
+                <strong>
+                    Lead centre for finger millet,
+                    horse gram and mochai
+                </strong>
+
+            </div>
+
+
+            <div class="research-item">
+
+                🌱
+                <strong>
+                    Technology generation for
+                    rainfed and irrigated farming
+                </strong>
+
+            </div>
+
+
+            <div class="research-item">
+
+                💧
+                <strong>
+                    STCR recommendations and
+                    in-situ moisture conservation
+                </strong>
+
+            </div>
+
+
+            <div class="research-item">
+
+                🌍
+                <strong>
+                    Problem-soil reclamation and
+                    polluted-water management
+                </strong>
+
+            </div>
+
+
+            <div class="research-item">
+
+                🥭
+                <strong>
+                    Tropical fruit crop and
+                    mango orchard management
+                </strong>
+
+            </div>
+
+
+            <div class="research-item">
+
+                🥬
+                <strong>
+                    Vegetable and flower crop
+                    management technologies
+                </strong>
+
+            </div>
+
+
+            <div class="research-item">
+
+                🐛
+                <strong>
+                    Pest and disease surveillance
+                    and IPM/IDM components
+                </strong>
+
+            </div>
+
+
+            <div class="research-item">
+
+                🌾
+                <strong>
+                    Test verification for rice,
+                    sorghum, groundnut and other crops
+                </strong>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+
+    <!-- =================================================
+         INFRASTRUCTURE
+    ================================================= -->
+
+    <div class="content">
+
+        <h2>
+            🏗️ Campus & Farm Facilities
+        </h2>
+
+        <p>
+
+            The official TNAU site lists several facilities
+            supporting research, training, farm operations
+            and practical agricultural activities.
+
+        </p>
+
+
+        <div class="infrastructure">
+
+
+            <div class="infrastructure-item">
+                🏢 Administrative Building
+            </div>
+
+
+            <div class="infrastructure-item">
+                🌾 Farm Office
+            </div>
+
+
+            <div class="infrastructure-item">
+                🛠️ Agricultural Engineering Workshop
+            </div>
+
+
+            <div class="infrastructure-item">
+                ⚙️ Processing Unit
+            </div>
+
+
+            <div class="infrastructure-item">
+                🏫 Precision Farming Training Hall
+            </div>
+
+
+            <div class="infrastructure-item">
+                🧑‍🌾 Trainees Hostel
+            </div>
+
+
+            <div class="infrastructure-item">
+                🏠 VIP Guest House
+            </div>
+
+
+            <div class="infrastructure-item">
+                ♻️ Vermicompost Unit
+            </div>
+
+
+            <div class="infrastructure-item">
+                🚜 Vehicle Shed
+            </div>
+
+
+            <div class="infrastructure-item">
+                🐄 Cow Shed
+            </div>
+
+
+        </div>
+
+    </div>
+
+
+    <!-- =================================================
+         FIVE IMAGE GALLERY
+    ================================================= -->
+
+    <div class="content">
+
+        <h2>
+            📸 RRS Paiyur Gallery
+        </h2>
+
+
+        <p>
+
+            Selected campus and agricultural activity
+            photographs can be displayed here.
+
+        </p>
 
 
         <div class="village-images">
@@ -621,13 +1666,10 @@ footer .title{
 
                 <img
                     src="village-1.jpg"
-                    alt="Regional Research Station Krishnagiri">
+                    alt="Regional Research Station Paiyur">
 
                 <div class="caption">
-
-                    Regional Research Station –
-                    Krishnagiri
-
+                    🌾 Regional Research Station – Paiyur
                 </div>
 
             </div>
@@ -637,11 +1679,150 @@ footer .title{
 
                 <img
                     src="village-2.jpg"
-                    alt="Paiyur Agricultural Area">
+                    alt="Paiyur Agricultural Research Area">
 
                 <div class="caption">
+                    🌱 Agricultural Research Area
+                </div>
 
-                    Paiyur Agricultural Area
+            </div>
+
+
+            <div class="image-card">
+
+                <img
+                    src="village-3.jpg"
+                    alt="Paiyur Farm Facilities">
+
+                <div class="caption">
+                    🚜 Farm Facilities
+                </div>
+
+            </div>
+
+
+            <div class="image-card">
+
+                <img
+                    src="village-4.jpg"
+                    alt="Paiyur Agricultural Field">
+
+                <div class="caption">
+                    🌾 Research Farm Field
+                </div>
+
+            </div>
+
+
+            <div class="image-card">
+
+                <img
+                    src="village-5.jpg"
+                    alt="Paiyur Research Station Campus">
+
+                <div class="caption">
+                    🏫 RRS Paiyur Campus
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+
+    <!-- =================================================
+         MILESTONES
+    ================================================= -->
+
+    <div class="content">
+
+        <h2>
+            🏆 Important Milestones
+        </h2>
+
+
+        <div class="timeline">
+
+
+            <div class="milestone">
+
+                <div class="year">
+                    1973
+                </div>
+
+                <div class="milestone-text">
+
+                    Regional Research Station established
+                    by TNAU at Paiyur.
+
+                </div>
+
+            </div>
+
+
+            <div class="milestone">
+
+                <div class="year">
+                    2006
+                </div>
+
+                <div class="milestone-text">
+
+                    Received the Best Research Station
+                    Award from Tamil Nadu Agricultural
+                    University.
+
+                </div>
+
+            </div>
+
+
+            <div class="milestone">
+
+                <div class="year">
+                    2014
+                </div>
+
+                <div class="milestone-text">
+
+                    Recognised as Best Centre for
+                    On-Farm Research by ICAR-IIFSR,
+                    Modipuram.
+
+                </div>
+
+            </div>
+
+
+            <div class="milestone">
+
+                <div class="year">
+                    2015
+                </div>
+
+                <div class="milestone-text">
+
+                    National Farmers Meet on
+                    horticultural crops was conducted.
+
+                </div>
+
+            </div>
+
+
+            <div class="milestone">
+
+                <div class="year">
+                    2016
+                </div>
+
+                <div class="milestone-text">
+
+                    RRS Paiyur received multiple prizes
+                    for mango varieties and exhibits at
+                    the All India Mango Exhibition.
 
                 </div>
 
@@ -653,21 +1834,98 @@ footer .title{
     </div>
 
 
-    <!-- RAWE INFORMATION -->
+    <!-- =================================================
+         LOCATION
+    ================================================= -->
 
     <div class="content">
 
         <h2>
-            👨‍🌾 Paiyur RAWE Team
+            📍 Location
+        </h2>
+
+
+        <div class="location-box">
+
+
+            <div class="location-info">
+
+                <h3>
+                    Regional Research Station – Paiyur
+                </h3>
+
+                <p>
+                    📍 Paiyur, Krishnagiri District,
+                    Tamil Nadu
+                </p>
+
+                <p>
+                    🌐 12.21° N, 78.18° E
+                </p>
+
+                <p>
+                    ⛰️ Elevation: 490 m MSL
+                </p>
+
+                <p>
+                    🛣️ Located on the NH-44 corridor
+                </p>
+
+                <p>
+                    🏙️ About 108 km from Bengaluru
+                    and 29 km from Dharmapuri
+                    according to TNAU.
+                </p>
+
+
+                <a
+                    class="map-button"
+                    href="https://www.google.com/maps/search/?api=1&query=12.21,78.18"
+                    target="_blank"
+                    rel="noopener">
+
+                    🗺️ Open Location in Maps
+
+                </a>
+
+            </div>
+
+
+            <iframe
+
+                class="map-frame"
+
+                src="https://www.google.com/maps?q=12.21,78.18&z=13&output=embed"
+
+                loading="lazy"
+
+                title="Regional Research Station Paiyur Location">
+
+            </iframe>
+
+
+        </div>
+
+    </div>
+
+
+    <!-- =================================================
+         RAWE CONNECTION
+    ================================================= -->
+
+    <div class="content">
+
+        <h2>
+            👨‍🌾 Paiyur RAWE Connection
         </h2>
 
         <p>
 
-            The Paiyur RAWE team gains practical
-            agricultural experience through
-            field visits, farmer interactions,
-            agricultural surveys and other
-            programme activities.
+            The Paiyur RAWE team can use the research
+            station and surrounding agricultural landscape
+            as a practical learning context for field
+            observation, farmer interaction, surveys,
+            crop studies and agricultural activities.
 
         </p>
 
@@ -682,6 +1940,47 @@ footer .title{
     </div>
 
 
+    <!-- =================================================
+         SOURCE
+    ================================================= -->
+
+    <div class="content">
+
+        <h2>
+            📚 Reference
+        </h2>
+
+
+        <div class="source-box">
+
+            Information on establishment, geography,
+            objectives, milestones and farm facilities
+            has been adapted from the official
+            Tamil Nadu Agricultural University
+            Regional Research Station – Paiyur pages.
+
+            <br><br>
+
+            Official source:
+
+            <a
+                href="https://tnau.ac.in/site/research-paiyur/"
+                target="_blank"
+                rel="noopener">
+
+                TNAU – Regional Research Station, Paiyur
+
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <!-- =================================================
+         BACK BUTTON
+    ================================================= -->
+
     <a
         href="index.html"
         class="back">
@@ -694,9 +1993,9 @@ footer .title{
 </main>
 
 
-<!-- =========================
+<!-- =====================================================
      FOOTER
-========================= -->
+===================================================== -->
 
 <footer>
 
@@ -706,7 +2005,7 @@ footer .title{
 
     </div>
 
-    <div>
+    <div class="motto">
 
         TNAU RAWE Programme 2026
 
