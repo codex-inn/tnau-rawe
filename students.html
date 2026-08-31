@@ -5,52 +5,27 @@
 
 <meta charset="UTF-8">
 
-<meta name="viewport"
-      content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <meta name="description"
-      content="Student directory — TNAU RAWE Programme 2026, Team Paiyur.">
+content="Student directory — TNAU RAWE Programme 2026, Team Paiyur.">
 
 <title>Students | TNAU RAWE Programme 2026</title>
 
-
-<!-- =====================================================
-     GOOGLE FONTS
-===================================================== -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
 
 <link rel="preconnect"
-      href="https://fonts.googleapis.com">
-
-<link rel="preconnect"
-      href="https://fonts.gstatic.com"
-      crossorigin>
+href="https://fonts.gstatic.com"
+crossorigin>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap"
-      rel="stylesheet">
-
-
-<!-- =====================================================
-     FONT AWESOME
-===================================================== -->
+rel="stylesheet">
 
 <link rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-
-
-<!-- =====================================================
-     jsPDF
-===================================================== -->
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.8.2/jspdf.plugin.autotable.min.js"></script>
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
 
 <style>
-
-/* =====================================================
-   ROOT
-===================================================== */
 
 :root{
 
@@ -65,14 +40,11 @@
     --mint-100:#e4f5e8;
 
     --gold-400:#f0b93d;
-    --gold-500:#e0a020;
 
     --ink-900:#12201a;
-    --ink-700:#33463b;
     --ink-500:#5f7268;
 
     --line:#e3ece4;
-
     --white:#ffffff;
 
     --shadow-sm:
@@ -86,23 +58,15 @@
 
     --radius-lg:22px;
 
-    --radius-md:16px;
-
-    --radius-sm:10px;
-
 }
 
 
-/* =====================================================
-   RESET
-===================================================== */
+/* RESET */
 
 *{
 
     margin:0;
-
     padding:0;
-
     box-sizing:border-box;
 
 }
@@ -120,7 +84,6 @@ body{
     font-family:
     'Inter',
     Arial,
-    Helvetica,
     sans-serif;
 
     color:var(--ink-900);
@@ -131,58 +94,10 @@ body{
 
     background:var(--mint-50);
 
-    -webkit-font-smoothing:antialiased;
-
 }
 
 
-h1,
-h2,
-h3{
-
-    font-family:
-    'Poppins',
-    Arial,
-    sans-serif;
-
-}
-
-
-::selection{
-
-    background:var(--gold-400);
-
-    color:var(--forest-950);
-
-}
-
-
-::-webkit-scrollbar{
-
-    width:10px;
-
-}
-
-
-::-webkit-scrollbar-track{
-
-    background:var(--mint-50);
-
-}
-
-
-::-webkit-scrollbar-thumb{
-
-    background:var(--forest-600);
-
-    border-radius:10px;
-
-}
-
-
-/* =====================================================
-   HEADER
-===================================================== */
+/* HEADER */
 
 header{
 
@@ -206,13 +121,12 @@ header{
 
     overflow:hidden;
 
-
     background:
 
     linear-gradient(
         120deg,
-        rgba(4,23,13,.92),
-        rgba(10,71,38,.88)
+        rgba(4,23,13,.95),
+        rgba(10,71,38,.92)
     ),
 
     url("vvnr-campus.jpg");
@@ -239,15 +153,12 @@ header::after{
         transparent 50%
     );
 
-    pointer-events:none;
-
 }
 
 
 .logo{
 
     width:100px;
-
     height:100px;
 
     object-fit:contain;
@@ -255,11 +166,6 @@ header::after{
     position:relative;
 
     z-index:1;
-
-    filter:
-    drop-shadow(
-        0 4px 10px rgba(0,0,0,.3)
-    );
 
 }
 
@@ -275,14 +181,14 @@ header::after{
 
 .header-text h1{
 
+    font-family:'Poppins',sans-serif;
+
     font-size:
     clamp(23px,4vw,38px);
 
     line-height:1.25;
 
     margin-bottom:8px;
-
-    font-weight:800;
 
 }
 
@@ -293,14 +199,10 @@ header::after{
 
     color:var(--mint-100);
 
-    font-weight:500;
-
 }
 
 
-/* =====================================================
-   NAVIGATION
-===================================================== */
+/* NAV */
 
 nav{
 
@@ -310,8 +212,6 @@ nav{
         var(--forest-900),
         var(--forest-800)
     );
-
-    text-align:center;
 
     display:flex;
 
@@ -328,15 +228,6 @@ nav{
     box-shadow:
     0 4px 16px rgba(0,0,0,.18);
 
-    scrollbar-width:none;
-
-}
-
-
-nav::-webkit-scrollbar{
-
-    display:none;
-
 }
 
 
@@ -344,8 +235,7 @@ nav a{
 
     display:inline-block;
 
-    color:
-    rgba(255,255,255,.88);
+    color:white;
 
     text-decoration:none;
 
@@ -357,8 +247,6 @@ nav a{
 
     white-space:nowrap;
 
-    transition:.2s;
-
 }
 
 
@@ -366,15 +254,10 @@ nav a:hover{
 
     color:var(--gold-400);
 
-    background:
-    rgba(255,255,255,.06);
-
 }
 
 
-/* =====================================================
-   MAIN
-===================================================== */
+/* MAIN */
 
 .container{
 
@@ -392,6 +275,8 @@ nav a:hover{
     text-align:center;
 
     color:var(--forest-900);
+
+    font-family:'Poppins',sans-serif;
 
     font-size:
     clamp(27px,4vw,40px);
@@ -416,20 +301,17 @@ nav a:hover{
 }
 
 
-/* =====================================================
-   EXPORT CARD
-===================================================== */
+/* EXPORT */
 
 .export-box{
 
     max-width:920px;
 
-    margin:
-    0 auto 36px;
+    margin:0 auto 36px;
 
     padding:26px;
 
-    background:var(--white);
+    background:white;
 
     border-radius:var(--radius-lg);
 
@@ -451,8 +333,6 @@ nav a:hover{
 
     margin-bottom:6px;
 
-    font-weight:700;
-
 }
 
 
@@ -472,8 +352,6 @@ nav a:hover{
     display:flex;
 
     justify-content:center;
-
-    align-items:center;
 
     gap:12px;
 
@@ -499,8 +377,6 @@ nav a:hover{
     font-size:13px;
 
     transition:.25s;
-
-    box-shadow:var(--shadow-sm);
 
 }
 
@@ -543,47 +419,12 @@ nav a:hover{
 
 .export-btn:hover{
 
-    transform:
-    translateY(-3px);
-
-    box-shadow:var(--shadow-md);
+    transform:translateY(-3px);
 
 }
 
 
-/* =====================================================
-   PDF SECURITY NOTE
-===================================================== */
-
-.pdf-security{
-
-    margin-top:16px;
-
-    padding:10px 14px;
-
-    background:#f5f8f5;
-
-    border-radius:8px;
-
-    color:#59665e;
-
-    font-size:11px;
-
-}
-
-
-.pdf-security i{
-
-    color:#147a3a;
-
-    margin-right:4px;
-
-}
-
-
-/* =====================================================
-   STUDENT GRID
-===================================================== */
+/* STUDENT GRID */
 
 .students-grid{
 
@@ -599,7 +440,7 @@ nav a:hover{
 
 .student-card{
 
-    background:var(--white);
+    background:white;
 
     border-radius:var(--radius-lg);
 
@@ -609,10 +450,7 @@ nav a:hover{
 
     box-shadow:var(--shadow-sm);
 
-    border:
-    1px solid var(--line);
-
-    transition:.3s;
+    border:1px solid var(--line);
 
     min-height:250px;
 
@@ -624,67 +462,8 @@ nav a:hover{
 
     justify-content:center;
 
-    position:relative;
-
-    overflow:hidden;
-
 }
 
-
-.student-card::before{
-
-    content:"";
-
-    position:absolute;
-
-    top:0;
-
-    left:0;
-
-    right:0;
-
-    height:5px;
-
-    background:
-    linear-gradient(
-        90deg,
-        var(--forest-500),
-        var(--gold-400)
-    );
-
-    transform:
-    scaleX(0);
-
-    transition:.3s;
-
-    transform-origin:left;
-
-}
-
-
-.student-card:hover{
-
-    transform:
-    translateY(-7px);
-
-    box-shadow:var(--shadow-lg);
-
-    border-color:transparent;
-
-}
-
-
-.student-card:hover::before{
-
-    transform:
-    scaleX(1);
-
-}
-
-
-/* =====================================================
-   STUDENT PHOTO
-===================================================== */
 
 .student-photo{
 
@@ -705,16 +484,10 @@ nav a:hover{
         var(--gold-400)
     );
 
-    box-shadow:var(--shadow-sm);
-
     margin-bottom:14px;
 
 }
 
-
-/* =====================================================
-   ID
-===================================================== */
 
 .id-number{
 
@@ -734,39 +507,27 @@ nav a:hover{
 
     margin-bottom:8px;
 
-    letter-spacing:.2px;
-
 }
 
-
-/* =====================================================
-   NAME
-===================================================== */
 
 .student-card h2{
 
     color:var(--forest-900);
 
+    font-family:'Poppins',sans-serif;
+
     font-size:18.5px;
 
     margin-bottom:6px;
 
-    font-weight:700;
-
 }
 
-
-/* =====================================================
-   CONTACT
-===================================================== */
 
 .student-contact{
 
     color:var(--ink-500);
 
     font-size:13px;
-
-    margin-top:4px;
 
     font-weight:600;
 
@@ -782,16 +543,7 @@ nav a:hover{
 }
 
 
-.student-contact a:hover{
-
-    text-decoration:underline;
-
-}
-
-
-/* =====================================================
-   TEAM INFO
-===================================================== */
+/* TEAM INFO */
 
 .team-info{
 
@@ -799,7 +551,7 @@ nav a:hover{
 
     padding:30px;
 
-    background:var(--white);
+    background:white;
 
     border-radius:var(--radius-lg);
 
@@ -819,14 +571,10 @@ nav a:hover{
 
     margin-bottom:8px;
 
-    font-weight:700;
-
 }
 
 
 .team-info p{
-
-    margin-bottom:5px;
 
     color:var(--ink-500);
 
@@ -834,22 +582,132 @@ nav a:hover{
 
 
 /* =====================================================
-   BACK BUTTON
+   SMALL REPORT CARD
 ===================================================== */
 
-.back-button{
+.report-card-wrap{
+
+    display:flex;
+
+    justify-content:center;
+
+    margin-top:28px;
+
+}
+
+
+.report-card{
+
+    width:100%;
+
+    max-width:390px;
+
+    background:white;
+
+    border:1px solid var(--line);
+
+    border-left:
+    4px solid var(--gold-400);
+
+    border-radius:12px;
+
+    padding:13px 15px;
 
     display:flex;
 
     align-items:center;
 
+    justify-content:space-between;
+
+    gap:12px;
+
+    box-shadow:
+    0 4px 14px rgba(6,40,20,.08);
+
+}
+
+
+.report-card-text{
+
+    text-align:left;
+
+}
+
+
+.report-card-title{
+
+    color:var(--forest-900);
+
+    font-family:'Poppins',sans-serif;
+
+    font-size:13px;
+
+    font-weight:700;
+
+}
+
+
+.report-card-subtitle{
+
+    color:var(--ink-500);
+
+    font-size:10px;
+
+    line-height:1.4;
+
+}
+
+
+.report-card-btn{
+
+    border:0;
+
+    background:
+    linear-gradient(
+        120deg,
+        var(--forest-600),
+        var(--forest-800)
+    );
+
+    color:white;
+
+    padding:8px 13px;
+
+    border-radius:20px;
+
+    font-size:10px;
+
+    font-weight:700;
+
+    cursor:pointer;
+
+    white-space:nowrap;
+
+    text-decoration:none;
+
+}
+
+
+.report-card-btn:hover{
+
+    transform:translateY(-1px);
+
+}
+
+
+/* BACK */
+
+.back-button{
+
+    display:flex;
+
     justify-content:center;
 
     width:max-content;
 
-    margin:38px auto;
+    margin:30px auto;
 
-    padding:14px 28px;
+    padding:13px 27px;
 
     background:
     linear-gradient(
@@ -866,26 +724,10 @@ nav a:hover{
 
     font-weight:700;
 
-    box-shadow:var(--shadow-sm);
-
-    transition:.25s;
-
 }
 
 
-.back-button:hover{
-
-    transform:
-    translateY(-2px);
-
-    box-shadow:var(--shadow-md);
-
-}
-
-
-/* =====================================================
-   FOOTER
-===================================================== */
+/* FOOTER */
 
 footer{
 
@@ -915,8 +757,6 @@ footer{
 
     font-weight:800;
 
-    font-family:'Poppins',sans-serif;
-
 }
 
 
@@ -931,19 +771,7 @@ footer{
 }
 
 
-footer > div:last-child{
-
-    color:
-    rgba(255,255,255,.55);
-
-    font-size:12.5px;
-
-}
-
-
-/* =====================================================
-   TABLET
-===================================================== */
+/* TABLET */
 
 @media(max-width:900px){
 
@@ -957,9 +785,7 @@ footer > div:last-child{
 }
 
 
-/* =====================================================
-   MOBILE
-===================================================== */
+/* MOBILE */
 
 @media(max-width:600px){
 
@@ -975,7 +801,6 @@ footer > div:last-child{
     .logo{
 
         width:80px;
-
         height:80px;
 
     }
@@ -983,7 +808,7 @@ footer > div:last-child{
 
     nav a{
 
-        padding:12px 12px;
+        padding:12px;
 
         font-size:12px;
 
@@ -995,54 +820,6 @@ footer > div:last-child{
         margin:32px auto;
 
         padding:0 12px;
-
-    }
-
-
-    .page-title{
-
-        font-size:28px;
-
-    }
-
-
-    .page-subtitle{
-
-        font-size:13px;
-
-        margin-bottom:24px;
-
-    }
-
-
-    .export-box{
-
-        padding:18px;
-
-        margin-bottom:24px;
-
-    }
-
-
-    .export-box h2{
-
-        font-size:17px;
-
-    }
-
-
-    .export-box p{
-
-        font-size:11.5px;
-
-    }
-
-
-    .export-btn{
-
-        font-size:11.5px;
-
-        padding:10px 14px;
 
     }
 
@@ -1069,21 +846,9 @@ footer > div:last-child{
     .student-photo{
 
         width:70px;
-
         height:70px;
 
         margin-bottom:9px;
-
-    }
-
-
-    .id-number{
-
-        font-size:9.5px;
-
-        padding:3px 8px;
-
-        margin-bottom:6px;
 
     }
 
@@ -1101,101 +866,39 @@ footer > div:last-child{
 
         font-size:9.5px;
 
-        line-height:1.35;
-
     }
 
 
-    .team-info{
+    .report-card{
 
-        padding:22px 14px;
+        max-width:100%;
 
-    }
-
-
-    .team-info h2{
-
-        font-size:21px;
+        padding:11px;
 
     }
 
 }
 
 
-/* =====================================================
-   SMALL MOBILE
-===================================================== */
-
-@media(max-width:380px){
-
-    .students-grid{
-
-        gap:9px;
-
-    }
-
-
-    .student-card{
-
-        min-height:205px;
-
-        padding:14px 6px;
-
-    }
-
-
-    .student-photo{
-
-        width:60px;
-
-        height:60px;
-
-    }
-
-
-    .student-card h2{
-
-        font-size:12.5px;
-
-    }
-
-
-    .student-contact{
-
-        font-size:8.5px;
-
-    }
-
-
-    .id-number{
-
-        font-size:8.5px;
-
-    }
-
-}
-
-
-/* =====================================================
-   PRINT
-===================================================== */
+/* PRINT */
 
 @media print{
-
-    body{
-
-        background:white;
-
-    }
-
 
     header,
     nav,
     .export-box,
     .back-button,
-    footer{
+    footer,
+    .report-card-wrap{
 
         display:none !important;
+
+    }
+
+
+    body{
+
+        background:white;
 
     }
 
@@ -1207,22 +910,6 @@ footer > div:last-child{
         margin:10px;
 
         padding:0;
-
-    }
-
-
-    .page-title{
-
-        font-size:28px;
-
-        color:#000;
-
-    }
-
-
-    .page-subtitle{
-
-        margin-bottom:15px;
 
     }
 
@@ -1258,36 +945,6 @@ footer > div:last-child{
 
     }
 
-
-    .student-card h2{
-
-        font-size:14px;
-
-    }
-
-
-    .student-contact{
-
-        font-size:10px;
-
-    }
-
-
-    .id-number{
-
-        font-size:9px;
-
-    }
-
-
-    .team-info{
-
-        box-shadow:none;
-
-        border:1px solid #aaa;
-
-    }
-
 }
 
 </style>
@@ -1298,17 +955,12 @@ footer > div:last-child{
 <body>
 
 
-<!-- =====================================================
-     HEADER
-===================================================== -->
-
 <header>
 
     <img
-        src="tnau-logo.png"
-        alt="TNAU Logo"
-        class="logo">
-
+    src="tnau-logo.png"
+    alt="TNAU Logo"
+    class="logo">
 
     <div class="header-text">
 
@@ -1328,10 +980,6 @@ footer > div:last-child{
 
 </header>
 
-
-<!-- =====================================================
-     NAVIGATION
-===================================================== -->
 
 <nav>
 
@@ -1358,31 +1006,20 @@ footer > div:last-child{
 </nav>
 
 
-<!-- =====================================================
-     MAIN
-===================================================== -->
-
 <main class="container">
 
 
 <h1 class="page-title">
-
     👨‍🎓 STUDENTS
-
 </h1>
 
 
 <p class="page-subtitle">
-
-    TNAU RAWE Programme 2026 ·
-    Paiyur Team
-
+    TNAU RAWE Programme 2026 · Paiyur Team
 </p>
 
 
-<!-- =====================================================
-     EXPORT OPTIONS
-===================================================== -->
+<!-- EXPORT -->
 
 <div class="export-box">
 
@@ -1391,26 +1028,23 @@ footer > div:last-child{
     </h2>
 
     <p>
-        Export the complete student details
-        with TL signature and export date.
+        Export complete student details as PDF or Excel.
     </p>
-
 
     <div class="export-buttons">
 
-
         <button
-            class="export-btn pdf-btn"
-            onclick="downloadPDF()">
+        class="export-btn pdf-btn"
+        onclick="downloadPDF()">
 
-            📄 Export Password PDF
+            📄 Export PDF
 
         </button>
 
 
         <button
-            class="export-btn excel-btn"
-            onclick="downloadExcel()">
+        class="export-btn excel-btn"
+        onclick="downloadExcel()">
 
             📊 Export Excel
 
@@ -1418,58 +1052,37 @@ footer > div:last-child{
 
 
         <button
-            class="export-btn print-btn"
-            onclick="window.print()">
+        class="export-btn print-btn"
+        onclick="window.print()">
 
             🖨️ Print
 
         </button>
-
-
-    </div>
-
-
-    <div class="pdf-security">
-
-        <i class="fa-solid fa-lock"></i>
-
-        PDF includes
-        <strong>TL Signature</strong>,
-        automatic
-        <strong>Export Date &amp; Time</strong>
-        and password protection.
 
     </div>
 
 </div>
 
 
-<!-- =====================================================
-     STUDENT GRID
-===================================================== -->
+<!-- STUDENTS -->
 
 <div class="students-grid">
 
 
-<!-- STUDENT 1 -->
-
 <div class="student-card">
 
-    <img
-        src="student1.jpg"
-        alt="Dinesh M"
-        class="student-photo">
+    <img src="student1.jpg"
+    class="student-photo"
+    alt="Dinesh M">
 
     <div class="id-number">
         ID NO: 2023031038
     </div>
 
-    <h2>
-        Dinesh M
-    </h2>
+    <h2>Dinesh M</h2>
 
     <div class="student-contact">
-        📞 Contact:
+        📞
         <a href="tel:+918838170369">
             +918838170369
         </a>
@@ -1478,25 +1091,20 @@ footer > div:last-child{
 </div>
 
 
-<!-- STUDENT 2 -->
-
 <div class="student-card">
 
-    <img
-        src="student2.jpg"
-        alt="Gokul Raj R"
-        class="student-photo">
+    <img src="student2.jpg"
+    class="student-photo"
+    alt="Gokul Raj R">
 
     <div class="id-number">
         ID NO: 2023031045
     </div>
 
-    <h2>
-        Gokul Raj R
-    </h2>
+    <h2>Gokul Raj R</h2>
 
     <div class="student-contact">
-        📞 Contact:
+        📞
         <a href="tel:+917603866397">
             +917603866397
         </a>
@@ -1505,25 +1113,20 @@ footer > div:last-child{
 </div>
 
 
-<!-- STUDENT 3 -->
-
 <div class="student-card">
 
-    <img
-        src="student3.jpg"
-        alt="GokulaBalaji R"
-        class="student-photo">
+    <img src="student3.jpg"
+    class="student-photo"
+    alt="GokulaBalaji R">
 
     <div class="id-number">
         ID NO: 2023031046
     </div>
 
-    <h2>
-        GokulaBalaji R
-    </h2>
+    <h2>GokulaBalaji R</h2>
 
     <div class="student-contact">
-        📞 Contact:
+        📞
         <a href="tel:+919597135679">
             +919597135679
         </a>
@@ -1532,25 +1135,20 @@ footer > div:last-child{
 </div>
 
 
-<!-- STUDENT 4 -->
-
 <div class="student-card">
 
-    <img
-        src="student4.jpg"
-        alt="GopiBalaji M"
-        class="student-photo">
+    <img src="student4.jpg"
+    class="student-photo"
+    alt="GopiBalaji M">
 
     <div class="id-number">
         ID NO: 2023031047
     </div>
 
-    <h2>
-        GopiBalaji M
-    </h2>
+    <h2>GopiBalaji M</h2>
 
     <div class="student-contact">
-        📞 Contact:
+        📞
         <a href="tel:+919626141082">
             +919626141082
         </a>
@@ -1559,25 +1157,20 @@ footer > div:last-child{
 </div>
 
 
-<!-- STUDENT 5 -->
-
 <div class="student-card">
 
-    <img
-        src="student5.jpg"
-        alt="Gowsikan P"
-        class="student-photo">
+    <img src="student5.jpg"
+    class="student-photo"
+    alt="Gowsikan P">
 
     <div class="id-number">
         ID NO: 2023031048
     </div>
 
-    <h2>
-        Gowsikan P
-    </h2>
+    <h2>Gowsikan P</h2>
 
     <div class="student-contact">
-        📞 Contact:
+        📞
         <a href="tel:+919042194036">
             +919042194036
         </a>
@@ -1586,25 +1179,20 @@ footer > div:last-child{
 </div>
 
 
-<!-- STUDENT 6 -->
-
 <div class="student-card">
 
-    <img
-        src="student6.jpg"
-        alt="Jana P"
-        class="student-photo">
+    <img src="student6.jpg"
+    class="student-photo"
+    alt="Jana P">
 
     <div class="id-number">
         ID NO: 2023031055
     </div>
 
-    <h2>
-        Jana P
-    </h2>
+    <h2>Jana P</h2>
 
     <div class="student-contact">
-        📞 Contact:
+        📞
         <a href="tel:+919940160611">
             +919940160611
         </a>
@@ -1613,25 +1201,20 @@ footer > div:last-child{
 </div>
 
 
-<!-- STUDENT 7 -->
-
 <div class="student-card">
 
-    <img
-        src="student7.jpg"
-        alt="Jayasurya J"
-        class="student-photo">
+    <img src="student7.jpg"
+    class="student-photo"
+    alt="Jayasurya J">
 
     <div class="id-number">
         ID NO: 2023031060
     </div>
 
-    <h2>
-        Jayasurya J
-    </h2>
+    <h2>Jayasurya J</h2>
 
     <div class="student-contact">
-        📞 Contact:
+        📞
         <a href="tel:+917010037763">
             +917010037763
         </a>
@@ -1640,25 +1223,20 @@ footer > div:last-child{
 </div>
 
 
-<!-- STUDENT 8 -->
-
 <div class="student-card">
 
-    <img
-        src="student8.jpg"
-        alt="Joshan P"
-        class="student-photo">
+    <img src="student8.jpg"
+    class="student-photo"
+    alt="Joshan P">
 
     <div class="id-number">
         ID NO: 2023031066
     </div>
 
-    <h2>
-        Joshan P
-    </h2>
+    <h2>Joshan P</h2>
 
     <div class="student-contact">
-        📞 Contact:
+        📞
         <a href="tel:+917397661610">
             +917397661610
         </a>
@@ -1667,25 +1245,20 @@ footer > div:last-child{
 </div>
 
 
-<!-- STUDENT 9 -->
-
 <div class="student-card">
 
-    <img
-        src="student9.jpg"
-        alt="Jothishkumar K"
-        class="student-photo">
+    <img src="student9.jpg"
+    class="student-photo"
+    alt="Jothishkumar K">
 
     <div class="id-number">
         ID NO: 2023031067
     </div>
 
-    <h2>
-        Jothishkumar K
-    </h2>
+    <h2>Jothishkumar K</h2>
 
     <div class="student-contact">
-        📞 Contact:
+        📞
         <a href="tel:+91807274146">
             +91807274146
         </a>
@@ -1694,25 +1267,20 @@ footer > div:last-child{
 </div>
 
 
-<!-- STUDENT 10 -->
-
 <div class="student-card">
 
-    <img
-        src="student10.jpg"
-        alt="Kishor S"
-        class="student-photo">
+    <img src="student10.jpg"
+    class="student-photo"
+    alt="Kishor S">
 
     <div class="id-number">
         ID NO: 2023031078
     </div>
 
-    <h2>
-        Kishor S
-    </h2>
+    <h2>Kishor S</h2>
 
     <div class="student-contact">
-        📞 Contact:
+        📞
         <a href="tel:+918190937705">
             +918190937705
         </a>
@@ -1721,25 +1289,20 @@ footer > div:last-child{
 </div>
 
 
-<!-- STUDENT 11 -->
-
 <div class="student-card">
 
-    <img
-        src="student11.jpg"
-        alt="Kowshik S"
-        class="student-photo">
+    <img src="student11.jpg"
+    class="student-photo"
+    alt="Kowshik S">
 
     <div class="id-number">
         ID NO: 2023031080
     </div>
 
-    <h2>
-        Kowshik S
-    </h2>
+    <h2>Kowshik S</h2>
 
     <div class="student-contact">
-        ✉️ Mail:
+        ✉️
         <a href="mailto:kowshik.in@outlook.com">
             kowshik.in@outlook.com
         </a>
@@ -1748,25 +1311,20 @@ footer > div:last-child{
 </div>
 
 
-<!-- STUDENT 12 -->
-
 <div class="student-card">
 
-    <img
-        src="student12.jpg"
-        alt="Akshaya K"
-        class="student-photo">
+    <img src="student12.jpg"
+    class="student-photo"
+    alt="Akshaya K">
 
     <div class="id-number">
         ID NO: 2023031178
     </div>
 
-    <h2>
-        Akshaya K
-    </h2>
+    <h2>Akshaya K</h2>
 
     <div class="student-contact">
-        📞 Contact:
+        📞
         <a href="tel:+918792596511">
             +918792596511
         </a>
@@ -1775,25 +1333,20 @@ footer > div:last-child{
 </div>
 
 
-<!-- STUDENT 13 -->
-
 <div class="student-card">
 
-    <img
-        src="student13.jpg"
-        alt="Swapanjit Behera"
-        class="student-photo">
+    <img src="student13.jpg"
+    class="student-photo"
+    alt="Swapanjit Behera">
 
     <div class="id-number">
         ID NO: 2023031186
     </div>
 
-    <h2>
-        Swapanjit Behera
-    </h2>
+    <h2>Swapanjit Behera</h2>
 
     <div class="student-contact">
-        📞 Contact:
+        📞
         <a href="tel:+918851709705">
             +918851709705
         </a>
@@ -1805,9 +1358,7 @@ footer > div:last-child{
 </div>
 
 
-<!-- =====================================================
-     TEAM INFORMATION
-===================================================== -->
+<!-- TEAM INFO -->
 
 <div class="team-info">
 
@@ -1820,16 +1371,52 @@ footer > div:last-child{
     </p>
 
     <p>
-        AC&amp;RI VVNR ·
-        Tiruvannamalai District
+        AC&amp;RI VVNR · Tiruvannamalai District
     </p>
 
 </div>
 
 
+<!-- =====================================================
+     SMALL REPORT TO PDF CARD
+===================================================== -->
+
+<div class="report-card-wrap">
+
+    <div class="report-card">
+
+        <div class="report-card-text">
+
+            <div class="report-card-title">
+                📑 RAWE Report
+            </div>
+
+            <div class="report-card-subtitle">
+                Create complete report with images,
+                activities, students &amp; more.
+            </div>
+
+        </div>
+
+
+        <a
+        href="report.html"
+        target="_blank"
+        rel="noopener"
+        class="report-card-btn">
+
+            Open Report →
+
+        </a>
+
+    </div>
+
+</div>
+
+
 <a
-    href="index.html"
-    class="back-button">
+href="index.html"
+class="back-button">
 
     ← Back to Home
 
@@ -1839,36 +1426,27 @@ footer > div:last-child{
 </main>
 
 
-<!-- =====================================================
-     FOOTER
-===================================================== -->
-
 <footer>
 
     <div class="footer-title">
-
         👨‍🌾 TEAM : PAIYUR
-
     </div>
 
     <div class="footer-motto">
-
         Learn × Experience × Serve × Grow
-
     </div>
 
     <br>
 
     <div>
-
         © 2026 TNAU RAWE Programme
-
     </div>
 
 </footer>
 
 
 <script>
+
 
 /* =====================================================
    STUDENT DATA
@@ -1958,865 +1536,100 @@ const students = [
 
 
 /* =====================================================
-   PDF PASSWORD
+   BASIC PDF EXPORT
 ===================================================== */
 
-const PDF_PASSWORD =
-    "paiyur#2023batch";
+function downloadPDF(){
 
-
-/* =====================================================
-   TL SIGNATURE IMAGE
-===================================================== */
-
-const TL_SIGNATURE =
-    "team-leader-signature.png";
-
-
-/* =====================================================
-   GET EXPORT DATE
-===================================================== */
-
-function getExportDate(){
-
-    const now =
-        new Date();
-
-
-    const day =
-        String(
-            now.getDate()
-        ).padStart(2,"0");
-
-
-    const month =
-        String(
-            now.getMonth()+1
-        ).padStart(2,"0");
-
-
-    const year =
-        now.getFullYear();
-
-
-    let hours =
-        now.getHours();
-
-
-    const minutes =
-        String(
-            now.getMinutes()
-        ).padStart(2,"0");
-
-
-    const seconds =
-        String(
-            now.getSeconds()
-        ).padStart(2,"0");
-
-
-    const ampm =
-        hours >= 12
-        ? "PM"
-        : "AM";
-
-
-    hours =
-        hours % 12;
-
-
-    hours =
-        hours || 12;
-
-
-    return (
-
-        day +
-        "-" +
-        month +
-        "-" +
-        year +
-        " " +
-        String(hours).padStart(2,"0") +
-        ":" +
-        minutes +
-        ":" +
-        seconds +
-        " " +
-        ampm
-
+    alert(
+        "For the complete RAWE Report PDF, use the 'Open Report' card at the bottom."
     );
 
 }
 
 
 /* =====================================================
-   LOAD SIGNATURE
-===================================================== */
-
-function loadSignature(){
-
-    return new Promise(
-
-        function(resolve,reject){
-
-            const img =
-                new Image();
-
-
-            img.onload =
-                function(){
-
-                    resolve(img);
-
-                };
-
-
-            img.onerror =
-                function(){
-
-                    reject(
-                        new Error(
-                            "Signature image not found"
-                        )
-                    );
-
-                };
-
-
-            img.src =
-                TL_SIGNATURE;
-
-        }
-
-    );
-
-}
-
-
-/* =====================================================
-   PDF EXPORT
-===================================================== */
-
-async function downloadPDF(){
-
-    try{
-
-        /* ---------------------------------------------
-           CHECK jsPDF
-        --------------------------------------------- */
-
-        if(
-            !window.jspdf ||
-            !window.jspdf.jsPDF
-        ){
-
-            alert(
-                "PDF library could not load. Please check your internet connection and try again."
-            );
-
-            return;
-
-        }
-
-
-        const {
-
-            jsPDF
-
-        } =
-            window.jspdf;
-
-
-        /* ---------------------------------------------
-           CREATE PASSWORD PROTECTED PDF
-        --------------------------------------------- */
-
-        const doc =
-            new jsPDF({
-
-                orientation:
-                    "portrait",
-
-                unit:
-                    "mm",
-
-                format:
-                    "a4",
-
-                encryption:{
-
-                    userPassword:
-                        PDF_PASSWORD,
-
-                    ownerPassword:
-                        PDF_PASSWORD,
-
-                    userPermissions:[
-
-                        "print",
-
-                        "copy"
-
-                    ]
-
-                }
-
-            });
-
-
-        const exportDate =
-            getExportDate();
-
-
-        /* ---------------------------------------------
-           PAGE SIZE
-        --------------------------------------------- */
-
-        const pageWidth =
-            doc.internal.pageSize.getWidth();
-
-        const pageHeight =
-            doc.internal.pageSize.getHeight();
-
-
-        /* ---------------------------------------------
-           HEADER
-        --------------------------------------------- */
-
-        doc.setFont(
-            "helvetica",
-            "bold"
-        );
-
-
-        doc.setFontSize(18);
-
-
-        doc.text(
-
-            "TNAU RAWE PROGRAMME 2026",
-
-            pageWidth / 2,
-
-            17,
-
-            {
-                align:"center"
-            }
-
-        );
-
-
-        doc.setFontSize(13);
-
-
-        doc.text(
-
-            "TEAM : PAIYUR",
-
-            pageWidth / 2,
-
-            25,
-
-            {
-                align:"center"
-            }
-
-        );
-
-
-        doc.setFont(
-            "helvetica",
-            "normal"
-        );
-
-
-        doc.setFontSize(10);
-
-
-        doc.text(
-
-            "Student Details",
-
-            pageWidth / 2,
-
-            32,
-
-            {
-                align:"center"
-            }
-
-        );
-
-
-        /* ---------------------------------------------
-           LINE
-        --------------------------------------------- */
-
-        doc.line(
-
-            14,
-
-            37,
-
-            pageWidth - 14,
-
-            37
-
-        );
-
-
-        /* ---------------------------------------------
-           STUDENT TABLE
-        --------------------------------------------- */
-
-        const tableData =
-            students.map(
-
-                function(student,index){
-
-                    return [
-
-                        index + 1,
-
-                        student.id,
-
-                        student.name,
-
-                        student.contact
-
-                    ];
-
-                }
-
-            );
-
-
-        doc.autoTable({
-
-            startY:43,
-
-            head:[
-
-                [
-
-                    "S.No",
-
-                    "ID Number",
-
-                    "Student Name",
-
-                    "Contact"
-
-                ]
-
-            ],
-
-            body:
-                tableData,
-
-            theme:
-                "grid",
-
-            headStyles:{
-
-                fontStyle:
-                    "bold",
-
-                fontSize:
-                    9,
-
-                halign:
-                    "center"
-
-            },
-
-            bodyStyles:{
-
-                fontSize:
-                    8.5
-
-            },
-
-            columnStyles:{
-
-                0:{
-
-                    cellWidth:15,
-
-                    halign:
-                        "center"
-
-                },
-
-                1:{
-
-                    cellWidth:36,
-
-                    halign:
-                        "center"
-
-                },
-
-                2:{
-
-                    cellWidth:55
-
-                },
-
-                3:{
-
-                    cellWidth:76
-
-                }
-
-            },
-
-            margin:{
-
-                left:14,
-
-                right:14
-
-            }
-
-        });
-
-
-        /* ---------------------------------------------
-           TEAM INFORMATION
-        --------------------------------------------- */
-
-        let y =
-            doc.lastAutoTable.finalY + 13;
-
-
-        doc.setFont(
-            "helvetica",
-            "bold"
-        );
-
-
-        doc.setFontSize(11);
-
-
-        doc.text(
-
-            "TEAM INFORMATION",
-
-            14,
-
-            y
-
-        );
-
-
-        y += 7;
-
-
-        doc.setFont(
-            "helvetica",
-            "normal"
-        );
-
-
-        doc.setFontSize(9.5);
-
-
-        doc.text(
-
-            "TNAU RAWE Programme 2026",
-
-            14,
-
-            y
-
-        );
-
-
-        y += 5;
-
-
-        doc.text(
-
-            "AC&RI VVNR · Tiruvannamalai District",
-
-            14,
-
-            y
-
-        );
-
-
-        y += 5;
-
-
-        doc.text(
-
-            "Team : Paiyur",
-
-            14,
-
-            y
-
-        );
-
-
-        /* ---------------------------------------------
-           SIGNATURE TITLE
-        --------------------------------------------- */
-
-        const signatureY =
-            pageHeight - 55;
-
-
-        doc.setFont(
-            "helvetica",
-            "bold"
-        );
-
-
-        doc.setFontSize(10);
-
-
-        doc.text(
-
-            "TL SIGNATURE",
-
-            155,
-
-            signatureY,
-
-            {
-                align:"center"
-            }
-
-        );
-
-
-        /* ---------------------------------------------
-           SIGNATURE IMAGE
-        --------------------------------------------- */
-
-        try{
-
-            const signature =
-                await loadSignature();
-
-
-            doc.addImage(
-
-                signature,
-
-                "PNG",
-
-                132,
-
-                signatureY + 3,
-
-                46,
-
-                18
-
-            );
-
-        }
-
-        catch(error){
-
-            console.warn(
-                "Signature image unavailable:",
-                error
-            );
-
-
-            doc.setFontSize(9);
-
-
-            doc.text(
-
-                "Signature",
-
-                155,
-
-                signatureY + 12,
-
-                {
-                    align:"center"
-                }
-
-            );
-
-        }
-
-
-        /* ---------------------------------------------
-           SIGNATURE LINE
-        --------------------------------------------- */
-
-        doc.line(
-
-            132,
-
-            signatureY + 23,
-
-            178,
-
-            signatureY + 23
-
-        );
-
-
-        doc.setFont(
-            "helvetica",
-            "bold"
-        );
-
-
-        doc.setFontSize(9);
-
-
-        doc.text(
-
-            "TEAM LEADER",
-
-            155,
-
-            signatureY + 29,
-
-            {
-                align:"center"
-            }
-
-        );
-
-
-        doc.setFont(
-            "helvetica",
-            "normal"
-        );
-
-
-        /* ---------------------------------------------
-           EXPORT DATE
-        --------------------------------------------- */
-
-        doc.setFontSize(8.5);
-
-
-        doc.text(
-
-            "Export Date & Time: " +
-            exportDate,
-
-            14,
-
-            pageHeight - 20
-
-        );
-
-
-        /* ---------------------------------------------
-           FOOTER
-        --------------------------------------------- */
-
-        doc.setFontSize(8);
-
-
-        doc.text(
-
-            "TNAU RAWE Programme 2026 · Team Paiyur",
-
-            pageWidth / 2,
-
-            pageHeight - 11,
-
-            {
-                align:"center"
-            }
-
-        );
-
-
-        /* ---------------------------------------------
-           SAVE PDF
-        --------------------------------------------- */
-
-        doc.save(
-
-            "TNAU_RAWE_Paiyur_Students_2026.pdf"
-
-        );
-
-
-    }
-
-    catch(error){
-
-        console.error(error);
-
-        alert(
-
-            "Unable to create PDF. Please try again."
-
-        );
-
-    }
-
-}
-
-
-/* =====================================================
-   EXCEL / CSV EXPORT
+   CSV EXPORT
 ===================================================== */
 
 function downloadExcel(){
 
     let csv =
+    "TNAU RAWE PROGRAMME 2026\n";
 
-        "TNAU RAWE PROGRAMME 2026\n" +
+    csv +=
+    "TEAM : PAIYUR\n";
 
-        "TEAM : PAIYUR\n" +
+    csv +=
+    "AC&RI VVNR, Tiruvannamalai District\n\n";
 
-        "AC&RI VVNR, Tiruvannamalai District\n\n" +
-
-        "S.No,ID Number,Student Name,Contact\n";
+    csv +=
+    "S.No,ID Number,Student Name,Contact\n";
 
 
     students.forEach(
-
         function(student,index){
 
             csv +=
 
-                (index + 1) +
-                "," +
+            (index+1) +
+            "," +
 
-                student.id +
-                "," +
+            student.id +
+            "," +
 
-                '"' +
-                student.name.replace(
-                    /"/g,
-                    '""'
-                ) +
-                '",' +
+            '"' +
+            student.name +
+            '",' +
 
-                '"' +
-                student.contact.replace(
-                    /"/g,
-                    '""'
-                ) +
-                '"\n';
+            '"' +
+            student.contact +
+            '"\n';
 
+        }
+    );
+
+
+    const blob =
+    new Blob(
+
+        ["\ufeff"+csv],
+
+        {
+            type:
+            "text/csv;charset=utf-8;"
         }
 
     );
 
 
-    /* ---------------------------------------------
-       EXPORT INFORMATION
-    --------------------------------------------- */
-
-    csv +=
-
-        "\nTeam Leader,TL Signature\n";
-
-    csv +=
-
-        "TEAM PAIYUR," +
-        "Included in PDF exports\n";
-
-
-    csv +=
-
-        "Export Date," +
-        getExportDate() +
-        "\n";
-
-
-    /* ---------------------------------------------
-       CREATE FILE
-    --------------------------------------------- */
-
-    const blob =
-        new Blob(
-
-            [
-
-                "\ufeff" +
-                csv
-
-            ],
-
-            {
-
-                type:
-                "text/csv;charset=utf-8;"
-
-            }
-
-        );
-
-
     const url =
-        URL.createObjectURL(
-            blob
-        );
+    URL.createObjectURL(blob);
 
 
     const link =
-        document.createElement(
-            "a"
-        );
+    document.createElement("a");
 
 
-    link.href =
-        url;
+    link.href = url;
 
 
     link.download =
+    "TNAU_RAWE_Paiyur_Students_2026.csv";
 
-        "TNAU_RAWE_Paiyur_Students_2026.csv";
 
-
-    document.body.appendChild(
-        link
-    );
+    document.body.appendChild(link);
 
 
     link.click();
 
 
-    document.body.removeChild(
-        link
-    );
+    document.body.removeChild(link);
 
 
-    URL.revokeObjectURL(
-        url
-    );
+    URL.revokeObjectURL(url);
 
 }
-
-
-/* =====================================================
-   PAGE READY
-===================================================== */
-
-console.log(
-    "TNAU RAWE Student Page Loaded"
-);
-
-console.log(
-    "PDF Password Protection Enabled"
-);
-
-console.log(
-    "TL Signature:",
-    TL_SIGNATURE
-);
 
 </script>
 
