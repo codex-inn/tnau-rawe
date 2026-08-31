@@ -17,23 +17,16 @@
 ===================================================== */
 
 :root{
-
     --green:#07552f;
     --dark-green:#033b20;
     --green-light:#197447;
-
     --gold:#c59a22;
     --gold-light:#e1c65d;
-
     --dark-red:#8b0000;
-
     --text:#17231a;
     --muted:#68746d;
-
     --white:#ffffff;
-
     --border:#dfe6e1;
-
 }
 
 
@@ -52,7 +45,6 @@ html{
 }
 
 body{
-
     font-family:
     "Segoe UI",
     Arial,
@@ -64,13 +56,12 @@ body{
     background:#f4f6f4;
 
     line-height:1.6;
-
 }
 
 
 /* =====================================================
    TOP HEADER
-   OLD VERSION - NO SLIDESHOW HERE
+   OLD VERSION - STATIC
 ===================================================== */
 
 .top-header{
@@ -109,11 +100,8 @@ body{
 
     box-shadow:
     0 3px 12px rgba(0,0,0,.10);
-
 }
 
-
-/* OLD HEADER LIGHT LAYER */
 
 .top-header::before{
 
@@ -132,16 +120,12 @@ body{
     );
 
     z-index:0;
-
 }
 
 
 .top-header > *{
-
     position:relative;
-
     z-index:2;
-
 }
 
 
@@ -152,7 +136,6 @@ body{
 .logo{
 
     width:112px;
-
     height:112px;
 
     object-fit:contain;
@@ -170,7 +153,6 @@ body{
 
     box-shadow:
     0 4px 15px rgba(0,0,0,.15);
-
 }
 
 
@@ -179,13 +161,9 @@ body{
 ===================================================== */
 
 .header-text{
-
     flex:1;
-
     min-width:0;
-
     text-align:left;
-
 }
 
 
@@ -204,7 +182,6 @@ body{
 
     text-shadow:
     0 1px 1px white;
-
 }
 
 
@@ -218,7 +195,6 @@ body{
     font-weight:700;
 
     margin-top:3px;
-
 }
 
 
@@ -232,7 +208,6 @@ body{
     font-weight:700;
 
     line-height:1.3;
-
 }
 
 
@@ -248,7 +223,6 @@ body{
     margin-top:2px;
 
     margin-bottom:9px;
-
 }
 
 
@@ -269,7 +243,6 @@ body{
 
     border-bottom:
     2px solid var(--gold);
-
 }
 
 
@@ -285,7 +258,6 @@ body{
     font-weight:800;
 
     margin-top:3px;
-
 }
 
 
@@ -313,7 +285,6 @@ body{
 
     box-shadow:
     0 5px 16px rgba(0,0,0,.10);
-
 }
 
 
@@ -328,7 +299,6 @@ body{
     font-weight:800;
 
     letter-spacing:2px;
-
 }
 
 
@@ -343,7 +313,6 @@ body{
     line-height:1.1;
 
     margin-top:2px;
-
 }
 
 
@@ -371,7 +340,6 @@ nav{
 
     box-shadow:
     0 3px 10px rgba(0,0,0,.16);
-
 }
 
 
@@ -391,7 +359,6 @@ nav a{
     3px solid transparent;
 
     transition:.25s;
-
 }
 
 
@@ -402,15 +369,18 @@ nav a:hover{
 
     border-bottom-color:
     var(--gold-light);
-
 }
 
 
 /* =====================================================
    HERO
+   3 BACKGROUND IMAGES
+   3 SECOND EACH
 ===================================================== */
 
 .hero{
+
+    position:relative;
 
     min-height:500px;
 
@@ -420,30 +390,153 @@ nav a:hover{
 
     padding:70px 5%;
 
-    background:
+    overflow:hidden;
 
-    linear-gradient(
-        90deg,
-        rgba(2,48,27,.72),
-        rgba(2,48,27,.38),
-        rgba(2,48,27,.08)
-    ),
+    background:#173b28;
+}
 
-    url("vvnr-campus.jpg");
+
+/* HERO SLIDES */
+
+.hero-slide{
+
+    position:absolute;
+
+    inset:0;
+
+    width:100%;
+    height:100%;
 
     background-size:cover;
 
     background-position:center;
 
+    background-repeat:no-repeat;
+
+    opacity:0;
+
+    transform:scale(1);
+
+    animation:
+    heroSlide
+    9s
+    infinite;
+
 }
 
 
+/* IMAGE 1 */
+
+.hero-slide:nth-child(1){
+
+    background-image:
+    url("vvnr-campus.jpg");
+
+    animation-delay:0s;
+}
+
+
+/* IMAGE 2 */
+
+.hero-slide:nth-child(2){
+
+    background-image:
+    url("vvnr-campus-2.jpg");
+
+    animation-delay:3s;
+}
+
+
+/* IMAGE 3 */
+
+.hero-slide:nth-child(3){
+
+    background-image:
+    url("vvnr-campus-3.jpg");
+
+    animation-delay:6s;
+}
+
+
+/* =====================================================
+   HERO IMAGE ANIMATION
+===================================================== */
+
+@keyframes heroSlide{
+
+    0%{
+
+        opacity:0;
+
+        transform:scale(1);
+    }
+
+    5%{
+
+        opacity:1;
+    }
+
+    28%{
+
+        opacity:1;
+
+        transform:scale(1.04);
+    }
+
+    33.33%{
+
+        opacity:0;
+
+        transform:scale(1.06);
+    }
+
+    100%{
+
+        opacity:0;
+
+        transform:scale(1);
+    }
+}
+
+
+/* =====================================================
+   HERO DARK OVERLAY
+===================================================== */
+
+.hero::after{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    z-index:3;
+
+    background:
+
+    linear-gradient(
+        90deg,
+        rgba(2,48,27,.74),
+        rgba(2,48,27,.43),
+        rgba(2,48,27,.18)
+    );
+}
+
+
+/* =====================================================
+   HERO CONTENT
+===================================================== */
+
 .hero-content{
+
+    position:relative;
+
+    z-index:5;
 
     max-width:720px;
 
     color:white;
-
 }
 
 
@@ -456,7 +549,6 @@ nav a:hover{
     font-style:italic;
 
     color:var(--gold-light);
-
 }
 
 
@@ -469,8 +561,8 @@ nav a:hover{
 
     font-weight:900;
 
-    margin:8px 0 20px;
-
+    margin:
+    8px 0 20px;
 }
 
 
@@ -483,7 +575,6 @@ nav a:hover{
     background:var(--gold);
 
     margin-bottom:22px;
-
 }
 
 
@@ -492,7 +583,6 @@ nav a:hover{
     font-size:17px;
 
     max-width:650px;
-
 }
 
 
@@ -513,14 +603,47 @@ nav a:hover{
     border-radius:6px;
 
     font-weight:800;
-
 }
 
 
 .explore:hover{
 
     background:var(--gold-light);
+}
 
+
+/* =====================================================
+   HERO DOTS
+===================================================== */
+
+.hero-dots{
+
+    position:absolute;
+
+    z-index:8;
+
+    bottom:20px;
+
+    left:50%;
+
+    transform:translateX(-50%);
+
+    display:flex;
+
+    gap:8px;
+}
+
+
+.hero-dot{
+
+    width:9px;
+
+    height:9px;
+
+    border-radius:50%;
+
+    background:
+    rgba(255,255,255,.65);
 }
 
 
@@ -533,14 +656,12 @@ nav a:hover{
     padding:60px 5%;
 
     background:#f7f9f7;
-
 }
 
 
 .section:nth-child(even){
 
     background:white;
-
 }
 
 
@@ -555,7 +676,6 @@ nav a:hover{
     font-weight:800;
 
     margin-bottom:32px;
-
 }
 
 
@@ -572,12 +692,11 @@ nav a:hover{
     background:var(--gold);
 
     margin:10px auto 0;
-
 }
 
 
 /* =====================================================
-   TEAM ANNOUNCEMENT
+   ANNOUNCEMENT
 ===================================================== */
 
 .team-announcement{
@@ -600,7 +719,6 @@ nav a:hover{
 
     box-shadow:
     0 5px 16px rgba(0,0,0,.08);
-
 }
 
 
@@ -619,7 +737,6 @@ nav a:hover{
     font-weight:900;
 
     letter-spacing:1.2px;
-
 }
 
 
@@ -632,7 +749,6 @@ nav a:hover{
     white-space:nowrap;
 
     padding:13px 0;
-
 }
 
 
@@ -653,7 +769,6 @@ nav a:hover{
     18s
     linear
     infinite;
-
 }
 
 
@@ -666,7 +781,6 @@ nav a:hover{
     100%{
         transform:translateX(-100%);
     }
-
 }
 
 
@@ -686,7 +800,6 @@ nav a:hover{
     repeat(2,minmax(0,1fr));
 
     gap:20px;
-
 }
 
 
@@ -720,7 +833,6 @@ nav a:hover{
     justify-content:center;
 
     transition:.25s;
-
 }
 
 
@@ -730,7 +842,6 @@ nav a:hover{
 
     box-shadow:
     0 12px 28px rgba(0,0,0,.13);
-
 }
 
 
@@ -748,7 +859,6 @@ nav a:hover{
     3px solid #e2e9e4;
 
     margin-bottom:12px;
-
 }
 
 
@@ -759,7 +869,6 @@ nav a:hover{
     font-size:18px;
 
     margin-bottom:6px;
-
 }
 
 
@@ -772,7 +881,6 @@ nav a:hover{
     font-weight:900;
 
     margin-bottom:8px;
-
 }
 
 
@@ -781,12 +889,11 @@ nav a:hover{
     color:var(--muted);
 
     font-size:13px;
-
 }
 
 
 /* =====================================================
-   RAWE PROGRAMME
+   PROGRAMME
 ===================================================== */
 
 .programme-grid{
@@ -801,7 +908,6 @@ nav a:hover{
     repeat(2,minmax(0,1fr));
 
     gap:20px;
-
 }
 
 
@@ -832,7 +938,6 @@ nav a:hover{
     0 5px 18px rgba(0,0,0,.07);
 
     transition:.25s;
-
 }
 
 
@@ -842,7 +947,6 @@ nav a:hover{
 
     box-shadow:
     0 12px 28px rgba(0,0,0,.12);
-
 }
 
 
@@ -867,7 +971,6 @@ nav a:hover{
     font-size:26px;
 
     margin-bottom:10px;
-
 }
 
 
@@ -878,7 +981,6 @@ nav a:hover{
     font-size:18px;
 
     margin-bottom:7px;
-
 }
 
 
@@ -891,7 +993,6 @@ nav a:hover{
     max-width:280px;
 
     margin-bottom:13px;
-
 }
 
 
@@ -910,14 +1011,12 @@ nav a:hover{
     font-size:12px;
 
     font-weight:700;
-
 }
 
 
 .card-button:hover{
 
     background:var(--green-light);
-
 }
 
 
@@ -925,306 +1024,6 @@ nav a:hover{
 
     border-top:
     4px solid var(--gold);
-
-}
-
-
-/* =====================================================
-   HOME CAMPUS IMAGE SLIDESHOW
-   3 IMAGES / 3 SECONDS
-===================================================== */
-
-.campus-showcase{
-
-    width:100%;
-
-    position:relative;
-
-    height:420px;
-
-    overflow:hidden;
-
-    background:#173b28;
-
-}
-
-
-.campus-slide{
-
-    position:absolute;
-
-    inset:0;
-
-    width:100%;
-
-    height:100%;
-
-    background-size:cover;
-
-    background-position:center;
-
-    background-repeat:no-repeat;
-
-    opacity:0;
-
-    animation:
-    campusScroll
-    9s
-    infinite;
-
-}
-
-
-.campus-slide:nth-child(1){
-
-    background-image:
-    url("vvnr-campus.jpg");
-
-    animation-delay:0s;
-
-}
-
-
-.campus-slide:nth-child(2){
-
-    background-image:
-    url("vvnr-campus-2.jpg");
-
-    animation-delay:3s;
-
-}
-
-
-.campus-slide:nth-child(3){
-
-    background-image:
-    url("vvnr-campus-3.jpg");
-
-    animation-delay:6s;
-
-}
-
-
-@keyframes campusScroll{
-
-    0%{
-
-        opacity:0;
-
-        transform:scale(1);
-
-    }
-
-    5%{
-
-        opacity:1;
-
-    }
-
-    28%{
-
-        opacity:1;
-
-        transform:scale(1.02);
-
-    }
-
-    33.33%{
-
-        opacity:0;
-
-    }
-
-    100%{
-
-        opacity:0;
-
-        transform:scale(1);
-
-    }
-
-}
-
-
-/* CAMPUS OVERLAY */
-
-.campus-overlay{
-
-    position:absolute;
-
-    inset:0;
-
-    z-index:5;
-
-    pointer-events:none;
-
-    background:
-    linear-gradient(
-        90deg,
-        rgba(0,30,17,.25),
-        rgba(0,30,17,.03),
-        rgba(0,30,17,.20)
-    );
-
-}
-
-
-/* CAMPUS TITLE */
-
-.campus-title{
-
-    position:absolute;
-
-    z-index:10;
-
-    left:50%;
-
-    bottom:28px;
-
-    transform:translateX(-50%);
-
-    color:white;
-
-    background:
-    rgba(3,59,32,.78);
-
-    padding:10px 24px;
-
-    border-radius:6px;
-
-    font-size:17px;
-
-    font-weight:800;
-
-    text-align:center;
-
-    white-space:nowrap;
-
-}
-
-
-/* CAMPUS DOTS */
-
-.campus-dots{
-
-    position:absolute;
-
-    z-index:20;
-
-    left:50%;
-
-    bottom:12px;
-
-    transform:translateX(-50%);
-
-    display:flex;
-
-    gap:7px;
-
-}
-
-
-.campus-dot{
-
-    width:8px;
-
-    height:8px;
-
-    border-radius:50%;
-
-    background:
-    rgba(255,255,255,.65);
-
-    animation:
-    dotOne
-    9s
-    infinite;
-
-}
-
-
-.campus-dot:nth-child(2){
-
-    animation-name:dotTwo;
-
-}
-
-
-.campus-dot:nth-child(3){
-
-    animation-name:dotThree;
-
-}
-
-
-@keyframes dotOne{
-
-    0%,33.33%{
-
-        background:var(--gold-light);
-
-        transform:scale(1.3);
-
-    }
-
-    33.34%,100%{
-
-        background:rgba(255,255,255,.65);
-
-        transform:scale(1);
-
-    }
-
-}
-
-
-@keyframes dotTwo{
-
-    0%,33.33%{
-
-        background:rgba(255,255,255,.65);
-
-        transform:scale(1);
-
-    }
-
-    33.34%,66.66%{
-
-        background:var(--gold-light);
-
-        transform:scale(1.3);
-
-    }
-
-    66.67%,100%{
-
-        background:rgba(255,255,255,.65);
-
-        transform:scale(1);
-
-    }
-
-}
-
-
-@keyframes dotThree{
-
-    0%,66.66%{
-
-        background:rgba(255,255,255,.65);
-
-        transform:scale(1);
-
-    }
-
-    66.67%,100%{
-
-        background:var(--gold-light);
-
-        transform:scale(1.3);
-
-    }
-
 }
 
 
@@ -1237,7 +1036,6 @@ nav a:hover{
     max-width:850px;
 
     margin:auto;
-
 }
 
 
@@ -1265,14 +1063,12 @@ nav a:hover{
 
     box-shadow:
     0 6px 20px rgba(0,0,0,.09);
-
 }
 
 
 .gallery-big-icon{
 
     font-size:45px;
-
 }
 
 
@@ -1281,7 +1077,6 @@ nav a:hover{
     color:var(--dark-green);
 
     font-size:21px;
-
 }
 
 
@@ -1293,7 +1088,6 @@ nav a:hover{
 
     margin:
     8px 0 18px;
-
 }
 
 
@@ -1314,7 +1108,6 @@ nav a:hover{
     font-size:13px;
 
     font-weight:800;
-
 }
 
 
@@ -1342,7 +1135,6 @@ nav a:hover{
 
     box-shadow:
     0 5px 18px rgba(0,0,0,.07);
-
 }
 
 
@@ -1351,14 +1143,12 @@ nav a:hover{
     color:#44534a;
 
     font-size:14px;
-
 }
 
 
 .content-box strong{
 
     color:var(--green);
-
 }
 
 
@@ -1378,7 +1168,6 @@ nav a:hover{
     repeat(4,1fr);
 
     gap:16px;
-
 }
 
 
@@ -1397,14 +1186,12 @@ nav a:hover{
 
     box-shadow:
     0 5px 15px rgba(0,0,0,.07);
-
 }
 
 
 .highlight-card .emoji{
 
     font-size:29px;
-
 }
 
 
@@ -1413,7 +1200,6 @@ nav a:hover{
     color:var(--dark-green);
 
     font-size:14px;
-
 }
 
 
@@ -1422,7 +1208,6 @@ nav a:hover{
     color:var(--muted);
 
     font-size:11px;
-
 }
 
 
@@ -1435,7 +1220,6 @@ nav a:hover{
     padding:34px 5%;
 
     background:#f1f4f1;
-
 }
 
 
@@ -1467,14 +1251,12 @@ nav a:hover{
 
     box-shadow:
     0 4px 14px rgba(0,0,0,.08);
-
 }
 
 
 .login-banner-text{
 
     min-width:0;
-
 }
 
 
@@ -1485,7 +1267,6 @@ nav a:hover{
     font-size:17px;
 
     font-weight:800;
-
 }
 
 
@@ -1494,7 +1275,6 @@ nav a:hover{
     color:var(--muted);
 
     font-size:11px;
-
 }
 
 
@@ -1505,7 +1285,6 @@ nav a:hover{
     gap:8px;
 
     flex-shrink:0;
-
 }
 
 
@@ -1526,28 +1305,24 @@ nav a:hover{
     font-size:10px;
 
     font-weight:800;
-
 }
 
 
 .login-small-btn:hover{
 
     background:var(--green-light);
-
 }
 
 
 .login-small-btn.staff{
 
     background:var(--dark-red);
-
 }
 
 
 .login-small-btn.staff:hover{
 
     background:#a50000;
-
 }
 
 
@@ -1567,7 +1342,6 @@ nav a:hover{
     repeat(2,minmax(0,1fr));
 
     gap:18px;
-
 }
 
 
@@ -1596,14 +1370,12 @@ nav a:hover{
 
     box-shadow:
     0 5px 15px rgba(0,0,0,.07);
-
 }
 
 
 .contact-icon{
 
     font-size:28px;
-
 }
 
 
@@ -1612,14 +1384,12 @@ nav a:hover{
     color:var(--dark-green);
 
     font-size:16px;
-
 }
 
 
 .contact-card strong{
 
     font-size:13px;
-
 }
 
 
@@ -1628,7 +1398,6 @@ nav a:hover{
     color:var(--muted);
 
     font-size:12px;
-
 }
 
 
@@ -1641,12 +1410,12 @@ nav a:hover{
     text-decoration:none;
 
     word-break:break-word;
-
 }
 
 
 /* =====================================================
    BOTTOM ENTRANCE IMAGE
+   SEPARATE - NOT SLIDESHOW
 ===================================================== */
 
 .bottom-campus{
@@ -1669,7 +1438,6 @@ nav a:hover{
     background-position:center;
 
     background-repeat:no-repeat;
-
 }
 
 
@@ -1689,7 +1457,6 @@ footer{
 
     border-top:
     4px solid var(--gold);
-
 }
 
 
@@ -1698,7 +1465,6 @@ footer{
     font-size:24px;
 
     font-weight:800;
-
 }
 
 
@@ -1709,7 +1475,6 @@ footer{
     font-size:17px;
 
     margin-top:7px;
-
 }
 
 
@@ -1722,7 +1487,6 @@ footer{
     font-style:italic;
 
     margin-top:5px;
-
 }
 
 
@@ -1735,7 +1499,6 @@ footer{
     background:var(--gold);
 
     margin:18px auto;
-
 }
 
 
@@ -1751,7 +1514,6 @@ footer{
         20px 4%;
 
         gap:16px;
-
     }
 
     .logo{
@@ -1759,20 +1521,17 @@ footer{
         width:95px;
 
         height:95px;
-
     }
 
     .theme-box{
 
         min-width:125px;
-
     }
 
     .highlights{
 
         grid-template-columns:
         repeat(2,1fr);
-
     }
 
 }
@@ -1798,7 +1557,6 @@ footer{
 
         padding:
         9px 6px;
-
     }
 
 
@@ -1809,7 +1567,6 @@ footer{
         height:61px;
 
         padding:4px;
-
     }
 
 
@@ -1818,7 +1575,6 @@ footer{
         flex:1;
 
         min-width:0;
-
     }
 
 
@@ -1828,7 +1584,6 @@ footer{
         clamp(11px,3.5vw,16px);
 
         line-height:1.12;
-
     }
 
 
@@ -1838,7 +1593,6 @@ footer{
         clamp(7px,2.5vw,11px);
 
         line-height:1.2;
-
     }
 
 
@@ -1848,7 +1602,6 @@ footer{
         clamp(7px,2.4vw,11px);
 
         line-height:1.2;
-
     }
 
 
@@ -1860,7 +1613,6 @@ footer{
         line-height:1.2;
 
         margin-bottom:4px;
-
     }
 
 
@@ -1870,7 +1622,6 @@ footer{
         clamp(9px,2.8vw,14px);
 
         line-height:1.1;
-
     }
 
 
@@ -1878,7 +1629,6 @@ footer{
 
         font-size:
         clamp(6px,2vw,9px);
-
     }
 
 
@@ -1889,7 +1639,6 @@ footer{
         padding:7px 3px;
 
         border-radius:7px;
-
     }
 
 
@@ -1898,7 +1647,6 @@ footer{
         font-size:5px;
 
         letter-spacing:1px;
-
     }
 
 
@@ -1906,7 +1654,6 @@ footer{
 
         font-size:
         clamp(12px,3.8vw,18px);
-
     }
 
 
@@ -1915,7 +1662,6 @@ footer{
         position:relative;
 
         padding:3px;
-
     }
 
 
@@ -1924,37 +1670,40 @@ footer{
         font-size:10px;
 
         padding:8px 5px;
-
     }
 
+
+    /* HERO */
 
     .hero{
 
         min-height:430px;
 
         padding:45px 20px;
-
     }
 
 
     .welcome{
 
         font-size:22px;
-
     }
 
 
     .hero h2{
 
         font-size:34px;
-
     }
 
 
     .hero p{
 
         font-size:14px;
+    }
 
+
+    .hero-dots{
+
+        bottom:12px;
     }
 
 
@@ -1962,7 +1711,6 @@ footer{
 
         padding:
         42px 14px;
-
     }
 
 
@@ -1971,7 +1719,6 @@ footer{
         font-size:24px;
 
         margin-bottom:25px;
-
     }
 
 
@@ -1979,7 +1726,6 @@ footer{
 
         margin:
         0 0 20px;
-
     }
 
 
@@ -1989,7 +1735,6 @@ footer{
 
         padding:
         5px 9px;
-
     }
 
 
@@ -1997,7 +1742,6 @@ footer{
 
         padding:
         10px 0;
-
     }
 
 
@@ -2006,7 +1750,6 @@ footer{
         font-size:11px;
 
         animation-duration:14s;
-
     }
 
 
@@ -2016,7 +1759,6 @@ footer{
         repeat(2,minmax(0,1fr));
 
         gap:12px;
-
     }
 
 
@@ -2026,7 +1768,6 @@ footer{
 
         padding:
         14px 7px;
-
     }
 
 
@@ -2037,7 +1778,6 @@ footer{
         height:60px;
 
         margin-bottom:8px;
-
     }
 
 
@@ -2046,7 +1786,6 @@ footer{
         font-size:13px;
 
         line-height:1.25;
-
     }
 
 
@@ -2055,7 +1794,6 @@ footer{
         font-size:9px;
 
         line-height:1.3;
-
     }
 
 
@@ -2064,7 +1802,6 @@ footer{
         font-size:9px;
 
         line-height:1.35;
-
     }
 
 
@@ -2074,7 +1811,6 @@ footer{
         repeat(2,minmax(0,1fr));
 
         gap:12px;
-
     }
 
 
@@ -2084,7 +1820,6 @@ footer{
 
         padding:
         14px 7px;
-
     }
 
 
@@ -2095,14 +1830,12 @@ footer{
         height:48px;
 
         font-size:22px;
-
     }
 
 
     .programme-card h3{
 
         font-size:14px;
-
     }
 
 
@@ -2111,7 +1844,6 @@ footer{
         font-size:10px;
 
         line-height:1.35;
-
     }
 
 
@@ -2121,35 +1853,6 @@ footer{
         7px 9px;
 
         font-size:10px;
-
-    }
-
-
-    /* HOME CAMPUS SLIDESHOW */
-
-    .campus-showcase{
-
-        height:260px;
-
-    }
-
-
-    .campus-title{
-
-        bottom:25px;
-
-        padding:
-        7px 14px;
-
-        font-size:12px;
-
-    }
-
-
-    .campus-dots{
-
-        bottom:9px;
-
     }
 
 
@@ -2159,42 +1862,36 @@ footer{
 
         padding:
         22px 14px;
-
     }
 
 
     .gallery-big-icon{
 
         font-size:37px;
-
     }
 
 
     .gallery-button-card h3{
 
         font-size:18px;
-
     }
 
 
     .gallery-button-card p{
 
         font-size:11px;
-
     }
 
 
     .content-box{
 
         padding:18px;
-
     }
 
 
     .content-box p{
 
         font-size:12px;
-
     }
 
 
@@ -2204,7 +1901,6 @@ footer{
         repeat(2,1fr);
 
         gap:10px;
-
     }
 
 
@@ -2212,28 +1908,24 @@ footer{
 
         padding:
         14px 7px;
-
     }
 
 
     .highlight-card .emoji{
 
         font-size:23px;
-
     }
 
 
     .highlight-card h4{
 
         font-size:12px;
-
     }
 
 
     .highlight-card p{
 
         font-size:9px;
-
     }
 
 
@@ -2241,7 +1933,6 @@ footer{
 
         padding:
         25px 14px;
-
     }
 
 
@@ -2253,7 +1944,6 @@ footer{
         gap:9px;
 
         align-items:center;
-
     }
 
 
@@ -2262,14 +1952,12 @@ footer{
         min-width:0;
 
         flex:1;
-
     }
 
 
     .login-banner-text h3{
 
         font-size:12px;
-
     }
 
 
@@ -2278,7 +1966,6 @@ footer{
         font-size:8px;
 
         line-height:1.3;
-
     }
 
 
@@ -2289,7 +1976,6 @@ footer{
         gap:5px;
 
         width:85px;
-
     }
 
 
@@ -2303,7 +1989,6 @@ footer{
         7px 4px;
 
         font-size:8px;
-
     }
 
 
@@ -2313,7 +1998,6 @@ footer{
         repeat(2,minmax(0,1fr));
 
         gap:10px;
-
     }
 
 
@@ -2323,21 +2007,18 @@ footer{
 
         padding:
         13px 7px;
-
     }
 
 
     .contact-icon{
 
         font-size:23px;
-
     }
 
 
     .contact-card h3{
 
         font-size:11px;
-
     }
 
 
@@ -2348,7 +2029,6 @@ footer{
         font-size:9px;
 
         line-height:1.35;
-
     }
 
 
@@ -2357,7 +2037,6 @@ footer{
     .bottom-campus{
 
         height:260px;
-
     }
 
 }
@@ -2376,7 +2055,6 @@ footer{
         padding:7px 5px;
 
         gap:5px;
-
     }
 
 
@@ -2385,49 +2063,42 @@ footer{
         width:54px;
 
         height:54px;
-
     }
 
 
     .university-name{
 
         font-size:10px;
-
     }
 
 
     .tamil-name{
 
         font-size:7px;
-
     }
 
 
     .college-name{
 
         font-size:7px;
-
     }
 
 
     .header-location{
 
         font-size:6px;
-
     }
 
 
     .rawe-title{
 
         font-size:8px;
-
     }
 
 
     .batch{
 
         font-size:6px;
-
     }
 
 
@@ -2436,63 +2107,63 @@ footer{
         min-width:51px;
 
         padding:6px 3px;
-
     }
 
 
     .theme-box small{
 
         font-size:4px;
-
     }
 
 
     .theme-box strong{
 
         font-size:12px;
-
     }
 
 
     .announcement-text{
 
         font-size:10px;
-
     }
 
 
     .login-banner-text h3{
 
         font-size:11px;
-
     }
 
 
     .login-banner-text p{
 
         font-size:7px;
-
     }
 
 
     .login-buttons{
 
         width:76px;
-
     }
 
 
-    .campus-showcase{
+    .hero{
 
-        height:230px;
+        min-height:400px;
 
+        padding:
+        40px 18px;
     }
 
 
-    .campus-title{
+    .hero h2{
 
-        font-size:10px;
+        font-size:30px;
+    }
 
+
+    .welcome{
+
+        font-size:20px;
     }
 
 }
@@ -2509,56 +2180,48 @@ footer{
         width:48px;
 
         height:48px;
-
     }
 
 
     .university-name{
 
         font-size:9px;
-
     }
 
 
     .tamil-name{
 
         font-size:6px;
-
     }
 
 
     .college-name{
 
         font-size:6px;
-
     }
 
 
     .header-location{
 
         font-size:5px;
-
     }
 
 
     .rawe-title{
 
         font-size:7px;
-
     }
 
 
     .theme-box{
 
         min-width:46px;
-
     }
 
 
     .theme-box strong{
 
         font-size:11px;
-
     }
 
 }
@@ -2573,14 +2236,10 @@ footer{
 
 <!-- =====================================================
      TOP HEADER
-     OLD HEADER DESIGN
+     STATIC OLD VERSION
 ===================================================== -->
 
 <header class="top-header">
-
-
-    <!-- OLD TOP HEADER BACKGROUND -->
-    <!-- NO SLIDESHOW HERE -->
 
 
     <img
@@ -2664,61 +2323,70 @@ footer{
 
 <nav>
 
-
     <a href="index.html">
         🏠 Home
     </a>
-
 
     <a href="#about">
         🌱 About
     </a>
 
-
     <a href="#team">
         👥 Team
     </a>
-
 
     <a href="village.html">
         📍 Village
     </a>
 
-
     <a href="activities.html">
         📅 Activities
     </a>
-
 
     <a href="attendance.html">
         📝 Attendance
     </a>
 
-
     <a href="gallery.html">
         📸 Gallery
     </a>
-
 
     <a href="students.html">
         🎓 Students
     </a>
 
-
     <a href="#contact">
         📞 Contact
     </a>
-
 
 </nav>
 
 
 <!-- =====================================================
      HERO
+     3 IMAGES
+     3 SECOND AUTO SCROLL
 ===================================================== -->
 
 <section class="hero">
 
+
+    <!-- IMAGE 1 -->
+
+    <div class="hero-slide"></div>
+
+
+    <!-- IMAGE 2 -->
+
+    <div class="hero-slide"></div>
+
+
+    <!-- IMAGE 3 -->
+
+    <div class="hero-slide"></div>
+
+
+    <!-- HERO CONTENT -->
 
     <div class="hero-content">
 
@@ -2759,6 +2427,19 @@ footer{
 
         </a>
 
+
+    </div>
+
+
+    <!-- SLIDE INDICATORS -->
+
+    <div class="hero-dots">
+
+        <span class="hero-dot"></span>
+
+        <span class="hero-dot"></span>
+
+        <span class="hero-dot"></span>
 
     </div>
 
@@ -3142,52 +2823,6 @@ footer{
 
 
         </div>
-
-
-    </div>
-
-
-</section>
-
-
-<!-- =====================================================
-     HOME CAMPUS SLIDESHOW
-     EXACTLY 3 IMAGES
-     3 SECOND INTERVAL
-===================================================== -->
-
-<section class="campus-showcase">
-
-
-    <div class="campus-slide"></div>
-
-
-    <div class="campus-slide"></div>
-
-
-    <div class="campus-slide"></div>
-
-
-    <div class="campus-overlay"></div>
-
-
-    <div class="campus-title">
-
-        AC&amp;RI, VVNR · Campus
-
-    </div>
-
-
-    <div class="campus-dots">
-
-
-        <span class="campus-dot"></span>
-
-
-        <span class="campus-dot"></span>
-
-
-        <span class="campus-dot"></span>
 
 
     </div>
@@ -3686,7 +3321,7 @@ footer{
 
 <!-- =====================================================
      BOTTOM ENTRANCE IMAGE
-     NOT PART OF SLIDESHOW
+     STATIC ONLY
 ===================================================== -->
 
 <section class="bottom-campus"></section>
