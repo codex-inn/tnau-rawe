@@ -17,6 +17,7 @@
 ===================================================== */
 
 :root{
+
     --green:#07552f;
     --dark-green:#033b20;
     --green-light:#197447;
@@ -30,7 +31,9 @@
     --muted:#68746d;
 
     --white:#ffffff;
+
     --border:#dfe6e1;
+
 }
 
 
@@ -49,6 +52,7 @@ html{
 }
 
 body{
+
     font-family:
     "Segoe UI",
     Arial,
@@ -60,11 +64,13 @@ body{
     background:#f4f6f4;
 
     line-height:1.6;
+
 }
 
 
 /* =====================================================
    TOP HEADER
+   OLD VERSION - NO SLIDESHOW HERE
 ===================================================== */
 
 .top-header{
@@ -83,7 +89,20 @@ body{
 
     overflow:hidden;
 
-    background:#ffffff;
+    background-image:
+
+    linear-gradient(
+        rgba(255,255,255,.68),
+        rgba(255,255,255,.68)
+    ),
+
+    url("tnau-coimbatore.jpg");
+
+    background-size:cover;
+
+    background-position:center;
+
+    background-repeat:no-repeat;
 
     border-bottom:
     4px solid var(--gold);
@@ -94,115 +113,11 @@ body{
 }
 
 
-/* =====================================================
-   HEADER CAMPUS BACKGROUND
-===================================================== */
+/* OLD HEADER LIGHT LAYER */
 
-.header-campus-slider{
+.top-header::before{
 
-    position:absolute;
-
-    inset:0;
-
-    overflow:hidden;
-
-    z-index:0;
-
-}
-
-
-.header-campus-slide{
-
-    position:absolute;
-
-    inset:0;
-
-    background-size:cover;
-
-    background-position:center;
-
-    background-repeat:no-repeat;
-
-    opacity:0;
-
-    animation:
-    headerCampusFade
-    9s
-    infinite;
-
-}
-
-
-/* IMAGE 1 */
-
-.header-campus-slide.one{
-
-    background-image:
-    url("vvnr-campus.jpg");
-
-    animation-delay:0s;
-
-}
-
-
-/* IMAGE 2 */
-
-.header-campus-slide.two{
-
-    background-image:
-    url("vvnr-campus-2.jpg");
-
-    animation-delay:3s;
-
-}
-
-
-/* IMAGE 3 */
-
-.header-campus-slide.three{
-
-    background-image:
-    url("vvnr-campus-3.jpg");
-
-    animation-delay:6s;
-
-}
-
-
-/* =====================================================
-   3 SECOND IMAGE CHANGE
-===================================================== */
-
-@keyframes headerCampusFade{
-
-    0%{
-        opacity:0;
-    }
-
-    5%{
-        opacity:1;
-    }
-
-    28%{
-        opacity:1;
-    }
-
-    33.33%{
-        opacity:0;
-    }
-
-    100%{
-        opacity:0;
-    }
-
-}
-
-
-/* =====================================================
-   LIGHT PROFESSIONAL OVERLAY
-===================================================== */
-
-.header-campus-overlay{
+    content:"";
 
     position:absolute;
 
@@ -211,25 +126,21 @@ body{
     background:
     linear-gradient(
         90deg,
-        rgba(255,255,255,.82),
-        rgba(255,255,255,.67),
-        rgba(255,255,255,.78)
+        rgba(255,255,255,.78),
+        rgba(255,255,255,.62),
+        rgba(255,255,255,.72)
     );
 
-    z-index:1;
+    z-index:0;
 
 }
 
 
-/* =====================================================
-   HEADER CONTENT
-===================================================== */
-
-.top-header > *:not(.header-campus-slider):not(.header-campus-overlay){
+.top-header > *{
 
     position:relative;
 
-    z-index:3;
+    z-index:2;
 
 }
 
@@ -393,7 +304,7 @@ body{
     text-align:center;
 
     background:
-    rgba(255,255,255,.92);
+    rgba(255,255,255,.90);
 
     border:
     1px solid rgba(7,85,47,.25);
@@ -666,7 +577,7 @@ nav a:hover{
 
 
 /* =====================================================
-   ANNOUNCEMENT
+   TEAM ANNOUNCEMENT
 ===================================================== */
 
 .team-announcement{
@@ -875,7 +786,7 @@ nav a:hover{
 
 
 /* =====================================================
-   PROGRAMME
+   RAWE PROGRAMME
 ===================================================== */
 
 .programme-grid{
@@ -1019,6 +930,305 @@ nav a:hover{
 
 
 /* =====================================================
+   HOME CAMPUS IMAGE SLIDESHOW
+   3 IMAGES / 3 SECONDS
+===================================================== */
+
+.campus-showcase{
+
+    width:100%;
+
+    position:relative;
+
+    height:420px;
+
+    overflow:hidden;
+
+    background:#173b28;
+
+}
+
+
+.campus-slide{
+
+    position:absolute;
+
+    inset:0;
+
+    width:100%;
+
+    height:100%;
+
+    background-size:cover;
+
+    background-position:center;
+
+    background-repeat:no-repeat;
+
+    opacity:0;
+
+    animation:
+    campusScroll
+    9s
+    infinite;
+
+}
+
+
+.campus-slide:nth-child(1){
+
+    background-image:
+    url("vvnr-campus.jpg");
+
+    animation-delay:0s;
+
+}
+
+
+.campus-slide:nth-child(2){
+
+    background-image:
+    url("vvnr-campus-2.jpg");
+
+    animation-delay:3s;
+
+}
+
+
+.campus-slide:nth-child(3){
+
+    background-image:
+    url("vvnr-campus-3.jpg");
+
+    animation-delay:6s;
+
+}
+
+
+@keyframes campusScroll{
+
+    0%{
+
+        opacity:0;
+
+        transform:scale(1);
+
+    }
+
+    5%{
+
+        opacity:1;
+
+    }
+
+    28%{
+
+        opacity:1;
+
+        transform:scale(1.02);
+
+    }
+
+    33.33%{
+
+        opacity:0;
+
+    }
+
+    100%{
+
+        opacity:0;
+
+        transform:scale(1);
+
+    }
+
+}
+
+
+/* CAMPUS OVERLAY */
+
+.campus-overlay{
+
+    position:absolute;
+
+    inset:0;
+
+    z-index:5;
+
+    pointer-events:none;
+
+    background:
+    linear-gradient(
+        90deg,
+        rgba(0,30,17,.25),
+        rgba(0,30,17,.03),
+        rgba(0,30,17,.20)
+    );
+
+}
+
+
+/* CAMPUS TITLE */
+
+.campus-title{
+
+    position:absolute;
+
+    z-index:10;
+
+    left:50%;
+
+    bottom:28px;
+
+    transform:translateX(-50%);
+
+    color:white;
+
+    background:
+    rgba(3,59,32,.78);
+
+    padding:10px 24px;
+
+    border-radius:6px;
+
+    font-size:17px;
+
+    font-weight:800;
+
+    text-align:center;
+
+    white-space:nowrap;
+
+}
+
+
+/* CAMPUS DOTS */
+
+.campus-dots{
+
+    position:absolute;
+
+    z-index:20;
+
+    left:50%;
+
+    bottom:12px;
+
+    transform:translateX(-50%);
+
+    display:flex;
+
+    gap:7px;
+
+}
+
+
+.campus-dot{
+
+    width:8px;
+
+    height:8px;
+
+    border-radius:50%;
+
+    background:
+    rgba(255,255,255,.65);
+
+    animation:
+    dotOne
+    9s
+    infinite;
+
+}
+
+
+.campus-dot:nth-child(2){
+
+    animation-name:dotTwo;
+
+}
+
+
+.campus-dot:nth-child(3){
+
+    animation-name:dotThree;
+
+}
+
+
+@keyframes dotOne{
+
+    0%,33.33%{
+
+        background:var(--gold-light);
+
+        transform:scale(1.3);
+
+    }
+
+    33.34%,100%{
+
+        background:rgba(255,255,255,.65);
+
+        transform:scale(1);
+
+    }
+
+}
+
+
+@keyframes dotTwo{
+
+    0%,33.33%{
+
+        background:rgba(255,255,255,.65);
+
+        transform:scale(1);
+
+    }
+
+    33.34%,66.66%{
+
+        background:var(--gold-light);
+
+        transform:scale(1.3);
+
+    }
+
+    66.67%,100%{
+
+        background:rgba(255,255,255,.65);
+
+        transform:scale(1);
+
+    }
+
+}
+
+
+@keyframes dotThree{
+
+    0%,66.66%{
+
+        background:rgba(255,255,255,.65);
+
+        transform:scale(1);
+
+    }
+
+    66.67%,100%{
+
+        background:var(--gold-light);
+
+        transform:scale(1.3);
+
+    }
+
+}
+
+
+/* =====================================================
    GALLERY
 ===================================================== */
 
@@ -1081,7 +1291,8 @@ nav a:hover{
 
     font-size:13px;
 
-    margin:8px 0 18px;
+    margin:
+    8px 0 18px;
 
 }
 
@@ -1435,7 +1646,7 @@ nav a:hover{
 
 
 /* =====================================================
-   BOTTOM IMAGE
+   BOTTOM ENTRANCE IMAGE
 ===================================================== */
 
 .bottom-campus{
@@ -1451,11 +1662,13 @@ nav a:hover{
         rgba(255,255,255,.03)
     ),
 
-    url("vvnr-campus-3.jpg");
+    url("vvnr-entrance.jpg");
 
     background-size:cover;
 
     background-position:center;
+
+    background-repeat:no-repeat;
 
 }
 
@@ -1912,6 +2125,34 @@ footer{
     }
 
 
+    /* HOME CAMPUS SLIDESHOW */
+
+    .campus-showcase{
+
+        height:260px;
+
+    }
+
+
+    .campus-title{
+
+        bottom:25px;
+
+        padding:
+        7px 14px;
+
+        font-size:12px;
+
+    }
+
+
+    .campus-dots{
+
+        bottom:9px;
+
+    }
+
+
     .gallery-button-card{
 
         min-height:175px;
@@ -2111,6 +2352,8 @@ footer{
     }
 
 
+    /* BOTTOM ENTRANCE */
+
     .bottom-campus{
 
         height:260px;
@@ -2238,6 +2481,20 @@ footer{
 
     }
 
+
+    .campus-showcase{
+
+        height:230px;
+
+    }
+
+
+    .campus-title{
+
+        font-size:10px;
+
+    }
+
 }
 
 
@@ -2316,36 +2573,21 @@ footer{
 
 <!-- =====================================================
      TOP HEADER
+     OLD HEADER DESIGN
 ===================================================== -->
 
 <header class="top-header">
 
 
-    <!-- 3 CAMPUS IMAGES -->
-    <div class="header-campus-slider">
+    <!-- OLD TOP HEADER BACKGROUND -->
+    <!-- NO SLIDESHOW HERE -->
 
-        <div class="header-campus-slide one"></div>
-
-        <div class="header-campus-slide two"></div>
-
-        <div class="header-campus-slide three"></div>
-
-    </div>
-
-
-    <!-- LIGHT OVERLAY -->
-    <div class="header-campus-overlay"></div>
-
-
-    <!-- LOGO -->
 
     <img
         src="tnau-logo.png"
         alt="TNAU Logo"
         class="logo">
 
-
-    <!-- HEADER TEXT -->
 
     <div class="header-text">
 
@@ -2395,16 +2637,19 @@ footer{
     </div>
 
 
-    <!-- TEAM -->
-
     <div class="theme-box">
 
         <small>
+
             RAWE TEAM
+
         </small>
 
+
         <strong>
+
             PAIYUR
+
         </strong>
 
     </div>
@@ -2419,41 +2664,51 @@ footer{
 
 <nav>
 
+
     <a href="index.html">
         🏠 Home
     </a>
+
 
     <a href="#about">
         🌱 About
     </a>
 
+
     <a href="#team">
         👥 Team
     </a>
+
 
     <a href="village.html">
         📍 Village
     </a>
 
+
     <a href="activities.html">
         📅 Activities
     </a>
+
 
     <a href="attendance.html">
         📝 Attendance
     </a>
 
+
     <a href="gallery.html">
         📸 Gallery
     </a>
+
 
     <a href="students.html">
         🎓 Students
     </a>
 
+
     <a href="#contact">
         📞 Contact
     </a>
+
 
 </nav>
 
@@ -2464,18 +2719,27 @@ footer{
 
 <section class="hero">
 
+
     <div class="hero-content">
 
+
         <div class="welcome">
+
             Welcome to
+
         </div>
 
+
         <h2>
+
             TNAU RAWE<br>
             PROGRAMME 2026
+
         </h2>
 
+
         <div class="hero-line"></div>
+
 
         <p>
 
@@ -2486,6 +2750,7 @@ footer{
 
         </p>
 
+
         <a
             href="#programme"
             class="explore">
@@ -2494,7 +2759,9 @@ footer{
 
         </a>
 
+
     </div>
+
 
 </section>
 
@@ -2510,6 +2777,7 @@ footer{
 
     <div class="team-announcement">
 
+
         <div class="announcement-title">
 
             ANNOUNCEMENT
@@ -2518,6 +2786,7 @@ footer{
 
 
         <div class="announcement-track">
+
 
             <div class="announcement-text">
 
@@ -2537,7 +2806,9 @@ footer{
 
             </div>
 
+
         </div>
+
 
     </div>
 
@@ -2554,6 +2825,7 @@ footer{
 
         <div class="team-card">
 
+
             <img
                 src="team1.jpg"
                 alt="Team In-charge"
@@ -2561,23 +2833,31 @@ footer{
 
 
             <h3>
+
                 Dr. M. Sankar, Ph.D
+
             </h3>
 
 
             <div class="role-red">
+
                 Team In-charge
+
             </div>
 
 
             <p>
+
                 Librarian · AC&amp;RI, VVNR
+
             </p>
+
 
         </div>
 
 
         <div class="team-card">
+
 
             <img
                 src="team2.jpg"
@@ -2586,27 +2866,38 @@ footer{
 
 
             <h3>
+
                 Dr. P. Senthil Kumar
+
             </h3>
 
 
             <div class="role-red">
+
                 Staff In-charge
+
             </div>
 
 
             <p>
+
                 Associate Professor
+
             </p>
 
+
             <p>
+
                 Plant Nematology · RRS, Paiyur
+
             </p>
+
 
         </div>
 
 
         <div class="team-card">
+
 
             <img
                 src="team3.jpg"
@@ -2615,23 +2906,32 @@ footer{
 
 
             <h3>
+
                 Gokula Balaji R
+
             </h3>
 
 
             <div class="role-red">
+
                 Team Leader
+
             </div>
 
 
             <p>
-                Final-Year B.Sc Agri · AC&amp;RI, VVNR
+
+                Final-Year B.Sc Agri ·
+                AC&amp;RI, VVNR
+
             </p>
+
 
         </div>
 
 
         <div class="team-card">
+
 
             <img
                 src="team4.jpg"
@@ -2640,28 +2940,39 @@ footer{
 
 
             <h3>
+
                 Kowshik S
+
             </h3>
 
 
             <div class="role-red">
+
                 Web Admin &amp; CEO
+
             </div>
 
 
             <p>
-                Final-Year B.Sc Agri · AC&amp;RI, VVNR
+
+                Final-Year B.Sc Agri ·
+                AC&amp;RI, VVNR
+
             </p>
 
 
             <p>
+
                 Cyber-Security
+
             </p>
+
 
         </div>
 
 
     </div>
+
 
 </section>
 
@@ -2687,19 +2998,26 @@ footer{
 
         <div class="programme-card">
 
+
             <div class="programme-icon">
+
                 🎓
+
             </div>
 
 
             <h3>
+
                 Students
+
             </h3>
 
 
             <p>
+
                 View all Paiyur RAWE
                 team students.
+
             </p>
 
 
@@ -2711,24 +3029,32 @@ footer{
 
             </a>
 
+
         </div>
 
 
         <div class="programme-card">
 
+
             <div class="programme-icon">
+
                 📍
+
             </div>
 
 
             <h3>
+
                 Village Profile
+
             </h3>
 
 
             <p>
+
                 Explore village and
                 agricultural details.
+
             </p>
 
 
@@ -2740,24 +3066,32 @@ footer{
 
             </a>
 
+
         </div>
 
 
         <div class="programme-card">
 
+
             <div class="programme-icon">
+
                 📅
+
             </div>
 
 
             <h3>
+
                 Daily Activities
+
             </h3>
 
 
             <p>
+
                 Record and view daily
                 RAWE activities.
+
             </p>
 
 
@@ -2769,24 +3103,32 @@ footer{
 
             </a>
 
+
         </div>
 
 
         <div class="programme-card attendance-card">
 
+
             <div class="programme-icon">
+
                 📝
+
             </div>
 
 
             <h3>
+
                 Student Attendance
+
             </h3>
 
 
             <p>
+
                 Mark and view daily
                 student attendance.
+
             </p>
 
 
@@ -2798,10 +3140,58 @@ footer{
 
             </a>
 
+
         </div>
 
 
     </div>
+
+
+</section>
+
+
+<!-- =====================================================
+     HOME CAMPUS SLIDESHOW
+     EXACTLY 3 IMAGES
+     3 SECOND INTERVAL
+===================================================== -->
+
+<section class="campus-showcase">
+
+
+    <div class="campus-slide"></div>
+
+
+    <div class="campus-slide"></div>
+
+
+    <div class="campus-slide"></div>
+
+
+    <div class="campus-overlay"></div>
+
+
+    <div class="campus-title">
+
+        AC&amp;RI, VVNR · Campus
+
+    </div>
+
+
+    <div class="campus-dots">
+
+
+        <span class="campus-dot"></span>
+
+
+        <span class="campus-dot"></span>
+
+
+        <span class="campus-dot"></span>
+
+
+    </div>
+
 
 </section>
 
@@ -2827,12 +3217,16 @@ footer{
 
 
             <div class="gallery-big-icon">
+
                 📸
+
             </div>
 
 
             <h3>
+
                 RAWE Programme Gallery
+
             </h3>
 
 
@@ -2858,6 +3252,7 @@ footer{
 
 
     </div>
+
 
 </section>
 
@@ -2916,6 +3311,7 @@ footer{
 
     </div>
 
+
 </section>
 
 
@@ -2938,73 +3334,115 @@ footer{
 
         <div class="highlight-card">
 
+
             <div class="emoji">
+
                 👨‍🌾
+
             </div>
 
+
             <h4>
+
                 Farmer Interaction
+
             </h4>
 
+
             <p>
+
                 Learn directly from farmers.
+
             </p>
+
 
         </div>
 
 
         <div class="highlight-card">
 
+
             <div class="emoji">
+
                 🚜
+
             </div>
 
+
             <h4>
+
                 Field Experience
+
             </h4>
 
+
             <p>
+
                 Gain practical agricultural skills.
+
             </p>
+
 
         </div>
 
 
         <div class="highlight-card">
 
+
             <div class="emoji">
+
                 📊
+
             </div>
 
+
             <h4>
+
                 Rural Survey
+
             </h4>
 
+
             <p>
+
                 Understand village agriculture.
+
             </p>
+
 
         </div>
 
 
         <div class="highlight-card">
 
+
             <div class="emoji">
+
                 🌱
+
             </div>
 
+
             <h4>
+
                 Agricultural Learning
+
             </h4>
 
+
             <p>
-                Connect classroom learning with practice.
+
+                Connect classroom learning
+                with practice.
+
             </p>
+
 
         </div>
 
 
     </div>
+
 
 </section>
 
@@ -3023,13 +3461,17 @@ footer{
 
 
             <h3>
+
                 Login Portal
+
             </h3>
 
 
             <p>
+
                 Student &amp; Staff access ·
                 RAWE Programme 2026
+
             </p>
 
 
@@ -3062,6 +3504,7 @@ footer{
 
     </div>
 
+
 </section>
 
 
@@ -3086,117 +3529,164 @@ footer{
 
         <div class="contact-card">
 
+
             <div class="contact-icon">
+
                 👨‍🏫
+
             </div>
 
 
             <h3>
+
                 Team In-charge
+
             </h3>
 
 
             <strong>
+
                 Dr. M. Sankar, Ph.D
+
             </strong>
 
 
             <a href="mailto:librarytvmalai@tnau.ac.in">
+
                 librarytvmalai@tnau.ac.in
+
             </a>
+
 
         </div>
 
 
         <div class="contact-card">
 
+
             <div class="contact-icon">
+
                 👨‍🔬
+
             </div>
 
 
             <h3>
+
                 Staff In-charge
+
             </h3>
 
 
             <strong>
+
                 Dr. P. Senthil Kumar
+
             </strong>
 
 
             <a href="mailto:senthilkumarp@tnau.ac.in">
+
                 senthilkumarp@tnau.ac.in
+
             </a>
+
 
         </div>
 
 
         <div class="contact-card">
 
+
             <div class="contact-icon">
+
                 👨‍🎓
+
             </div>
 
 
             <h3>
+
                 Team Leader
+
             </h3>
 
 
             <strong>
+
                 Gokula Balaji R
+
             </strong>
 
 
             <a href="tel:9597135679">
+
                 9597135679
+
             </a>
+
 
         </div>
 
 
         <div class="contact-card">
 
+
             <div class="contact-icon">
+
                 💻
+
             </div>
 
 
             <h3>
+
                 Web Admin &amp; CEO
+
             </h3>
 
 
             <strong>
+
                 Kowshik S
+
             </strong>
 
 
             <p>
-                Final-Year B.Sc Agri · AC&amp;RI, VVNR
+
+                Final-Year B.Sc Agri ·
+                AC&amp;RI, VVNR
+
             </p>
 
 
             <p>
+
                 Cyber-Security
+
             </p>
 
 
             <a href="mailto:kowshik.in@outlook.com">
+
                 kowshik.in@outlook.com
+
             </a>
+
 
         </div>
 
 
     </div>
 
+
 </section>
 
 
 <!-- =====================================================
-     BOTTOM CAMPUS IMAGE
+     BOTTOM ENTRANCE IMAGE
+     NOT PART OF SLIDESHOW
 ===================================================== -->
 
 <section class="bottom-campus"></section>
