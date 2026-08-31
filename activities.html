@@ -1066,13 +1066,6 @@ footer{
 
         </div>
 
-
-        <p class="export-note">
-
-            PDF includes the Team Leader signature and automatic export date. Full PDF is one page only.
-
-        </p>
-
     </div>
 
 </div>
@@ -2102,153 +2095,189 @@ function downloadSelectedPDF(){
 
 async function downloadPDF(date){
 
-    const records =
-        getRecords();
-
+    const records = getRecords();
 
     if(!records[date]){
+        alert("No saved activity for this date.");
+        return;
+    }
 
-        alert(
-            "No saved activity for this date."
+    const record = records[date];
+
+    const { jsPDF } = window.jspdf;
+
+    const doc = new jsPDF({
+        orientation:"portrait",
+        unit:"mm",
+        format:"a4"
+    });
+
+    const exportDate = getExportDate();
+
+    const pageWidth =
+        doc.internal.pageSize.getWidth();
+
+    const pageHeight =
+        doc.internal.pageSize.getHeight();
+
+
+    /* =====================================================
+       PAGE 1 — LOGO + COLLEGE NAME
+    ===================================================== */
+
+    try{
+
+        const logo =
+            await loadImage("tnau-logo.png");
+
+        doc.addImage(
+            logo,
+            "PNG",
+            14,
+            10,
+            25,
+            25
         );
 
-        return;
+    }
+    catch(error){
+
+        console.warn(
+            "TNAU logo could not be loaded:",
+            error
+        );
 
     }
 
 
-    const record =
-        records[date];
+    doc.setFont("helvetica","bold");
+    doc.setFontSize(14);
 
+    doc.text(
+        "TAMIL NADU AGRICULTURAL UNIVERSITY",
+        pageWidth / 2,
+        16,
+        {align:"center"}
+    );
 
-    const {
-        jsPDF
-    } =
-        window.jspdf;
+    doc.setFontSize(9.5);
 
+    doc.text(
+        "AGRICULTURAL COLLEGE & RESEARCH INSTITUTE, VAZHAVACHANUR",
+        pageWidth / 2,
+        23,
+        {align:"center"}
+    );
 
-    const doc =
-        new jsPDF();
-
-
-    const exportDate =
-        getExportDate();
-
-
-    /* HEADER */
-
-    doc.setFontSize(18);
+    doc.setFontSize(12);
 
     doc.text(
         "TNAU RAWE PROGRAMME 2026",
-        105,
-        18,
-        {
-            align:"center"
-        }
+        pageWidth / 2,
+        32,
+        {align:"center"}
     );
-
-
-    doc.setFontSize(13);
-
-    doc.text(
-        "TEAM : PAIYUR",
-        105,
-        27,
-        {
-            align:"center"
-        }
-    );
-
 
     doc.setFontSize(11);
 
     doc.text(
-        "Daily RAWE Activity Report",
-        105,
-        36,
-        {
-            align:"center"
-        }
+        "TEAM : PAIYUR",
+        pageWidth / 2,
+        39,
+        {align:"center"}
+    );
+
+    doc.setFont("helvetica","normal");
+    doc.setFontSize(8.5);
+
+    doc.text(
+        "B.Sc Agri · AC&RI VVNR",
+        pageWidth / 2,
+        45,
+        {align:"center"}
+    );
+
+    doc.line(
+        14,
+        49,
+        pageWidth - 14,
+        49
     );
 
 
-    /* DETAILS */
+    /* =====================================================
+       PAGE 1 — ACTIVITY DETAILS
+    ===================================================== */
+
+    doc.setFont("helvetica","bold");
+    doc.setFontSize(13);
+
+    doc.text(
+        "DAILY RAWE ACTIVITY REPORT",
+        pageWidth / 2,
+        59,
+        {align:"center"}
+    );
+
 
     doc.autoTable({
 
-        startY:45,
+        startY:66,
 
         head:[
-            [
-                "Particular",
-                "Details"
-            ]
+            ["Particular","Details"]
         ],
 
         body:[
 
-            [
-                "Date",
-                formatDate(date)
-            ],
-
-            [
-                "Activity",
-                record.type || "-"
-            ],
-
-            [
-                "Location",
-                record.location || "-"
-            ],
-
-            [
-                "Crop / Farm",
-                record.crop || "-"
-            ],
-
-            [
-                "Farmer",
-                record.farmer || "-"
-            ],
-
-            [
-                "Students",
-                record.students || "-"
-            ]
+            ["Date",formatDate(date)],
+            ["Activity",record.type || "-"],
+            ["Location",record.location || "-"],
+            ["Crop / Farm",record.crop || "-"],
+            ["Farmer",record.farmer || "-"],
+            ["Students",record.students || "-"]
 
         ],
 
         theme:"grid",
 
         styles:{
-            fontSize:10
+            fontSize:9.5,
+            cellPadding:3.5
+        },
+
+        headStyles:{
+            fontStyle:"bold",
+            halign:"center"
         },
 
         columnStyles:{
 
             0:{
-                fontStyle:"bold",
-                cellWidth:45
+                cellWidth:45,
+                fontStyle:"bold"
             },
 
             1:{
                 cellWidth:135
             }
 
+        },
+
+        margin:{
+            left:14,
+            right:14
         }
 
     });
 
 
     let y =
-        doc.lastAutoTable.finalY + 12;
+        doc.lastAutoTable.finalY + 10;
 
 
-    /* DESCRIPTION */
-
-    doc.setFontSize(12);
+    doc.setFont("helvetica","bold");
+    doc.setFontSize(11);
 
     doc.text(
         "Activity Description",
@@ -2256,9 +2285,10 @@ async function downloadPDF(date){
         y
     );
 
+    y += 6;
 
-    y += 7;
-
+    doc.setFont("helvetica","normal");
+    doc.setFontSize(9);
 
     const description =
         doc.splitTextToSize(
@@ -2266,23 +2296,18 @@ async function downloadPDF(date){
             180
         );
 
-
-    doc.setFontSize(10);
-
     doc.text(
         description,
         14,
         y
     );
 
-
     y +=
-        description.length * 5 + 8;
+        description.length * 4.5 + 8;
 
 
-    /* LEARNING */
-
-    doc.setFontSize(12);
+    doc.setFont("helvetica","bold");
+    doc.setFontSize(11);
 
     doc.text(
         "Learning / Outcome",
@@ -2290,18 +2315,16 @@ async function downloadPDF(date){
         y
     );
 
+    y += 6;
 
-    y += 7;
-
+    doc.setFont("helvetica","normal");
+    doc.setFontSize(9);
 
     const learning =
         doc.splitTextToSize(
             record.learning || "-",
             180
         );
-
-
-    doc.setFontSize(10);
 
     doc.text(
         learning,
@@ -2310,42 +2333,359 @@ async function downloadPDF(date){
     );
 
 
-    /* SIGNATURE */
+    /* =====================================================
+       PAGE 1 — TEAM LEADER SIGNATURE
+    ===================================================== */
 
-    await addSignatureToPDF(doc);
+    const signatureX =
+        pageWidth - 42;
+
+    const signatureY =
+        pageHeight - 61;
 
 
-    /* EXPORT DATE */
-
+    doc.setFont("helvetica","bold");
     doc.setFontSize(9);
 
     doc.text(
-        "Export Date: " + exportDate,
-        14,
-        284
+        "TEAM LEADER",
+        signatureX,
+        signatureY,
+        {align:"center"}
     );
 
 
-    /* FOOTER */
+    try{
+
+        const signature =
+            await loadSignatureImage();
+
+        const maxWidth = 48;
+        const maxHeight = 19;
+
+        let sw = maxWidth;
+
+        let sh =
+            sw *
+            signature.height /
+            signature.width;
+
+        if(sh > maxHeight){
+
+            sh = maxHeight;
+
+            sw =
+                sh *
+                signature.width /
+                signature.height;
+
+        }
+
+        doc.addImage(
+            signature,
+            "PNG",
+            signatureX - (sw / 2),
+            signatureY + 3,
+            sw,
+            sh
+        );
+
+    }
+    catch(error){
+
+        console.warn(
+            "Signature image could not be loaded:",
+            error
+        );
+
+    }
+
+
+    doc.setLineWidth(0.35);
+
+    doc.line(
+        signatureX - 25,
+        signatureY + 26,
+        signatureX + 25,
+        signatureY + 26
+    );
+
+
+    doc.setFont("helvetica","normal");
+    doc.setFontSize(7);
+
+    doc.text(
+        "B.Sc Agri",
+        signatureX,
+        signatureY + 32,
+        {align:"center"}
+    );
+
+    doc.text(
+        "AC&RI VVNR",
+        signatureX,
+        signatureY + 37,
+        {align:"center"}
+    );
+
 
     doc.setFontSize(8);
 
     doc.text(
-        "TNAU RAWE Programme · AC&RI VVNR · Tiruvannamalai District",
-        105,
-        292,
-        {
-            align:"center"
-        }
+        "Export Date: " + exportDate,
+        14,
+        pageHeight - 24
     );
 
 
-    doc.save(
+    doc.setFontSize(7.5);
 
+    doc.text(
+        "Page 1 of 2",
+        pageWidth / 2,
+        pageHeight - 10,
+        {align:"center"}
+    );
+
+
+    /* =====================================================
+       PAGE 2 — NO LOGO / NO COLLEGE NAME
+       TEAM LEADER SIGNATURE AT BOTTOM
+    ===================================================== */
+
+    doc.addPage();
+
+
+    doc.setFont("helvetica","bold");
+    doc.setFontSize(14);
+
+    doc.text(
+        "REPORT INFORMATION",
+        pageWidth / 2,
+        25,
+        {align:"center"}
+    );
+
+    doc.line(
+        14,
+        31,
+        pageWidth - 14,
+        31
+    );
+
+
+    const infoRows = [
+
+        ["Programme","TNAU RAWE Programme 2026"],
+        ["Team","Paiyur"],
+        ["Institution","B.Sc Agri · AC&RI VVNR"],
+        ["District","Tiruvannamalai District"],
+        ["Activity Date",formatDate(date)],
+        ["Activity Type",record.type || "-"],
+        ["Location",record.location || "-"],
+        ["Crop / Farm",record.crop || "-"],
+        ["Farmer",record.farmer || "-"],
+        ["Students",record.students || "-"],
+        ["Export Date",exportDate]
+
+    ];
+
+
+    doc.autoTable({
+
+        startY:39,
+
+        head:[
+            ["Particular","Details"]
+        ],
+
+        body:infoRows,
+
+        theme:"grid",
+
+        styles:{
+            fontSize:9.5,
+            cellPadding:4
+        },
+
+        headStyles:{
+            fontStyle:"bold",
+            halign:"center"
+        },
+
+        columnStyles:{
+
+            0:{
+                cellWidth:55,
+                fontStyle:"bold"
+            },
+
+            1:{
+                cellWidth:125
+            }
+
+        },
+
+        margin:{
+            left:14,
+            right:14
+        }
+
+    });
+
+
+    let noteY =
+        doc.lastAutoTable.finalY + 12;
+
+
+    doc.setFont("helvetica","bold");
+    doc.setFontSize(11);
+
+    doc.text(
+        "Report Note",
+        14,
+        noteY
+    );
+
+    noteY += 7;
+
+    doc.setFont("helvetica","normal");
+    doc.setFontSize(9);
+
+    const note =
+        doc.splitTextToSize(
+            "This report is generated for the TNAU RAWE Programme 2026, Team Paiyur. The activity details are recorded and exported from the Daily Activities portal.",
+            180
+        );
+
+    doc.text(
+        note,
+        14,
+        noteY
+    );
+
+
+    /* =====================================================
+       PAGE 2 — TEAM LEADER SIGNATURE AT LAST BOTTOM
+    ===================================================== */
+
+    const secondSignatureX =
+        pageWidth - 42;
+
+    const secondSignatureY =
+        pageHeight - 61;
+
+
+    doc.setFont("helvetica","bold");
+    doc.setFontSize(9);
+
+    doc.text(
+        "TEAM LEADER",
+        secondSignatureX,
+        secondSignatureY,
+        {align:"center"}
+    );
+
+
+    try{
+
+        const signature =
+            await loadSignatureImage();
+
+        const maxWidth = 48;
+        const maxHeight = 19;
+
+        let sw = maxWidth;
+
+        let sh =
+            sw *
+            signature.height /
+            signature.width;
+
+        if(sh > maxHeight){
+
+            sh = maxHeight;
+
+            sw =
+                sh *
+                signature.width /
+                signature.height;
+
+        }
+
+        doc.addImage(
+            signature,
+            "PNG",
+            secondSignatureX - (sw / 2),
+            secondSignatureY + 3,
+            sw,
+            sh
+        );
+
+    }
+    catch(error){
+
+        console.warn(
+            "Signature image could not be loaded:",
+            error
+        );
+
+    }
+
+
+    doc.setLineWidth(0.35);
+
+    doc.line(
+        secondSignatureX - 25,
+        secondSignatureY + 26,
+        secondSignatureX + 25,
+        secondSignatureY + 26
+    );
+
+
+    doc.setFont("helvetica","normal");
+    doc.setFontSize(7);
+
+    doc.text(
+        "B.Sc Agri",
+        secondSignatureX,
+        secondSignatureY + 32,
+        {align:"center"}
+    );
+
+    doc.text(
+        "AC&RI VVNR",
+        secondSignatureX,
+        secondSignatureY + 37,
+        {align:"center"}
+    );
+
+
+    doc.setFontSize(8);
+
+    doc.text(
+        "Export Date: " + exportDate,
+        14,
+        pageHeight - 24
+    );
+
+
+    doc.setFontSize(7.5);
+
+    doc.text(
+        "Page 2 of 2",
+        pageWidth / 2,
+        pageHeight - 10,
+        {align:"center"}
+    );
+
+
+    /* EXACTLY TWO PAGES */
+
+    doc.save(
         "Paiyur_RAWE_Activity_" +
         date +
-        ".pdf"
-
+        "_2Page.pdf"
     );
 
 }
@@ -2480,174 +2820,184 @@ function downloadCSV(){
 
 async function downloadFullPDF(){
 
-    const records =
-        getRecords();
-
-    const dates =
-        Object.keys(records)
-        .sort();
+    const records = getRecords();
+    const dates = Object.keys(records).sort();
 
     if(dates.length === 0){
-
-        alert(
-            "No activities saved yet."
-        );
-
+        alert("No activities saved yet.");
         return;
-
     }
 
-    const {
-        jsPDF
-    } =
-        window.jspdf;
+    const { jsPDF } = window.jspdf;
 
-    /* ONE PAGE ONLY */
+    const doc = new jsPDF({
+        orientation:"portrait",
+        unit:"mm",
+        format:"a4"
+    });
 
-    const doc =
-        new jsPDF();
+    const exportDate = getExportDate();
+    const pageWidth = doc.internal.pageSize.getWidth();
+    const pageHeight = doc.internal.pageSize.getHeight();
 
-    const exportDate =
-        getExportDate();
+    async function addCollegeHeader(){
 
-    const pageWidth =
-        doc.internal.pageSize.getWidth();
-
-    const pageHeight =
-        doc.internal.pageSize.getHeight();
-
-    /* HEADER */
-
-    doc.setFont(
-        "helvetica",
-        "bold"
-    );
-
-    doc.setFontSize(18);
-
-    doc.text(
-        "TNAU RAWE PROGRAMME 2026",
-        pageWidth / 2,
-        18,
-        {
-            align:"center"
+        try{
+            const logo = await loadImage("tnau-logo.png");
+            doc.addImage(logo,"PNG",14,9,25,25);
         }
-    );
+        catch(error){
+            console.warn("TNAU logo could not be loaded:",error);
+        }
 
+        doc.setFont("helvetica","bold");
+        doc.setFontSize(14);
+        doc.text(
+            "TAMIL NADU AGRICULTURAL UNIVERSITY",
+            pageWidth/2,15,{align:"center"}
+        );
+
+        doc.setFontSize(9.5);
+        doc.text(
+            "AGRICULTURAL COLLEGE & RESEARCH INSTITUTE, VAZHAVACHANUR",
+            pageWidth/2,21,{align:"center"}
+        );
+
+        doc.setFontSize(12);
+        doc.text(
+            "TNAU RAWE PROGRAMME 2026",
+            pageWidth/2,29,{align:"center"}
+        );
+
+        doc.setFontSize(11);
+        doc.text(
+            "TEAM : PAIYUR",
+            pageWidth/2,36,{align:"center"}
+        );
+
+        doc.setFont("helvetica","normal");
+        doc.setFontSize(9);
+        doc.text(
+            "B.Sc Agri · AC&RI VVNR",
+            pageWidth/2,42,{align:"center"}
+        );
+
+        doc.line(14,47,pageWidth-14,47);
+    }
+
+    async function addTeamLeaderSignature(){
+
+        const centerX = pageWidth - 42;
+        const topY = pageHeight - 61;
+
+        doc.setFont("helvetica","bold");
+        doc.setFontSize(9);
+        doc.text("TEAM LEADER",centerX,topY,{align:"center"});
+
+        try{
+
+            const img = await loadSignatureImage();
+
+            const maxW = 48;
+            const maxH = 19;
+
+            let w = maxW;
+            let h = w * img.height / img.width;
+
+            if(h > maxH){
+                h = maxH;
+                w = h * img.width / img.height;
+            }
+
+            doc.addImage(
+                img,
+                "PNG",
+                centerX-(w/2),
+                topY+3,
+                w,
+                h
+            );
+
+        }
+        catch(error){
+            console.warn(
+                "Signature image could not be loaded:",
+                error
+            );
+        }
+
+        doc.setLineWidth(0.35);
+        doc.line(
+            centerX-25,
+            topY+26,
+            centerX+25,
+            topY+26
+        );
+
+        doc.setFont("helvetica","normal");
+        doc.setFontSize(7);
+
+        doc.text(
+            "B.Sc Agri",
+            centerX,
+            topY+32,
+            {align:"center"}
+        );
+
+        doc.text(
+            "AC&RI VVNR",
+            centerX,
+            topY+37,
+            {align:"center"}
+        );
+    }
+
+    /* ================= PAGE 1 ================= */
+
+    await addCollegeHeader();
+
+    doc.setFont("helvetica","bold");
     doc.setFontSize(13);
 
     doc.text(
-        "TEAM : PAIYUR",
-        pageWidth / 2,
-        27,
-        {
-            align:"center"
-        }
+        "FULL ACTIVITY REPORT",
+        pageWidth/2,
+        56,
+        {align:"center"}
     );
 
-    doc.setFont(
-        "helvetica",
-        "normal"
-    );
-
-    doc.setFontSize(10);
-
-    doc.text(
-        "Daily Activity Report — Cover / Information",
-        pageWidth / 2,
-        35,
-        {
-            align:"center"
-        }
-    );
-
-    doc.line(
-        14,
-        40,
-        pageWidth - 14,
-        40
-    );
-
-    /* REPORT INFORMATION */
-
-    doc.setFont(
-        "helvetica",
-        "bold"
-    );
-
-    doc.setFontSize(12);
-
-    doc.text(
-        "REPORT INFORMATION",
-        14,
-        51
-    );
-
-    const firstDate =
-        dates[0];
-
-    const lastDate =
-        dates[dates.length - 1];
+    const firstDate = dates[0];
+    const lastDate = dates[dates.length-1];
 
     const infoRows = [
-
-        [
-            "Programme",
-            "TNAU RAWE Programme 2026"
-        ],
-
-        [
-            "Team",
-            "Paiyur"
-        ],
-
-        [
-            "Institution",
-            "B.Sc Agri · AC&RI VVNR"
-        ],
-
-        [
-            "District",
-            "Tiruvannamalai District"
-        ],
-
-        [
-            "Activities Recorded",
-            String(dates.length)
-        ],
-
+        ["Programme","TNAU RAWE Programme 2026"],
+        ["Team","Paiyur"],
+        ["Institution","B.Sc Agri · AC&RI VVNR"],
+        ["District","Tiruvannamalai District"],
+        ["Activities Recorded",String(dates.length)],
         [
             "Activity Period",
             formatDate(firstDate) +
             " to " +
             formatDate(lastDate)
         ],
-
-        [
-            "Export Date",
-            exportDate
-        ]
-
+        ["Export Date",exportDate]
     ];
 
     doc.autoTable({
 
-        startY:57,
+        startY:63,
 
         head:[
-            [
-                "Particular",
-                "Details"
-            ]
+            ["Particular","Details"]
         ],
 
-        body:
-            infoRows,
+        body:infoRows,
 
         theme:"grid",
 
         styles:{
-            fontSize:9,
+            fontSize:9.5,
             cellPadding:4
         },
 
@@ -2657,35 +3007,25 @@ async function downloadFullPDF(){
         },
 
         columnStyles:{
-
             0:{
-                cellWidth:50,
+                cellWidth:55,
                 fontStyle:"bold"
             },
-
             1:{
-                cellWidth:130
+                cellWidth:125
             }
-
         },
 
         margin:{
             left:14,
             right:14
         }
-
     });
 
     let y =
-        doc.lastAutoTable.finalY + 13;
+        doc.lastAutoTable.finalY + 12;
 
-    /* RECORDED ACTIVITY DATES */
-
-    doc.setFont(
-        "helvetica",
-        "bold"
-    );
-
+    doc.setFont("helvetica","bold");
     doc.setFontSize(11);
 
     doc.text(
@@ -2700,21 +3040,14 @@ async function downloadFullPDF(){
         dates.map(
             function(date,index){
 
-                const r =
-                    records[date];
+                const r = records[date];
 
                 return [
-
-                    index + 1,
-
+                    index+1,
                     formatDate(date),
-
                     r.type || "-",
-
                     r.location || "-"
-
                 ];
-
             }
         );
 
@@ -2723,22 +3056,16 @@ async function downloadFullPDF(){
         startY:y,
 
         head:[
-            [
-                "S.No",
-                "Date",
-                "Activity",
-                "Location"
-            ]
+            ["S.No","Date","Activity","Location"]
         ],
 
-        body:
-            dateRows,
+        body:dateRows,
 
         theme:"grid",
 
         styles:{
             fontSize:7,
-            cellPadding:2
+            cellPadding:2.2
         },
 
         headStyles:{
@@ -2747,60 +3074,154 @@ async function downloadFullPDF(){
         },
 
         columnStyles:{
-
             0:{
                 cellWidth:14,
                 halign:"center"
             },
-
             1:{
                 cellWidth:27,
                 halign:"center"
             },
-
             2:{
                 cellWidth:65
             },
-
             3:{
                 cellWidth:74
             }
-
         },
 
         margin:{
             left:14,
             right:14
         }
-
     });
 
-    /* RIGHT-SIDE TEAM LEADER SIGNATURE */
+    doc.setFontSize(8);
 
-    await addSignatureToPDF(doc);
-
-    /* FOOTER */
-
-    doc.setFont(
-        "helvetica",
-        "normal"
+    doc.text(
+        "Export Date: " + exportDate,
+        14,
+        pageHeight-24
     );
+
+    await addTeamLeaderSignature();
 
     doc.setFontSize(7.5);
 
     doc.text(
-        "TNAU RAWE Programme 2026 · Team Paiyur · AC&RI VVNR",
-        pageWidth / 2,
-        pageHeight - 10,
-        {
-            align:"center"
+        "Page 1 of 2",
+        pageWidth/2,
+        pageHeight-10,
+        {align:"center"}
+    );
+
+    /* ================= PAGE 2 ================= */
+
+    doc.addPage();
+
+    await addCollegeHeader();
+
+    doc.setFont("helvetica","bold");
+    doc.setFontSize(13);
+
+    doc.text(
+        "REPORT DETAILS",
+        14,
+        58
+    );
+
+    const activityRows =
+        dates.map(
+            function(date,index){
+
+                const r = records[date];
+
+                return [
+                    index+1,
+                    formatDate(date),
+                    r.type || "-",
+                    r.location || "-",
+                    r.crop || "-"
+                ];
+            }
+        );
+
+    doc.autoTable({
+
+        startY:64,
+
+        head:[
+            [
+                "S.No",
+                "Date",
+                "Activity",
+                "Location",
+                "Crop / Farm"
+            ]
+        ],
+
+        body:activityRows,
+
+        theme:"grid",
+
+        styles:{
+            fontSize:7.2,
+            cellPadding:2.5
+        },
+
+        headStyles:{
+            fontStyle:"bold",
+            halign:"center"
+        },
+
+        columnStyles:{
+            0:{
+                cellWidth:12,
+                halign:"center"
+            },
+            1:{
+                cellWidth:27,
+                halign:"center"
+            },
+            2:{
+                cellWidth:43
+            },
+            3:{
+                cellWidth:50
+            },
+            4:{
+                cellWidth:48
+            }
+        },
+
+        margin:{
+            left:10,
+            right:10
         }
+    });
+
+    doc.setFontSize(8);
+
+    doc.text(
+        "Export Date: " + exportDate,
+        14,
+        pageHeight-24
+    );
+
+    await addTeamLeaderSignature();
+
+    doc.setFontSize(7.5);
+
+    doc.text(
+        "Page 2 of 2",
+        pageWidth/2,
+        pageHeight-10,
+        {align:"center"}
     );
 
     doc.save(
-        "Paiyur_RAWE_Activity_Cover_2026.pdf"
+        "Paiyur_RAWE_Full_Activity_Report_2026_2Page.pdf"
     );
-
 }
 
 
