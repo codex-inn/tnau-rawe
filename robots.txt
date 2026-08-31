@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://YOUR-SITE-URL/sitemap.xml
+Sitemap: https://https://codex-inn.github.io/tnau-rawe//sitemap.xml
