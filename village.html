@@ -3,187 +3,629 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Village Profile | RRS Paiyur | TNAU RAWE</title>
+<title>Village Profile | Paiyur | TNAU RAWE</title>
+
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{
-font-family:Arial,Helvetica,sans-serif;color:#203126;line-height:1.6;min-height:100vh;
-background:linear-gradient(rgba(255,255,255,.78),rgba(255,255,255,.78)),url("vvnr-campus.jpg");
-background-size:cover;background-position:center;background-attachment:fixed
+    font-family:Arial,Helvetica,sans-serif;
+    color:#203126;
+    line-height:1.6;
+    min-height:100vh;
+    background:
+    linear-gradient(rgba(255,255,255,.78),rgba(255,255,255,.78)),
+    url("vvnr-campus.jpg");
+    background-size:cover;
+    background-position:center;
+    background-attachment:fixed;
 }
+
+/* HEADER */
 header{
-min-height:165px;display:flex;align-items:center;justify-content:center;gap:22px;
-padding:22px 20px;color:white;text-align:center;
-background:linear-gradient(rgba(0,70,32,.93),rgba(0,90,42,.91))
+    min-height:170px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:22px;
+    padding:22px 18px;
+    color:white;
+    text-align:center;
+    background:linear-gradient(rgba(0,70,32,.95),rgba(0,90,42,.93));
 }
-header img{width:88px;height:88px;object-fit:contain}
+header img{width:85px;height:85px;object-fit:contain}
 .header-text h1{font-size:clamp(24px,4vw,38px);line-height:1.2;margin-bottom:7px}
 .header-text p{font-size:14px;color:#dcefd7;margin:2px 0}
-nav{background:#063f20;padding:10px;text-align:center;box-shadow:0 2px 8px rgba(0,0,0,.2)}
-nav a{display:inline-block;color:white;text-decoration:none;font-size:13px;font-weight:bold;padding:7px 10px;margin:2px 4px;border-radius:6px}
-nav a:hover{background:#24783b}
-.container{width:94%;max-width:1050px;margin:32px auto}
-.page-title{text-align:center;color:#075128;font-size:clamp(27px,4vw,40px);line-height:1.2;margin-bottom:5px}
-.page-subtitle{text-align:center;color:#56645a;font-size:14px;margin-bottom:25px}
-.content{
-background:rgba(255,255,255,.97);border-radius:12px;padding:22px;margin-bottom:18px;
-box-shadow:0 3px 14px rgba(0,0,0,.1);border:1px solid rgba(20,100,45,.08)
+
+/* NAV */
+nav{
+    background:#063f20;
+    padding:10px;
+    text-align:center;
+    box-shadow:0 2px 8px rgba(0,0,0,.2);
 }
-.content h2{color:#075128;font-size:21px;margin-bottom:9px}
+nav a{
+    display:inline-block;
+    color:white;
+    text-decoration:none;
+    font-size:13px;
+    font-weight:bold;
+    padding:7px 10px;
+    margin:2px 4px;
+    border-radius:6px;
+}
+nav a:hover{background:#24783b}
+
+/* MAIN */
+.container{width:94%;max-width:1050px;margin:32px auto}
+.page-title{
+    text-align:center;
+    color:#075128;
+    font-size:clamp(27px,4vw,40px);
+    line-height:1.2;
+    margin-bottom:5px;
+}
+.page-subtitle{
+    text-align:center;
+    color:#56645a;
+    font-size:14px;
+    margin-bottom:25px;
+}
+
+/* CARDS */
+.content{
+    background:rgba(255,255,255,.97);
+    border-radius:13px;
+    padding:22px;
+    margin-bottom:18px;
+    box-shadow:0 3px 14px rgba(0,0,0,.10);
+    border:1px solid rgba(20,100,45,.08);
+}
+.content h2{
+    color:#075128;
+    font-size:21px;
+    margin-bottom:10px;
+}
+.content h3{
+    color:#176b3a;
+    font-size:17px;
+    margin-bottom:7px;
+}
 .content p{font-size:14px;margin-bottom:8px}
-.summary-box{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:13px}
-.summary-item{background:#f1f8f2;border-left:4px solid #24783b;border-radius:8px;padding:12px 14px}
-.summary-item strong{display:block;color:#075128;font-size:12px;margin-bottom:2px}
-.summary-item span{font-size:13px;color:#445349}
-.research-summary{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:12px}
-.research-item{background:#f6faf7;border:1px solid #dce9df;border-radius:8px;padding:12px;font-size:13px;color:#405046}
+
+/* VILLAGE SUMMARY */
+.summary-intro{
+    background:#f1f8f2;
+    border-left:4px solid #24783b;
+    border-radius:8px;
+    padding:15px;
+}
+.summary-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:9px;
+    margin-top:13px;
+}
+.summary-item{
+    background:#f8fbf8;
+    border:1px solid #dce9df;
+    border-radius:8px;
+    padding:11px 13px;
+}
+.summary-item strong{
+    display:block;
+    color:#075128;
+    font-size:12px;
+}
+.summary-item span{
+    font-size:13px;
+    color:#455449;
+}
+
+/* RRS DETAILS */
+.rrs-intro{
+    background:#f5faf6;
+    border-left:4px solid #24783b;
+    padding:14px 15px;
+    border-radius:8px;
+    margin-bottom:13px;
+}
+.rrs-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:10px;
+}
+.rrs-item{
+    background:#f8fbf8;
+    border:1px solid #dce9df;
+    border-radius:8px;
+    padding:12px;
+}
+.rrs-item strong{
+    display:block;
+    color:#075128;
+    font-size:12px;
+    margin-bottom:2px;
+}
+.rrs-item span{
+    font-size:13px;
+    color:#455449;
+}
+
+/* RESEARCH */
+.research-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:10px;
+}
+.research-item{
+    background:#f5faf6;
+    border-left:4px solid #24783b;
+    border-radius:8px;
+    padding:12px;
+    font-size:13px;
+}
 .research-item strong{color:#075128}
-.gallery{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:14px}
-.image-card{background:white;border-radius:10px;overflow:hidden;box-shadow:0 3px 12px rgba(0,0,0,.11)}
-.image-card img{width:100%;height:210px;object-fit:cover;display:block}
-.caption{padding:9px;text-align:center;color:#075128;font-size:13px;font-weight:bold}
-.location-grid{display:grid;grid-template-columns:1fr 1fr;gap:15px;align-items:stretch}
-.location-info{background:#f1f8f2;border-left:4px solid #24783b;border-radius:9px;padding:17px}
-.location-info h3{color:#075128;font-size:17px;margin-bottom:8px}
+
+/* GALLERY */
+.gallery{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:13px;
+    margin-top:12px;
+}
+.image-card{
+    background:white;
+    border-radius:10px;
+    overflow:hidden;
+    box-shadow:0 3px 12px rgba(0,0,0,.11);
+}
+.image-card img{
+    width:100%;
+    height:190px;
+    object-fit:cover;
+    display:block;
+}
+.caption{
+    padding:8px;
+    text-align:center;
+    color:#075128;
+    font-size:12px;
+    font-weight:bold;
+}
+
+/* LOCATION */
+.location-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:14px;
+}
+.location-info{
+    background:#f1f8f2;
+    border-left:4px solid #24783b;
+    border-radius:9px;
+    padding:15px;
+}
 .location-info p{font-size:13px;margin-bottom:6px}
-.map-button{display:inline-block;margin-top:6px;padding:9px 14px;background:#16753a;color:white;text-decoration:none;border-radius:6px;font-size:12px;font-weight:bold}
-.map-button:hover{background:#0b5729}
-.map-frame{width:100%;min-height:240px;border:0;border-radius:9px;box-shadow:0 3px 12px rgba(0,0,0,.1)}
-.rawe-note{background:#f5faf6;border-left:4px solid #24783b;border-radius:8px;padding:15px}
+.map-button{
+    display:inline-block;
+    margin-top:5px;
+    padding:9px 13px;
+    background:#16753a;
+    color:white;
+    text-decoration:none;
+    border-radius:6px;
+    font-size:12px;
+    font-weight:bold;
+}
+.map-frame{
+    width:100%;
+    min-height:240px;
+    border:0;
+    border-radius:9px;
+}
+
+/* RAWE */
+.rawe-note{
+    background:#f5faf6;
+    border-left:4px solid #24783b;
+    border-radius:8px;
+    padding:14px;
+    font-size:13px;
+}
 .rawe-note strong{color:#075128}
-.source-box{background:#f7faf7;border-left:4px solid #7cae7f;padding:13px;border-radius:8px;font-size:12px;color:#4d5e50}
-.source-box a{color:#075128;font-weight:bold;text-decoration:none}
-.source-box a:hover{text-decoration:underline}
-.back{display:block;width:max-content;margin:28px auto;padding:11px 21px;background:#16753a;color:white;text-decoration:none;border-radius:7px;font-size:13px;font-weight:bold}
-.back:hover{background:#0b5729}
-footer{background:#063f20;color:white;text-align:center;padding:25px 15px;margin-top:40px}
+
+/* BACK */
+.back{
+    display:block;
+    width:max-content;
+    margin:28px auto;
+    padding:10px 20px;
+    background:#16753a;
+    color:white;
+    text-decoration:none;
+    border-radius:7px;
+    font-size:13px;
+    font-weight:bold;
+}
+
+/* FOOTER */
+footer{
+    background:#063f20;
+    color:white;
+    text-align:center;
+    padding:25px 15px;
+    margin-top:40px;
+}
 .footer-title{color:#c9e6b9;font-size:20px;font-weight:bold}
 .footer-text{color:#d6edc9;font-size:13px;margin-top:3px}
-@media(max-width:800px){.location-grid{grid-template-columns:1fr}}
-@media(max-width:600px){
-header{min-height:145px;gap:12px;padding:18px 12px}
-header img{width:65px;height:65px}
-.header-text h1{font-size:24px}.header-text p{font-size:11px}
-nav a{font-size:11px;padding:6px 7px;margin:2px}
-.container{width:94%;margin:25px auto}
-.content{padding:16px;margin-bottom:14px}
-.content h2{font-size:19px}.content p{font-size:13px}
-.summary-box{grid-template-columns:1fr 1fr;gap:8px}
-.summary-item{padding:10px}.summary-item strong{font-size:11px}.summary-item span{font-size:12px}
-.research-summary{grid-template-columns:1fr}
-.gallery{grid-template-columns:1fr 1fr;gap:9px}
-.image-card img{height:125px}.caption{font-size:11px;padding:7px 4px}
-.map-frame{min-height:220px}
+
+/* TABLET */
+@media(max-width:800px){
+    .location-grid{grid-template-columns:1fr}
 }
-@media(max-width:380px){.gallery{grid-template-columns:1fr}.image-card img{height:190px}}
+
+/* MOBILE */
+@media(max-width:600px){
+    header{
+        min-height:145px;
+        gap:12px;
+        padding:18px 12px;
+    }
+    header img{width:65px;height:65px}
+    .header-text h1{font-size:24px}
+    .header-text p{font-size:11px}
+    nav a{font-size:11px;padding:6px 7px;margin:2px}
+    .container{width:94%;margin:25px auto}
+    .content{padding:16px;margin-bottom:14px}
+    .content h2{font-size:19px}
+    .content p{font-size:13px}
+    .summary-grid,
+    .rrs-grid,
+    .research-grid{grid-template-columns:1fr}
+    .gallery{grid-template-columns:1fr 1fr;gap:8px}
+    .image-card img{height:125px}
+    .caption{font-size:10px;padding:7px 4px}
+    .map-frame{min-height:220px}
+}
+
+@media(max-width:380px){
+    .gallery{grid-template-columns:1fr 1fr}
+    .image-card img{height:115px}
+    .caption{font-size:9px}
+}
 </style>
 </head>
+
 <body>
 
+<!-- HEADER -->
 <header>
-<img src="tnau-logo.png" alt="TNAU Logo">
-<div class="header-text">
-<h1>🌾 Regional Research Station – Paiyur</h1>
-<p>TNAU RAWE Programme 2026</p>
-<p>TEAM : PAIYUR · Krishnagiri District</p>
-</div>
+    <img src="tnau-logo.png" alt="TNAU Logo">
+    <div class="header-text">
+        <h1>🌾 Paiyur Village Profile</h1>
+        <p>TNAU RAWE Programme 2026</p>
+        <p>TEAM : PAIYUR · Krishnagiri District</p>
+    </div>
 </header>
 
+<!-- NAVIGATION -->
 <nav>
-<a href="index.html">🏠 Home</a>
-<a href="village.html">📍 Village Profile</a>
-<a href="students.html">👨‍🎓 Students</a>
-<a href="activities.html">📅 Daily Activities</a>
-<a href="attendance.html">✅ Attendance</a>
+    <a href="index.html">🏠 Home</a>
+    <a href="students.html">👨‍🎓 Students</a>
+    <a href="village.html">📍 Village Profile</a>
+    <a href="activities.html">📅 Daily Activities</a>
+    <a href="attendance.html">✅ Attendance</a>
 </nav>
 
 <main class="container">
 
-<h1 class="page-title">Regional Research Station – Paiyur</h1>
-<p class="page-subtitle">TNAU research and farmer-support centre</p>
+    <h1 class="page-title">Paiyur Village Profile</h1>
+    <p class="page-subtitle">
+        A concise overview of the Paiyur agricultural environment and RRS
+    </p>
 
-<div class="content">
-<h2>🌱 RRS Paiyur – Summary</h2>
-<p>Tamil Nadu Agricultural University established the Regional Research Station at Paiyur on <strong>23 May 1973</strong>, in the erstwhile Dharmapuri district, now Krishnagiri district.</p>
-<p>The station focuses on agricultural research, technology generation and practical support for the farming systems of the region.</p>
-<div class="summary-box">
-<div class="summary-item"><strong>Established</strong><span>23 May 1973</span></div>
-<div class="summary-item"><strong>Location</strong><span>Paiyur, Krishnagiri District, Tamil Nadu</span></div>
-<div class="summary-item"><strong>Total Area</strong><span>18.51 ha</span></div>
-<div class="summary-item"><strong>Cultivable Area</strong><span>17.51 ha</span></div>
-<div class="summary-item"><strong>Elevation</strong><span>490 m MSL</span></div>
-<div class="summary-item"><strong>Coordinates</strong><span>12.21° N, 78.18° E</span></div>
-<div class="summary-item"><strong>Annual Rainfall</strong><span>917 mm</span></div>
-<div class="summary-item"><strong>Temperature</strong><span>21.9°C – 33.9°C</span></div>
-</div>
-</div>
+    <!-- VILLAGE SUMMARY FIRST -->
+    <section class="content">
 
-<div class="content">
-<h2>🔬 Research Focus</h2>
-<div class="research-summary">
-<div class="research-item"><strong>Crop Research:</strong> Finger millet, horse gram, mochai and other regional crops.</div>
-<div class="research-item"><strong>Farming Systems:</strong> Technology generation for rainfed and irrigated agriculture.</div>
-<div class="research-item"><strong>Soil &amp; Water:</strong> Soil management and moisture conservation.</div>
-<div class="research-item"><strong>Horticulture:</strong> Tropical fruit, mango, vegetable and flower crop management.</div>
-<div class="research-item"><strong>Crop Protection:</strong> Pest and disease surveillance with IPM/IDM components.</div>
-<div class="research-item"><strong>Technology Testing:</strong> Verification work for rice, sorghum, groundnut and other crops.</div>
-</div>
-</div>
+        <h2>📍 Paiyur Village – Summary</h2>
 
-<div class="content">
-<h2>📸 RRS Paiyur Gallery</h2>
-<div class="gallery">
-<div class="image-card"><img src="village-1.jpg" alt="Regional Research Station Paiyur"><div class="caption">🌾 RRS Paiyur</div></div>
-<div class="image-card"><img src="village-2.jpg" alt="Paiyur Agricultural Research Area"><div class="caption">🌱 Research Area</div></div>
-<div class="image-card"><img src="village-3.jpg" alt="Paiyur Agricultural Area"><div class="caption">🚜 Agricultural Area</div></div>
-<div class="image-card"><img src="village-4.jpg" alt="Paiyur Research Farm"><div class="caption">🌾 Research Farm</div></div>
-<div class="image-card"><img src="village-5.jpg" alt="RRS Paiyur Campus"><div class="caption">🏫 RRS Paiyur Campus</div></div>
-</div>
-</div>
+        <div class="summary-intro">
+            <p>
+                <strong>Paiyur</strong> is an important agricultural locality
+                associated with the Regional Research Station of Tamil Nadu
+                Agricultural University. The area provides a useful field
+                environment for understanding local agriculture, crop
+                production and farmer-oriented agricultural activities.
+            </p>
 
-<div class="content">
-<h2>📍 Location</h2>
-<div class="location-grid">
-<div class="location-info">
-<h3>Regional Research Station – Paiyur</h3>
-<p>📍 Paiyur, Krishnagiri District, Tamil Nadu</p>
-<p>🌐 12.21° N, 78.18° E</p>
-<p>⛰️ Elevation: 490 m MSL</p>
-<p>🛣️ Located on the NH-44 corridor</p>
-<p>About 108 km from Bengaluru and 29 km from Dharmapuri, according to TNAU.</p>
-<a class="map-button" href="https://www.google.com/maps/search/?api=1&query=12.21,78.18" target="_blank" rel="noopener">🗺️ Open in Maps</a>
-</div>
-<iframe class="map-frame" src="https://www.google.com/maps?q=12.21,78.18&z=13&output=embed" loading="lazy" title="Regional Research Station Paiyur Location"></iframe>
-</div>
-</div>
+            <p>
+                The Paiyur area is particularly relevant for RAWE students
+                because it connects classroom learning with field observation,
+                farmer interaction, crop studies and practical agricultural
+                experience.
+            </p>
+        </div>
 
-<div class="content">
-<h2>👨‍🌾 Paiyur RAWE Connection</h2>
-<div class="rawe-note">
-<p>The Paiyur RAWE team can use the research station and surrounding agricultural landscape as a practical learning context for field observation, farmer interaction, surveys, crop studies and agricultural activities.</p>
-<strong>Learn × Experience × Serve × Grow</strong>
-</div>
-</div>
+        <div class="summary-grid">
 
-<div class="content">
-<h2>📚 Reference</h2>
-<div class="source-box">
-Information on establishment, geographical details, research focus and location is based on the Regional Research Station – Paiyur information used in the profile.
-<br><br>
-Official source:
-<a href="https://tnau.ac.in/site/research-paiyur/" target="_blank" rel="noopener">TNAU – Regional Research Station, Paiyur</a>
-</div>
-</div>
+            <div class="summary-item">
+                <strong>📍 Location</strong>
+                <span>Paiyur, Krishnagiri District, Tamil Nadu</span>
+            </div>
 
-<a href="index.html" class="back">← Back to TNAU RAWE Home</a>
+            <div class="summary-item">
+                <strong>🌾 Agricultural Setting</strong>
+                <span>Rainfed and irrigated farming environment</span>
+            </div>
+
+            <div class="summary-item">
+                <strong>🌱 RAWE Relevance</strong>
+                <span>Field observation, surveys and farmer interaction</span>
+            </div>
+
+            <div class="summary-item">
+                <strong>🏫 Major Institution</strong>
+                <span>Regional Research Station, Paiyur</span>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- RRS DETAILS SECOND -->
+    <section class="content">
+
+        <h2>🔬 Regional Research Station (RRS), Paiyur</h2>
+
+        <div class="rrs-intro">
+            <p>
+                The Regional Research Station, Paiyur was established by
+                Tamil Nadu Agricultural University on
+                <strong>23 May 1973</strong>. It was established to undertake
+                agricultural research relevant to the region and to support
+                improved agricultural practices and farm productivity.
+            </p>
+        </div>
+
+        <div class="rrs-grid">
+
+            <div class="rrs-item">
+                <strong>📅 Established</strong>
+                <span>23 May 1973</span>
+            </div>
+
+            <div class="rrs-item">
+                <strong>📍 Location</strong>
+                <span>Paiyur, Krishnagiri District, Tamil Nadu</span>
+            </div>
+
+            <div class="rrs-item">
+                <strong>📐 Total Area</strong>
+                <span>18.51 ha</span>
+            </div>
+
+            <div class="rrs-item">
+                <strong>🌱 Cultivable Area</strong>
+                <span>17.51 ha</span>
+            </div>
+
+            <div class="rrs-item">
+                <strong>💧 Irrigated Area</strong>
+                <span>6.07 ha</span>
+            </div>
+
+            <div class="rrs-item">
+                <strong>🌾 Rainfed Area</strong>
+                <span>11.44 ha</span>
+            </div>
+
+            <div class="rrs-item">
+                <strong>🌍 Elevation</strong>
+                <span>490 m MSL</span>
+            </div>
+
+            <div class="rrs-item">
+                <strong>🌐 Coordinates</strong>
+                <span>12.21° N, 78.18° E</span>
+            </div>
+
+            <div class="rrs-item">
+                <strong>🌧️ Average Annual Rainfall</strong>
+                <span>917 mm</span>
+            </div>
+
+            <div class="rrs-item">
+                <strong>🌡️ Mean Temperature</strong>
+                <span>21.9°C – 33.9°C</span>
+            </div>
+
+            <div class="rrs-item">
+                <strong>🛣️ Accessibility</strong>
+                <span>NH-44 corridor</span>
+            </div>
+
+            <div class="rrs-item">
+                <strong>🏢 Institutional Role</strong>
+                <span>Research, technology generation and farmer support</span>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- RESEARCH -->
+    <section class="content">
+
+        <h2>🌱 RRS Paiyur – Research Focus</h2>
+
+        <div class="research-grid">
+
+            <div class="research-item">
+                🌾 <strong>Crop Research:</strong>
+                Finger millet, horse gram, mochai and other regional crops.
+            </div>
+
+            <div class="research-item">
+                🌱 <strong>Farming Systems:</strong>
+                Rainfed and irrigated agricultural technologies.
+            </div>
+
+            <div class="research-item">
+                💧 <strong>Soil & Water:</strong>
+                Moisture conservation, soil management and STCR-related work.
+            </div>
+
+            <div class="research-item">
+                🥭 <strong>Horticulture:</strong>
+                Mango, tropical fruit, vegetables and flower crops.
+            </div>
+
+            <div class="research-item">
+                🐛 <strong>Crop Protection:</strong>
+                Pest and disease management and field surveillance.
+            </div>
+
+            <div class="research-item">
+                🧪 <strong>Field Research:</strong>
+                Crop testing, verification and technology evaluation.
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- GALLERY -->
+    <section class="content">
+
+        <h2>📸 RRS Paiyur Gallery</h2>
+
+        <div class="gallery">
+
+            <div class="image-card">
+                <img src="village-1.jpg" alt="Regional Research Station Paiyur">
+                <div class="caption">🌾 Regional Research Station – Paiyur</div>
+            </div>
+
+            <div class="image-card">
+                <img src="village-2.jpg" alt="Paiyur Agricultural Research Area">
+                <div class="caption">🌱 Agricultural Research Area</div>
+            </div>
+
+            <div class="image-card">
+                <img src="village-3.jpg" alt="Paiyur Agricultural Area">
+                <div class="caption">🚜 Agricultural Area</div>
+            </div>
+
+            <div class="image-card">
+                <img src="village-4.jpg" alt="Paiyur Research Farm">
+                <div class="caption">🌾 Research Farm Field</div>
+            </div>
+
+            <div class="image-card">
+                <img src="village-5.jpg" alt="Paiyur Research Station Campus">
+                <div class="caption">🏫 RRS Paiyur Campus</div>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- LOCATION -->
+    <section class="content">
+
+        <h2>🗺️ RRS Paiyur – Location</h2>
+
+        <div class="location-grid">
+
+            <div class="location-info">
+
+                <h3>Regional Research Station – Paiyur</h3>
+
+                <p>📍 Paiyur, Krishnagiri District, Tamil Nadu</p>
+                <p>🌐 12.21° N, 78.18° E</p>
+                <p>⛰️ Elevation: 490 m MSL</p>
+                <p>🛣️ NH-44 corridor</p>
+                <p>🏙️ About 108 km from Bengaluru and 29 km from Dharmapuri.</p>
+
+                <a
+                    class="map-button"
+                    href="https://www.google.com/maps/search/?api=1&query=12.21,78.18"
+                    target="_blank"
+                    rel="noopener">
+                    🗺️ Open in Google Maps
+                </a>
+
+            </div>
+
+            <iframe
+                class="map-frame"
+                src="https://www.google.com/maps?q=12.21,78.18&z=13&output=embed"
+                loading="lazy"
+                title="RRS Paiyur Location">
+            </iframe>
+
+        </div>
+
+    </section>
+
+    <!-- RAWE -->
+    <section class="content">
+
+        <h2>👨‍🌾 Paiyur RAWE Connection</h2>
+
+        <div class="rawe-note">
+
+            <p>
+                The Paiyur RAWE team can use the local agricultural environment
+                and RRS Paiyur as a practical learning context for field
+                observation, farmer interaction, agricultural surveys, crop
+                studies and technology-oriented activities.
+            </p>
+
+            <strong>Learn × Experience × Serve × Grow</strong>
+
+        </div>
+
+    </section>
+
+    <!-- REFERENCE -->
+    <section class="content">
+
+        <h2>📚 Reference</h2>
+
+        <p>
+            The RRS Paiyur details in this page are adapted from the
+            Tamil Nadu Agricultural University information provided in the
+            original profile.
+        </p>
+
+        <p>
+            <a
+                href="https://tnau.ac.in/site/research-paiyur/"
+                target="_blank"
+                rel="noopener"
+                style="color:#075128;font-weight:bold;text-decoration:none;">
+                TNAU – Regional Research Station, Paiyur
+            </a>
+        </p>
+
+    </section>
+
+    <a href="index.html" class="back">← Back to TNAU RAWE Home</a>
 
 </main>
 
 <footer>
-<div class="footer-title">🌾 TEAM : PAIYUR</div>
-<div class="footer-text">TNAU RAWE Programme 2026</div>
-<div class="footer-text">AC&amp;RI VVNR · Tiruvannamalai District</div>
+
+    <div class="footer-title">🌾 TEAM : PAIYUR</div>
+
+    <div class="footer-text">TNAU RAWE Programme 2026</div>
+
+    <div class="footer-text">
+        AC&amp;RI VVNR · Tiruvannamalai District
+    </div>
+
 </footer>
 
 </body>
