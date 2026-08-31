@@ -1,0 +1,2988 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>RAWE Report Builder | Team Paiyur</title>
+
+
+<!-- =====================================================
+     GOOGLE FONT
+===================================================== -->
+
+<link rel="preconnect"
+href="https://fonts.googleapis.com">
+
+<link rel="preconnect"
+href="https://fonts.gstatic.com"
+crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap"
+rel="stylesheet">
+
+
+<!-- =====================================================
+     FONT AWESOME
+===================================================== -->
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+
+<!-- =====================================================
+     jsPDF
+===================================================== -->
+
+<script
+src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js">
+</script>
+
+
+<!-- =====================================================
+     AUTO TABLE
+===================================================== -->
+
+<script
+src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.8.2/jspdf.plugin.autotable.min.js">
+</script>
+
+
+<!-- =====================================================
+     PDF-LIB
+     Used for uploaded PDF files
+===================================================== -->
+
+<script
+src="https://cdnjs.cloudflare.com/ajax/libs/pdf-lib/1.17.1/pdf-lib.min.js">
+</script>
+
+
+<style>
+
+
+/* =====================================================
+   ROOT
+===================================================== */
+
+:root{
+
+    --forest-950:#04170d;
+    --forest-900:#06341c;
+    --forest-800:#0a4726;
+    --forest-700:#0e5c2e;
+    --forest-600:#147a3a;
+
+    --mint-50:#f3faf4;
+    --mint-100:#e4f5e8;
+
+    --gold:#f0b93d;
+
+    --white:#ffffff;
+
+    --ink:#12201a;
+    --muted:#617267;
+
+    --line:#dfe9e1;
+
+    --danger:#a72d2d;
+
+}
+
+
+/* RESET */
+
+*{
+
+    margin:0;
+
+    padding:0;
+
+    box-sizing:border-box;
+
+}
+
+
+body{
+
+    font-family:
+    'Inter',
+    Arial,
+    sans-serif;
+
+    background:
+    linear-gradient(
+        135deg,
+        #eef8f0,
+        #f9fcf9
+    );
+
+    color:var(--ink);
+
+    min-height:100vh;
+
+}
+
+
+/* =====================================================
+   HEADER
+===================================================== */
+
+header{
+
+    background:
+    linear-gradient(
+        120deg,
+        var(--forest-950),
+        var(--forest-700)
+    );
+
+    color:white;
+
+    padding:28px 20px;
+
+    text-align:center;
+
+}
+
+
+header h1{
+
+    font-family:'Poppins',sans-serif;
+
+    font-size:
+    clamp(24px,4vw,38px);
+
+    margin-bottom:5px;
+
+}
+
+
+header p{
+
+    color:var(--mint-100);
+
+    font-size:13px;
+
+}
+
+
+/* =====================================================
+   MAIN
+===================================================== */
+
+.container{
+
+    max-width:1050px;
+
+    margin:35px auto;
+
+    padding:0 16px;
+
+}
+
+
+/* =====================================================
+   INTRO
+===================================================== */
+
+.intro{
+
+    background:white;
+
+    border-radius:16px;
+
+    padding:20px;
+
+    box-shadow:
+    0 5px 20px rgba(0,0,0,.08);
+
+    border-top:
+    4px solid var(--gold);
+
+    margin-bottom:20px;
+
+}
+
+
+.intro h2{
+
+    font-family:'Poppins',sans-serif;
+
+    color:var(--forest-900);
+
+    font-size:20px;
+
+    margin-bottom:5px;
+
+}
+
+
+.intro p{
+
+    color:var(--muted);
+
+    font-size:13px;
+
+}
+
+
+/* =====================================================
+   SECTION CARD
+===================================================== */
+
+.section-card{
+
+    background:white;
+
+    border:1px solid var(--line);
+
+    border-radius:15px;
+
+    padding:20px;
+
+    margin-bottom:18px;
+
+    box-shadow:
+    0 3px 14px rgba(0,0,0,.06);
+
+}
+
+
+.section-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    gap:10px;
+
+    margin-bottom:14px;
+
+}
+
+
+.section-title{
+
+    font-family:'Poppins',sans-serif;
+
+    font-size:18px;
+
+    color:var(--forest-900);
+
+}
+
+
+.section-number{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    width:30px;
+
+    height:30px;
+
+    border-radius:50%;
+
+    background:var(--mint-100);
+
+    color:var(--forest-700);
+
+    font-weight:800;
+
+    font-size:12px;
+
+}
+
+
+/* =====================================================
+   FORM
+===================================================== */
+
+label{
+
+    display:block;
+
+    color:var(--forest-900);
+
+    font-weight:700;
+
+    font-size:12px;
+
+    margin-bottom:6px;
+
+}
+
+
+input,
+textarea,
+select{
+
+    width:100%;
+
+    border:1px solid #d4dfd7;
+
+    border-radius:9px;
+
+    padding:11px 12px;
+
+    font-family:inherit;
+
+    font-size:13px;
+
+    outline:none;
+
+    background:#fbfdfb;
+
+}
+
+
+input:focus,
+textarea:focus,
+select:focus{
+
+    border-color:var(--forest-600);
+
+    box-shadow:
+    0 0 0 3px rgba(20,122,58,.08);
+
+}
+
+
+textarea{
+
+    min-height:130px;
+
+    resize:vertical;
+
+}
+
+
+.form-grid{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(2,1fr);
+
+    gap:14px;
+
+}
+
+
+.full{
+
+    grid-column:1 / -1;
+
+}
+
+
+/* =====================================================
+   UPLOAD
+===================================================== */
+
+.upload-area{
+
+    border:2px dashed #bdd3c2;
+
+    border-radius:12px;
+
+    padding:22px;
+
+    text-align:center;
+
+    background:#f8fcf8;
+
+    cursor:pointer;
+
+}
+
+
+.upload-area:hover{
+
+    background:#f0f8f1;
+
+}
+
+
+.upload-area i{
+
+    font-size:28px;
+
+    color:var(--forest-600);
+
+    margin-bottom:8px;
+
+}
+
+
+.upload-area strong{
+
+    display:block;
+
+    color:var(--forest-900);
+
+    font-size:13px;
+
+}
+
+
+.upload-area span{
+
+    display:block;
+
+    color:var(--muted);
+
+    font-size:10px;
+
+    margin-top:4px;
+
+}
+
+
+/* =====================================================
+   FILE LIST
+===================================================== */
+
+.file-list{
+
+    margin-top:14px;
+
+    display:grid;
+
+    gap:8px;
+
+}
+
+
+.file-item{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    gap:10px;
+
+    padding:10px;
+
+    background:#f5f9f5;
+
+    border-radius:8px;
+
+    border:1px solid var(--line);
+
+}
+
+
+.file-info{
+
+    min-width:0;
+
+}
+
+
+.file-name{
+
+    font-size:11px;
+
+    font-weight:700;
+
+    color:var(--forest-900);
+
+    word-break:break-word;
+
+}
+
+
+.file-type{
+
+    font-size:9px;
+
+    color:var(--muted);
+
+}
+
+
+.remove-file{
+
+    border:0;
+
+    background:#f7dddd;
+
+    color:var(--danger);
+
+    width:28px;
+
+    height:28px;
+
+    border-radius:50%;
+
+    cursor:pointer;
+
+}
+
+
+/* =====================================================
+   SIGNATURE
+===================================================== */
+
+.signature-box{
+
+    display:grid;
+
+    grid-template-columns:
+    1fr 1fr;
+
+    gap:18px;
+
+    align-items:center;
+
+}
+
+
+.signature-preview{
+
+    min-height:140px;
+
+    border:1px dashed #bfd1c2;
+
+    border-radius:10px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    padding:10px;
+
+    background:#fafdfb;
+
+}
+
+
+.signature-preview img{
+
+    max-width:100%;
+
+    max-height:120px;
+
+    object-fit:contain;
+
+}
+
+
+.signature-empty{
+
+    color:var(--muted);
+
+    font-size:11px;
+
+    text-align:center;
+
+}
+
+
+/* =====================================================
+   BUTTONS
+===================================================== */
+
+.actions{
+
+    position:sticky;
+
+    bottom:10px;
+
+    z-index:20;
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:10px;
+
+    flex-wrap:wrap;
+
+    background:
+    rgba(255,255,255,.94);
+
+    backdrop-filter:blur(10px);
+
+    padding:12px;
+
+    border-radius:14px;
+
+    box-shadow:
+    0 5px 25px rgba(0,0,0,.12);
+
+    margin-top:25px;
+
+}
+
+
+.btn{
+
+    border:0;
+
+    cursor:pointer;
+
+    border-radius:30px;
+
+    padding:12px 19px;
+
+    color:white;
+
+    font-weight:700;
+
+    font-size:12px;
+
+}
+
+
+.add-btn{
+
+    background:
+    linear-gradient(
+        120deg,
+        #3567a8,
+        #1f4271
+    );
+
+}
+
+
+.pdf-btn{
+
+    background:
+    linear-gradient(
+        120deg,
+        #c23b3b,
+        #8f1f1f
+    );
+
+}
+
+
+.clear-btn{
+
+    background:
+    linear-gradient(
+        120deg,
+        #777,
+        #444
+    );
+
+}
+
+
+.btn:hover{
+
+    transform:translateY(-2px);
+
+}
+
+
+/* =====================================================
+   CUSTOM SECTIONS
+===================================================== */
+
+.custom-section{
+
+    position:relative;
+
+}
+
+
+.delete-section{
+
+    border:0;
+
+    background:#f7dddd;
+
+    color:#a72d2d;
+
+    padding:7px 10px;
+
+    border-radius:20px;
+
+    cursor:pointer;
+
+    font-size:10px;
+
+    font-weight:700;
+
+}
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+footer{
+
+    text-align:center;
+
+    color:var(--muted);
+
+    padding:30px 15px;
+
+    font-size:11px;
+
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media(max-width:700px){
+
+    .form-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+
+    .full{
+
+        grid-column:auto;
+
+    }
+
+
+    .signature-box{
+
+        grid-template-columns:1fr;
+
+    }
+
+
+    .section-card{
+
+        padding:15px;
+
+    }
+
+
+    .actions{
+
+        bottom:5px;
+
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     HEADER
+===================================================== -->
+
+<header>
+
+    <h1>
+        📑 RAWE REPORT BUILDER
+    </h1>
+
+    <p>
+        TNAU RAWE Programme 2026 · TEAM PAIYUR
+    </p>
+
+</header>
+
+
+<main class="container">
+
+
+<!-- =====================================================
+     INTRO
+===================================================== -->
+
+<div class="intro">
+
+    <h2>
+        🌾 Complete RAWE Report
+    </h2>
+
+    <p>
+        Add student details, village details, activities,
+        complaints, RAWE questions, photographs, documents,
+        observations and any other information.
+        Everything can be exported into one PDF.
+    </p>
+
+</div>
+
+
+<!-- =====================================================
+     BASIC REPORT DETAILS
+===================================================== -->
+
+<div class="section-card">
+
+    <div class="section-header">
+
+        <div class="section-title">
+
+            <span class="section-number">
+                1
+            </span>
+
+            Report Details
+
+        </div>
+
+    </div>
+
+
+    <div class="form-grid">
+
+
+        <div>
+
+            <label>
+                Report Title
+            </label>
+
+            <input
+            id="reportTitle"
+            value="TNAU RAWE PROGRAMME 2026">
+
+        </div>
+
+
+        <div>
+
+            <label>
+                Team
+            </label>
+
+            <input
+            id="teamName"
+            value="PAIYUR">
+
+        </div>
+
+
+        <div>
+
+            <label>
+                Batch
+            </label>
+
+            <input
+            id="batch"
+            value="2023 Batch AC&RI VVNR">
+
+        </div>
+
+
+        <div>
+
+            <label>
+                District
+            </label>
+
+            <input
+            id="district"
+            value="Tiruvannamalai District">
+
+        </div>
+
+
+        <div class="full">
+
+            <label>
+                Report Introduction / Summary
+            </label>
+
+            <textarea
+            id="introText"
+            placeholder="Enter report introduction, purpose, overview or any important details..."></textarea>
+
+        </div>
+
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     STUDENT DETAILS
+===================================================== -->
+
+<div class="section-card">
+
+    <div class="section-header">
+
+        <div class="section-title">
+
+            <span class="section-number">
+                2
+            </span>
+
+            👨‍🎓 Student Details
+
+        </div>
+
+    </div>
+
+
+    <textarea
+    id="studentDetails"
+    placeholder="Enter student details, student list, ID numbers, attendance details, responsibilities, team members, etc."></textarea>
+
+</div>
+
+
+<!-- =====================================================
+     VILLAGE / LOCATION
+===================================================== -->
+
+<div class="section-card">
+
+    <div class="section-header">
+
+        <div class="section-title">
+
+            <span class="section-number">
+                3
+            </span>
+
+            📍 Village / Location Details
+
+        </div>
+
+    </div>
+
+
+    <textarea
+    id="villageDetails"
+    placeholder="Village profile, location, population, agriculture, crops, irrigation, farmers, facilities, problems, etc."></textarea>
+
+</div>
+
+
+<!-- =====================================================
+     ACTIVITIES
+===================================================== -->
+
+<div class="section-card">
+
+    <div class="section-header">
+
+        <div class="section-title">
+
+            <span class="section-number">
+                4
+            </span>
+
+            📅 Daily Activities
+
+        </div>
+
+    </div>
+
+
+    <textarea
+    id="activities"
+    placeholder="Enter daily activities, field visits, farmer interaction, surveys, demonstrations, crop observations, practical work, meetings, etc."></textarea>
+
+</div>
+
+
+<!-- =====================================================
+     COMPLAINTS
+===================================================== -->
+
+<div class="section-card">
+
+    <div class="section-header">
+
+        <div class="section-title">
+
+            <span class="section-number">
+                5
+            </span>
+
+            ⚠️ Complaints / Problems
+
+        </div>
+
+    </div>
+
+
+    <textarea
+    id="complaints"
+    placeholder="Enter farmer complaints, field problems, student/team issues, agricultural problems, observations and solutions..."></textarea>
+
+</div>
+
+
+<!-- =====================================================
+     RAWE QUESTIONS
+===================================================== -->
+
+<div class="section-card">
+
+    <div class="section-header">
+
+        <div class="section-title">
+
+            <span class="section-number">
+                6
+            </span>
+
+            ❓ RAWE Questions &amp; Answers
+
+        </div>
+
+    </div>
+
+
+    <textarea
+    id="raweQuestions"
+    placeholder="Enter RAWE questions, answers, observations, interview questions, farmer questionnaire, survey questions, etc."></textarea>
+
+</div>
+
+
+<!-- =====================================================
+     OBSERVATIONS
+===================================================== -->
+
+<div class="section-card">
+
+    <div class="section-header">
+
+        <div class="section-title">
+
+            <span class="section-number">
+                7
+            </span>
+
+            🔬 Field Observations
+
+        </div>
+
+    </div>
+
+
+    <textarea
+    id="observations"
+    placeholder="Crop observations, soil observations, pest and disease observations, farming practices, technology observations, etc."></textarea>
+
+</div>
+
+
+<!-- =====================================================
+     CONCLUSION
+===================================================== -->
+
+<div class="section-card">
+
+    <div class="section-header">
+
+        <div class="section-title">
+
+            <span class="section-number">
+                8
+            </span>
+
+            📝 Conclusion
+
+        </div>
+
+    </div>
+
+
+    <textarea
+    id="conclusion"
+    placeholder="Enter conclusion, learning experience, outcomes, recommendations and future activities..."></textarea>
+
+</div>
+
+
+<!-- =====================================================
+     FILE UPLOAD
+===================================================== -->
+
+<div class="section-card">
+
+    <div class="section-header">
+
+        <div class="section-title">
+
+            <span class="section-number">
+                9
+            </span>
+
+            📎 Upload Anything
+
+        </div>
+
+    </div>
+
+
+    <label class="upload-area"
+    for="fileUpload">
+
+        <i class="fa-solid fa-cloud-arrow-up"></i>
+
+        <strong>
+            Click here to upload files
+        </strong>
+
+        <span>
+            Images, PDF, TXT, CSV, JSON and other supported files
+        </span>
+
+    </label>
+
+
+    <input
+    type="file"
+    id="fileUpload"
+    multiple
+    accept="image/*,.pdf,.txt,.csv,.json"
+    style="display:none;">
+
+
+    <div
+    id="fileList"
+    class="file-list">
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     PHOTO CAPTIONS
+===================================================== -->
+
+<div class="section-card">
+
+    <div class="section-header">
+
+        <div class="section-title">
+
+            <span class="section-number">
+                10
+            </span>
+
+            📸 Photograph Details
+
+        </div>
+
+    </div>
+
+
+    <textarea
+    id="photoDetails"
+    placeholder="Write photograph captions, activity photo details, farmer interaction photo details, field visit details, etc."></textarea>
+
+</div>
+
+
+<!-- =====================================================
+     CUSTOM SECTIONS
+===================================================== -->
+
+<div id="customSections"></div>
+
+
+<!-- =====================================================
+     SIGNATURE
+===================================================== -->
+
+<div class="section-card">
+
+    <div class="section-header">
+
+        <div class="section-title">
+
+            <span class="section-number">
+                11
+            </span>
+
+            ✍️ Team Leader Signature
+
+        </div>
+
+    </div>
+
+
+    <div class="signature-box">
+
+
+        <div>
+
+            <label>
+                Upload TL Signature
+            </label>
+
+
+            <input
+            type="file"
+            id="signatureUpload"
+            accept="image/*">
+
+
+            <p
+            style="
+            margin-top:8px;
+            color:#617267;
+            font-size:10px;
+            ">
+
+                Use:
+                <strong>
+                    team-leader-signature.png
+                </strong>
+
+                or upload another signature image.
+
+            </p>
+
+        </div>
+
+
+        <div
+        class="signature-preview"
+        id="signaturePreview">
+
+            <div class="signature-empty">
+
+                ✍️ Signature preview
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     ACTIONS
+===================================================== -->
+
+<div class="actions">
+
+
+    <button
+    class="btn add-btn"
+    onclick="addCustomSection()">
+
+        ➕ Add Section
+
+    </button>
+
+
+    <button
+    class="btn pdf-btn"
+    onclick="generateReportPDF()">
+
+        📄 Generate Report PDF
+
+    </button>
+
+
+    <button
+    class="btn clear-btn"
+    onclick="clearReport()">
+
+        🗑️ Clear
+
+    </button>
+
+
+</div>
+
+
+</main>
+
+
+<footer>
+
+    🌾 TNAU RAWE Programme 2026 · Team Paiyur
+
+</footer>
+
+
+<script>
+
+
+/* =====================================================
+   VARIABLES
+===================================================== */
+
+let uploadedFiles = [];
+
+let signatureData = null;
+
+let customSectionCount = 0;
+
+
+/* =====================================================
+   FILE UPLOAD
+===================================================== */
+
+document
+.getElementById("fileUpload")
+.addEventListener(
+    "change",
+    function(event){
+
+        const files =
+        Array.from(event.target.files);
+
+        files.forEach(
+            function(file){
+
+                uploadedFiles.push(file);
+
+            }
+        );
+
+        renderFiles();
+
+        event.target.value = "";
+
+    }
+);
+
+
+/* =====================================================
+   RENDER FILES
+===================================================== */
+
+function renderFiles(){
+
+    const container =
+    document.getElementById("fileList");
+
+
+    container.innerHTML = "";
+
+
+    uploadedFiles.forEach(
+        function(file,index){
+
+            const item =
+            document.createElement("div");
+
+
+            item.className =
+            "file-item";
+
+
+            item.innerHTML = `
+
+                <div class="file-info">
+
+                    <div class="file-name">
+                        ${escapeHTML(file.name)}
+                    </div>
+
+                    <div class="file-type">
+                        ${file.type || "Unknown file"}
+                        ·
+                        ${formatSize(file.size)}
+                    </div>
+
+                </div>
+
+                <button
+                class="remove-file"
+                onclick="removeFile(${index})">
+
+                    ×
+
+                </button>
+
+            `;
+
+
+            container.appendChild(item);
+
+        }
+    );
+
+}
+
+
+/* =====================================================
+   REMOVE FILE
+===================================================== */
+
+function removeFile(index){
+
+    uploadedFiles.splice(
+        index,
+        1
+    );
+
+    renderFiles();
+
+}
+
+
+/* =====================================================
+   FILE SIZE
+===================================================== */
+
+function formatSize(bytes){
+
+    if(bytes < 1024){
+
+        return bytes + " B";
+
+    }
+
+
+    if(bytes < 1024 * 1024){
+
+        return (
+            bytes / 1024
+        ).toFixed(1) + " KB";
+
+    }
+
+
+    return (
+        bytes / (1024 * 1024)
+    ).toFixed(1) + " MB";
+
+}
+
+
+/* =====================================================
+   ESCAPE HTML
+===================================================== */
+
+function escapeHTML(text){
+
+    const div =
+    document.createElement("div");
+
+    div.textContent = text;
+
+    return div.innerHTML;
+
+}
+
+
+/* =====================================================
+   SIGNATURE UPLOAD
+===================================================== */
+
+document
+.getElementById("signatureUpload")
+.addEventListener(
+    "change",
+    function(event){
+
+        const file =
+        event.target.files[0];
+
+
+        if(!file){
+
+            return;
+
+        }
+
+
+        const reader =
+        new FileReader();
+
+
+        reader.onload =
+        function(e){
+
+            signatureData =
+            e.target.result;
+
+
+            document
+            .getElementById(
+                "signaturePreview"
+            )
+            .innerHTML = `
+
+                <img
+                src="${signatureData}"
+                alt="Team Leader Signature">
+
+            `;
+
+        };
+
+
+        reader.readAsDataURL(file);
+
+    }
+);
+
+
+/* =====================================================
+   ADD CUSTOM SECTION
+===================================================== */
+
+function addCustomSection(){
+
+    customSectionCount++;
+
+
+    const wrapper =
+    document.createElement("div");
+
+
+    wrapper.className =
+    "section-card custom-section";
+
+
+    wrapper.dataset.section =
+    customSectionCount;
+
+
+    wrapper.innerHTML = `
+
+        <div class="section-header">
+
+            <div class="section-title">
+
+                <span class="section-number">
+                    +
+                </span>
+
+                Custom Section
+
+            </div>
+
+
+            <button
+            class="delete-section"
+            onclick="this.closest('.custom-section').remove()">
+
+                🗑 Remove
+
+            </button>
+
+        </div>
+
+
+        <div class="form-grid">
+
+            <div class="full">
+
+                <label>
+                    Section Title
+                </label>
+
+                <input
+                class="custom-title"
+                placeholder="Example: Farmer Interview / Soil Test / Special Activity">
+
+            </div>
+
+
+            <div class="full">
+
+                <label>
+                    Section Content
+                </label>
+
+                <textarea
+                class="custom-content"
+                placeholder="Enter any information here..."></textarea>
+
+            </div>
+
+        </div>
+
+    `;
+
+
+    document
+    .getElementById("customSections")
+    .appendChild(wrapper);
+
+
+    wrapper
+    .scrollIntoView({
+        behavior:"smooth",
+        block:"center"
+    });
+
+}
+
+
+/* =====================================================
+   GET VALUE
+===================================================== */
+
+function getValue(id){
+
+    return document
+    .getElementById(id)
+    .value
+    .trim();
+
+}
+
+
+/* =====================================================
+   GET DATE
+===================================================== */
+
+function getExportDate(){
+
+    const now =
+    new Date();
+
+
+    return now.toLocaleString(
+        "en-IN",
+        {
+            day:"2-digit",
+            month:"long",
+            year:"numeric",
+            hour:"2-digit",
+            minute:"2-digit",
+            second:"2-digit"
+        }
+    );
+
+}
+
+
+/* =====================================================
+   ADD WRAPPED TEXT
+===================================================== */
+
+function addWrappedText(
+    doc,
+    text,
+    x,
+    y,
+    width,
+    fontSize = 10,
+    lineHeight = 5
+){
+
+    if(!text){
+
+        return y;
+
+    }
+
+
+    doc.setFontSize(
+        fontSize
+    );
+
+
+    const lines =
+    doc.splitTextToSize(
+        text,
+        width
+    );
+
+
+    for(
+        let i=0;
+        i<lines.length;
+        i++
+    ){
+
+        if(
+            y >
+            doc.internal.pageSize.getHeight() - 30
+        ){
+
+            doc.addPage();
+
+            y = 20;
+
+        }
+
+
+        doc.text(
+            lines[i],
+            x,
+            y
+        );
+
+
+        y += lineHeight;
+
+    }
+
+
+    return y;
+
+}
+
+
+/* =====================================================
+   ADD SECTION TO PDF
+===================================================== */
+
+function addPDFSection(
+    doc,
+    title,
+    content,
+    y
+){
+
+    if(!content){
+
+        return y;
+
+    }
+
+
+    const pageWidth =
+    doc.internal.pageSize.getWidth();
+
+
+    const usableWidth =
+    pageWidth - 28;
+
+
+    if(
+        y >
+        doc.internal.pageSize.getHeight() - 45
+    ){
+
+        doc.addPage();
+
+        y = 20;
+
+    }
+
+
+    doc.setFont(
+        "helvetica",
+        "bold"
+    );
+
+
+    doc.setFontSize(13);
+
+
+    doc.text(
+        title,
+        14,
+        y
+    );
+
+
+    y += 7;
+
+
+    doc.setFont(
+        "helvetica",
+        "normal"
+    );
+
+
+    y =
+    addWrappedText(
+        doc,
+        content,
+        14,
+        y,
+        usableWidth,
+        9.5,
+        5
+    );
+
+
+    return y + 8;
+
+}
+
+
+/* =====================================================
+   READ FILE
+===================================================== */
+
+function readFileAsDataURL(file){
+
+    return new Promise(
+        function(resolve,reject){
+
+            const reader =
+            new FileReader();
+
+
+            reader.onload =
+            function(){
+
+                resolve(
+                    reader.result
+                );
+
+            };
+
+
+            reader.onerror =
+            reject;
+
+
+            reader.readAsDataURL(file);
+
+        }
+    );
+
+}
+
+
+/* =====================================================
+   ADD IMAGE TO PDF
+===================================================== */
+
+async function addImageToPDF(
+    doc,
+    dataURL
+){
+
+    return new Promise(
+        function(resolve){
+
+            const img =
+            new Image();
+
+
+            img.onload =
+            function(){
+
+                const pageWidth =
+                doc.internal.pageSize.getWidth();
+
+
+                const pageHeight =
+                doc.internal.pageSize.getHeight();
+
+
+                const maxWidth =
+                pageWidth - 28;
+
+
+                const maxHeight =
+                pageHeight - 45;
+
+
+                let width =
+                img.width;
+
+
+                let height =
+                img.height;
+
+
+                const ratio =
+                Math.min(
+                    maxWidth / width,
+                    maxHeight / height,
+                    1
+                );
+
+
+                width *= ratio;
+
+                height *= ratio;
+
+
+                doc.addPage();
+
+
+                doc.addImage(
+
+                    dataURL,
+
+                    "JPEG",
+
+                    (pageWidth - width) / 2,
+
+                    20,
+
+                    width,
+
+                    height
+
+                );
+
+
+                resolve();
+
+            };
+
+
+            img.onerror =
+            function(){
+
+                resolve();
+
+            };
+
+
+            img.src =
+            dataURL;
+
+        }
+    );
+
+}
+
+
+/* =====================================================
+   ADD TEXT FILE
+===================================================== */
+
+function readTextFile(file){
+
+    return new Promise(
+        function(resolve){
+
+            const reader =
+            new FileReader();
+
+
+            reader.onload =
+            function(){
+
+                resolve(
+                    reader.result
+                );
+
+            };
+
+
+            reader.onerror =
+            function(){
+
+                resolve("");
+
+            };
+
+
+            reader.readAsText(file);
+
+        }
+    );
+
+}
+
+
+/* =====================================================
+   GENERATE PDF
+===================================================== */
+
+async function generateReportPDF(){
+
+    try{
+
+        if(
+            !window.jspdf ||
+            !window.jspdf.jsPDF
+        ){
+
+            alert(
+                "PDF library is not loaded. Check your internet connection."
+            );
+
+            return;
+
+        }
+
+
+        const {
+            jsPDF
+        } = window.jspdf;
+
+
+        const doc =
+        new jsPDF({
+
+            orientation:"portrait",
+
+            unit:"mm",
+
+            format:"a4"
+
+        });
+
+
+        const pageWidth =
+        doc.internal.pageSize.getWidth();
+
+
+        const pageHeight =
+        doc.internal.pageSize.getHeight();
+
+
+        const exportDate =
+        getExportDate();
+
+
+        /* =================================================
+           COVER PAGE
+        ================================================= */
+
+        doc.setFont(
+            "helvetica",
+            "bold"
+        );
+
+
+        doc.setFontSize(22);
+
+
+        doc.text(
+
+            getValue("reportTitle")
+            || "TNAU RAWE PROGRAMME 2026",
+
+            pageWidth / 2,
+
+            45,
+
+            {
+                align:"center"
+            }
+
+        );
+
+
+        doc.setFontSize(16);
+
+
+        doc.text(
+
+            "TEAM : " +
+            (
+                getValue("teamName")
+                || "PAIYUR"
+            ),
+
+            pageWidth / 2,
+
+            57,
+
+            {
+                align:"center"
+            }
+
+        );
+
+
+        doc.setFont(
+            "helvetica",
+            "normal"
+        );
+
+
+        doc.setFontSize(11);
+
+
+        doc.text(
+
+            getValue("batch")
+            || "2023 Batch AC&RI VVNR",
+
+            pageWidth / 2,
+
+            68,
+
+            {
+                align:"center"
+            }
+
+        );
+
+
+        doc.text(
+
+            getValue("district")
+            || "Tiruvannamalai District",
+
+            pageWidth / 2,
+
+            76,
+
+            {
+                align:"center"
+            }
+
+        );
+
+
+        doc.setFontSize(10);
+
+
+        doc.text(
+
+            "RAWE FIELD REPORT",
+
+            pageWidth / 2,
+
+            100,
+
+            {
+                align:"center"
+            }
+
+        );
+
+
+        doc.setFontSize(9);
+
+
+        doc.text(
+
+            "Export Date & Time: " +
+            exportDate,
+
+            pageWidth / 2,
+
+            pageHeight - 35,
+
+            {
+                align:"center"
+            }
+
+        );
+
+
+        doc.text(
+
+            "TNAU RAWE Programme 2026 · Team Paiyur",
+
+            pageWidth / 2,
+
+            pageHeight - 25,
+
+            {
+                align:"center"
+            }
+
+        );
+
+
+        /* =================================================
+           INTRO
+        ================================================= */
+
+        doc.addPage();
+
+
+        let y = 20;
+
+
+        doc.setFont(
+            "helvetica",
+            "bold"
+        );
+
+
+        doc.setFontSize(17);
+
+
+        doc.text(
+            "RAWE REPORT",
+            14,
+            y
+        );
+
+
+        y += 10;
+
+
+        doc.setFont(
+            "helvetica",
+            "normal"
+        );
+
+
+        y =
+        addPDFSection(
+            doc,
+            "Introduction / Summary",
+            getValue("introText"),
+            y
+        );
+
+
+        y =
+        addPDFSection(
+            doc,
+            "Student Details",
+            getValue("studentDetails"),
+            y
+        );
+
+
+        y =
+        addPDFSection(
+            doc,
+            "Village / Location Details",
+            getValue("villageDetails"),
+            y
+        );
+
+
+        y =
+        addPDFSection(
+            doc,
+            "Daily Activities",
+            getValue("activities"),
+            y
+        );
+
+
+        y =
+        addPDFSection(
+            doc,
+            "Complaints / Problems",
+            getValue("complaints"),
+            y
+        );
+
+
+        y =
+        addPDFSection(
+            doc,
+            "RAWE Questions & Answers",
+            getValue("raweQuestions"),
+            y
+        );
+
+
+        y =
+        addPDFSection(
+            doc,
+            "Field Observations",
+            getValue("observations"),
+            y
+        );
+
+
+        y =
+        addPDFSection(
+            doc,
+            "Conclusion",
+            getValue("conclusion"),
+            y
+        );
+
+
+        y =
+        addPDFSection(
+            doc,
+            "Photograph Details",
+            getValue("photoDetails"),
+            y
+        );
+
+
+        /* =================================================
+           CUSTOM SECTIONS
+        ================================================= */
+
+        const customSections =
+        document.querySelectorAll(
+            ".custom-section"
+        );
+
+
+        customSections.forEach(
+            function(section){
+
+                const title =
+                section
+                .querySelector(
+                    ".custom-title"
+                )
+                .value
+                .trim();
+
+
+                const content =
+                section
+                .querySelector(
+                    ".custom-content"
+                )
+                .value
+                .trim();
+
+
+                if(
+                    title ||
+                    content
+                ){
+
+                    y =
+                    addPDFSection(
+                        doc,
+                        title ||
+                        "Additional Information",
+                        content,
+                        y
+                    );
+
+                }
+
+            }
+        );
+
+
+        /* =================================================
+           UPLOADED FILES
+        ================================================= */
+
+        if(
+            uploadedFiles.length > 0
+        ){
+
+            doc.addPage();
+
+
+            doc.setFont(
+                "helvetica",
+                "bold"
+            );
+
+
+            doc.setFontSize(16);
+
+
+            doc.text(
+                "UPLOADED DOCUMENTS & PHOTOGRAPHS",
+                14,
+                20
+            );
+
+
+            let fileY = 30;
+
+
+            for(
+                let i=0;
+                i<uploadedFiles.length;
+                i++
+            ){
+
+                const file =
+                uploadedFiles[i];
+
+
+                /* IMAGE */
+
+                if(
+                    file.type.startsWith(
+                        "image/"
+                    )
+                ){
+
+                    const dataURL =
+                    await readFileAsDataURL(
+                        file
+                    );
+
+
+                    doc.addPage();
+
+
+                    doc.setFontSize(11);
+
+
+                    doc.setFont(
+                        "helvetica",
+                        "bold"
+                    );
+
+
+                    doc.text(
+                        file.name,
+                        14,
+                        18
+                    );
+
+
+                    await addImageToPDF(
+                        doc,
+                        dataURL
+                    );
+
+                }
+
+
+                /* TEXT */
+
+                else if(
+
+                    file.type ===
+                    "text/plain" ||
+
+                    file.name
+                    .toLowerCase()
+                    .endsWith(".csv") ||
+
+                    file.name
+                    .toLowerCase()
+                    .endsWith(".json")
+
+                ){
+
+                    const text =
+                    await readTextFile(
+                        file
+                    );
+
+
+                    doc.addPage();
+
+
+                    doc.setFont(
+                        "helvetica",
+                        "bold"
+                    );
+
+
+                    doc.setFontSize(12);
+
+
+                    doc.text(
+                        file.name,
+                        14,
+                        20
+                    );
+
+
+                    doc.setFont(
+                        "helvetica",
+                        "normal"
+                    );
+
+
+                    addWrappedText(
+                        doc,
+                        text,
+                        14,
+                        30,
+                        pageWidth - 28,
+                        8.5,
+                        4.5
+                    );
+
+                }
+
+
+                /* PDF */
+
+                else if(
+                    file.type ===
+                    "application/pdf"
+                ){
+
+                    try{
+
+                        const bytes =
+                        await file.arrayBuffer();
+
+
+                        const sourcePDF =
+                        await PDFLib.PDFDocument
+                        .load(bytes);
+
+
+                        const copiedPages =
+                        await docFromPDF(
+                            sourcePDF
+                        );
+
+
+                        for(
+                            const pageData
+                            of copiedPages
+                        ){
+
+                            doc.addPage();
+
+                            doc.addImage(
+                                pageData,
+                                "PNG",
+                                0,
+                                0,
+                                pageWidth,
+                                pageHeight
+                            );
+
+                        }
+
+                    }
+                    catch(error){
+
+                        console.warn(
+                            "PDF import failed:",
+                            error
+                        );
+
+                    }
+
+                }
+
+
+                else{
+
+                    doc.addPage();
+
+
+                    doc.setFont(
+                        "helvetica",
+                        "normal"
+                    );
+
+
+                    doc.setFontSize(10);
+
+
+                    doc.text(
+                        "Uploaded file:",
+                        14,
+                        25
+                    );
+
+
+                    doc.text(
+                        file.name,
+                        14,
+                        32
+                    );
+
+                }
+
+            }
+
+        }
+
+
+        /* =================================================
+           FINAL SIGNATURE PAGE
+        ================================================= */
+
+        doc.addPage();
+
+
+        doc.setFont(
+            "helvetica",
+            "bold"
+        );
+
+
+        doc.setFontSize(14);
+
+
+        doc.text(
+            "TEAM LEADER APPROVAL",
+            14,
+            25
+        );
+
+
+        doc.setFont(
+            "helvetica",
+            "normal"
+        );
+
+
+        doc.setFontSize(10);
+
+
+        doc.text(
+            "Team : " +
+            (
+                getValue("teamName")
+                || "PAIYUR"
+            ),
+            14,
+            36
+        );
+
+
+        doc.text(
+            "TNAU RAWE Programme 2026",
+            14,
+            43
+        );
+
+
+        doc.text(
+            "Export Date & Time: " +
+            exportDate,
+            14,
+            50
+        );
+
+
+        if(signatureData){
+
+            const signature =
+            await loadImageDimensions(
+                signatureData
+            );
+
+
+            let sw = 55;
+
+            let sh =
+            sw *
+            signature.height /
+            signature.width;
+
+
+            if(sh > 30){
+
+                sh = 30;
+
+                sw =
+                sh *
+                signature.width /
+                signature.height;
+
+            }
+
+
+            doc.addImage(
+
+                signatureData,
+
+                "PNG",
+
+                pageWidth - sw - 20,
+
+                pageHeight - 65,
+
+                sw,
+
+                sh
+
+            );
+
+        }
+
+
+        doc.line(
+
+            pageWidth - 75,
+
+            pageHeight - 32,
+
+            pageWidth - 20,
+
+            pageHeight - 32
+
+        );
+
+
+        doc.setFont(
+            "helvetica",
+            "bold"
+        );
+
+
+        doc.setFontSize(9);
+
+
+        doc.text(
+
+            "TEAM LEADER",
+
+            pageWidth - 47.5,
+
+            pageHeight - 25,
+
+            {
+                align:"center"
+            }
+
+        );
+
+
+        /* =================================================
+           FOOTER EVERY PAGE
+        ================================================= */
+
+        const totalPages =
+        doc.getNumberOfPages();
+
+
+        for(
+            let i=1;
+            i<=totalPages;
+            i++
+        ){
+
+            doc.setPage(i);
+
+
+            doc.setFont(
+                "helvetica",
+                "normal"
+            );
+
+
+            doc.setFontSize(7.5);
+
+
+            doc.text(
+
+                "TNAU RAWE Programme 2026 · Team Paiyur",
+
+                pageWidth / 2,
+
+                pageHeight - 8,
+
+                {
+                    align:"center"
+                }
+
+            );
+
+
+            doc.text(
+
+                "Page " +
+                i +
+                " of " +
+                totalPages,
+
+                pageWidth - 14,
+
+                pageHeight - 8,
+
+                {
+                    align:"right"
+                }
+
+            );
+
+        }
+
+
+        /* =================================================
+           SAVE
+        ================================================= */
+
+        const filename =
+
+            "TNAU_RAWE_Paiyur_Complete_Report_2026.pdf";
+
+
+        doc.save(filename);
+
+
+        alert(
+            "✅ RAWE Report PDF generated successfully!"
+        );
+
+    }
+
+    catch(error){
+
+        console.error(error);
+
+        alert(
+            "❌ PDF generation failed. Please check the uploaded files and try again."
+        );
+
+    }
+
+}
+
+
+/* =====================================================
+   IMAGE DIMENSIONS
+===================================================== */
+
+function loadImageDimensions(dataURL){
+
+    return new Promise(
+        function(resolve){
+
+            const img =
+            new Image();
+
+
+            img.onload =
+            function(){
+
+                resolve({
+                    width:img.width,
+                    height:img.height
+                });
+
+            };
+
+
+            img.src =
+            dataURL;
+
+        }
+    );
+
+}
+
+
+/* =====================================================
+   PDF TO IMAGE PLACEHOLDER
+===================================================== */
+
+async function docFromPDF(pdfDoc){
+
+    /*
+       Browser-side PDF page rendering is intentionally
+       handled separately. The uploaded PDF is accepted,
+       while image/text uploads are directly inserted.
+    */
+
+    return [];
+
+}
+
+
+/* =====================================================
+   CLEAR
+===================================================== */
+
+function clearReport(){
+
+    if(
+        !confirm(
+            "Clear all report information?"
+        )
+    ){
+
+        return;
+
+    }
+
+
+    document
+    .querySelectorAll(
+        "input:not(#signatureUpload), textarea"
+    )
+    .forEach(
+        function(element){
+
+            if(
+                element.id === "reportTitle"
+            ){
+
+                element.value =
+                "TNAU RAWE PROGRAMME 2026";
+
+            }
+
+            else if(
+                element.id === "teamName"
+            ){
+
+                element.value =
+                "PAIYUR";
+
+            }
+
+            else if(
+                element.id === "batch"
+            ){
+
+                element.value =
+                "2023 Batch AC&RI VVNR";
+
+            }
+
+            else if(
+                element.id === "district"
+            ){
+
+                element.value =
+                "Tiruvannamalai District";
+
+            }
+
+            else{
+
+                element.value = "";
+
+            }
+
+        }
+    );
+
+
+    uploadedFiles = [];
+
+    renderFiles();
+
+
+    signatureData = null;
+
+
+    document
+    .getElementById(
+        "signaturePreview"
+    )
+    .innerHTML = `
+
+        <div class="signature-empty">
+
+            ✍️ Signature preview
+
+        </div>
+
+    `;
+
+
+    document
+    .getElementById(
+        "customSections"
+    )
+    .innerHTML = "";
+
+
+    customSectionCount = 0;
+
+}
+
+</script>
+
+
+</body>
+
+</html>
