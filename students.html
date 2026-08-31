@@ -1403,7 +1403,7 @@ footer > div:last-child{
             class="export-btn pdf-btn"
             onclick="downloadPDF()">
 
-            📄 Export Password PDF
+            📄 Export PDF
 
         </button>
 
@@ -1437,7 +1437,7 @@ footer > div:last-child{
         <strong>TL Signature</strong>,
         automatic
         <strong>Export Date &amp; Time</strong>
-        and password protection.
+        No PDF password.
 
     </div>
 
@@ -1957,12 +1957,6 @@ const students = [
 ];
 
 
-/* =====================================================
-   PDF PASSWORD
-===================================================== */
-
-const PDF_PASSWORD =
-    "paiyur#2023batch";
 
 
 /* =====================================================
@@ -1982,69 +1976,25 @@ function getExportDate(){
     const now =
         new Date();
 
-
     const day =
         String(
             now.getDate()
         ).padStart(2,"0");
-
 
     const month =
         String(
             now.getMonth()+1
         ).padStart(2,"0");
 
-
     const year =
         now.getFullYear();
 
-
-    let hours =
-        now.getHours();
-
-
-    const minutes =
-        String(
-            now.getMinutes()
-        ).padStart(2,"0");
-
-
-    const seconds =
-        String(
-            now.getSeconds()
-        ).padStart(2,"0");
-
-
-    const ampm =
-        hours >= 12
-        ? "PM"
-        : "AM";
-
-
-    hours =
-        hours % 12;
-
-
-    hours =
-        hours || 12;
-
-
     return (
-
         day +
         "-" +
         month +
         "-" +
-        year +
-        " " +
-        String(hours).padStart(2,"0") +
-        ":" +
-        minutes +
-        ":" +
-        seconds +
-        " " +
-        ampm
-
+        year
     );
 
 }
@@ -2144,24 +2094,7 @@ async function downloadPDF(){
                 format:
                     "a4",
 
-                encryption:{
-
-                    userPassword:
-                        PDF_PASSWORD,
-
-                    ownerPassword:
-                        PDF_PASSWORD,
-
-                    userPermissions:[
-
-                        "print",
-
-                        "copy"
-
-                    ]
-
-                }
-
+    
             });
 
 
@@ -2464,34 +2397,29 @@ async function downloadPDF(){
 
 
         /* ---------------------------------------------
-           SIGNATURE TITLE
+           TEAM LEADER — RIGHT SIDE
         --------------------------------------------- */
 
         const signatureY =
-            pageHeight - 55;
+            pageHeight - 62;
 
+        const signatureCenterX =
+            pageWidth - 42;
 
         doc.setFont(
             "helvetica",
             "bold"
         );
 
-
-        doc.setFontSize(10);
-
+        doc.setFontSize(9);
 
         doc.text(
-
-            "TL SIGNATURE",
-
-            155,
-
+            "TEAM LEADER",
+            signatureCenterX,
             signatureY,
-
             {
                 align:"center"
             }
-
         );
 
 
@@ -2504,25 +2432,37 @@ async function downloadPDF(){
             const signature =
                 await loadSignature();
 
+            const maxWidth = 48;
+            const maxHeight = 20;
+
+            let sw = maxWidth;
+
+            let sh =
+                sw *
+                signature.height /
+                signature.width;
+
+            if(sh > maxHeight){
+
+                sh = maxHeight;
+
+                sw =
+                    sh *
+                    signature.width /
+                    signature.height;
+
+            }
 
             doc.addImage(
-
                 signature,
-
                 "PNG",
-
-                132,
-
+                signatureCenterX - (sw / 2),
                 signatureY + 3,
-
-                46,
-
-                18
-
+                sw,
+                sh
             );
 
         }
-
         catch(error){
 
             console.warn(
@@ -2530,90 +2470,64 @@ async function downloadPDF(){
                 error
             );
 
-
-            doc.setFontSize(9);
-
-
-            doc.text(
-
-                "Signature",
-
-                155,
-
-                signatureY + 12,
-
-                {
-                    align:"center"
-                }
-
-            );
-
         }
 
 
         /* ---------------------------------------------
-           SIGNATURE LINE
+           LINE BELOW SIGNATURE
         --------------------------------------------- */
 
+        doc.setLineWidth(0.35);
+
         doc.line(
-
-            132,
-
-            signatureY + 23,
-
-            178,
-
-            signatureY + 23
-
+            signatureCenterX - 25,
+            signatureY + 26,
+            signatureCenterX + 25,
+            signatureY + 26
         );
 
 
-        doc.setFont(
-            "helvetica",
-            "bold"
-        );
-
-
-        doc.setFontSize(9);
-
-
-        doc.text(
-
-            "TEAM LEADER",
-
-            155,
-
-            signatureY + 29,
-
-            {
-                align:"center"
-            }
-
-        );
-
+        /* ---------------------------------------------
+           SMALL QUALIFICATION
+        --------------------------------------------- */
 
         doc.setFont(
             "helvetica",
             "normal"
         );
 
+        doc.setFontSize(7.5);
+
+        doc.text(
+            "B.Sc Agri",
+            signatureCenterX,
+            signatureY + 33,
+            {
+                align:"center"
+            }
+        );
+
+        doc.text(
+            "AC&RI VVNR",
+            signatureCenterX,
+            signatureY + 38,
+            {
+                align:"center"
+            }
+        );
+
 
         /* ---------------------------------------------
-           EXPORT DATE
+           EXPORT DATE — LEFT SIDE
         --------------------------------------------- */
 
         doc.setFontSize(8.5);
 
-
         doc.text(
-
-            "Export Date & Time: " +
+            "Export Date: " +
             exportDate,
-
             14,
-
-            pageHeight - 20
-
+            pageHeight - 24
         );
 
 
