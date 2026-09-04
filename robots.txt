@@ -1,0 +1,9 @@
+# Allow all search engines and AI web crawlers to index the site
+User-agent: *
+Allow: /
+
+# Host domain
+Host: https://github.io
+
+# Link to the sitemap file
+Sitemap: https://github.io/tnau-rawe/sitemap.xml
