@@ -13,7 +13,7 @@
 <div class="card"><h2>Cloud Reports</h2><p class="muted">Reports are shared with members on all devices.</p><div id="reports"></div></div></section></main>
 <script>
 const SUPABASE_URL='https://xsibfnyngjmdvspbtnfm.supabase.co';
-const SUPABASE_KEY='PASTE_YOUR_SUPABASE_PUBLISHABLE_KEY_HERE';
+const SUPABASE_KEY='sb_publishable__zqWhUWuKQdZQMocfgfB3A_RqDVc95g';
 const USER='admin',PASS='2023TL',BUCKET='activity-reports';const $=id=>document.getElementById(id);const headers={'apikey':SUPABASE_KEY,'Authorization':'Bearer '+SUPABASE_KEY};
 function login(){if($('u').value===USER&&$('p').value===PASS){sessionStorage.setItem('raweLeader','1');show()}else $('lm').innerHTML='<div class="msg err">Invalid username or password.</div>'}function logout(){sessionStorage.removeItem('raweLeader');location.reload()}function show(){$('login').classList.add('hidden');$('portal').classList.remove('hidden');$('date').value=new Date().toISOString().slice(0,10);render()}if(sessionStorage.getItem('raweLeader')==='1')show();
 function preview(){$('pv').innerHTML='';[...$('imgs').files].forEach(f=>{let r=new FileReader();r.onload=e=>$('pv').innerHTML+='<img src="'+e.target.result+'">';r.readAsDataURL(f)})}
