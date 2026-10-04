@@ -20,6 +20,9 @@ header h1{margin:0 0 6px;font-size:clamp(24px,4vw,38px)}header p{margin:4px;colo
 .pdfbox iframe{width:100%;height:650px;border:1px solid #d4e2d6;border-radius:10px;background:#eee}
 .loading,.error{text-align:center;padding:30px;background:#fff;border-radius:14px}.error{color:#a5221d}
 footer{text-align:center;color:#607065;padding:25px}
+@media print{
+body{background:#fff}.toolbar,header,footer{display:none!important}.page{width:100%;max-width:none;margin:0}.sheet{box-shadow:none;border-radius:0;padding:0}.box{break-inside:avoid;box-shadow:none}.photos img{height:auto;max-height:260px}.pdfbox{display:none!important}
+}
 @media(max-width:650px){.info{grid-template-columns:1fr}.sheet{padding:16px}.photos{grid-template-columns:1fr 1fr}.photos img{height:145px}.pdfbox iframe{height:500px}.btn{flex:1}.toolbar{display:grid;grid-template-columns:1fr 1fr}}
 </style>
 </head>
@@ -30,6 +33,7 @@ footer{text-align:center;color:#607065;padding:25px}
 <a class="btn light" href="activities.html">← Back to Daily Activities</a>
 <button id="pdfView" class="btn pdf" style="display:none" onclick="openPdf()">📄 View PDF</button>
 <button id="pdfDownload" class="btn pdf" style="display:none" onclick="downloadPdf()">⬇️ Download PDF</button>
+<button class="btn light" onclick="printReport()">🖨️ Print Report</button>
 </div>
 <div id="content"><div class="loading">Loading full report...</div></div>
 </main>
@@ -43,6 +47,7 @@ let currentPdf='';
 function esc(v){return String(v??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[m]))}
 function openPhoto(src){window.open(src,'_blank','noopener,noreferrer')}
 function openPdf(){if(currentPdf)window.open(currentPdf,'_blank','noopener,noreferrer')}
+function printReport(){window.print()}
 async function downloadPdf(){
  if(!currentPdf)return;
  const b=document.getElementById('pdfDownload');b.disabled=true;b.textContent='⏳ Downloading...';
