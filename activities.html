@@ -876,10 +876,11 @@ async function renderPublishedReports(){
   if(!reports.length){box.innerHTML='<div class="empty">No Team Leader activity reports published yet.</div>';return}
   box.innerHTML=reports.map(r=>{
    const imgs=(Array.isArray(r.image_urls)?r.image_urls:[]).map(u=>'<img src="'+escapePublished(u)+'" alt="Activity photo">').join('');
-   return '<article class="saved-card"><h3>📅 '+escapePublished(r.activity_date)+' · '+escapePublished(r.activity_type||'Activity')+'</h3><p><strong>📍 Location:</strong> '+escapePublished(r.location||'—')+'</p><p><strong>🌱 Crop / Farm:</strong> '+escapePublished(r.crop||'—')+'</p><p>'+escapePublished(r.description||'')+'</p>'+(r.learning?'<p><strong>🎓 Learning / Outcome:</strong> '+escapePublished(r.learning)+'</p>':'')+'<div class="photo-preview">'+imgs+'</div><div class="saved-actions"><button class="small-btn" onclick="viewPublishedReport('+Number(r.id)+')">👁 View Full Report</button>'+(r.pdf_url?'<a class="small-btn pdf-small" target="_blank" rel="noopener" href="'+escapePublished(r.pdf_url)+'">📄 View PDF</a>':'')+'</div></article>';
+   return '<article class="saved-card"><h3>📅 '+escapePublished(r.activity_date)+' · '+escapePublished(r.activity_type||'Activity')+'</h3><p><strong>📍 Location:</strong> '+escapePublished(r.location||'—')+'</p><p><strong>🌱 Crop / Farm:</strong> '+escapePublished(r.crop||'—')+'</p><p>'+escapePublished(r.description||'')+'</p>'+(r.learning?'<p><strong>🎓 Learning / Outcome:</strong> '+escapePublished(r.learning)+'</p>':'')+'<div class="photo-preview">'+imgs+'</div><div class="saved-actions"><button class="small-btn" onclick="openFullReport('+Number(r.id)+')">👁 View Full Report</button>'+(r.pdf_url?'<a class="small-btn pdf-small" target="_blank" rel="noopener" href="'+escapePublished(r.pdf_url)+'">📄 View PDF</a>':'')+'</div></article>';
   }).join('');
  }catch(e){box.innerHTML='<div class="empty">Could not load shared reports. Please try again.</div>'}
 }
+function openFullReport(id){window.location.href='report-view.html?id='+encodeURIComponent(id)}
 function openPhoto(src){window.open(src,'_blank','noopener,noreferrer')}
 async function viewPublishedReport(id){
  try{
