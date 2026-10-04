@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Team Leader Portal | TNAU RAWE PAIYUR</title>
+<style>
+*{box-sizing:border-box}body{margin:0;font-family:Arial,sans-serif;background:#f4f8f4;color:#17351f}
+header{background:linear-gradient(135deg,#0a5b29,#159447);color:#fff;padding:24px 16px;text-align:center}
+nav a{color:#fff;text-decoration:none;font-weight:700;margin:0 8px}
+main{max-width:920px;margin:28px auto;padding:0 16px}.card{background:#fff;border-radius:18px;padding:24px;margin-bottom:20px;box-shadow:0 8px 28px #0001}
+h1,h2{margin-top:0}.muted{color:#69766d;font-size:14px}
+label{display:block;font-weight:700;margin:14px 0 7px}input,textarea,select{width:100%;padding:12px;border:1px solid #d4ded7;border-radius:10px;font:inherit}textarea{min-height:120px;resize:vertical}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}.btn{border:0;border-radius:10px;padding:12px 18px;font-weight:700;cursor:pointer}.primary{background:#0b7a35;color:#fff}.secondary{background:#e9f4ec;color:#145c2d}.danger{background:#feeceb;color:#a5221d}
+.msg{padding:11px;border-radius:10px;margin:12px 0}.ok{background:#e7f7ec;color:#12622b}.err{background:#ffefee;color:#a5221d}.hidden{display:none}
+.preview{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px}.preview img{width:100px;height:75px;object-fit:cover;border-radius:8px}
+.report{border-top:1px solid #e4ebe5;padding:15px 0}.report:first-child{border-top:0}.thumbs{display:flex;gap:8px;flex-wrap:wrap}.thumbs img{width:90px;height:70px;object-fit:cover;border-radius:8px}
+@media(max-width:650px){.grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header><h1>Team Leader Portal</h1><p>TNAU RAWE Programme 2026 · Paiyur</p><nav><a href="activities.html">Activity Reports</a></nav></header>
+<main>
+<section id="login" class="card">
+<h2>Team Leader Login</h2><p class="muted">Authorized activity publishing portal.</p>
+<label>Username</label><input id="u" autocomplete="username">
+<label>Password</label><input id="p" type="password" autocomplete="current-password">
+<button class="btn primary" onclick="login()">Login</button><div id="lm"></div>
+</section>
+<section id="portal" class="hidden">
+<div class="card">
+<div style="display:flex;justify-content:space-between;align-items:center;gap:12px"><div><h2>Publish Activity</h2><p class="muted">Add the activity details, photos and PDF report.</p></div><button class="btn secondary" onclick="logout()">Logout</button></div>
+<div class="grid"><div><label>Date</label><input id="date" type="date"></div><div><label>Activity Type</label><input id="type" placeholder="Farm visit / Awareness / Survey"></div></div>
+<div class="grid"><div><label>Location / Village</label><input id="location"></div><div><label>Crop / Farm</label><input id="crop"></div></div>
+<label>Activity Description *</label><textarea id="desc"></textarea>
+<label>Learning / Outcome</label><textarea id="learn"></textarea>
+<label>Upload Images</label><input id="imgs" type="file" accept="image/*" multiple onchange="preview()"><div id="pv" class="preview"></div>
+<label>Upload PDF Report</label><input id="pdf" type="file" accept="application/pdf">
+<div id="sm"></div><button class="btn primary" onclick="publish()">Publish Report</button>
+</div>
+<div class="card"><h2>Published on this browser</h2><p class="muted">Reports are currently stored in browser storage. For true multi-device sharing, connect a backend such as Firebase/Supabase.</p><div id="reports"></div></div>
+</section>
+</main>
+<script>
+const KEY='PAIYUR_RAWE_ACTIVITY_REPORTS', USER='admin', PASS='2023TL';
+const $=id=>document.getElementById(id);
+function login(){if($('u').value===USER&&$('p').value===PASS){sessionStorage.setItem('raweLeader','1');show()}else $('lm').innerHTML='<div class="msg err">Invalid username or password.</div>'}
+function logout(){sessionStorage.removeItem('raweLeader');location.reload()}
+function show(){$('login').classList.add('hidden');$('portal').classList.remove('hidden');$('date').value=new Date().toISOString().slice(0,10);render()}
+if(sessionStorage.getItem('raweLeader')==='1')show();
+function preview(){$('pv').innerHTML='';[...$('imgs').files].forEach(f=>{let r=new FileReader();r.onload=e=>$('pv').innerHTML+='<img src="'+e.target.result+'">';r.readAsDataURL(f)})}
+function read(f){return new Promise((ok,no)=>{if(!f)return ok(null);let r=new FileReader();r.onload=()=>ok({name:f.name,type:f.type,data:r.result});r.onerror=no;r.readAsDataURL(f)})}
+async function publish(){
+if(!$('date').value||!$('desc').value.trim()){ $('sm').innerHTML='<div class="msg err">Date and description are required.</div>';return}
+let rs=JSON.parse(localStorage.getItem(KEY)||'[]'),images=[];for(let f of [...$('imgs').files])images.push(await read(f));let pdf=await read($('pdf').files[0]);
+rs.unshift({id:Date.now(),date:$('date').value,type:$('type').value,location:$('location').value,crop:$('crop').value,description:$('desc').value,learning:$('learn').value,images,pdf,createdAt:new Date().toISOString()});
+try{localStorage.setItem(KEY,JSON.stringify(rs));$('sm').innerHTML='<div class="msg ok">Report published.</div>';$('type').value=$('location').value=$('crop').value=$('desc').value=$('learn').value='';$('imgs').value=$('pdf').value='';$('pv').innerHTML='';render()}catch(e){$('sm').innerHTML='<div class="msg err">Browser storage is full. Use smaller images or connect a backend.</div>'}}
+function render(){let rs=JSON.parse(localStorage.getItem(KEY)||'[]');$('reports').innerHTML=rs.length?rs.map(r=>'<div class="report"><b>'+esc(r.date)+' · '+esc(r.type||'Activity')+'</b><div class="muted">'+esc(r.location||'')+(r.crop?' · '+esc(r.crop):'')+'</div><p>'+esc(r.description)+'</p><div class="thumbs">'+(r.images||[]).map(i=>'<img src="'+i.data+'">').join('')+'</div><br><button class="btn danger" onclick="del('+r.id+')">Delete</button></div>').join(''):'<p class="muted">No reports yet.</p>'}
+function del(id){if(confirm('Delete this report?')){localStorage.setItem(KEY,JSON.stringify(JSON.parse(localStorage.getItem(KEY)||'[]').filter(x=>x.id!==id)));render()}}
+function esc(s){return String(s||'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[m]))}
+</script>
+</body>
+</html>
