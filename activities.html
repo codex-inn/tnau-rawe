@@ -785,6 +785,10 @@ footer{
         🌾 Daily Activities
     </a>
 
+    <a href="team-leader.html">
+        👨‍🌾 Team Leader
+    </a>
+
     <a href="attendance.html">
         📋 Attendance
     </a>
@@ -1024,6 +1028,16 @@ footer{
 
 </div>
 
+
+
+<!-- ================= PUBLISHED TEAM LEADER REPORTS ================= -->
+<div class="saved-section" id="publishedReportsSection">
+<h2 class="section-title">📢 Published Activity Reports</h2>
+<div class="form-card">
+<p class="export-note">Reports published through the Team Leader portal are shown here on this browser.</p>
+<div id="publishedReports" class="saved-list"></div>
+</div>
+</div>
 
 <!-- ================= EXPORT ================= -->
 
@@ -3090,12 +3104,53 @@ async function downloadFullPDF(){
 }
 
 
+
+/* =====================================================
+   TEAM LEADER PUBLISHED REPORTS
+===================================================== */
+
+function escapePublished(value){
+    return String(value || "").replace(/[&<>"']/g,function(m){
+        return ({"&":"&amp;","<":"&lt;",">":"&gt;","\\\"":"&quot;","'":"&#039;"})[m];
+    });
+}
+
+function renderPublishedReports(){
+    const box=document.getElementById("publishedReports");
+    if(!box) return;
+    let reports=[];
+    try{ reports=JSON.parse(localStorage.getItem("PAIYUR_RAWE_ACTIVITY_REPORTS")||"[]"); }catch(e){ reports=[]; }
+    if(!reports.length){ box.innerHTML='<div class="empty">No Team Leader reports published yet.</div>'; return; }
+    box.innerHTML=reports.map(function(r){
+        const imgs=(r.images||[]).slice(0,4).map(function(i){ return '<img src="'+i.data+'" alt="Activity photo">'; }).join("");
+        return '<div class="saved-card"><h3>📅 '+escapePublished(r.date)+' · '+escapePublished(r.type||"Activity")+'</h3>'+
+        '<p><strong>📍 Location:</strong> '+escapePublished(r.location||"—")+'</p>'+
+        '<p><strong>🌱 Crop/Farm:</strong> '+escapePublished(r.crop||"—")+'</p>'+
+        '<p>'+escapePublished(r.description)+'</p>'+
+        '<div class="photo-preview">'+imgs+'</div>'+ 
+        '<div class="saved-actions"><button class="small-btn view-btn" onclick="viewPublishedReport('+Number(r.id)+')">👁 View Full Report</button>'+ 
+        (r.pdf&&r.pdf.data?'<a class="small-btn pdf-small" download="'+escapePublished(r.pdf.name||"activity-report.pdf")+'" href="'+r.pdf.data+'">📄 View PDF</a>':"")+'</div></div>';
+    }).join("");
+}
+
+function viewPublishedReport(id){
+    let reports=[]; try{reports=JSON.parse(localStorage.getItem("PAIYUR_RAWE_ACTIVITY_REPORTS")||"[]");}catch(e){}
+    const r=reports.find(function(x){return x.id===id;}); if(!r)return;
+    const photos=(r.images||[]).map(function(i){return '<img src="'+i.data+'" style="width:100%;max-height:320px;object-fit:cover;border-radius:10px;margin:6px 0" alt="Activity photo">';}).join("");
+    const pdf=r.pdf&&r.pdf.data?'<p><a class="btn pdf" style="display:inline-block;text-decoration:none" download="'+escapePublished(r.pdf.name||"activity-report.pdf")+'" href="'+r.pdf.data+'">📄 Open / Download PDF Report</a></p>':'';
+    const w=window.open("","_blank");
+    if(!w){alert("Please allow pop-ups to view the full report.");return;}
+    w.document.write('<!doctype html><html><head><title>Activity Report</title><meta name="viewport" content="width=device-width,initial-scale=1"><style>body{font-family:Arial;max-width:850px;margin:25px auto;padding:0 16px;color:#17301f}h1{color:#075128}.box{background:#f4f8f4;padding:20px;border-radius:14px;margin:15px 0}img{display:block}</style></head><body><h1>🌾 TNAU RAWE Activity Report</h1><div class="box"><b>Date:</b> '+escapePublished(r.date)+'<br><b>Activity:</b> '+escapePublished(r.type||"Activity")+'<br><b>Location:</b> '+escapePublished(r.location||"—")+'<br><b>Crop/Farm:</b> '+escapePublished(r.crop||"—")+'</div><div class="box"><h2>Activity Description</h2><p>'+escapePublished(r.description)+'</p><h2>Learning / Outcome</h2><p>'+escapePublished(r.learning||"—")+'</p></div><div class="box"><h2>Activity Images</h2>'+photos+'</div>'+pdf+'</body></html>');
+    w.document.close();
+}
+
+
 /* =====================================================
    START
 ===================================================== */
 
 renderSavedActivities();
-
+renderPublishedReports();
 checkSelectedDate();
 
 </script>
