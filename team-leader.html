@@ -23,7 +23,7 @@ const ATT_STUDENTS=["Dinesh M","Gokul Raj R","GokulaBalaji R","GopiBalaji M","Go
 const $=id=>document.getElementById(id);
 let attState={};
 
-function login(){if($('u').value===USER&&$('p').value===PASS){sessionStorage.setItem('raweLeader','1');show()}else $('lm').innerHTML='<div class="msg err">Invalid username or password.</div>'}
+function login(){const username=$('u').value.trim();const password=$('p').value.trim();if(username===USER&&password===PASS){try{sessionStorage.setItem('raweLeader','1')}catch(e){}show()}else $('lm').innerHTML='<div class="msg err">Invalid username or password. Use the authorized Team Leader credentials.</div>'}
 function logout(){sessionStorage.removeItem('raweLeader');location.reload()}
 function show(){$('login').classList.add('hidden');$('portal').classList.remove('hidden');$('date').value=new Date().toISOString().slice(0,10);$('attDate').value=new Date().toISOString().slice(0,10);renderAtt();renderReports()}
 function esc(s){return String(s??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[m]))}
