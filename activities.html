@@ -3124,7 +3124,7 @@ async function renderPublishedReports(){
     if(!box) return;
     box.innerHTML='<div class="empty">Loading shared activity reports...</div>';
     try{
-        const response=await fetch(SUPABASE_URL+'/rest/v1/rawe_activities?select=*&order=activity_date.desc,created_at.desc',{headers:SB_HEADERS});
+        const response=await fetch(SUPABASE_URL+'/rest/v1/rawe_activities?activity_type=not.eq.__ATTENDANCE__&select=*&order=activity_date.desc,created_at.desc',{headers:SB_HEADERS});
         if(!response.ok) throw new Error("load failed");
         const reports=await response.json();
         if(!reports.length){box.innerHTML='<div class="empty">No Team Leader reports published yet.</div>';return;}
