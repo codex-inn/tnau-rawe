@@ -1535,52 +1535,52 @@ footer{
 .instagram-placement{
     display:flex;
     justify-content:center;
-    margin:-12px auto 24px;
+    align-items:center;
+    margin:0 auto 28px;
+    padding:0 12px;
 }
 
 .instagram-link{
-
     display:inline-flex;
-
     align-items:center;
-
     justify-content:center;
-
-    gap:9px;
-
-    margin-top:18px;
-
-    padding:10px 18px;
-
-    border:1px solid rgba(255,255,255,.35);
-
+    gap:10px;
+    margin:0;
+    padding:12px 22px;
+    border:2px solid #d94b83;
     border-radius:999px;
-
     color:#ffffff;
-
-    background:rgba(255,255,255,.10);
-
+    background:linear-gradient(110deg,#833ab4 0%,#c13584 48%,#f77737 100%);
+    box-shadow:0 6px 16px rgba(193,53,132,.22);
     font-size:15px;
-
-    font-weight:700;
-
+    line-height:1.4;
+    font-weight:800;
+    text-align:center;
     text-decoration:none;
-
-    transition:background .2s ease, transform .2s ease;
+    overflow-wrap:anywhere;
+    transition:filter .2s ease, transform .2s ease;
 }
 
 .instagram-link:hover{
-
-    background:rgba(255,255,255,.20);
-
+    filter:brightness(1.08);
     transform:translateY(-2px);
 }
 
 .instagram-link:focus-visible{
+    outline:3px solid var(--gold);
+    outline-offset:4px;
+}
 
-    outline:3px solid var(--gold-light);
-
-    outline-offset:3px;
+.instagram-icon{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    width:30px;
+    height:30px;
+    flex:0 0 30px;
+    border-radius:50%;
+    background:#ffffff;
+    font-size:19px;
 }
 
 
@@ -2968,16 +2968,15 @@ footer{
 <section class="section">
 
     <div class="instagram-placement">
-            <a
-        class="instagram-link"
-        href="https://www.instagram.com/paiyur.pookies?stkn=MXIxNWFvdWNmNWhyMg%3D%3D&amp;utm_source=qr"
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="Visit Team Paiyur on Instagram">
-
-        📸 Instagram · @paiyur.pookies
-
-    </a>
+        <a
+            class="instagram-link"
+            href="https://www.instagram.com/paiyur.pookies?stkn=MXIxNWFvdWNmNWhyMg%3D%3D&amp;utm_source=qr"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Open the Instagram profile for Paiyur Pookies">
+            <span class="instagram-icon" aria-hidden="true">📸</span>
+            <span>📷 Follow us on Instagram<br>@paiyur.pookies</span>
+        </a>
     </div>
 
     <h2 class="section-heading">
