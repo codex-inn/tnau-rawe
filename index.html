@@ -858,6 +858,18 @@ nav a:hover{
     font-size:42px;
 }
 
+.course-teacher-photo{
+    width:116px;
+    height:116px;
+    display:block;
+    object-fit:cover;
+    object-position:center 28%;
+    margin-bottom:20px;
+    border-radius:50%;
+    border:4px solid #e1c65d;
+    box-shadow:0 8px 22px rgba(0,0,0,.24);
+}
+
 .course-teacher-label{
     color:#f0d77d;
     font-size:12px;
@@ -1978,6 +1990,12 @@ footer{
         margin-bottom:14px;
     }
 
+    .course-teacher-photo{
+        width:104px;
+        height:104px;
+        margin-bottom:16px;
+    }
+
     .course-teacher-card h3{
         font-size:23px;
     }
@@ -2757,7 +2775,10 @@ footer{
 
     <div class="academic-guidance-wrap">
         <aside class="course-teacher-card" aria-label="Course Teacher">
-            <div class="course-teacher-icon" aria-hidden="true">👨‍🏫</div>
+            <img
+                src="course-teacher.jpg"
+                alt="Dr. M. Kavaskar, Course Teacher"
+                class="course-teacher-photo">
             <div class="course-teacher-label">Academic Guidance</div>
             <h3>Dr. M. KAVASKAR, Ph.D</h3>
             <div class="course-teacher-role">Course Teacher</div>
