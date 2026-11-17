@@ -788,18 +788,110 @@ nav a:hover{
    TEAM GRID
 ===================================================== */
 
-.team-grid{
-
-    max-width:1050px;
-
-    margin:auto;
-
+.team-layout{
+    max-width:1150px;
+    margin:0 auto;
     display:grid;
+    grid-template-columns:minmax(0,1fr) 300px;
+    gap:24px;
+    align-items:stretch;
+}
 
-    grid-template-columns:
-    repeat(3,minmax(0,1fr));
+.team-grid{
+    display:grid;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:20px;
+}
 
-    gap:22px;
+.team-section-heading{
+    font-size:clamp(32px,4vw,40px);
+    letter-spacing:.4px;
+    margin-bottom:38px;
+}
+
+.course-teacher-card{
+    position:relative;
+    overflow:hidden;
+    min-height:100%;
+    padding:30px 22px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    color:#fff;
+    background:linear-gradient(155deg,#07552f 0%,#033b20 72%,#022b18 100%);
+    border:1px solid #c59a22;
+    border-top:5px solid #e1c65d;
+    border-radius:16px;
+    box-shadow:0 14px 34px rgba(3,59,32,.20);
+}
+
+.course-teacher-card::before{
+    content:"";
+    position:absolute;
+    width:190px;
+    height:190px;
+    border:1px solid rgba(225,198,93,.25);
+    border-radius:50%;
+    top:-95px;
+    right:-75px;
+}
+
+.course-teacher-icon{
+    width:86px;
+    height:86px;
+    display:grid;
+    place-items:center;
+    margin-bottom:22px;
+    border-radius:50%;
+    background:rgba(255,255,255,.12);
+    border:1px solid rgba(225,198,93,.65);
+    font-size:42px;
+}
+
+.course-teacher-label{
+    color:#f0d77d;
+    font-size:12px;
+    font-weight:900;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    margin-bottom:12px;
+}
+
+.course-teacher-card h3{
+    color:#fff;
+    font-size:25px;
+    line-height:1.2;
+    margin-bottom:12px;
+}
+
+.course-teacher-role{
+    color:#f0d77d;
+    font-size:15px;
+    font-weight:800;
+    margin-bottom:16px;
+}
+
+.course-teacher-divider{
+    width:54px;
+    height:2px;
+    background:#e1c65d;
+    margin:0 auto 16px;
+}
+
+.course-teacher-qualification{
+    color:#edf5ef;
+    font-size:14px;
+    line-height:1.7;
+    max-width:220px;
+}
+
+.course-teacher-note{
+    color:#c9dccf;
+    font-size:11px;
+    margin-top:22px;
+    letter-spacing:1px;
 }
 
 
@@ -1847,18 +1939,35 @@ footer{
     }
 
 
+    .team-layout{
+        grid-template-columns:1fr;
+        gap:16px;
+    }
+
     .team-grid{
-
-        grid-template-columns:
-        repeat(2,minmax(0,1fr));
-
+        grid-template-columns:repeat(2,minmax(0,1fr));
         gap:12px;
     }
 
-    .team-card:nth-child(5){
-        grid-column:1 / -1;
-        width:min(100%,260px);
-        justify-self:center;
+    .course-teacher-card{
+        min-height:260px;
+        padding:26px 18px;
+    }
+
+    .course-teacher-icon{
+        width:68px;
+        height:68px;
+        font-size:34px;
+        margin-bottom:14px;
+    }
+
+    .course-teacher-card h3{
+        font-size:23px;
+    }
+
+    .team-section-heading{
+        font-size:clamp(27px,7vw,34px);
+        margin-bottom:28px;
     }
 
 
@@ -2629,14 +2738,16 @@ footer{
     </div>
 
 
-    <h2 class="section-heading">
+    <h2 class="section-heading team-section-heading">
 
         👥 TEAM ORGANIZATION
 
     </h2>
 
 
-    <div class="team-grid">
+    <div class="team-layout">
+
+        <div class="team-grid">
 
 
         <div class="team-card">
@@ -2787,14 +2898,18 @@ footer{
         </div>
 
 
-        <div class="team-card">
-            <div class="team-photo" role="img" aria-label="Course Teacher">👨‍🏫</div>
-            <h3>M. KAVASKAR</h3>
-            <div class="role-red">Course Teacher</div>
-            <p>Associate Professor</p>
-            <p>B.Sc. (Agri)., M.Sc., Ph.D.</p>
         </div>
 
+        <aside class="course-teacher-card" aria-label="Course Teacher">
+            <div class="course-teacher-icon" aria-hidden="true">👨‍🏫</div>
+            <div class="course-teacher-label">Academic Guidance</div>
+            <h3>M. KAVASKAR</h3>
+            <div class="course-teacher-role">Course Teacher</div>
+            <div class="course-teacher-divider"></div>
+            <p class="course-teacher-qualification">Associate Professor</p>
+            <p class="course-teacher-qualification">B.Sc. (Agri)., M.Sc., Ph.D.</p>
+            <div class="course-teacher-note">TNAU · RAWE PROGRAMME 2026</div>
+        </aside>
 
     </div>
 
