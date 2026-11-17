@@ -791,10 +791,18 @@ nav a:hover{
 .team-layout{
     max-width:1150px;
     margin:0 auto;
-    display:grid;
-    grid-template-columns:minmax(0,1fr) 300px;
-    gap:24px;
-    align-items:stretch;
+    display:block;
+}
+
+.academic-guidance-wrap{
+    max-width:440px;
+    margin:28px auto 46px;
+    padding:0 14px;
+}
+
+.academic-guidance-wrap .course-teacher-card{
+    min-height:320px;
+    width:100%;
 }
 
 .team-grid{
@@ -1940,8 +1948,17 @@ footer{
 
 
     .team-layout{
-        grid-template-columns:1fr;
-        gap:16px;
+        display:block;
+    }
+
+    .academic-guidance-wrap{
+        max-width:100%;
+        margin:22px auto 34px;
+        padding:0 8px;
+    }
+
+    .academic-guidance-wrap .course-teacher-card{
+        min-height:280px;
     }
 
     .team-grid{
@@ -2738,6 +2755,19 @@ footer{
     </div>
 
 
+    <div class="academic-guidance-wrap">
+        <aside class="course-teacher-card" aria-label="Course Teacher">
+            <div class="course-teacher-icon" aria-hidden="true">👨‍🏫</div>
+            <div class="course-teacher-label">Academic Guidance</div>
+            <h3>Dr. M. KAVASKAR, Ph.D</h3>
+            <div class="course-teacher-role">Course Teacher</div>
+            <div class="course-teacher-divider"></div>
+            <p class="course-teacher-qualification">Associate Professor</p>
+            <p class="course-teacher-qualification">B.Sc. (Agri)., M.Sc., Ph.D.</p>
+            <div class="course-teacher-note">TNAU · RAWE PROGRAMME 2026</div>
+        </aside>
+    </div>
+
     <h2 class="section-heading team-section-heading">
 
         👥 TEAM ORGANIZATION
@@ -2900,16 +2930,7 @@ footer{
 
         </div>
 
-        <aside class="course-teacher-card" aria-label="Course Teacher">
-            <div class="course-teacher-icon" aria-hidden="true">👨‍🏫</div>
-            <div class="course-teacher-label">Academic Guidance</div>
-            <h3>Dr. M. KAVASKAR, Ph.D</h3>
-            <div class="course-teacher-role">Course Teacher</div>
-            <div class="course-teacher-divider"></div>
-            <p class="course-teacher-qualification">Associate Professor</p>
-            <p class="course-teacher-qualification">B.Sc. (Agri)., M.Sc., Ph.D.</p>
-            <div class="course-teacher-note">TNAU · RAWE PROGRAMME 2026</div>
-        </aside>
+
 
     </div>
 
