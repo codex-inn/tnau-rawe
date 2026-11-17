@@ -790,16 +790,16 @@ nav a:hover{
 
 .team-grid{
 
-    max-width:900px;
+    max-width:1050px;
 
     margin:auto;
 
     display:grid;
 
     grid-template-columns:
-    repeat(2,minmax(0,1fr));
+    repeat(3,minmax(0,1fr));
 
-    gap:20px;
+    gap:22px;
 }
 
 
@@ -1855,6 +1855,12 @@ footer{
         gap:12px;
     }
 
+    .team-card:nth-child(5){
+        grid-column:1 / -1;
+        width:min(100%,260px);
+        justify-self:center;
+    }
+
 
     .team-card{
 
@@ -2778,6 +2784,15 @@ footer{
             </p>
 
 
+        </div>
+
+
+        <div class="team-card">
+            <div class="team-photo" role="img" aria-label="Course Teacher">👨‍🏫</div>
+            <h3>M. KAVASKAR</h3>
+            <div class="role-red">Course Teacher</div>
+            <p>Associate Professor</p>
+            <p>B.Sc. (Agri)., M.Sc., Ph.D.</p>
         </div>
 
 
